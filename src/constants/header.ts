@@ -1,4 +1,4 @@
-export const siteTitle = 'GaryLin.Dev';
+export const siteTitle = 'GaryLin.dev';
 
 export const navConfig = [
     {
