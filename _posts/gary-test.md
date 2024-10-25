@@ -1,6 +1,6 @@
 ---
 title: 'Gary test post'
-excerpt: 'gggggggggggggggggggggggggggggggggggggg.'
+excerpt: 'g.'
 coverImage: '/assets/blog/dynamic-routing/cover.jpg'
 date: '2024-03-16T05:35:07.322Z'
 author:
