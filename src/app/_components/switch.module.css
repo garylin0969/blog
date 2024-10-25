@@ -12,14 +12,11 @@
   height: var(--size);
   width: var(--size);
   transition: all 0.3s ease-in-out 0s !important; */
-    position: absolute;
-    right: 20px;
-    top: 70px;
     cursor: pointer;
     color: currentColor;
     border-radius: 50%;
     border: 1px dashed currentColor;
-    --size: 24px;
+    --size: 20px;
     height: var(--size);
     width: var(--size);
     z-index: 100;

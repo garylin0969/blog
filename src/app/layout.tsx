@@ -1,14 +1,11 @@
-import Footer from '@/app/_components/footer';
-import { CMS_NAME, HOME_OG_IMAGE_URL } from '@/lib/constants';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { ThemeSwitcher } from './_components/theme-switcher';
+import { ReactNode } from 'react';
+import { CMS_NAME, HOME_OG_IMAGE_URL } from '@/lib/constants';
+import ThemeProvider from '@/providers/theme-provider';
 import Header from '@/components/organisms/header';
-import cn from '@/utils/cn';
+import Footer from '@/app/_components/footer';
 
 import './globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
     title: CMS_NAME,
@@ -21,10 +18,10 @@ export const metadata: Metadata = {
 export default function RootLayout({
     children,
 }: Readonly<{
-    children: React.ReactNode;
+    children: ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html suppressHydrationWarning lang="zh-TW">
             <head>
                 <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
                 <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
@@ -37,11 +34,12 @@ export default function RootLayout({
                 <meta name="theme-color" content="#000" />
                 <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
             </head>
-            <body className={cn(inter.className, 'dark:bg-slate-900 dark:text-slate-400')}>
-                <Header />
-                <ThemeSwitcher />
-                <div className="min-h-screen">{children}</div>
-                <Footer />
+            <body>
+                <ThemeProvider>
+                    <Header />
+                    <div className="min-h-screen">{children}</div>
+                    <Footer />
+                </ThemeProvider>
             </body>
         </html>
     );
