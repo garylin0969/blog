@@ -37,7 +37,7 @@ export default function RootLayout({
             <body>
                 <ThemeProvider>
                     <Header />
-                    <div className="min-h-screen">{children}</div>
+                    <div className="min-h-screen pt-16">{children}</div>
                     <Footer />
                 </ThemeProvider>
             </body>
