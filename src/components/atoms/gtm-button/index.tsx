@@ -1,6 +1,6 @@
 'use client';
 
-import { ButtonHTMLAttributes, MouseEvent, ReactNode } from 'react';
+import { ButtonHTMLAttributes, MouseEvent } from 'react';
 import { CustomEventName, GTMEventKey, sendGTM } from '@/utils/gtm';
 
 interface GTMButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -9,17 +9,16 @@ interface GTMButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
         [GTMEventKey.CLICK_ITEM]: string;
         [GTMEventKey.SECTION]: string;
     };
-    children?: ReactNode;
 }
 
-const GTMButton = ({ gtmEvent, children, ...props }: GTMButtonProps) => {
-    const onClick = (event: MouseEvent<HTMLButtonElement>) => {
+const GTMButton = ({ gtmEvent, onClick, children, ...props }: GTMButtonProps) => {
+    const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
         if (gtmEvent) sendGTM(gtmEvent);
-        if (props.onClick) props.onClick(event);
+        if (onClick) onClick(event);
     };
 
     return (
-        <button {...props} onClick={onClick}>
+        <button onClick={handleClick} {...props}>
             {children}
         </button>
     );
