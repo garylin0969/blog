@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { BurgerButton, BurgerContainer } from '@/components/atoms/burger';
+import { BurgerButton, BurgerContainer } from '@/components/molecules/burger';
 
 const BurgerMenu = () => {
     const [isOpen, setIsOpen] = useState(false);

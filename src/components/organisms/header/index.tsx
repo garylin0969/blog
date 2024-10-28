@@ -4,7 +4,7 @@ import cn from '@/utils/cn';
 import { siteTitle } from '@/constants/header';
 import NavMenu from './nav-menu';
 import IconLinks from './icon-links';
-import ThemeSwitch from '@/components/atoms/theme-switch';
+import ThemeSwitch from '@/components/molecules/theme-switch';
 import BurgerMenu from './burger-menu';
 
 const logoImg = '/assets/logo.svg';
