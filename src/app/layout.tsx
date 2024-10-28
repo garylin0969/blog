@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 import { CMS_NAME, HOME_OG_IMAGE_URL } from '@/lib/constants';
+import cn from '@/utils/cn';
 import ThemeProvider from '@/providers/theme-provider';
 import Header from '@/components/organisms/header';
 import Footer from '@/app/_components/footer';
@@ -36,9 +37,17 @@ export default function RootLayout({
             </head>
             <body>
                 <ThemeProvider>
-                    <Header />
-                    <div className="min-h-screen pt-16">{children}</div>
-                    <Footer />
+                    <div
+                        className={cn(
+                            'transition-colors duration-300',
+                            'bg-white text-slate-500',
+                            'dark:bg-slate-900 dark:text-slate-400',
+                        )}
+                    >
+                        <Header />
+                        <div className="min-h-screen pt-16">{children}</div>
+                        <Footer />
+                    </div>
                 </ThemeProvider>
             </body>
         </html>
