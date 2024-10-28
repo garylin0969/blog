@@ -13,7 +13,9 @@ const NavMenu = ({ navConfig }: NavMenuProps) => {
                 {navConfig?.map((data) => {
                     return (
                         <li key={data?.label}>
-                            <Link href={data?.href}>{data?.label}</Link>
+                            <Link href={data?.href} className="hover:text-sky-500 dark:hover:text-sky-400">
+                                {data?.label}
+                            </Link>
                         </li>
                     );
                 })}
