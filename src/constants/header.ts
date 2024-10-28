@@ -1,6 +1,8 @@
+import { Nav } from '@/interfaces/header';
+
 export const siteTitle = 'GaryLin.dev';
 
-export const navConfig = [
+export const navConfig: Nav[] = [
     {
         label: 'Home',
         href: '/',

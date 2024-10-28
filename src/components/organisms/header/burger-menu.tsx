@@ -1,13 +1,20 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
+import cn from '@/utils/cn';
+import { IconLink, Nav } from '@/interfaces/header';
 import { BurgerButton, BurgerContainer } from '@/components/molecules/burger';
+interface BurgerMenuProps {
+    navConfig?: Nav[];
+    iconConfig?: IconLink[];
+}
 
-const BurgerMenu = () => {
+const BurgerMenu = ({ navConfig, iconConfig }: BurgerMenuProps) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
-        setIsOpen(!isOpen);
+        setIsOpen((isOpen) => !isOpen);
     };
 
     return (
@@ -16,14 +23,47 @@ const BurgerMenu = () => {
             <BurgerContainer
                 isOpen={isOpen}
                 direction="down"
-                className="top-[64px] border-b bg-white shadow dark:bg-slate-800"
+                className={cn(
+                    'top-16',
+                    'shadow',
+                    'border-b border-slate-800/10 dark:border-slate-300/10',
+                    'bg-white/95 dark:bg-slate-800',
+                    'md:hidden',
+                )}
             >
-                <div className="flex flex-col items-center justify-center space-y-3 text-black">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#services">Services</a>
-                    <a href="#contact">Contact</a>
-                </div>
+                <nav
+                    className={cn(
+                        'p-4',
+                        'text-center',
+                        'flex items-center justify-center',
+                        'font-semibold text-slate-700 dark:text-slate-400',
+                    )}
+                >
+                    <ul className={cn('flex flex-col gap-4')}>
+                        {navConfig?.map((data) => {
+                            return (
+                                <li key={data?.label}>
+                                    <Link href={data?.href}>{data?.label}</Link>
+                                </li>
+                            );
+                        })}
+                        <li className={cn('flex gap-4')}>
+                            {iconConfig?.map((data) => {
+                                return (
+                                    <a
+                                        key={data?.link}
+                                        className="text-slate-500 dark:text-slate-300"
+                                        href={data?.link}
+                                        target="_blank"
+                                        rel="noreferrer noopener"
+                                    >
+                                        {data?.icon}
+                                    </a>
+                                );
+                            })}
+                        </li>
+                    </ul>
+                </nav>
             </BurgerContainer>
         </>
     );

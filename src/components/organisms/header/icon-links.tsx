@@ -1,24 +1,23 @@
-import { FaGithub } from 'react-icons/fa';
-import { FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import cn from '@/utils/cn';
+import { IconLink } from '@/interfaces/header';
 
-const iconConfig = [
-    {
-        link: process.env.NEXT_PUBLIC_GITHUB_LINK,
-        icon: <FaGithub className="h-5 w-5 cursor-pointer opacity-90" />,
-    },
-    {
-        link: process.env.NEXT_PUBLIC_LINKEDIN_LINK,
-        icon: <FaLinkedin className="h-5 w-5 cursor-pointer opacity-90" />,
-    },
-];
+interface IconLinksProps {
+    iconConfig: IconLink[];
+}
 
-const IconLinks = () => {
+const IconLinks = ({ iconConfig }: IconLinksProps) => {
     return (
-        <div className={cn('flex gap-1')}>
+        <div className={cn('px-2', 'flex gap-1', 'border-x-2 border-slate-200 dark:border-slate-800')}>
             {iconConfig?.map((data) => {
                 return (
-                    <a key={data?.link} href={data?.link} target="_blank" rel="noreferrer noopener">
+                    <a
+                        key={data?.link}
+                        className="text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
+                        href={data?.link}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                    >
                         {data?.icon}
                     </a>
                 );

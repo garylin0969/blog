@@ -1,20 +1,21 @@
 'use client';
 
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import cn from '@/utils/cn';
+import { DivProps } from '@/interfaces/html';
 
-interface BurgerContainerProps {
-    className?: string;
+interface BurgerContainerProps extends DivProps {
     isOpen: boolean;
     direction?: 'up' | 'down' | 'left' | 'right';
-    children?: ReactNode;
 }
 
 // BurgerContainer 元件，用於控制展開和收合方向
-const BurgerContainer = ({ className, isOpen, direction = 'down', children }: BurgerContainerProps) => {
+const BurgerContainer = ({ isOpen, direction = 'down', className, children }: BurgerContainerProps) => {
     const isVertical = ['up', 'down']?.includes(direction); // 判斷方向是否為垂直方向
     const containerRef = useRef<HTMLDivElement>(null); // 用於獲取容器的引用
     const [size, setSize] = useState<string>('0px'); // 用於管理容器的大小
+    const transitionClass = isVertical ? 'transition-[height]' : 'transition-[width]'; // 根據方向設置過渡類別
+    const sizeStyle = isVertical ? { height: size } : { width: size }; // 根據方向設置大小樣式
 
     useEffect(() => {
         if (!isOpen) {
@@ -32,9 +33,6 @@ const BurgerContainer = ({ className, isOpen, direction = 'down', children }: Bu
             setSize(`100%`); // 設置寬度
         }
     }, [isOpen, direction]);
-
-    const transitionClass = isVertical ? 'transition-[height]' : 'transition-[width]'; // 根據方向設置過渡類別
-    const sizeStyle = isVertical ? { height: size } : { width: size }; // 根據方向設置大小樣式
 
     return (
         <div
