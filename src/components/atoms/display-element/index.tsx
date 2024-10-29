@@ -32,7 +32,7 @@ const DisplayElement = ({
     ...props
 }: DisplayElementProps) => {
     return (
-        <div className={cn('whitespace-pre', className)} {...props}>
+        <div className={cn(className)} {...props}>
             {wrap && (
                 <>
                     <p className={tagClassName}>
