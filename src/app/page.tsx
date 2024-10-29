@@ -13,7 +13,7 @@ const HomePage = () => {
                                 <p className="inline-block">Hi, my name is Gary Lin.</p>
                             </DisplayElement>
                             <DisplayElement tag="p" wrap={false}>
-                                <p className="inline-block">I am a frontend developer.</p>
+                                <p className="inline-block">I am a Frontend Developer.</p>
                             </DisplayElement>
                         </DisplayElement>
                     </DisplayElement>
