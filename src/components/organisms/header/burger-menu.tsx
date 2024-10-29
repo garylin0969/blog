@@ -13,9 +13,7 @@ interface BurgerMenuProps {
 const BurgerMenu = ({ navConfig, iconConfig }: BurgerMenuProps) => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const toggleMenu = () => {
-        setIsOpen((isOpen) => !isOpen);
-    };
+    const toggleMenu = () => setIsOpen((prev) => !prev);
 
     return (
         <>
@@ -42,7 +40,7 @@ const BurgerMenu = ({ navConfig, iconConfig }: BurgerMenuProps) => {
                     <ul className={cn('flex flex-col gap-4')}>
                         {navConfig?.map((data) => {
                             return (
-                                <li key={data?.label}>
+                                <li key={data?.href}>
                                     <Link href={data?.href}>{data?.label}</Link>
                                 </li>
                             );
