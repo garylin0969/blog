@@ -45,7 +45,7 @@ export default function RootLayout({
                         )}
                     >
                         <Header />
-                        <div className="min-h-screen pt-16">{children}</div>
+                        <div className="min-h-[100svh] pt-16">{children}</div>
                         <Footer />
                     </div>
                 </ThemeProvider>
