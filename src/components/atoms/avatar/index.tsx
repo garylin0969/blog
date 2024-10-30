@@ -1,7 +1,7 @@
 import Image, { ImageProps } from 'next/image';
 import { avatarImg } from '@/constants/personal';
 
-const AvatarInitProps = {
+const avatarInitProps = {
     className: 'rounded-full aspect-square',
     src: avatarImg,
     width: 160,
@@ -10,7 +10,7 @@ const AvatarInitProps = {
 };
 
 const Avatar = ({ ...props }: Partial<ImageProps>) => {
-    return <Image {...AvatarInitProps} {...props} />;
+    return <Image {...avatarInitProps} {...props} />;
 };
 
 export default Avatar;
