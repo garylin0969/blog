@@ -32,29 +32,14 @@ const DisplayElement = ({
     ...props
 }: DisplayElementProps) => {
     return (
-        <div className={cn(className)} {...props}>
-            {wrap && (
-                <>
-                    <p className={tagClassName}>
-                        <RenderTag tag={tag} />
-                    </p>
-                    <div className="pl-[2em]">{children}</div>
-                    <p className={tagClassName}>
-                        <RenderTag tag={tag} isClose />
-                    </p>
-                </>
-            )}
-            {!wrap && (
-                <>
-                    <span className={cn('pl-[2em] pr-2', tagClassName)}>
-                        <RenderTag tag={tag} />
-                    </span>
-                    {children}
-                    <span className={cn('pl-2', tagClassName)}>
-                        <RenderTag tag={tag} isClose />
-                    </span>
-                </>
-            )}
+        <div className={cn({ 'md:flex md:items-center': !wrap }, className)} {...props}>
+            <p className={cn('block', { 'md:inline-block md:pl-[2em] md:pr-2': !wrap }, tagClassName)}>
+                <RenderTag tag={tag} />
+            </p>
+            <div className={cn('pl-[2em]', { 'md:inline-block md:p-0': !wrap })}>{children}</div>
+            <p className={cn('block', { 'md:inline-block md:pl-2': !wrap }, tagClassName)}>
+                <RenderTag tag={tag} isClose />
+            </p>
         </div>
     );
 };

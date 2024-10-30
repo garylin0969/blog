@@ -9,11 +9,11 @@ const HomePage = () => {
                 <div className={cn('h-full w-full', 'flex items-center justify-center', 'text-2xl')}>
                     <DisplayElement tag="body">
                         <DisplayElement tag="main">
-                            <DisplayElement tag="h1" wrap={false}>
-                                <p className="inline-block">Hi, my name is Gary Lin.</p>
+                            <DisplayElement tag="h1" wrap={false} className="mb-8">
+                                <strong className="md:text-5xl">Hi, my name is Gary Lin.</strong>
                             </DisplayElement>
                             <DisplayElement tag="p" wrap={false}>
-                                <p className="inline-block">I am a Frontend Developer.</p>
+                                <strong className="md:text-5xl">I am a Frontend Developer.</strong>
                             </DisplayElement>
                         </DisplayElement>
                     </DisplayElement>
