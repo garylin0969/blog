@@ -42,6 +42,7 @@ export default function RootLayout({
                             'transition-colors duration-300',
                             'bg-white text-slate-500',
                             'dark:bg-slate-900 dark:text-slate-400',
+                            'animate-pulse bg-gradient-to-r from-slate-400 to-fuchsia-100 bg-[length:200%_200%] dark:from-slate-900 dark:to-slate-300',
                         )}
                     >
                         <Header />
