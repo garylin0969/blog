@@ -10,10 +10,10 @@ const HomePage = () => {
                     <DisplayElement tag="body">
                         <DisplayElement tag="main">
                             <DisplayElement tag="h1" wrap={false} className="mb-8">
-                                <strong className="md:text-5xl">Hi, my name is Gary Lin.</strong>
+                                <strong className="dark:text-white md:text-5xl">Hi, my name is Gary Lin</strong>
                             </DisplayElement>
                             <DisplayElement tag="p" wrap={false}>
-                                <strong className="md:text-5xl">I am a Frontend Developer.</strong>
+                                <strong className="dark:text-white md:text-5xl">I am a Frontend Developer</strong>
                             </DisplayElement>
                         </DisplayElement>
                     </DisplayElement>
