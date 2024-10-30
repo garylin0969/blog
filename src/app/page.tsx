@@ -1,6 +1,6 @@
 import cn from '@/utils/cn';
 import Container from '@/components/atoms/container';
-import DisplayElement from '@/components/atoms/display-element';
+import DisplayElement from '@/components/molecules/display-element';
 
 const HomePage = () => {
     return (
