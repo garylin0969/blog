@@ -2,14 +2,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import cn from '@/utils/cn';
-import { siteTitle, navConfig } from '@/constants/header';
+import { siteTitle, navConfig, logoImg } from '@/constants/header';
 import { IconLink } from '@/interfaces/header';
 import ThemeSwitch from '@/components/molecules/theme-switch';
 import NavMenu from './nav-menu';
 import IconLinks from './icon-links';
 import BurgerMenu from './burger-menu';
-
-const logoImg = '/assets/logo.svg';
 
 const iconConfig: IconLink[] = [
     {
