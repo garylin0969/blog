@@ -1,12 +1,8 @@
 import Link from 'next/link';
 import cn from '@/utils/cn';
-import { Nav } from '@/interfaces/header';
+import { navConfig } from '@/constants/header';
 
-interface NavMenuProps {
-    navConfig?: Nav[];
-}
-
-const NavMenu = ({ navConfig }: NavMenuProps) => {
+const NavMenu = () => {
     return (
         <nav className={cn('text-sm font-semibold leading-6 text-slate-700 dark:text-slate-200')}>
             <ul className={cn('flex gap-4')}>

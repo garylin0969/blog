@@ -3,14 +3,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import cn from '@/utils/cn';
-import { IconLink, Nav } from '@/interfaces/header';
 import { BurgerButton, BurgerContainer } from '@/components/molecules/burger';
-interface BurgerMenuProps {
-    navConfig?: Nav[];
-    iconConfig?: IconLink[];
-}
+import { iconConfig, navConfig } from '@/constants/header';
 
-const BurgerMenu = ({ navConfig, iconConfig }: BurgerMenuProps) => {
+const BurgerMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => setIsOpen((prev) => !prev);

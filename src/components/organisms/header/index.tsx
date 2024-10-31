@@ -1,24 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import cn from '@/utils/cn';
-import { siteTitle, navConfig, logoImg } from '@/constants/header';
-import { IconLink } from '@/interfaces/header';
+import { siteTitle, logoImg } from '@/constants/header';
 import ThemeSwitch from '@/components/molecules/theme-switch';
 import NavMenu from './nav-menu';
 import IconLinks from './icon-links';
 import BurgerMenu from './burger-menu';
-
-const iconConfig: IconLink[] = [
-    {
-        link: process.env.NEXT_PUBLIC_GITHUB_LINK,
-        icon: <FaGithub className="h-5 w-5 cursor-pointer opacity-90" />,
-    },
-    {
-        link: process.env.NEXT_PUBLIC_LINKEDIN_LINK,
-        icon: <FaLinkedin className="h-5 w-5 cursor-pointer opacity-90" />,
-    },
-];
 
 const Header = () => {
     return (
@@ -40,11 +27,11 @@ const Header = () => {
                 </Link>
                 <div className={cn('flex items-center gap-4')}>
                     <div className={cn('hidden', 'items-center gap-2 md:flex')}>
-                        <NavMenu navConfig={navConfig} />
-                        <IconLinks iconConfig={iconConfig} />
+                        <NavMenu />
+                        <IconLinks />
                     </div>
                     <ThemeSwitch />
-                    <BurgerMenu navConfig={navConfig} iconConfig={iconConfig} />
+                    <BurgerMenu />
                 </div>
             </div>
         </header>

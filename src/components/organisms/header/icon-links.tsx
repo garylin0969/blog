@@ -1,12 +1,7 @@
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import cn from '@/utils/cn';
-import { IconLink } from '@/interfaces/header';
+import { iconConfig } from '@/constants/header';
 
-interface IconLinksProps {
-    iconConfig: IconLink[];
-}
-
-const IconLinks = ({ iconConfig }: IconLinksProps) => {
+const IconLinks = () => {
     return (
         <div className={cn('px-2', 'flex gap-1', 'border-x-2 border-slate-200 dark:border-slate-800')}>
             {iconConfig?.map((data) => {
