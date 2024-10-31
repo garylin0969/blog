@@ -46,7 +46,9 @@ export default function RootLayout({
                         )}
                     >
                         <Header />
-                        <div className="flex min-h-[100svh] pt-16">{children}</div>
+                        <div className="flex min-h-[100svh] pt-16">
+                            <main className="flex-grow">{children}</main>
+                        </div>
                         <Footer />
                     </div>
                 </ThemeProvider>
