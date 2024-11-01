@@ -4,6 +4,7 @@ export interface Nav {
 }
 
 export interface IconLink {
-    link: string | undefined;
+    title?: string;
+    link?: string;
     icon: JSX.Element;
 }
