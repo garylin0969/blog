@@ -1,11 +1,7 @@
 import { ReactNode } from 'react';
+import { IconLinkI } from '@/interfaces/social';
 
-interface IconLinkProps {
-    link?: string;
-    icon?: ReactNode;
-}
-
-const IconLink = ({ link, icon }: IconLinkProps) => {
+const IconLink = ({ link, icon }: IconLinkI) => {
     return (
         <a
             className="text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"

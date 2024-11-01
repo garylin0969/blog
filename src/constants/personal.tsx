@@ -1,4 +1,4 @@
-import { FaBuilding, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaBuilding, FaFacebook, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 import { IoMdMail } from 'react-icons/io';
 import { IconLinkI } from '@/interfaces/social';
@@ -26,6 +26,25 @@ export const basicInfoConfig = [
 ];
 
 export const SocialIconLinksConfig: IconLinkI[] = [
+    {
+        link: 'https://github.com/garylin0969',
+        icon: <FaGithub className="cursor-pointer opacity-90" />,
+    },
+    {
+        link: 'https://www.linkedin.com/in/gary-lin-95723a247/',
+        icon: <FaLinkedin className="cursor-pointer opacity-90" />,
+    },
+    {
+        link: 'https://www.facebook.com/profile.php?id=100009915255579&mibextid=ZbWKwL',
+        icon: <FaFacebook className="cursor-pointer opacity-90" />,
+    },
+    {
+        link: 'https://www.instagram.com/gary_1226_/?igsh=MXNjdHlycjhiN3dxcg%3D%3D',
+        icon: <FaInstagram className="cursor-pointer opacity-90" />,
+    },
+];
+
+export const HeaderSocialIconLinksConfig: IconLinkI[] = [
     {
         link: 'https://github.com/garylin0969',
         icon: <FaGithub className="cursor-pointer opacity-90" />,

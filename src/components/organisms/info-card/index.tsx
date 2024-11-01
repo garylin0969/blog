@@ -4,9 +4,13 @@ import InfoItem from '@/components/molecules/info-item';
 import { author, basicInfoConfig } from '@/constants/personal';
 import SocialIconLinks from '@/components/molecules/social-icon-links';
 
-const InfoCard = () => {
+interface InfoCardProps {
+    className?: string;
+}
+
+const InfoCard = ({ className }: InfoCardProps) => {
     return (
-        <div className={cn('dark:text-slate-200')}>
+        <div className={cn('p-3', 'dark:text-slate-200', className)}>
             <div className={cn('mb-6', 'flex justify-center')}>
                 <Avatar />
             </div>

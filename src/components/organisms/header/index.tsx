@@ -4,8 +4,9 @@ import cn from '@/utils/cn';
 import { siteTitle, logoImg } from '@/constants/header';
 import ThemeSwitch from '@/components/molecules/theme-switch';
 import NavMenu from './nav-menu';
-import IconLinks from './icon-links';
+import SocialIconLinks from '@/components/molecules/social-icon-links';
 import BurgerMenu from './burger-menu';
+import { HeaderSocialIconLinksConfig } from '@/constants/personal';
 
 const Header = () => {
     return (
@@ -28,7 +29,10 @@ const Header = () => {
                 <div className={cn('flex items-center gap-4')}>
                     <div className={cn('hidden', 'items-center gap-2 md:flex')}>
                         <NavMenu />
-                        <IconLinks />
+                        <SocialIconLinks
+                            className="border-x-2 border-slate-200 px-2 dark:border-slate-800"
+                            links={HeaderSocialIconLinksConfig}
+                        />
                     </div>
                     <ThemeSwitch />
                     <BurgerMenu />

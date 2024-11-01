@@ -4,7 +4,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import cn from '@/utils/cn';
 import { BurgerButton, BurgerContainer } from '@/components/molecules/burger';
-import { iconConfig, navConfig } from '@/constants/header';
+import { navConfig } from '@/constants/header';
+import SocialIconLinks from '@/components/molecules/social-icon-links';
 
 const BurgerMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -41,20 +42,8 @@ const BurgerMenu = () => {
                                 </li>
                             );
                         })}
-                        <li className={cn('flex gap-4')}>
-                            {iconConfig?.map((data) => {
-                                return (
-                                    <a
-                                        key={data?.link}
-                                        className="text-slate-500 dark:text-slate-300"
-                                        href={data?.link}
-                                        target="_blank"
-                                        rel="noreferrer noopener"
-                                    >
-                                        {data?.icon}
-                                    </a>
-                                );
-                            })}
+                        <li>
+                            <SocialIconLinks className="text-xl" />
                         </li>
                     </ul>
                 </nav>
