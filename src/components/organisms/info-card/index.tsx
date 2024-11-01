@@ -1,7 +1,8 @@
 import cn from '@/utils/cn';
 import Avatar from '@/components/atoms/avatar';
-import BasicInfo from '@/components/molecules/basic-info';
+import InfoItem from '@/components/molecules/info-item';
 import { author, basicInfoConfig } from '@/constants/personal';
+import SocialIconLinks from '@/components/molecules/social-icon-links';
 
 const InfoCard = () => {
     return (
@@ -10,12 +11,15 @@ const InfoCard = () => {
                 <Avatar />
             </div>
             <div className={cn('mb-6', 'text-center text-4xl font-bold tracking-wider')}>{author}</div>
-            <div className={cn('flex justify-center')}>
+            <div className={cn('mb-6', 'flex justify-center')}>
                 <div>
                     {basicInfoConfig?.map((data) => {
-                        return <BasicInfo key={data?.text} icon={data?.icon} link={data?.link} text={data?.text} />;
+                        return <InfoItem key={data?.text} icon={data?.icon} link={data?.link} text={data?.text} />;
                     })}
                 </div>
+            </div>
+            <div className={cn('flex justify-center')}>
+                <SocialIconLinks className="text-2xl" />
             </div>
         </div>
     );

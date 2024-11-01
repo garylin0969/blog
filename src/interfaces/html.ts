@@ -1,5 +1,7 @@
 import { ButtonHTMLAttributes, HTMLAttributes } from 'react';
 
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
+export type ButtonPropsT = ButtonHTMLAttributes<HTMLButtonElement>;
 
-export type DivProps = HTMLAttributes<HTMLDivElement>;
+export type DivPropsT = HTMLAttributes<HTMLDivElement>;
+
+export type IconPropsT = HTMLAttributes<SVGElement>;

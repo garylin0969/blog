@@ -1,14 +1,14 @@
 import { ReactNode } from 'react';
 import cn from '@/utils/cn';
-import { DivProps } from '@/interfaces/html';
+import { DivPropsT } from '@/interfaces/html';
 
-interface BasicInfoProps extends DivProps {
+interface InfoItemProps extends DivPropsT {
     icon?: ReactNode;
     link?: string;
     text?: string;
 }
 
-const BasicInfo = ({ icon, link, text, className, ...props }: BasicInfoProps) => {
+const InfoItem = ({ icon, link, text, className, ...props }: InfoItemProps) => {
     return (
         <div className={cn('flex items-center', 'text-sm', className)} {...props}>
             {icon && <div className="mr-2">{icon}</div>}
@@ -25,4 +25,4 @@ const BasicInfo = ({ icon, link, text, className, ...props }: BasicInfoProps) =>
     );
 };
 
-export default BasicInfo;
+export default InfoItem;

@@ -1,5 +1,5 @@
 import cn from '@/utils/cn';
-import { DivProps } from '@/interfaces/html';
+import { DivPropsT } from '@/interfaces/html';
 
 const tagColor = 'text-slate-400';
 const tagTextColor = 'text-red-400';
@@ -17,7 +17,7 @@ const RenderTag = ({ tag = '', isClose = false }: RenderTagProps) => (
     </>
 );
 
-interface DisplayElementProps extends DivProps {
+interface DisplayElementProps extends DivPropsT {
     tag?: keyof JSX.IntrinsicElements | ''; // 限制 tag 屬性為合法的 HTML 標籤
     tagClassName?: string;
     wrap?: boolean; // 控制是否換行

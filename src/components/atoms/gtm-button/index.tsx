@@ -1,10 +1,10 @@
 'use client';
 
 import { MouseEvent } from 'react';
-import { ButtonProps } from '@/interfaces/html';
+import { ButtonPropsT } from '@/interfaces/html';
 import { CustomEventName, GTMEventKey, sendGTM } from '@/utils/gtm';
 
-interface GTMButtonProps extends ButtonProps {
+interface GTMButtonProps extends ButtonPropsT {
     gtmEvent?: {
         [GTMEventKey.EVENT_NAME]: CustomEventName;
         [GTMEventKey.CLICK_ITEM]: string;

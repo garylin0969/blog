@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react';
 import cn from '@/utils/cn';
-import { DivProps } from '@/interfaces/html';
+import { DivPropsT } from '@/interfaces/html';
 
-interface BurgerContainerProps extends DivProps {
+interface BurgerContainerProps extends DivPropsT {
     isOpen: boolean;
     direction?: 'up' | 'down' | 'left' | 'right';
 }
