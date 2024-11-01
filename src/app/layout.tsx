@@ -7,6 +7,7 @@ import Header from '@/components/organisms/header';
 import Footer from '@/app/_components/footer';
 
 import './globals.css';
+import ScrollToTopButton from '@/components/atoms/scroll-to-top-button';
 
 export const metadata: Metadata = {
     title: CMS_NAME,
@@ -50,6 +51,7 @@ export default function RootLayout({
                             <main className="flex-grow">{children}</main>
                         </div>
                         <Footer />
+                        <ScrollToTopButton />
                     </div>
                 </ThemeProvider>
             </body>
