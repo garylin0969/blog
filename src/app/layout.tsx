@@ -40,9 +40,9 @@ export default function RootLayout({
                     <div
                         className={cn(
                             'transition-colors duration-300',
-                            'bg-white text-slate-500',
-                            'dark:bg-slate-900 dark:text-slate-400',
-                            // 'animate-pulse bg-gradient-to-r from-slate-400 to-fuchsia-100 bg-[length:200%_200%] dark:from-slate-900 dark:to-slate-300',
+                            // 'bg-[radial-gradient(circle,#ffffff,#fabcbc)] text-slate-500',
+                            'bg-[radial-gradient(circle,#ffffff,#97c2f5)] text-slate-500',
+                            'dark:bg-[radial-gradient(circle,#808080,#1a1a1a)] dark:text-slate-400',
                         )}
                     >
                         <Header />
