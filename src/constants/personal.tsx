@@ -2,7 +2,9 @@ import { FaBuilding } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 import { IoMdMail } from 'react-icons/io';
 
-export const avatarImg = '/assets/avatar/avatar.jpg';
+export const authorImg = '/assets/avatar/avatar.jpg';
+
+export const author = 'Gary Lin';
 
 export const basicInfoConfig = [
     {

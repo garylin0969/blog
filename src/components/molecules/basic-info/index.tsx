@@ -10,7 +10,7 @@ interface BasicInfoProps extends DivProps {
 
 const BasicInfo = ({ icon, link, text, className, ...props }: BasicInfoProps) => {
     return (
-        <div className={cn('flex items-center', 'text-sm dark:text-slate-200', className)} {...props}>
+        <div className={cn('flex items-center', 'text-sm', className)} {...props}>
             {icon && <div className="mr-2">{icon}</div>}
             <div>
                 {link ? (

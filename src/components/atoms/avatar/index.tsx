@@ -1,9 +1,9 @@
 import Image, { ImageProps } from 'next/image';
-import { avatarImg } from '@/constants/personal';
+import { authorImg } from '@/constants/personal';
 
 const avatarInitProps = {
     className: 'rounded-full aspect-square',
-    src: avatarImg,
+    src: authorImg,
     width: 160,
     height: 160,
     alt: 'avatar',
