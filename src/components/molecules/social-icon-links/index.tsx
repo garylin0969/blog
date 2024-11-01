@@ -7,6 +7,7 @@ interface SocialIconLinksProps {
     links?: IconLinkI[];
     className?: string;
 }
+
 const SocialIconLinks = ({ links = SocialIconLinksConfig, className }: SocialIconLinksProps) => {
     return (
         <div className={cn('flex flex-wrap gap-2', className)}>
