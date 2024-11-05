@@ -4,7 +4,7 @@ import { CMS_NAME, HOME_OG_IMAGE_URL } from '@/lib/constants';
 import cn from '@/utils/cn';
 import ThemeProvider from '@/providers/theme-provider';
 import Header from '@/components/organisms/header';
-import Footer from '@/app/_components/footer';
+import Footer from '@/components/organisms/footer';
 
 import './globals.css';
 import ScrollToTopButton from '@/components/atoms/scroll-to-top-button';
@@ -41,13 +41,12 @@ export default function RootLayout({
                     <div
                         className={cn(
                             'transition-colors duration-300',
-                            // 'bg-[radial-gradient(circle,#ffffff,#fabcbc)] text-slate-500',
                             'bg-[radial-gradient(circle,#ffffff,#97c2f5)] text-slate-500',
                             'dark:bg-[radial-gradient(circle,#808080,#1a1a1a)] dark:text-slate-400',
                         )}
                     >
                         <Header />
-                        <div className="flex min-h-[100svh] pt-16">
+                        <div className="flex min-h-[calc(100svh-52px)] pt-16">
                             <main className="flex-grow">{children}</main>
                         </div>
                         <Footer />
