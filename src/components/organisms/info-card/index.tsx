@@ -1,8 +1,8 @@
 import cn from '@/utils/cn';
 import Avatar from '@/components/atoms/avatar';
 import InfoItem from '@/components/molecules/info-item';
-import { author, basicInfoConfig } from '@/constants/personal';
 import SocialIconLinks from '@/components/molecules/social-icon-links';
+import { author, basicInfoConfig } from '@/constants/personal';
 
 interface InfoCardProps {
     className?: string;
