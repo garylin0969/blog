@@ -1,12 +1,15 @@
-import Avatar from '@/components/atoms/avatar';
 import cn from '@/utils/cn';
 import Container from '@/components/atoms/container';
 import InfoCard from '@/components/organisms/info-card';
+import AboutInfo from '@/components/organisms/about-info';
 
 const AboutPage = () => {
     return (
         <Container>
-            <InfoCard />
+            <div className="my-9">
+                <InfoCard />
+            </div>
+            <AboutInfo />
         </Container>
     );
 };
