@@ -16,7 +16,6 @@ const Header = () => {
                 'flex items-center',
                 'h-16 w-full',
                 'px-4 sm:px-6 lg:px-8',
-                'bg-white/95 dark:bg-slate-800/75',
                 'border-b border-slate-800/10 dark:border-slate-300/10',
                 'md:shadow',
             )}
