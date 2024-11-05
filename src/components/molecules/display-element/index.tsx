@@ -2,7 +2,8 @@ import cn from '@/utils/cn';
 import { DivPropsT } from '@/interfaces/html';
 
 const tagColor = 'text-slate-400 dark:text-slate-300';
-const tagTextColor = 'text-red-400';
+// const tagTextColor = 'text-red-400';
+const tagTextColor = 'text-[#f92672]';
 
 interface RenderTagProps {
     tag: keyof JSX.IntrinsicElements | ''; // 限制 tag 屬性為合法的 HTML 標籤
