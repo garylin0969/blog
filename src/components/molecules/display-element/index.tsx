@@ -1,7 +1,7 @@
 import cn from '@/utils/cn';
 import { DivPropsT } from '@/interfaces/html';
 
-const tagColor = 'text-slate-400';
+const tagColor = 'text-slate-400 dark:text-slate-300';
 const tagTextColor = 'text-red-400';
 
 interface RenderTagProps {
