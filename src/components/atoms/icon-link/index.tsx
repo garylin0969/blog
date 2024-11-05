@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { IconLinkI } from '@/interfaces/social';
 
 const IconLink = ({ link, icon }: IconLinkI) => {
