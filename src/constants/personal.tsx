@@ -54,3 +54,11 @@ export const HeaderSocialIconLinksConfig: IconLinkI[] = [
         icon: <FaLinkedin className="cursor-pointer opacity-90" />,
     },
 ];
+
+export const aboutInfoConfig: string[] = [
+    'Hi there 🙋',
+    '我是 Gary Lin，目前於 鉅亨網 擔任前端工程師',
+    '主要使用 Next、React、TypeScript 和 Tailwind CSS',
+    '閒暇時喜愛看動漫、小說',
+    '經常在國內外社群平台上網路衝浪的哥布林',
+];
