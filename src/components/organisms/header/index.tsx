@@ -29,7 +29,7 @@ const Header = () => {
                     <div className={cn('hidden', 'items-center gap-2 md:flex')}>
                         <NavMenu />
                         <SocialIconLinks
-                            className="border-x-2 border-slate-200 px-2 dark:border-slate-800"
+                            className="border-x border-slate-200 px-2 dark:border-slate-800"
                             links={HeaderSocialIconLinksConfig}
                         />
                     </div>
