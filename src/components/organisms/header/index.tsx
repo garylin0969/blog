@@ -15,7 +15,7 @@ const Header = () => {
                 'fixed top-0',
                 'flex items-center',
                 'h-16 w-full',
-                'px-4 sm:px-6 lg:px-8',
+                'px-4 md:px-6 lg:px-8',
                 'bg-transparent backdrop-blur-md',
                 'shadow',
             )}
