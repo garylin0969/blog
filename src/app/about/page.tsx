@@ -1,16 +1,10 @@
-import Image from 'next/image';
 import cn from '@/utils/cn';
 import Container from '@/components/atoms/container';
 import InfoCard from '@/components/organisms/info-card';
 import AboutInfo from '@/components/organisms/about-info';
 import DividerTitle from '@/components/molecules/divider-title';
-
-const src =
-    'https://media.cakeresume.com/image/upload/s--5LjR-owY--/c_pad,fl_png8,h_100,w_100/v1553661159/zu0femq69mr3suhhjnze.png';
-
-const href = 'https://www.cnyes.com';
-
-const testArr = [1, 2, 3];
+import ExperienceItem from '@/components/molecules/experience-item';
+import { experienceConfig } from '@/constants/personal';
 
 const AboutPage = () => {
     return (
@@ -22,36 +16,20 @@ const AboutPage = () => {
                 <AboutInfo />
             </div>
             <DividerTitle className="my-8" align="center" title="Experience" />
-            <div className="flex flex-col items-center">
-                {testArr.map((num) => {
+            <div className={cn('relative', 'flex-col items-center md:flex')}>
+                <div className={cn('absolute left-1/2', 'h-full', 'border border-gray-400', 'hidden md:block')} />
+                {experienceConfig?.map((data) => {
                     return (
-                        <div key={num} className={cn('flex gap-4', 'max-w-xl', 'p-3')}>
-                            <div className="">
-                                <Image
-                                    className="rounded border border-[#e2e6e4] bg-white"
-                                    src={src}
-                                    width={64}
-                                    height={64}
-                                    loading="lazy"
-                                    alt="company-logo"
-                                />
-                            </div>
-                            <div>
-                                <div>
-                                    <h4 className="text-lg font-semibold">Frontend Developer</h4>
-                                </div>
-                                <div className="mb-1">
-                                    <a className="text-base" href={href} target="_blank" rel="noreferrer noopener">
-                                        Anue 鉅亨網
-                                    </a>
-                                </div>
-                                <div className="text-sm">
-                                    <span>2024/03</span>
-                                    <span> - </span>
-                                    <span>現在</span>
-                                </div>
-                            </div>
-                        </div>
+                        <ExperienceItem
+                            key={data?.companyName}
+                            className="md:odd:translate-x-[-60%] md:even:translate-x-[60%]"
+                            logoSrc={data?.logoSrc}
+                            title={data?.title}
+                            companyUrl={data?.companyUrl}
+                            companyName={data?.companyName}
+                            employmentStartDate={data?.employmentStartDate}
+                            employmentEndDate={data?.employmentEndDate}
+                        />
                     );
                 })}
             </div>
