@@ -38,7 +38,9 @@ const BurgerMenu = () => {
                         {navConfig?.map((data) => {
                             return (
                                 <li key={data?.href}>
-                                    <Link href={data?.href}>{data?.label}</Link>
+                                    <Link href={data?.href} onClick={toggleMenu}>
+                                        {data?.label}
+                                    </Link>
                                 </li>
                             );
                         })}
