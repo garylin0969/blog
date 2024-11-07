@@ -41,8 +41,8 @@ export default function RootLayout({
                     <div
                         className={cn(
                             'transition-colors duration-300',
-                            'bg-[radial-gradient(circle,#ffffff,#97c2f5)] text-slate-500',
-                            'dark:bg-[radial-gradient(circle,#808080,#1a1a1a)] dark:text-slate-300',
+                            'text-slate-500 dark:text-slate-300',
+                            'bg-[radial-gradient(circle,#ffffff,#97c2f5)] dark:bg-[radial-gradient(circle,#808080,#1a1a1a)]',
                         )}
                     >
                         <Header />
