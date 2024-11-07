@@ -15,11 +15,13 @@ const testArr = [1, 2, 3];
 const AboutPage = () => {
     return (
         <Container>
-            <div className="my-9">
+            <div className="my-8">
                 <InfoCard />
             </div>
-            <AboutInfo />
-            <DividerTitle align="center" title="Experience" />
+            <div className="mx-auto max-w-3xl">
+                <AboutInfo />
+            </div>
+            <DividerTitle className="my-8" align="center" title="Experience" />
             <div className="flex flex-col items-center">
                 {testArr.map((num) => {
                     return (
