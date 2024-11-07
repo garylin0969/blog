@@ -16,8 +16,8 @@ const Header = () => {
                 'flex items-center',
                 'h-16 w-full',
                 'px-4 sm:px-6 lg:px-8',
-                'border-b border-slate-800/10 dark:border-slate-300/10',
-                'md:shadow',
+                'bg-transparent backdrop-blur-md',
+                'shadow',
             )}
         >
             <div className={cn('mx-auto w-full max-w-6xl', 'flex items-center justify-between')}>
