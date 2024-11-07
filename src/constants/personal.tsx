@@ -59,3 +59,30 @@ export const aboutInfoConfig: string[] = [
     'Hi there 🙋',
     '我是 Gary Lin，目前於 鉅亨網 擔任前端工程師，主要使用 Next、React、TypeScript 和 Tailwind CSS。閒暇時喜愛看動漫、小說，經常在社群平台上衝浪的哥布林。',
 ];
+
+export const experienceConfig = [
+    {
+        logoSrc: '/assets/company-logo/anue.png',
+        title: 'Frontend Developer',
+        companyUrl: 'https://www.cnyes.com/',
+        companyName: 'Anue 鉅亨網',
+        employmentStartDate: '2024.03',
+        employmentEndDate: '現在',
+    },
+    {
+        logoSrc: '/assets/company-logo/uec.jpg',
+        title: 'Frontend Developer',
+        companyUrl: 'https://www.universalec.com/',
+        companyName: 'Universal EC Inc.',
+        employmentStartDate: '2022.10',
+        employmentEndDate: '2024.02',
+    },
+    {
+        logoSrc: '/assets/company-logo/ispan.png',
+        title: 'Frontend Class Trainee',
+        companyUrl: 'https://www.ispan.com.tw/',
+        companyName: 'iSpan International Inc.',
+        employmentStartDate: '2022.03',
+        employmentEndDate: '2022.08',
+    },
+];
