@@ -22,7 +22,7 @@ const ExperienceItem = ({
     ...props
 }: ExperienceItemProps) => {
     return (
-        <div className={cn('flex gap-4', 'max-w-xl', 'p-3', className)} {...props}>
+        <div className={cn('flex gap-4', 'max-w-xl', className)} {...props}>
             <div className="">
                 <Image
                     className={cn('bg-white', 'rounded border border-[#e2e6e4]')}
