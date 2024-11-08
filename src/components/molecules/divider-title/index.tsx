@@ -15,7 +15,7 @@ const DividerTitle = ({ align = 'center', title = '', className, ...props }: Div
         <span
             className={cn(
                 'flex items-center',
-                'font-mono text-xl font-bold tracking-wider dark:text-slate-200',
+                'font-serif text-xl font-bold tracking-wider dark:text-slate-200',
                 'md:text-3xl',
                 className,
             )}

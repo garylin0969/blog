@@ -14,7 +14,7 @@ const InfoCard = ({ className }: InfoCardProps) => {
             <div className={cn('mb-6', 'flex justify-center')}>
                 <Avatar />
             </div>
-            <div className={cn('mb-6', 'text-center text-4xl font-bold tracking-wider')}>{author}</div>
+            <div className={cn('mb-6', 'text-center font-serif text-4xl font-bold tracking-wider')}>{author}</div>
             <div className={cn('mb-6', 'flex justify-center')}>
                 <div>
                     {basicInfoConfig?.map((data) => {
