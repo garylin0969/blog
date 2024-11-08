@@ -14,7 +14,7 @@ const Experience = () => {
                             'hidden md:block',
                             'absolute left-1/2 translate-x-[-50%]',
                             'h-full',
-                            'border border-gray-400',
+                            'border border-sky-500 dark:border-sky-400',
                         )}
                     />
                     {experienceConfig?.map((data) => {
@@ -23,7 +23,8 @@ const Experience = () => {
                                 <div
                                     className={cn(
                                         'hidden md:block',
-                                        'rounded-full bg-white',
+                                        'rounded-full',
+                                        'bg-sky-500 dark:bg-sky-400',
                                         'absolute left-1/2 top-1/2 h-4 w-4 translate-x-[-50%] translate-y-[-50%]',
                                     )}
                                 />
