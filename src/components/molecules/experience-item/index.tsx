@@ -25,7 +25,7 @@ const ExperienceItem = ({
         <div className={cn('flex gap-4', 'max-w-xl', className)} {...props}>
             <div className="">
                 <Image
-                    className={cn('bg-white', 'rounded border border-[#e2e6e4]')}
+                    className={cn('bg-white', 'rounded border border-white dark:border-sky-400')}
                     src={logoSrc}
                     width={64}
                     height={64}
@@ -51,7 +51,7 @@ const ExperienceItem = ({
                         companyName
                     )}
                 </div>
-                <div className={cn('text-center', 'bg-slate-500 text-white', 'dark:bg-white dark:text-black')}>
+                <div className={cn('text-center', 'bg-white text-black', 'border border-sky-500 dark:border-sky-400')}>
                     <span>{employmentStartDate}</span>
                     <span> - </span>
                     <span>{employmentEndDate}</span>
