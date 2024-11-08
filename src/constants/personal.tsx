@@ -1,7 +1,6 @@
 import { FaBuilding, FaFacebook, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 import { IoMdMail } from 'react-icons/io';
-import { IconLinkI } from '@/interfaces/social';
 
 export const authorImg = '/assets/avatar/avatar.jpg';
 
@@ -25,7 +24,7 @@ export const basicInfoConfig = [
     },
 ];
 
-export const SocialIconLinksConfig: IconLinkI[] = [
+export const SocialIconLinksConfig = [
     {
         link: 'https://github.com/garylin0969',
         icon: <FaGithub className="cursor-pointer opacity-90" />,
@@ -44,7 +43,7 @@ export const SocialIconLinksConfig: IconLinkI[] = [
     },
 ];
 
-export const HeaderSocialIconLinksConfig: IconLinkI[] = [
+export const HeaderSocialIconLinksConfig = [
     {
         link: 'https://github.com/garylin0969',
         icon: <FaGithub className="cursor-pointer opacity-90" />,
