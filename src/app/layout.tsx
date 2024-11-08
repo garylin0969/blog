@@ -1,3 +1,4 @@
+import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 import { CMS_NAME, HOME_OG_IMAGE_URL } from '@/lib/constants';
@@ -5,9 +6,14 @@ import cn from '@/utils/cn';
 import ThemeProvider from '@/providers/theme-provider';
 import Header from '@/components/organisms/header';
 import Footer from '@/components/organisms/footer';
+import ScrollToTopButton from '@/components/atoms/scroll-to-top-button';
 
 import './globals.css';
-import ScrollToTopButton from '@/components/atoms/scroll-to-top-button';
+
+const inter = Inter({
+    subsets: ['latin'],
+    display: 'swap',
+});
 
 export const metadata: Metadata = {
     title: CMS_NAME,
@@ -36,7 +42,7 @@ export default function RootLayout({
                 <meta name="theme-color" content="#000" />
                 <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
             </head>
-            <body>
+            <body className={cn(inter.className, 'antialiased')}>
                 <ThemeProvider>
                     <div
                         className={cn(
