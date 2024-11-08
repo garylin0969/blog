@@ -12,12 +12,18 @@ interface DividerTitleProps extends SpanPropsT {
 
 const DividerTitle = ({ align = 'center', title = '', className, ...props }: DividerTitleProps) => {
     return (
-        <span className={cn('flex items-center', className)} {...props}>
+        <span
+            className={cn(
+                'flex items-center',
+                'text-xl font-bold tracking-wider dark:text-slate-200',
+                'md:text-3xl',
+                className,
+            )}
+            {...props}
+        >
             {align !== 'left' && <DividerLine />}
             <span
                 className={cn(
-                    'text-xl font-medium tracking-wider dark:text-slate-200',
-                    'md:text-3xl',
                     align === 'center' && 'shrink-0 px-6',
                     align === 'left' && 'pr-6',
                     align === 'right' && 'pl-6',
