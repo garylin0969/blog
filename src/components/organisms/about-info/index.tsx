@@ -8,7 +8,7 @@ interface AboutInfoProps extends DivPropsT {
 
 const AboutInfo = ({ info = aboutInfoConfig, className, ...props }: AboutInfoProps) => {
     return (
-        <div className={cn('text-center text-lg', className)} {...props}>
+        <div className={cn('text-center text-base md:text-lg', className)} {...props}>
             {info?.map((data) => <p key={data}>{data}</p>)}
         </div>
     );
