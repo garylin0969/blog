@@ -39,7 +39,12 @@ const ExperienceItem = ({
                 </div>
                 <div className="mb-1 text-base">
                     {companyUrl ? (
-                        <a href={companyUrl} target="_blank" rel="noreferrer noopener">
+                        <a
+                            href={companyUrl}
+                            className="hover:text-sky-500 dark:hover:text-sky-400"
+                            target="_blank"
+                            rel="noreferrer noopener"
+                        >
                             {companyName}
                         </a>
                     ) : (

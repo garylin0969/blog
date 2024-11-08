@@ -14,7 +14,12 @@ const InfoItem = ({ icon, link, text, className, ...props }: InfoItemProps) => {
             {icon && <div className="mr-2">{icon}</div>}
             <div>
                 {link ? (
-                    <a href={link} target="_blank" rel="noreferrer noopener">
+                    <a
+                        href={link}
+                        className="hover:text-sky-500 dark:hover:text-sky-400"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                    >
                         {text}
                     </a>
                 ) : (
