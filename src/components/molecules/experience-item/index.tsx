@@ -22,7 +22,17 @@ const ExperienceItem = ({
     ...props
 }: ExperienceItemProps) => {
     return (
-        <div className={cn('flex gap-4', 'max-w-xl', className)} {...props}>
+        <div
+            className={cn(
+                'max-w-xl',
+                'flex gap-4',
+                'shadow-sm',
+                'rounded border dark:border-none',
+                'dark:ring-1 dark:ring-inset dark:ring-white/10',
+                className,
+            )}
+            {...props}
+        >
             <div className="">
                 <Image
                     className={cn('bg-white', 'rounded')}
@@ -51,7 +61,7 @@ const ExperienceItem = ({
                         companyName
                     )}
                 </div>
-                <div className={cn('text-center', 'bg-white text-black', 'border border-sky-500 dark:border-sky-400')}>
+                <div>
                     <span>{employmentStartDate}</span>
                     <span> - </span>
                     <span>{employmentEndDate}</span>
