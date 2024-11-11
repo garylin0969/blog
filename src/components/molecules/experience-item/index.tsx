@@ -27,14 +27,7 @@ const ExperienceItem = ({
             {...props}
         >
             <div className="">
-                <Image
-                    className={cn('bg-white', 'rounded')}
-                    src={logoSrc}
-                    width={64}
-                    height={64}
-                    loading="lazy"
-                    alt="company-logo"
-                />
+                <Image className={cn('bg-white', 'rounded')} src={logoSrc} width={64} height={64} alt="company-logo" />
             </div>
             <div>
                 <div>
