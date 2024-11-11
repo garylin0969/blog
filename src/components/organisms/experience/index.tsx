@@ -29,7 +29,11 @@ const Experience = () => {
                                     )}
                                 />
                                 <ExperienceItem
-                                    className={cn('p-3 md:p-5', 'md:group-even:col-end-3', 'md:group-odd:justify-end')}
+                                    className={cn(
+                                        'm-1 p-2 md:m-3',
+                                        'md:group-even:col-end-3',
+                                        // 'md:group-odd:justify-end',
+                                    )}
                                     logoSrc={data?.logoSrc}
                                     title={data?.title}
                                     companyUrl={data?.companyUrl}
