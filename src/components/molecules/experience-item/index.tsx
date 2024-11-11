@@ -25,7 +25,7 @@ const ExperienceItem = ({
         <div className={cn('flex gap-4', 'max-w-xl', className)} {...props}>
             <div className="">
                 <Image
-                    className={cn('bg-white', 'rounded border border-white dark:border-sky-400')}
+                    className={cn('bg-white', 'rounded')}
                     src={logoSrc}
                     width={64}
                     height={64}
