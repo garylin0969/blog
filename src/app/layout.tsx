@@ -6,7 +6,7 @@ import cn from '@/utils/cn';
 import ThemeProvider from '@/providers/theme-provider';
 import Header from '@/components/organisms/header';
 import Footer from '@/components/organisms/footer';
-import ScrollToTopButton from '@/components/atoms/scroll-to-top-button';
+import ScrollToTopButton from '@/components/molecules/scroll-to-top-button';
 
 import './globals.css';
 
