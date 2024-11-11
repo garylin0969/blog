@@ -1,12 +1,10 @@
 import cn from '@/utils/cn';
-import DividerTitle from '@/components/molecules/divider-title';
 import ExperienceItem from '@/components/molecules/experience-item';
 import { experienceConfig } from '@/constants/personal';
 
 const Experience = () => {
     return (
         <>
-            <DividerTitle className="my-8" align="center" title="Experience" />
             <section className="flex justify-center">
                 <ul className={cn('relative')}>
                     <div
