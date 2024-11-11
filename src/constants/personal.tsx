@@ -93,4 +93,28 @@ export const projectsConfig = [
         projectName: 'chinese-number-format',
         projectTags: ['2024', 'TypeScript', 'Jest', 'NPM'],
     },
+    {
+        imageUrl: '/assets/projects/Next13-Google-Clone.avif',
+        projectUrl: 'https://github.com/garylin0969/next13-google-clone',
+        projectName: 'Next13-Google-Clone',
+        projectTags: ['2023', 'Next', 'TypeScript', 'React Hook Form', 'SWR', 'Tailwind CSS'],
+    },
+    {
+        imageUrl: '/assets/projects/Next13-IMDb-Clone.avif',
+        projectUrl: 'https://github.com/garylin0969/next13-imdb-clone',
+        projectName: 'Next13-IMDb-Clone',
+        projectTags: ['2023', 'Next', 'TypeScript', 'React Hook Form', 'SWR', 'Tailwind CSS', 'next-themes'],
+    },
+    {
+        imageUrl: '/assets/projects/Akatsuki.avif',
+        projectUrl: 'https://github.com/garylin0969/react-akatsuki',
+        projectName: '火影忍者Akatsuki',
+        projectTags: ['2023', 'React', 'Redux', 'TypeScript', 'Styled Components'],
+    },
+    {
+        imageUrl: '/assets/projects/iSpan.avif',
+        projectUrl: 'https://github.com/garylin0969/react-ispan-project',
+        projectName: 'iSpan',
+        projectTags: ['2022', 'React', 'JypeScript', 'Socket.IO', 'Bootstrap', 'GSAP'],
+    },
 ];
