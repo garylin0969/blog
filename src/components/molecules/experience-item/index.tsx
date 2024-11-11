@@ -23,14 +23,7 @@ const ExperienceItem = ({
 }: ExperienceItemProps) => {
     return (
         <div
-            className={cn(
-                'max-w-xl',
-                'flex gap-4',
-                'shadow-sm',
-                'rounded border dark:border-none',
-                'dark:ring-1 dark:ring-inset dark:ring-white/10',
-                className,
-            )}
+            className={cn('max-w-xl', 'flex gap-4', 'shadow-sm', 'rounded border dark:border-white/10', className)}
             {...props}
         >
             <div className="">
