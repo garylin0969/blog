@@ -26,6 +26,7 @@ const ProjectCard = ({
                 'shadow',
                 'rounded-xl border dark:border-white/30',
                 'overflow-hidden',
+                'flex flex-col',
                 className,
             )}
             {...props}
@@ -39,18 +40,20 @@ const ProjectCard = ({
                     alt={projectName}
                 />
             </BaseLink>
-            <div className={cn('p-6', 'border-t dark:border-white/30')}>
-                <div className={cn('mb-2')}>
-                    <BaseLink href={projectUrl}>
-                        <span className={cn('text-2xl font-bold tracking-tighter')}>{projectName}</span>
-                    </BaseLink>
+            <div className={cn('flex-grow', 'p-6', 'border-t dark:border-white/30', 'flex flex-col justify-between')}>
+                <div>
+                    <div className={cn('mb-2')}>
+                        <BaseLink href={projectUrl}>
+                            <span className={cn('text-2xl font-bold tracking-tighter')}>{projectName}</span>
+                        </BaseLink>
+                    </div>
+                    <p className={cn('mb-6', 'flex flex-wrap gap-2')}>
+                        {projectTags?.map((tag) => {
+                            return <span key={tag}>#{tag}</span>;
+                        })}
+                    </p>
                 </div>
-                <p className={cn('mb-6', 'flex flex-wrap gap-2')}>
-                    {projectTags?.map((tag) => {
-                        return <span key={tag}>#{tag}</span>;
-                    })}
-                </p>
-                <div className={cn('flex justify-end')}>
+                <div className={cn('mt-auto flex justify-end')}>
                     <BaseLink href={projectUrl}>
                         <BaseButton>Read more</BaseButton>
                     </BaseLink>
