@@ -52,7 +52,7 @@ export default function RootLayout({
                         )}
                     >
                         <Header />
-                        <div className="flex min-h-[calc(100svh-52px)] pt-16">
+                        <div className="flex min-h-[calc(100svh-68px)] pt-16">
                             <main className="flex-grow">{children}</main>
                         </div>
                         <Footer />
