@@ -8,17 +8,13 @@ import Projects from '@/components/organisms/projects';
 
 const AboutPage = () => {
     return (
-        <Container>
-            <div className="my-8">
-                <InfoCard />
-            </div>
-            <div className="mx-auto max-w-3xl">
-                <AboutInfo />
-            </div>
-            <DividerTitle className="my-8" align="center" title="Experience" />
+        <Container className="space-y-8">
+            <InfoCard className="mt-8" />
+            <AboutInfo className="mx-auto max-w-3xl" />
+            <DividerTitle align="center" title="Experience" />
             <Experience />
-            <DividerTitle className="my-8" align="center" title="Projects" />
-            <Projects />
+            <DividerTitle align="center" title="Projects" />
+            <Projects className="pb-8" />
         </Container>
     );
 };
