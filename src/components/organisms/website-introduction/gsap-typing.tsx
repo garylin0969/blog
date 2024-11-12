@@ -17,7 +17,7 @@ const GSAPTyping = () => {
     const pTextRef = useRef<HTMLSpanElement>(null);
 
     useEffect(() => {
-        const typingTimeline = gsap.timeline({ repeat: -1, yoyo: true, repeatDelay: 2 });
+        const typingTimeline = gsap.timeline({ repeat: -1, yoyo: true, repeatDelay: 1 });
         h1Texts.forEach((h1Text, index) => {
             typingTimeline
                 .to(h1TextRef.current, {
