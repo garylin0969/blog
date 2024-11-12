@@ -9,7 +9,7 @@ const Footer = () => {
     return (
         <footer className={cn('py-6', 'text-center text-sm tracking-wide')}>
             <p>
-                © {year} Created by
+                &copy; {year} Created by
                 <span className={cn('ml-1')}>
                     <BaseLink href={link}>{author}</BaseLink>
                 </span>
