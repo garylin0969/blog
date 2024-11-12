@@ -10,8 +10,8 @@ import { SpanPropsT } from '@/interfaces/html';
 
 gsap.registerPlugin(TextPlugin);
 
-const h1Texts = ['Hi, my name is Gary Lin', '嗨，我是 Gary Lin'];
-const pTexts = ['I am a Frontend Developer', '我是一名前端工程師'];
+const h1Texts = ['Hi, my name is Gary Lin', '', '嗨，我是 Gary Lin'];
+const pTexts = ['A Frontend Developer', '', '一名前端工程師'];
 
 const Text = forwardRef<HTMLSpanElement, SpanPropsT>(({ ...props }, ref) => (
     <span className="font-bold dark:text-white md:text-5xl" ref={ref} {...props} />
