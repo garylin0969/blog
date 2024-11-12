@@ -1,7 +1,8 @@
 'use client';
 
-import { forwardRef, useEffect, useRef } from 'react';
+import { forwardRef, useRef } from 'react';
 import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
 import { TextPlugin } from 'gsap/TextPlugin';
 import DisplayElement from '@/components/molecules/display-element';
 import { SpanPropsT } from '@/interfaces/html';
@@ -21,7 +22,7 @@ const GSAPTyping = () => {
     const h1TextRef = useRef<HTMLSpanElement>(null);
     const pTextRef = useRef<HTMLSpanElement>(null);
 
-    useEffect(() => {
+    useGSAP(() => {
         const typingTimeline = gsap.timeline({ repeat: -1, yoyo: true, repeatDelay: 1 });
         h1Texts.forEach((h1Text, index) => {
             typingTimeline

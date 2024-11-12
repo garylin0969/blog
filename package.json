@@ -6,6 +6,7 @@
         "start": "next start"
     },
     "dependencies": {
+        "@gsap/react": "^2.1.1",
         "clsx": "^2.1.1",
         "date-fns": "^3.6.0",
         "gray-matter": "^4.0.3",
