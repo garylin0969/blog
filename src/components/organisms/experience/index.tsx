@@ -1,11 +1,12 @@
 import cn from '@/utils/cn';
+import { SectionPropsT } from '@/interfaces/html';
 import ExperienceItem from '@/components/molecules/experience-item';
 import { experienceConfig } from '@/constants/personal';
 
-const Experience = () => {
+const Experience = ({ className, ...props }: SectionPropsT) => {
     return (
         <>
-            <section className="flex justify-center">
+            <section className={cn('flex justify-center', className)} {...props}>
                 <ul className={cn('relative')}>
                     <div
                         className={cn(
