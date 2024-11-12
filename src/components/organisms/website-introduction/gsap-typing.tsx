@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { forwardRef, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
 import DisplayElement from '@/components/molecules/display-element';
+import { SpanPropsT } from '@/interfaces/html';
 
 /* ------使用範例請參考 docs/gsap-reference.md ------ */
 
@@ -11,6 +12,10 @@ gsap.registerPlugin(TextPlugin);
 
 const h1Texts = ['Hi, my name is Gary Lin', '嗨，我是 Gary Lin'];
 const pTexts = ['I am a Frontend Developer', '我是一名前端工程師'];
+
+const Text = forwardRef<HTMLSpanElement, SpanPropsT>(({ ...props }, ref) => (
+    <span className="font-bold dark:text-white md:text-5xl" ref={ref} {...props} />
+));
 
 const GSAPTyping = () => {
     const h1TextRef = useRef<HTMLSpanElement>(null);
@@ -36,10 +41,10 @@ const GSAPTyping = () => {
     return (
         <>
             <DisplayElement tag="h1" wrap={false} className="mb-8">
-                <span className="font-bold dark:text-white md:text-5xl" ref={h1TextRef} />
+                <Text ref={h1TextRef} />
             </DisplayElement>
             <DisplayElement tag="p" wrap={false}>
-                <span className="font-bold dark:text-white md:text-5xl" ref={pTextRef} />
+                <Text ref={pTextRef} />
             </DisplayElement>
         </>
     );
