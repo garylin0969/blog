@@ -1,18 +1,18 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
-import cn from '@/utils/cn';
 import DisplayElement from '@/components/molecules/display-element';
-
-gsap.registerPlugin(TextPlugin);
 
 /* ------使用範例請參考 docs/gsap-reference.md ------ */
 
+gsap.registerPlugin(TextPlugin);
+
+const h1Texts = ['Hi, my name is Gary Lin', '嗨，我是 Gary Lin'];
+const pTexts = ['I am a Frontend Developer', '我是一名前端工程師'];
+
 const GSAPTyping = () => {
-    const h1Texts = ['Hi, my name is Gary Lin', '嗨，我是 Gary Lin'];
-    const pTexts = ['I am a Frontend Developer', '我是一名前端工程師'];
     const h1TextRef = useRef<HTMLSpanElement>(null);
     const pTextRef = useRef<HTMLSpanElement>(null);
 
