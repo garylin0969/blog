@@ -9,7 +9,7 @@ const Blog = () => {
     return (
         <Container className="flex h-full">
             <div className="flex-grow">
-                <ArticleCategories className={cn('my-2 p-[10px]', 'border-y', 'flex flex-wrap gap-4')} />
+                <ArticleCategories className={cn('my-2 p-[10px]', 'border-y', 'flex flex-wrap gap-4 md:hidden')} />
             </div>
             <BlogAside className="sticky top-16 max-h-[calc(100svh-132px)] w-80" />
         </Container>
