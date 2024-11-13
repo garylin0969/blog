@@ -1,16 +1,19 @@
 import Image from 'next/image';
 import cn from '@/utils/cn';
+import { ArticlePropsT } from '@/interfaces/html';
 import { BaseLink } from '@/components/atoms/link';
 
-const ArticleCard = () => {
+const ArticleCard = ({ className, ...props }: ArticlePropsT) => {
     return (
-        <article className="p-5">
+        <article className={cn('p-5', className)} {...props}>
             <div className="flex gap-x-5">
-                <div className="w-3/4 space-y-2">
+                <div className={cn('w-3/4', 'space-y-2')}>
                     <BaseLink className="block">
-                        <h2 className="text-lg font-bold dark:text-white md:text-2xl">2024 資深前端工程師面試心得</h2>
+                        <h2 className={cn('text-lg font-bold', 'dark:text-white', 'md:text-2xl')}>
+                            2024 資深前端工程師面試心得
+                        </h2>
                     </BaseLink>
-                    <div className="space-x-3 font-serif">
+                    <div className={cn('font-serif', 'space-x-3')}>
                         <span>2024-11-13</span>
                         <span>__</span>
                         <span>
@@ -34,7 +37,7 @@ const ArticleCard = () => {
                 <div className="w-1/4">
                     <Image
                         src="/assets/projects/chinese-number-format.avif"
-                        className="mx-auto h-[53px] w-20 object-cover md:h-[107px] md:w-40"
+                        className={cn('mx-auto object-cover', 'h-[53px] w-20', 'md:h-[107px] md:w-40')}
                         width={160}
                         height={107}
                         alt=""

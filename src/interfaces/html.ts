@@ -14,4 +14,6 @@ export type UlPropsT = HTMLAttributes<HTMLUListElement>;
 
 export type AsidePropsT = HTMLAttributes<HTMLElement>;
 
+export type ArticlePropsT = HTMLAttributes<HTMLElement>;
+
 export type SvgPropsT = HTMLAttributes<SVGElement>;
