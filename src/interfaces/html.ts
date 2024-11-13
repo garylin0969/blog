@@ -10,4 +10,8 @@ export type LinkPropsT = AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export type SectionPropsT = HTMLAttributes<HTMLElement>;
 
+export type UlPropsT = HTMLAttributes<HTMLUListElement>;
+
+export type AsidePropsT = HTMLAttributes<HTMLElement>;
+
 export type SvgPropsT = HTMLAttributes<SVGElement>;
