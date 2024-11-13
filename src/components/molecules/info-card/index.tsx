@@ -10,12 +10,12 @@ interface InfoCardProps {
 
 const InfoCard = ({ className }: InfoCardProps) => {
     return (
-        <div className={cn('p-3', 'dark:text-slate-200', className)}>
-            <div className={cn('mb-6', 'flex justify-center')}>
+        <div className={cn('space-y-6 p-3', 'dark:text-slate-200', className)}>
+            <div className={cn('flex justify-center')}>
                 <Avatar />
             </div>
-            <div className={cn('mb-6', 'text-center font-serif text-4xl font-bold tracking-wider')}>{author}</div>
-            <div className={cn('mb-6', 'flex justify-center')}>
+            <div className={cn('text-center font-serif text-4xl font-bold tracking-wider')}>{author}</div>
+            <div className={cn('flex justify-center')}>
                 <div>
                     {basicInfoConfig?.map((data) => {
                         return <InfoItem key={data?.text} icon={data?.icon} link={data?.link} text={data?.text} />;
