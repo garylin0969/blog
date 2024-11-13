@@ -23,11 +23,7 @@ export const metadata: Metadata = {
     },
 };
 
-export default function RootLayout({
-    children,
-}: Readonly<{
-    children: ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
     return (
         <html suppressHydrationWarning lang="zh-TW">
             <head>
