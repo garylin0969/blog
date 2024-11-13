@@ -8,10 +8,8 @@ const ArticleCard = ({ className, ...props }: ArticlePropsT) => {
         <article className={cn('p-5', className)} {...props}>
             <div className="flex gap-x-5">
                 <div className={cn('w-3/4', 'space-y-2')}>
-                    <BaseLink className="block">
-                        <h2 className={cn('text-lg font-bold', 'dark:text-white', 'md:text-2xl')}>
-                            2024 資深前端工程師面試心得
-                        </h2>
+                    <BaseLink className={cn('inline-block', 'text-lg font-bold', 'md:text-2xl', 'dark:text-white')}>
+                        <h2>2024 資深前端工程師面試心得</h2>
                     </BaseLink>
                     <div className={cn('font-serif', 'space-x-3')}>
                         <span>2024-11-13</span>
