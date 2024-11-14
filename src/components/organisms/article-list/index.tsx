@@ -1,12 +1,17 @@
 import ArticleCard from '@/components/molecules/article-card';
+import { Post } from '@/interfaces/post';
 
-const ArticleList = () => {
+interface ArticleListProps {
+    posts: Post[];
+}
+
+const ArticleList = ({ posts }: ArticleListProps) => {
     return (
         <div>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9]?.map((value) => {
+            {posts?.map((post) => {
                 return (
-                    <div key={value} className="flex justify-center border-b">
-                        <ArticleCard />
+                    <div key={post?.slug} className="flex justify-center border-b">
+                        <ArticleCard className="w-full" post={post} />
                     </div>
                 );
             })}
