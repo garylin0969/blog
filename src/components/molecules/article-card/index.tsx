@@ -23,7 +23,7 @@ const ArticleCard = ({ className, post, ...props }: ArticleCardProps) => {
                         </span>
                         <span>__</span>
                         <span>
-                            <BaseLink>{post?.categorie}</BaseLink>
+                            <BaseLink>{post?.category}</BaseLink>
                         </span>
                     </div>
                     <h3 className="line-clamp-2 text-base/7" title={post?.excerpt}>
