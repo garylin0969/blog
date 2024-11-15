@@ -24,12 +24,15 @@ const Post = async ({ params }: PostProps) => {
     console.log(content);
 
     return (
-        <article className={cn('mx-auto my-8', 'space-y-8')}>
+        <article className={cn('my-8', 'space-y-8')}>
             <header className={cn('space-y-3')}>
                 <ArticleMeta date={post?.date} category={post?.category} />
-                <h1 className={cn('text-3xl font-bold')}>{post?.title}</h1>
+                <h1 className={cn('text-3xl font-bold dark:text-white')}>{post?.title}</h1>
             </header>
-            <div dangerouslySetInnerHTML={{ __html: content }} />
+            {/* <div
+                className="prose md:prose-lg dark:prose-invert prose-pre:dark:bg-slate-700 max-w-full"
+                dangerouslySetInnerHTML={{ __html: content }}
+            /> */}
         </article>
     );
 };

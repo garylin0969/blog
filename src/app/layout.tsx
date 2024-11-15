@@ -48,7 +48,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
                         )}
                     >
                         <Header />
-                        <div className="flex min-h-[calc(100svh-68px)] pt-16">
+                        <div className="flex min-h-[calc(100vh-68px)] pt-16">
                             <main className="flex-grow">{children}</main>
                         </div>
                         <Footer />
