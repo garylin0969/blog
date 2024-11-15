@@ -11,7 +11,7 @@ const BlogLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
                 <ArticleCategories className={cn('my-2 p-[10px]', 'border-y', 'flex flex-wrap gap-4 md:hidden')} />
                 {children}
             </div>
-            <BlogAside className="sticky top-16 max-h-[calc(100svh-132px)] w-80" />
+            <BlogAside className="sticky top-16 max-h-[calc(100svh-132px)] min-w-80 max-w-80" />
         </Container>
     );
 };
