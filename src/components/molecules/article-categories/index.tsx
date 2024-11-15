@@ -1,4 +1,4 @@
-import { BaseLink } from '@/components/atoms/link';
+import { NextLink } from '@/components/atoms/link';
 import { UlPropsT } from '@/interfaces/html';
 import { articleCategoriesConfig } from '@/constants/blog';
 
@@ -7,7 +7,7 @@ const ArticleCategories = ({ className, ...props }: UlPropsT) => {
         <ul className={className} {...props}>
             {articleCategoriesConfig?.map((category) => (
                 <li key={category?.value}>
-                    <BaseLink href={`/blog?category=${category?.value}`}>{category?.label}</BaseLink>
+                    <NextLink href={`/blog/${category?.value}`}>{category?.label}</NextLink>
                 </li>
             ))}
         </ul>
