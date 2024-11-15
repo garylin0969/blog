@@ -2,8 +2,7 @@ import { notFound } from 'next/navigation';
 import { getPostBySlug } from '@/lib/api';
 import markdownToHtml from '@/utils/markdownToHtml';
 import cn from '@/utils/cn';
-import { DateFormatter } from '@/components/atoms/date';
-import { NextLink } from '@/components/atoms/link';
+import ArticleMeta from '@/components/molecules/article-meta';
 
 interface PostProps {
     params: {
@@ -24,22 +23,13 @@ const Post = async ({ params }: PostProps) => {
 
     console.log(content);
 
-    const categoryLink = `/blog/${post?.category?.toLowerCase()}`;
-
     return (
-        <article className={cn('my-8')}>
-            <header>
+        <article className={cn('mx-auto my-8', 'space-y-8')}>
+            <header className={cn('space-y-3')}>
+                <ArticleMeta date={post?.date} category={post?.category} />
                 <h1 className={cn('text-3xl font-bold')}>{post?.title}</h1>
-                <div className={cn('font-serif', 'space-x-3')}>
-                    <span>
-                        <DateFormatter dateString={post?.date} />
-                    </span>
-                    <span>__</span>
-                    <span>
-                        <NextLink href={categoryLink}>{post?.category}</NextLink>
-                    </span>
-                </div>
             </header>
+            <div dangerouslySetInnerHTML={{ __html: content }} />
         </article>
     );
 };

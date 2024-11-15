@@ -6,7 +6,7 @@ import BlogAside from '@/components/organisms/blog-aside';
 
 const BlogLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
     return (
-        <Container className="flex h-full">
+        <Container className="flex h-full gap-8">
             <div className="flex-grow">
                 <ArticleCategories className={cn('my-2 p-[10px]', 'border-y', 'flex flex-wrap gap-4 md:hidden')} />
                 {children}

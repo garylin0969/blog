@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import cn from '@/utils/cn';
 import { ArticlePropsT } from '@/interfaces/html';
-import { NextLink } from '@/components/atoms/link';
 import { Post } from '@/interfaces/post';
-import { DateFormatter } from '@/components/atoms/date';
+import { NextLink } from '@/components/atoms/link';
+import ArticleMeta from '@/components/molecules/article-meta';
 
 interface ArticleCardProps extends ArticlePropsT {
     post: Post;
@@ -13,7 +13,6 @@ const ArticleCard = ({ className, post, ...props }: ArticleCardProps) => {
     const { category, slug, title, date, excerpt, coverImage } = post;
 
     const postLink = `/blog/post/${slug}`;
-    const categoryLink = `/blog/${category?.toLowerCase()}`;
 
     return (
         <article className={cn('p-5', className)} {...props}>
@@ -25,15 +24,7 @@ const ArticleCard = ({ className, post, ...props }: ArticleCardProps) => {
                     >
                         <h2>{title}</h2>
                     </NextLink>
-                    <div className={cn('font-serif', 'space-x-3')}>
-                        <span>
-                            <DateFormatter dateString={date} />
-                        </span>
-                        <span>__</span>
-                        <span>
-                            <NextLink href={categoryLink}>{category}</NextLink>
-                        </span>
-                    </div>
+                    <ArticleMeta date={date} category={category} />
                     <h3 className="line-clamp-2 text-base/7" title={excerpt}>
                         {excerpt}
                     </h3>

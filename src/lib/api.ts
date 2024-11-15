@@ -40,11 +40,20 @@ export function getPostBySlug(slug: string, postsDirectory: string = baseDirecto
 }
 
 export function getPosts(category: string = 'all'): Post[] {
-    const postsDirectory = category === 'all' ? baseDirectory : join(baseDirectory, category);
+    // const postsDirectory = category === 'all' ? baseDirectory : join(baseDirectory, category);
+
+    const postsDirectory = baseDirectory;
     const slugs = getPostSlugs(postsDirectory);
     const posts = slugs
         ?.map((slug) => getPostBySlug(slug, postsDirectory))
         // sort posts by date in descending order
-        ?.sort((post1, post2) => (post1?.date > post2?.date ? -1 : 1));
+        ?.sort((post1, post2) => (post1?.date > post2?.date ? -1 : 1))
+        ?.filter((post) => {
+            if (category !== 'all') {
+                return post?.category?.toLocaleLowerCase() === category?.toLocaleLowerCase();
+            } else {
+                return true;
+            }
+        });
     return posts;
 }

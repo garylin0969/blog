@@ -1,6 +1,6 @@
 ---
 category: 'Frontend'
-title: 'Gary Dynamic Routing and Static GenerationGary Dynamic Routing and Static Generation'
+title: '[台灣 vs 美國] 2023 產假福利大比拼，以及手把手申請加州 EDD 產假'
 excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.'
 coverImage: '/assets/blog/preview/cover.jpg'
 date: '2024-12-16T05:35:07.322Z'

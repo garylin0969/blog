@@ -6,7 +6,7 @@ import { AsidePropsT } from '@/interfaces/html';
 
 const BlogAside = ({ className, ...props }: AsidePropsT) => {
     return (
-        <aside className={cn('hidden flex-col md:flex', 'px-6', className)} {...props}>
+        <aside className={cn('hidden flex-col md:flex', className)} {...props}>
             <InfoCard className="mt-8" />
             <DividerTitle align="center" title="文章分類" className="my-5 md:text-xl" />
             <div className="flex-grow overflow-y-scroll">
