@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import cn from '@/utils/cn';
 import { navConfig } from '@/constants/header';
+import { NextLink } from '@/components/atoms/link';
 
 const NavMenu = () => {
     return (
@@ -9,9 +9,7 @@ const NavMenu = () => {
                 {navConfig?.map((data) => {
                     return (
                         <li key={data?.label}>
-                            <Link href={data?.href} className="hover:text-sky-500 dark:hover:text-sky-400">
-                                {data?.label}
-                            </Link>
+                            <NextLink href={data?.href}>{data?.label}</NextLink>
                         </li>
                     );
                 })}
