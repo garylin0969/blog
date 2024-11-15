@@ -1,13 +1,3 @@
-import ArticleList from '@/components/organisms/article-list';
-import { getAllPosts } from '@/lib/api';
+import Page from './[category]/page';
 
-const Blog = () => {
-    const allPosts = getAllPosts();
-    return (
-        <>
-            <ArticleList posts={allPosts} />
-        </>
-    );
-};
-
-export default Blog;
+export default Page;
