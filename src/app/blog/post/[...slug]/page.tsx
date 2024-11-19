@@ -21,18 +21,23 @@ const Post = async ({ params }: PostProps) => {
 
     const content = await markdownToHtml(post?.content || '');
 
-    console.log(content);
-
     return (
         <article className={cn('my-8', 'space-y-8')}>
             <header className={cn('space-y-3')}>
                 <ArticleMeta date={post?.date} category={post?.category} />
                 <h1 className={cn('text-3xl font-bold dark:text-white')}>{post?.title}</h1>
             </header>
-            {/* <div
-                className="prose md:prose-lg dark:prose-invert prose-pre:dark:bg-slate-700 max-w-full"
-                dangerouslySetInnerHTML={{ __html: content }}
-            /> */}
+            <div className="grid grid-cols-1">
+                <div
+                    className={cn(
+                        'col-span-1 max-w-none',
+                        'prose md:prose-lg',
+                        'dark:prose-invert',
+                        'prose-pre:dark:bg-slate-700',
+                    )}
+                    dangerouslySetInnerHTML={{ __html: content }}
+                />
+            </div>
         </article>
     );
 };
