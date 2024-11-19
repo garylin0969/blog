@@ -7,7 +7,7 @@ const Experience = ({ className, ...props }: SectionPropsT) => {
     return (
         <>
             <section className={cn('flex justify-center', className)} {...props}>
-                <ul className={cn('relative')}>
+                <ul className={cn('relative', 'space-y-4')}>
                     <div
                         className={cn(
                             'hidden md:block',
