@@ -4,8 +4,8 @@ import { DateFormatter } from '@/components/atoms/date';
 import { NextLink } from '@/components/atoms/link';
 
 interface ArticleMetaProps extends DivPropsT {
-    date: string;
-    category: string;
+    date?: string;
+    category?: string;
 }
 
 const ArticleMeta = ({ className, date, category, ...props }: ArticleMetaProps) => {

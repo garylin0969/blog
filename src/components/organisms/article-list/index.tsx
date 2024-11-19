@@ -10,7 +10,7 @@ const ArticleList = ({ posts }: ArticleListProps) => {
         <div>
             {posts?.map((post) => {
                 return (
-                    <div key={post?.slug} className="flex justify-center border-b">
+                    <div key={post?.title} className="flex justify-center border-b">
                         <ArticleCard className="w-full" post={post} />
                     </div>
                 );

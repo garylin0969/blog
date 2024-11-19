@@ -1,5 +1,5 @@
 import ArticleList from '@/components/organisms/article-list';
-import { getPosts } from '@/lib/api';
+import { getAllPosts, getPostsByCategory } from '@/lib/posts';
 
 interface BlogPageProps {
     params: {
@@ -8,7 +8,9 @@ interface BlogPageProps {
 }
 
 const BlogPage = ({ params: { category = 'all' } }: BlogPageProps) => {
-    const posts = getPosts(category);
+    const posts = category === 'all' ? getAllPosts() : getPostsByCategory(category);
+    console.log(posts);
+
     return <ArticleList posts={posts} />;
 };
 

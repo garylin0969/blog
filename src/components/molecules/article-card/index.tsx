@@ -10,9 +10,9 @@ interface ArticleCardProps extends ArticlePropsT {
 }
 
 const ArticleCard = ({ className, post, ...props }: ArticleCardProps) => {
-    const { category, slug, title, date, excerpt, coverImage } = post;
+    const { category, title = '', date = '', description, coverImage = '', url } = post;
 
-    const postLink = `/blog/post/${slug}`;
+    const postLink = `/blog/posts${url}`;
 
     return (
         <article className={cn('p-5', className)} {...props}>
@@ -25,8 +25,8 @@ const ArticleCard = ({ className, post, ...props }: ArticleCardProps) => {
                         <h2>{title}</h2>
                     </NextLink>
                     <ArticleMeta date={date} category={category} />
-                    <h3 className="line-clamp-2 text-base/7" title={excerpt}>
-                        {excerpt}
+                    <h3 className="line-clamp-2 text-base/7" title={description}>
+                        {description}
                     </h3>
                 </div>
                 <div className="w-1/4">

@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
-import { getPostBySlug } from '@/lib/api';
-import markdownToHtml from '@/utils/markdownToHtml';
+import { getPostBySlug } from '@/lib/posts';
 import cn from '@/utils/cn';
 import ArticleMeta from '@/components/molecules/article-meta';
+import { useMDXComponent } from 'next-contentlayer/hooks';
 
 interface PostProps {
     params: {
@@ -10,16 +10,16 @@ interface PostProps {
     };
 }
 
-const Post = async ({ params }: PostProps) => {
+const Posts = ({ params }: PostProps) => {
     const slug = params.slug.join('/');
 
-    const post = getPostBySlug(slug);
+    const post = getPostBySlug(`/${slug}`);
 
     if (!post) {
         return notFound();
     }
 
-    const content = await markdownToHtml(post?.content || '');
+    const MDXContent = useMDXComponent(post?.body?.code);
 
     return (
         <article className={cn('my-8', 'space-y-8')}>
@@ -28,18 +28,12 @@ const Post = async ({ params }: PostProps) => {
                 <h1 className={cn('text-3xl font-bold dark:text-white')}>{post?.title}</h1>
             </header>
             <div className="grid grid-cols-1">
-                <div
-                    className={cn(
-                        'col-span-1 max-w-none',
-                        'prose md:prose-lg',
-                        'dark:prose-invert',
-                        'prose-pre:dark:bg-slate-700',
-                    )}
-                    dangerouslySetInnerHTML={{ __html: content }}
-                />
+                <div className={cn('col-span-1 max-w-none', 'prose md:prose-lg', 'dark:prose-invert')}>
+                    <MDXContent />
+                </div>
             </div>
         </article>
     );
 };
 
-export default Post;
+export default Posts;

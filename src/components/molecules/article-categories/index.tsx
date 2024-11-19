@@ -1,13 +1,16 @@
 import { NextLink } from '@/components/atoms/link';
 import { UlPropsT } from '@/interfaces/html';
-import { articleCategoriesConfig } from '@/constants/blog';
+import { getAllCategories } from '@/lib/posts';
 
 const ArticleCategories = ({ className, ...props }: UlPropsT) => {
     return (
         <ul className={className} {...props}>
-            {articleCategoriesConfig?.map((category) => (
-                <li key={category?.value}>
-                    <NextLink href={`/blog/${category?.value}`}>{category?.label}</NextLink>
+            <li>
+                <NextLink href="/blog/all">All</NextLink>
+            </li>
+            {getAllCategories()?.map((category) => (
+                <li key={category}>
+                    <NextLink href={`/blog/${category?.toLocaleLowerCase()}`}>{category}</NextLink>
                 </li>
             ))}
         </ul>
