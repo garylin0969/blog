@@ -8,6 +8,8 @@ import Header from '@/components/organisms/header';
 import Footer from '@/components/organisms/footer';
 import ScrollToTopButton from '@/components/molecules/scroll-to-top-button';
 
+import '@/styles/prism-plus.css';
+import '@/styles/prism-vsc-dark-plus.css';
 import './globals.css';
 
 const inter = Inter({
