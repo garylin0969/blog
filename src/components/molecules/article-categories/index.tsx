@@ -10,7 +10,7 @@ const ArticleCategories = ({ className, ...props }: UlPropsT) => {
             </li>
             {getAllCategories()?.map((category) => (
                 <li key={category}>
-                    <NextLink href={`/blog/${category?.toLocaleLowerCase()}`}>{category}</NextLink>
+                    <NextLink href={`/blog/${category?.toLowerCase()}`}>{category}</NextLink>
                 </li>
             ))}
         </ul>
