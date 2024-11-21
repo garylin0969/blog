@@ -10,6 +10,7 @@
         }
     },
     "metadata": {
+        "author": "GaryLin",
         "title": "GaryLin | Dev",
         "description": "Hi, I am GaryLin, a Frontend Developer. This is my personal website.",
         "icons": { "icon": { "url": "/assets/logo.svg" } }

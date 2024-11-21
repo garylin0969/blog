@@ -1,10 +1,15 @@
-import cn from '@/utils/cn';
+import { Metadata } from 'next';
+import config from 'blog.config.json';
 import Container from '@/components/atoms/container';
 import InfoCard from '@/components/molecules/info-card';
 import AboutInfo from '@/components/organisms/about-info';
 import DividerTitle from '@/components/molecules/divider-title';
 import Experience from '@/components/organisms/experience';
 import Projects from '@/components/organisms/projects';
+
+export const metadata: Metadata = {
+    title: `${config.metadata.author} | About`,
+};
 
 const AboutPage = () => {
     return (
