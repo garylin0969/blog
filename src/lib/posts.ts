@@ -1,8 +1,15 @@
 import { allPosts } from 'contentlayer/generated';
 
+// 除去草稿之外的所有文章
+export const getPublishedPosts = () => {
+    return allPosts?.filter((post) => !post?.draft);
+};
+
 // 獲取所有分類
 export const getAllCategories = () => {
-    const categories = allPosts.map((post) => post?.category).filter((category): category is string => !!category);
+    const categories = getPublishedPosts()
+        ?.map((post) => post?.category)
+        .filter((category): category is string => !!category);
 
     // 去除重複的分類
     return Array.from(new Set(categories));
@@ -10,7 +17,7 @@ export const getAllCategories = () => {
 
 // 獲取所有文章
 export const getAllPosts = () => {
-    return allPosts?.sort((post1, post2) => {
+    return getPublishedPosts()?.sort((post1, post2) => {
         const date1 = post1?.date ? new Date(post1.date).getTime() : 0;
         const date2 = post2?.date ? new Date(post2.date).getTime() : 0;
         return date2 - date1;
@@ -19,8 +26,8 @@ export const getAllPosts = () => {
 
 // 根據分類獲取文章
 export const getPostsByCategory = (category: string) => {
-    return allPosts
-        .filter((post) => post?.category?.toLowerCase() === category?.toLowerCase())
+    return getPublishedPosts()
+        ?.filter((post) => post?.category?.toLowerCase() === category?.toLowerCase())
         ?.sort((post1, post2) => {
             const date1 = post1?.date ? new Date(post1.date).getTime() : 0;
             const date2 = post2?.date ? new Date(post2.date).getTime() : 0;
@@ -33,6 +40,7 @@ export const isCategoryExists = (category: string) => {
     return getAllCategories()?.some((cat) => cat?.toLowerCase() === category?.toLowerCase());
 };
 
-export const getPostBySlug = (slug: string) => {
-    return allPosts.find((post) => post?.url === slug);
+// 根據 slug 獲取文章
+export const getPostBySlug = (slug: string = '') => {
+    return getPublishedPosts()?.find((post) => post?.url === slug);
 };
