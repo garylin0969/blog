@@ -1,8 +1,6 @@
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
-import metadataConfig from '@/constants/metadata.config.json';
-import themeConfig from '@/constants/theme.config.json';
 import cn from '@/utils/cn';
 import ThemeProvider from '@/providers/theme-provider';
 import Header from '@/components/organisms/header';
@@ -19,14 +17,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    ...metadataConfig,
+    title: 'GaryLin | Dev',
+    description: 'Hi, I am GaryLin, a Frontend Developer. This is my personal website.',
+    icons: { icon: { url: '/assets/logo.svg' } },
     // openGraph: {
     //     images: [HOME_OG_IMAGE_URL],
     // },
 };
-
-const light = `text-[${themeConfig.light.text}] bg-[${themeConfig.light.background}]`;
-const dark = `dark:text-[${themeConfig.dark.text}] dark:bg-[${themeConfig.dark.background}]`;
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
     return (
@@ -36,7 +33,13 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             </head>
             <body className={cn(inter.className, 'antialiased')}>
                 <ThemeProvider>
-                    <div className={cn('transition-colors duration-300', light, dark)}>
+                    <div
+                        className={cn(
+                            'transition-colors duration-300',
+                            'text-slate-700 dark:text-slate-300',
+                            'dark:bg-slate-900',
+                        )}
+                    >
                         <Header />
                         <div className="flex min-h-[calc(100vh-68px)] pt-16">
                             <main className="flex-grow">{children}</main>
