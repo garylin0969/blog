@@ -12,13 +12,13 @@ export const metadata: Metadata = {
 
 const AboutPage = () => {
     return (
-        <Container className="space-y-8">
-            <InfoCard className="mt-8" />
+        <Container className="space-y-6">
+            <InfoCard className="mt-6" />
             <AboutInfo className="mx-auto max-w-3xl" />
             <DividerTitle align="center" title="Experience" />
             <Experience />
             <DividerTitle align="center" title="Projects" />
-            <Projects className="pb-8" />
+            <Projects className="pb-6" />
         </Container>
     );
 };

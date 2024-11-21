@@ -6,7 +6,7 @@ import { ProjectsConfig } from '@/constants/personal';
 const Projects = ({ className, ...props }: SectionPropsT) => {
     return (
         <section
-            className={cn('grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3', 'gap-10', 'px-2 md:px-0', className)}
+            className={cn('grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3', 'gap-4', 'px-2 md:px-0', className)}
             {...props}
         >
             {ProjectsConfig?.map((data) => {

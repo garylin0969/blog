@@ -22,7 +22,7 @@ const Posts = ({ params }: PostProps) => {
     const MDXContent = useMDXComponent(post?.body?.code);
 
     return (
-        <article className={cn('my-8', 'space-y-8')}>
+        <article className={cn('space-y-8')}>
             <header className={cn('space-y-3')}>
                 <ArticleMeta date={post?.date} category={post?.category} />
                 <h1 className={cn('text-3xl font-bold dark:text-white')}>{post?.title}</h1>
