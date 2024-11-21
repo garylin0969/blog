@@ -1,6 +1,6 @@
 import { NextLink } from '@/components/atoms/link';
 import { UlPropsT } from '@/interfaces/html';
-import { getAllCategories } from '@/utils/posts/posts';
+import { getAllCategories } from '@/utils/posts';
 
 const ArticleCategories = ({ className, ...props }: UlPropsT) => {
     return (
