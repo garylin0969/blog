@@ -9,7 +9,6 @@ interface BlogPageProps {
 
 const BlogPage = ({ params: { category = 'all' } }: BlogPageProps) => {
     const posts = category === 'all' ? getAllPosts() : getPostsByCategory(category);
-    console.log(posts);
 
     return <ArticleList posts={posts} />;
 };
