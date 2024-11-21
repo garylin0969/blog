@@ -6,7 +6,7 @@ export const authorImg = '/assets/avatar/avatar.jpg';
 
 export const author = 'Gary Lin';
 
-export const basicInfoConfig = [
+export const BasicInfoConfig = [
     {
         icon: <FaBuilding />,
         link: 'https://www.cnyes.com/',
@@ -54,12 +54,12 @@ export const HeaderSocialIconLinksConfig = [
     },
 ];
 
-export const aboutInfoConfig = [
+export const AboutInfoConfig = [
     'Hi there 🙋',
     '我是 Gary Lin，目前於 鉅亨網 擔任前端工程師，主要使用 Next、React、TypeScript 和 Tailwind CSS。閒暇時喜愛看動漫、小說，經常在社群平台上衝浪的哥布林。',
 ];
 
-export const experienceConfig = [
+export const ExperienceConfig = [
     {
         logoSrc: '/assets/company-logo/anue.png',
         title: 'Frontend Developer',
@@ -86,7 +86,7 @@ export const experienceConfig = [
     },
 ];
 
-export const projectsConfig = [
+export const ProjectsConfig = [
     {
         imageUrl: '/assets/projects/chinese-number-format.avif',
         projectUrl: 'https://www.npmjs.com/package/chinese-number-format',
