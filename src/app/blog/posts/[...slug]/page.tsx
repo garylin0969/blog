@@ -28,7 +28,13 @@ const Posts = ({ params }: PostProps) => {
                 <h1 className={cn('text-3xl font-bold dark:text-white')}>{post?.title}</h1>
             </header>
             <div className="grid grid-cols-1">
-                <div className={cn('col-span-1 max-w-none', 'prose md:prose-lg', 'dark:prose-invert')}>
+                <div
+                    className={cn(
+                        'col-span-1 max-w-none',
+                        'prose md:prose-lg',
+                        'dark:prose-invert dark:prose-pre:bg-[#282C34]',
+                    )}
+                >
                     <MDXContent />
                 </div>
             </div>
