@@ -11,7 +11,7 @@ export const Post = defineDocumentType(() => ({
     filePathPattern: `**/*.mdx`,
     contentType: 'mdx',
     fields: {
-        category: { type: 'string', required: false },
+        category: { type: 'string', required: true },
         title: { type: 'string', required: true },
         description: { type: 'string', required: false },
         date: { type: 'date', required: true },
