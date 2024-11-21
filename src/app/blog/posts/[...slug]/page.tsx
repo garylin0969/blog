@@ -11,7 +11,7 @@ interface PostProps {
 }
 
 const Posts = ({ params }: PostProps) => {
-    const slug = params.slug.join('/');
+    const slug = params?.slug?.join('/');
 
     const post = getPostBySlug(`/${slug}`);
 
