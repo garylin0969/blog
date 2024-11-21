@@ -1,0 +1,17 @@
+{
+    "theme": {
+        "light": {
+            "text": "#334155",
+            "background": "#00000000"
+        },
+        "dark": {
+            "text": "#cbd5e1",
+            "background": "#0f172a"
+        }
+    },
+    "metadata": {
+        "title": "GaryLin | Dev",
+        "description": "Hi, I am GaryLin, a Frontend Developer. This is my personal website.",
+        "icons": { "icon": { "url": "/assets/logo.svg" } }
+    }
+}
