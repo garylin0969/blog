@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import cn from '@/utils/cn';
 import { BurgerButton, BurgerContainer } from '@/components/molecules/burger';
-import { navConfig } from '@/constants/header';
+import { NavigationConfig } from '@/constants/header';
 import SocialIconLinks from '@/components/molecules/social-icon-links';
 
 const BurgerMenu = () => {
@@ -29,7 +29,7 @@ const BurgerMenu = () => {
                     )}
                 >
                     <ul className={cn('flex flex-col gap-4')}>
-                        {navConfig?.map((data) => {
+                        {NavigationConfig?.map((data) => {
                             return (
                                 <li key={data?.href}>
                                     <Link href={data?.href} onClick={toggleMenu}>
