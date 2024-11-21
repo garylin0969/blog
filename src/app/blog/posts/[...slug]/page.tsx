@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getPostBySlug } from '@/lib/posts';
+import { getPostBySlug } from '@/utils/posts/posts';
 import cn from '@/utils/cn';
 import ArticleMeta from '@/components/molecules/article-meta';
 import { useMDXComponent } from 'next-contentlayer/hooks';

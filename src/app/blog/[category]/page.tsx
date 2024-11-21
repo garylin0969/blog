@@ -1,5 +1,5 @@
 import ArticleList from '@/components/organisms/article-list';
-import { getAllPosts, getPostsByCategory } from '@/lib/posts';
+import { getAllPosts, getPostsByCategory } from '@/utils/posts/posts';
 
 interface BlogPageProps {
     params: {
