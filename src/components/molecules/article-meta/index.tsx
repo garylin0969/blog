@@ -12,7 +12,7 @@ const ArticleMeta = ({ className, date, category, ...props }: ArticleMetaProps) 
     const categoryLink = `/blog/${category?.toLowerCase()}`;
 
     return (
-        <div className={cn('font-serif', 'space-x-3', className)} {...props}>
+        <div className={cn('font-serif', 'space-x-3', 'dark:text-slate-400', className)} {...props}>
             <span>
                 <DateFormatter dateString={date} />
             </span>

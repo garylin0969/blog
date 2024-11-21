@@ -16,28 +16,17 @@ const ArticleCard = ({ className, post, ...props }: ArticleCardProps) => {
 
     return (
         <article className={cn('p-5', className)} {...props}>
-            <div className="flex gap-x-5">
-                <div className={cn('w-3/4', 'space-y-2')}>
-                    <NextLink
-                        href={postLink}
-                        className={cn('inline-block', 'text-lg font-bold', 'md:text-2xl', 'dark:text-white')}
-                    >
-                        <h2>{title}</h2>
-                    </NextLink>
-                    <ArticleMeta date={date} category={category} />
-                    <h3 className="line-clamp-2 text-base/7" title={description}>
-                        {description}
-                    </h3>
-                </div>
-                <div className="w-1/4">
-                    <Image
-                        src={coverImage}
-                        className={cn('mx-auto object-cover', 'h-[53px] w-20', 'md:h-[107px] md:w-40')}
-                        width={160}
-                        height={107}
-                        alt={title}
-                    />
-                </div>
+            <div className={cn('space-y-2')}>
+                <NextLink
+                    href={postLink}
+                    className={cn('inline-block', 'text-lg font-bold', 'md:text-2xl', 'dark:text-white')}
+                >
+                    <h2>{title}</h2>
+                </NextLink>
+                <ArticleMeta date={date} category={category} />
+                <h3 className="line-clamp-2 text-base/7" title={description}>
+                    {description}
+                </h3>
             </div>
         </article>
     );
