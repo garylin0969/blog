@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import cn from '@/utils/cn';
 import ThemeProvider from '@/providers/theme-provider';
 import Header from '@/components/organisms/header';
@@ -24,6 +25,8 @@ export const metadata: Metadata = {
     //     images: [HOME_OG_IMAGE_URL],
     // },
 };
+
+const GAID = String(process.env.NEXT_PUBLIC_GA_ID);
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
     return (
@@ -49,6 +52,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
                     </div>
                 </ThemeProvider>
             </body>
+            <GoogleAnalytics gaId={GAID} />
         </html>
     );
 }
