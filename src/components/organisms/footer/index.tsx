@@ -1,17 +1,11 @@
-import dynamic from 'next/dynamic';
-import footerConfig from '@/constants/footer.config.json';
 import cn from '@/utils/cn';
+import { BaseLink } from '@/components/atoms/link';
+import { author } from '@/constants/personal';
 
 const year = new Date().getFullYear();
-const { enabled, author, link } = footerConfig;
-
-const BaseLink = dynamic(() => import('@/components/atoms/link').then((mod) => mod.BaseLink));
+const link = 'https://github.com/garylin0969';
 
 const Footer = () => {
-    if (!enabled) {
-        return null;
-    }
-
     return (
         <footer className={cn('py-6', 'text-center text-sm tracking-wide')}>
             <p>
