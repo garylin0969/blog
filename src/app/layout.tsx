@@ -1,7 +1,8 @@
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
-import config from 'blog.config.json';
+import metadataConfig from '@/constants/metadata.config.json';
+import themeConfig from '@/constants/theme.config.json';
 import cn from '@/utils/cn';
 import ThemeProvider from '@/providers/theme-provider';
 import Header from '@/components/organisms/header';
@@ -18,14 +19,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    ...config.metadata,
+    ...metadataConfig,
     // openGraph: {
     //     images: [HOME_OG_IMAGE_URL],
     // },
 };
 
-const light = `text-[${config.theme.light.text}] bg-[${config.theme.light.background}]`;
-const dark = `dark:text-[${config.theme.dark.text}] dark:bg-[${config.theme.dark.background}]`;
+const light = `text-[${themeConfig.light.text}] bg-[${themeConfig.light.background}]`;
+const dark = `dark:text-[${themeConfig.dark.text}] dark:bg-[${themeConfig.dark.background}]`;
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
     return (
