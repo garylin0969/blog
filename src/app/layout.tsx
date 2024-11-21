@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     // },
 };
 
-const GAID = String(process.env.NEXT_PUBLIC_GA_ID);
+const GAID = String(process.env.NEXT_PRIVATE_GA_ID);
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
     return (
