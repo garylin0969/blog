@@ -1,11 +1,9 @@
 import dynamic from 'next/dynamic';
-import config from 'blog.config.json';
+import footerConfig from '@/constants/footer.config.json';
 import cn from '@/utils/cn';
 
 const year = new Date().getFullYear();
-const author = config.author;
-const footerConfig = config.components.footer;
-const { enabled, link } = footerConfig;
+const { enabled, author, link } = footerConfig;
 
 const BaseLink = dynamic(() => import('@/components/atoms/link').then((mod) => mod.BaseLink));
 
