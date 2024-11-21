@@ -1,8 +1,14 @@
 import { ReactNode } from 'react';
+import { Metadata } from 'next';
+import config from 'blog.config.json';
 import cn from '@/utils/cn';
 import Container from '@/components/atoms/container';
 import ArticleCategories from '@/components/molecules/article-categories';
 import BlogAside from '@/components/organisms/blog-aside';
+
+export const metadata: Metadata = {
+    title: `${config.metadata.author} | Blog`,
+};
 
 const BlogLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
     return (
