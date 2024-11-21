@@ -8,7 +8,7 @@ import Experience from '@/components/organisms/experience';
 import Projects from '@/components/organisms/projects';
 
 export const metadata: Metadata = {
-    title: `${config.metadata.author} | About`,
+    title: `${config.author} | About`,
 };
 
 const AboutPage = () => {

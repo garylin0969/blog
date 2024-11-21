@@ -7,7 +7,7 @@ import ArticleCategories from '@/components/molecules/article-categories';
 import BlogAside from '@/components/organisms/blog-aside';
 
 export const metadata: Metadata = {
-    title: `${config.metadata.author} | Blog`,
+    title: `${config.author} | Blog`,
 };
 
 const BlogLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
