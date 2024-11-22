@@ -39,8 +39,10 @@ export async function generateStaticParams() {
 }
 
 const Posts = ({ params }: PostProps) => {
-    const slug = params?.slug?.join('/');
-    const post = getPostBySlug(`/${slug}`);
+    // 將 slug 中的每個部分解碼
+    const decodedSlug = params?.slug?.map((part) => decodeURIComponent(part))?.join('/');
+
+    const post = getPostBySlug(`/${decodedSlug}`);
 
     if (!post) {
         return notFound();
