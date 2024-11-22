@@ -1,8 +1,9 @@
 import { notFound } from 'next/navigation';
-import { getPostBySlug } from '@/utils/posts';
+import { getAllPosts, getPostBySlug } from '@/utils/posts';
 import cn from '@/utils/cn';
 import ArticleMeta from '@/components/molecules/article-meta';
 import { useMDXComponent } from 'next-contentlayer/hooks';
+import { type Metadata } from 'next';
 
 interface PostProps {
     params: {
@@ -10,9 +11,35 @@ interface PostProps {
     };
 }
 
+export async function generateMetadata({ params }: PostProps): Promise<Metadata> {
+    const slug = params?.slug?.join('/');
+    const post = getPostBySlug(`/${slug}`);
+    const title = `GaryLin | ${post?.title}`;
+
+    return {
+        title,
+        openGraph: {
+            title: title,
+            description: post?.description,
+            images: [
+                {
+                    url: post?.coverImage || '/assets/default-open-graph.jpg',
+                },
+            ],
+        },
+    };
+}
+
+export async function generateStaticParams() {
+    const posts = getAllPosts(); // 從資料庫或 CMS 獲取文章
+
+    return posts.map((post) => ({
+        slug: post?.url?.split('/').filter(Boolean),
+    }));
+}
+
 const Posts = ({ params }: PostProps) => {
     const slug = params?.slug?.join('/');
-
     const post = getPostBySlug(`/${slug}`);
 
     if (!post) {
@@ -20,12 +47,13 @@ const Posts = ({ params }: PostProps) => {
     }
 
     const MDXContent = useMDXComponent(post?.body?.code);
+    const { date, category, title } = post;
 
     return (
         <article className={cn('space-y-8')}>
             <header className={cn('space-y-3')}>
-                <ArticleMeta date={post?.date} category={post?.category} />
-                <h1 className={cn('text-3xl font-bold dark:text-white')}>{post?.title}</h1>
+                <ArticleMeta date={date} category={category} />
+                <h1 className={cn('text-3xl font-bold dark:text-white')}>{title}</h1>
             </header>
             <div className="grid grid-cols-1">
                 <div
