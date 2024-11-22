@@ -8,7 +8,19 @@ import Projects from '@/components/organisms/projects';
 
 export const metadata: Metadata = {
     title: 'GaryLin | About',
-    openGraph: { title: 'GaryLin | About' },
+    openGraph: {
+        title: 'GaryLin | About',
+        description: 'Hi, , my name is Gary Lin, a Frontend Developer.',
+        images: [
+            {
+                url: '/assets/default-open-graph.jpg',
+                width: 1200,
+                height: 630,
+            },
+        ],
+        locale: 'zh_TW',
+        type: 'website',
+    },
 };
 
 const AboutPage = () => {
