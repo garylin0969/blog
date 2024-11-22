@@ -8,6 +8,7 @@ import Projects from '@/components/organisms/projects';
 
 export const metadata: Metadata = {
     title: 'GaryLin | About',
+    openGraph: { title: 'GaryLin | About' },
 };
 
 const AboutPage = () => {
