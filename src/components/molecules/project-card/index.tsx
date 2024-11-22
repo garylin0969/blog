@@ -54,7 +54,7 @@ const ProjectCard = ({
                     </p>
                 </div>
                 <div className={cn('mt-auto flex justify-end')}>
-                    <BaseLink href={projectUrl}>
+                    <BaseLink href={projectUrl} aria-label={`Read more about ${projectName}`}>
                         <BaseButton>Read more</BaseButton>
                     </BaseLink>
                 </div>

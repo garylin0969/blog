@@ -37,14 +37,10 @@ export const metadata: Metadata = {
     },
 };
 
-// const GAID = String(process.env.NEXT_PRIVATE_GA_ID);
-
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
     return (
         <html suppressHydrationWarning lang="zh-TW">
-            <head>
-                <link rel="icon" href="/assets/logo.svg'" sizes="any" />
-            </head>
+            <GoogleAnalytics gaId="G-F0MRGZ2J39" />
             <body className={cn(inter.className, 'antialiased')}>
                 <ThemeProvider>
                     <div
@@ -63,7 +59,6 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
                     </div>
                 </ThemeProvider>
             </body>
-            <GoogleAnalytics gaId="G-F0MRGZ2J39" />
         </html>
     );
 }
