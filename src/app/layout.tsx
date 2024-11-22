@@ -21,9 +21,18 @@ export const metadata: Metadata = {
     title: 'GaryLin | Dev',
     description: 'Hi, I am GaryLin, a Frontend Developer. This is my personal website.',
     icons: { icon: { url: '/assets/logo.svg' } },
-    // openGraph: {
-    //     images: [HOME_OG_IMAGE_URL],
-    // },
+    authors: [{ name: 'GaryLin' }],
+    openGraph: {
+        title: 'GaryLin | Dev',
+        description: 'Hi, I am GaryLin, a Frontend Developer. This is my personal website.',
+        images: [
+            {
+                url: '/assets/default-open-graph.jpg',
+            },
+        ],
+        locale: 'zh_TW',
+        type: 'website',
+    },
 };
 
 const GAID = String(process.env.NEXT_PRIVATE_GA_ID);
