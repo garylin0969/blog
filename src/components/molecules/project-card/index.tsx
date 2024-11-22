@@ -31,7 +31,7 @@ const ProjectCard = ({
             )}
             {...props}
         >
-            <BaseLink href={projectUrl}>
+            <BaseLink href={projectUrl} className="overflow-hidden">
                 <Image
                     src={imageUrl}
                     className={cn('aspect-[3/2] object-cover', 'transition duration-300 hover:scale-105')}
