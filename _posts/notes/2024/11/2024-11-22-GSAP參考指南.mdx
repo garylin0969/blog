@@ -83,9 +83,12 @@ date: '2024-11-22T03:50:35Z'
 ### 基礎動畫組合
 
 ```javascript
-<div className="prose dark:prose-invert">
-    <div dangerouslySetInnerHTML={{ __html: content }} />
-</div>
+gsap.to('.element', {
+    duration: 1,
+    x: 100,
+    opacity: 0.5,
+    scale: 1.2,
+});
 ```
 
 ### 序列動畫
