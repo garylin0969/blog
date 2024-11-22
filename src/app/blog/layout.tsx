@@ -7,6 +7,7 @@ import SocialIconLinks from '@/components/molecules/social-icon-links';
 
 export const metadata: Metadata = {
     title: 'GaryLin | Blog',
+    openGraph: { title: 'GaryLin | Blog' },
 };
 
 const BlogLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
