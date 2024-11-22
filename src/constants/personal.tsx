@@ -88,6 +88,21 @@ export const ExperienceConfig = [
 
 export const ProjectsConfig = [
     {
+        imageUrl: '/assets/projects/blog.jpg',
+        projectUrl: 'https://github.com/garylin0969/blog',
+        projectName: 'Blog',
+        projectTags: [
+            '2024',
+            'Next',
+            'TypeScript',
+            'GoogleAnalytics',
+            'Contentlayer',
+            'Tailwind CSS',
+            'next-themes',
+            'remark',
+        ],
+    },
+    {
         imageUrl: '/assets/projects/chinese-number-format.avif',
         projectUrl: 'https://www.npmjs.com/package/chinese-number-format',
         projectName: 'chinese-number-format',
