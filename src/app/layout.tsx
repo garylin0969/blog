@@ -19,12 +19,12 @@ const inter = Inter({
 
 export const metadata: Metadata = {
     title: 'GaryLin | Dev',
-    description: 'Hi, , My name is Gary Lin, a Frontend Developer.',
+    description: 'Hi, , my name is Gary Lin, a Frontend Developer.',
     icons: { icon: { url: '/assets/logo.svg' } },
     authors: [{ name: 'GaryLin' }],
     openGraph: {
         title: 'GaryLin | Dev',
-        description: 'Hi, , My name is Gary Lin, a Frontend Developer.',
+        description: 'Hi, , my name is Gary Lin, a Frontend Developer.',
         images: [
             {
                 url: '/assets/default-open-graph.jpg',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     },
 };
 
-const GAID = String(process.env.NEXT_PRIVATE_GA_ID);
+// const GAID = String(process.env.NEXT_PRIVATE_GA_ID);
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
     return (
@@ -63,7 +63,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
                     </div>
                 </ThemeProvider>
             </body>
-            <GoogleAnalytics gaId={GAID} />
+            <GoogleAnalytics gaId="G-F0MRGZ2J39" />
         </html>
     );
 }
