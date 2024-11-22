@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const AboutPage = () => {
     return (
-        <Container className="space-y-6">
+        <Container className="space-y-8">
             <InfoCard className="mt-6" />
             <AboutInfo className="mx-auto max-w-3xl" />
             <DividerTitle align="center" title="Experience" />
