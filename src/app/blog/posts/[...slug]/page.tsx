@@ -12,8 +12,9 @@ interface PostProps {
 }
 
 export async function generateMetadata({ params }: PostProps): Promise<Metadata> {
-    const slug = params?.slug?.join('/');
-    const post = getPostBySlug(`/${slug}`);
+    // 將 slug 中的每個部分解碼
+    const decodedSlug = params?.slug?.map((part) => decodeURIComponent(part))?.join('/');
+    const post = getPostBySlug(`/${decodedSlug}`);
     const title = `GaryLin | ${post?.title}`;
 
     return {
