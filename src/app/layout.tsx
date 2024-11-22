@@ -19,12 +19,12 @@ const inter = Inter({
 
 export const metadata: Metadata = {
     title: 'GaryLin | Dev',
-    description: 'Hi, I am GaryLin, a Frontend Developer. This is my personal website.',
+    description: 'Hi, , My name is Gary Lin, a Frontend Developer.',
     icons: { icon: { url: '/assets/logo.svg' } },
     authors: [{ name: 'GaryLin' }],
     openGraph: {
         title: 'GaryLin | Dev',
-        description: 'Hi, I am GaryLin, a Frontend Developer. This is my personal website.',
+        description: 'Hi, , My name is Gary Lin, a Frontend Developer.',
         images: [
             {
                 url: '/assets/default-open-graph.jpg',
