@@ -38,7 +38,7 @@ export const SocialIconLinksConfig = [
         icon: <FaFacebook className="cursor-pointer opacity-90" />,
     },
     {
-        link: 'https://www.instagram.com/gary_1226_/?igsh=MXNjdHlycjhiN3dxcg%3D%3D',
+        link: 'https://www.instagram.com/gary_1226_/',
         icon: <FaInstagram className="cursor-pointer opacity-90" />,
     },
 ];
