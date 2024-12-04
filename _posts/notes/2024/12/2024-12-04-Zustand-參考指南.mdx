@@ -1,0 +1,37 @@
+---
+category: 'Notes'
+title: 'Zustand 參考指南'
+description: '以計時器為範例'
+coverImage: '/assets/blog/notes/2024/12/zustand.jpg'
+date: '2024-12-04T07:37:03Z'
+---
+
+以計時器為範例
+
+```javascript
+// src/store/useCounter.ts
+import create from 'zustand';
+
+interface CounterState {
+    count: number;
+    incrementCount: () => void;
+    decrementCount: () => void;
+}
+
+const useCounter = create<CounterState>((set) => ({
+    count: 0,
+    incrementCount: () => set((state) => ({ count: state.count + 1 })),
+    decrementCount: () => set((state) => ({ count: state.count - 1 })),
+    resetCount: () => set(() => ({ count: 0 })),
+}));
+
+export default useCounter;
+```
+
+在需要使用的檔案
+
+```javascript
+import useCounter from './store/useCounter';
+
+const { count, incrementCount, decrementCount } = useCounter();
+```
