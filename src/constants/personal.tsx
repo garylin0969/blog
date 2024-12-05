@@ -66,7 +66,7 @@ export const ExperienceConfig = [
         companyUrl: 'https://www.cnyes.com/',
         companyName: 'Anue 鉅亨網',
         employmentStartDate: '2024.03',
-        employmentEndDate: '現在',
+        employmentEndDate: 'Now',
     },
     {
         logoSrc: '/assets/company-logo/uec.jpg',
