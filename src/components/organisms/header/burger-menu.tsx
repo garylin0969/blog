@@ -18,7 +18,7 @@ const BurgerMenu = () => {
             <BurgerContainer
                 isOpen={isOpen}
                 direction="down"
-                className={cn('top-16', 'bg-white/90 dark:bg-black/80', 'md:hidden', isOpen && 'shadow')}
+                className={cn('top-16', 'bg-white/90 dark:bg-slate-900', 'md:hidden', isOpen && 'shadow')}
             >
                 <nav
                     className={cn(
