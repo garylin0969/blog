@@ -102,6 +102,12 @@ export const ProjectsConfig = [
         ],
     },
     {
+        imageUrl: '/assets/projects/gemini-api-tester.jpg',
+        projectUrl: 'https://garylin0969-gemini-tester.vercel.app/',
+        projectName: 'Gemini API Tester',
+        projectTags: ['2025', 'Gemini', 'Next', 'TypeScript', 'Tailwind CSS', 'Shadcn UI', 'React Query'],
+    },
+    {
         imageUrl: '/assets/projects/blog.jpg',
         projectUrl: 'https://github.com/garylin0969/blog',
         projectName: 'Blog',
