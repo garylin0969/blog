@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'GaryLin | About',
         description: 'Hi, , my name is Gary Lin, a Frontend Developer.',
+        url: 'https://www.garylin.dev/about',
         images: [
             {
                 url: '/assets/default-open-graph.jpg',

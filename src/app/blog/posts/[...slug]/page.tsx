@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: PostProps): Promise<Metadata>
         openGraph: {
             title: title,
             description: post?.description,
+            url: `https://www.garylin.dev/blog/posts${post?.url}`,
             images: [
                 {
                     url: post?.coverImage || '/assets/default-open-graph.jpg',
