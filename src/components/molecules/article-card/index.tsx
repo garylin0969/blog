@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import cn from '@/utils/cn';
 import { ArticlePropsT } from '@/interfaces/html';
 import { Post } from '@/interfaces/post';
