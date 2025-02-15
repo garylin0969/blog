@@ -88,6 +88,12 @@ export const ExperienceConfig = [
 
 export const ProjectsConfig = [
     {
+        imageUrl: '/assets/projects/life-restart.jpg',
+        projectUrl: 'https://garylin0969-life-restart.vercel.app/',
+        projectName: 'Life Restart',
+        projectTags: ['2025', 'Next', 'TypeScript', 'Tailwind CSS', 'Shadcn UI', 'next-intl', 'next-themes'],
+    },
+    {
         imageUrl: '/assets/projects/perplexity-ai-concat.jpg',
         projectUrl: 'https://garylin0969-perplexity-concat.vercel.app/',
         projectName: 'Perplexity AI Concat',
