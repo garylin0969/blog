@@ -148,7 +148,7 @@ export const ProjectsConfig = [
     },
     {
         imageUrl: '/assets/projects/Akatsuki.avif',
-        projectUrl: 'https://garylin0969-perplexity-concat.vercel.app/',
+        projectUrl: 'https://garylin0969-akatsuki.vercel.app/',
         projectName: '火影忍者Akatsuki',
         projectTags: ['2023', 'React', 'Redux', 'TypeScript', 'Styled Components'],
     },
