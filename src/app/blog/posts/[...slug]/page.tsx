@@ -1,9 +1,10 @@
+import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { useMDXComponent } from 'next-contentlayer/hooks';
 import { getAllPosts, getPostBySlug } from '@/utils/posts';
 import cn from '@/utils/cn';
 import ArticleMeta from '@/components/molecules/article-meta';
-import { useMDXComponent } from 'next-contentlayer/hooks';
-import { type Metadata } from 'next';
+import Comments from '@/components/molecules/comments';
 
 interface PostProps {
     params: {
@@ -69,6 +70,9 @@ const Posts = ({ params }: PostProps) => {
                 >
                     <MDXContent />
                 </div>
+            </div>
+            <div className="mt-10">
+                <Comments />
             </div>
         </article>
     );
