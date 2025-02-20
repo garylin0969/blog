@@ -125,7 +125,7 @@ export const ProjectsConfig = [
             'Contentlayer',
             'Tailwind CSS',
             'next-themes',
-            'remark',
+            'Giscus',
         ],
     },
     {
