@@ -26,9 +26,9 @@ const ScrollToTopButton = () => {
         <button
             onClick={handleScrollToTop}
             className={cn(
-                'group',
+                'group z-10',
                 'fixed bottom-6 right-6 md:bottom-12 md:right-12',
-                'h-12 w-12 rounded-full',
+                'h-10 w-10 rounded-full md:h-12 md:w-12',
                 'bg-white text-slate-800',
                 'flex items-center justify-center',
                 'shadow-sm dark:shadow-slate-400',
