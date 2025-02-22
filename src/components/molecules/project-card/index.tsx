@@ -23,10 +23,11 @@ const ProjectCard = ({
         <div
             className={cn(
                 'h-full w-full max-w-sm',
-                'shadow',
-                'rounded-xl border dark:border-white/30',
+                'shadow-lg transition-shadow duration-300 hover:shadow-xl',
+                'rounded-xl border border-purple-100 dark:border-white/30',
                 'overflow-hidden',
                 'flex flex-col',
+                'bg-gradient-to-br from-white to-purple-50/30 dark:from-slate-900 dark:to-slate-900',
                 className,
             )}
             {...props}
@@ -34,13 +35,24 @@ const ProjectCard = ({
             <BaseLink href={projectUrl} className="overflow-hidden">
                 <Image
                     src={imageUrl}
-                    className={cn('aspect-[3/2] object-cover', 'transition duration-300 hover:scale-105')}
+                    className={cn(
+                        'aspect-[3/2] object-cover',
+                        'transition duration-300 hover:scale-105',
+                        'hover:brightness-110',
+                    )}
                     width={3000}
                     height={2000}
                     alt={projectName}
                 />
             </BaseLink>
-            <div className={cn('flex-grow', 'p-6', 'border-t dark:border-white/30', 'flex flex-col justify-between')}>
+            <div
+                className={cn(
+                    'flex-grow',
+                    'p-6',
+                    'border-t border-purple-100 dark:border-white/30',
+                    'flex flex-col justify-between',
+                )}
+            >
                 <div>
                     <div className={cn('mb-2')}>
                         <BaseLink href={projectUrl}>
@@ -48,9 +60,11 @@ const ProjectCard = ({
                         </BaseLink>
                     </div>
                     <p className={cn('mb-6', 'flex flex-wrap gap-2')}>
-                        {projectTags?.map((tag) => {
-                            return <span key={tag}>#{tag}</span>;
-                        })}
+                        {projectTags?.map((tag) => (
+                            <span key={tag} className="text-primary-light/80 dark:text-slate-400">
+                                #{tag}
+                            </span>
+                        ))}
                     </p>
                 </div>
                 <div className={cn('mt-auto flex justify-end')}>

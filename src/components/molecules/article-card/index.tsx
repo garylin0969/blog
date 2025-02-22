@@ -14,7 +14,15 @@ const ArticleCard = ({ className, post, ...props }: ArticleCardProps) => {
     const postLink = `/blog/posts${url}`;
 
     return (
-        <article className={cn('p-5', className)} {...props}>
+        <article
+            className={cn(
+                'p-5',
+                'hover:bg-gradient-to-br hover:from-purple-50/50 hover:to-pink-50/50',
+                'dark:hover:from-slate-800/50 dark:hover:to-slate-800/50',
+                className,
+            )}
+            {...props}
+        >
             <div className={cn('space-y-2')}>
                 <NextLink
                     href={postLink}

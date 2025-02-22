@@ -11,7 +11,14 @@ const ArticleList = ({ posts }: ArticleListProps) => {
         <div className="space-y-3">
             {posts?.map((post) => {
                 return (
-                    <div key={post?.title} className={cn('flex justify-center', 'rounded border dark:border-white/30')}>
+                    <div
+                        key={post?.title}
+                        className={cn(
+                            'flex justify-center',
+                            'rounded-xl border dark:border-white/30',
+                            'shadow-lg hover:shadow-xl',
+                        )}
+                    >
                         <ArticleCard className="w-full" post={post} />
                     </div>
                 );
