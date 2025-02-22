@@ -141,7 +141,7 @@ export const ProjectsConfig = [
     },
     {
         imageUrl: '/assets/projects/next13-google-clone.avif',
-        projectUrl: 'https://github.com/garylin0969/next13-google-clone',
+        projectUrl: 'https://garylin0969-next-google-clone.vercel.app',
         projectName: 'Clone - Google',
         projectTags: ['2023', 'Next', 'TypeScript', 'React Hook Form', 'SWR', 'Tailwind CSS'],
     },
@@ -153,7 +153,7 @@ export const ProjectsConfig = [
     },
     {
         imageUrl: '/assets/projects/akatsuki.avif',
-        projectUrl: 'https://garylin0969-akatsuki.vercel.app/',
+        projectUrl: 'https://garylin0969-akatsuki.vercel.app',
         projectName: '火影忍者 - 曉組織成員介紹',
         projectTags: ['2023', 'React', 'Redux', 'TypeScript', 'Styled Components'],
     },
