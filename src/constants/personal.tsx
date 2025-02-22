@@ -6,6 +6,11 @@ export const authorImg = '/assets/avatar/avatar.jpg';
 
 export const author = 'Gary Lin';
 
+export const WebsiteIntroductionConfig = {
+    title: 'Hi, my name is Gary Lin',
+    subtitle: 'A Frontend Developer',
+};
+
 export const BasicInfoConfig = [
     {
         icon: <FaBuilding />,
