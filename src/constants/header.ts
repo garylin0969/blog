@@ -1,6 +1,6 @@
 import { NavI } from '@/interfaces/header';
 
-export const logoImg = '/assets/logo.svg';
+export const logoImg = '/assets/logo.jpg';
 
 export const siteTitle = 'GaryLin.dev';
 

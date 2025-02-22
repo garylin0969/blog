@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     metadataBase: new URL('https://www.garylin.dev'),
     title: 'GaryLin | Dev',
     description: 'Hi, , my name is Gary Lin, a Frontend Developer.',
-    icons: { icon: { url: '/assets/logo.svg' } },
+    icons: { icon: { url: '/assets/logo.jpg' } },
     authors: [{ name: 'GaryLin' }],
     openGraph: {
         title: 'GaryLin | Dev',
