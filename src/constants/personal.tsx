@@ -90,13 +90,13 @@ export const ProjectsConfig = [
     {
         imageUrl: '/assets/projects/life-restart.jpg',
         projectUrl: 'https://garylin0969-life-restart.vercel.app/',
-        projectName: 'Life Restart',
+        projectName: '人生重來 - Life Restart',
         projectTags: ['2025', 'Next', 'TypeScript', 'Tailwind CSS', 'Shadcn UI', 'next-intl', 'next-themes'],
     },
     {
         imageUrl: '/assets/projects/perplexity-ai-concat.jpg',
         projectUrl: 'https://garylin0969-perplexity-concat.vercel.app/',
-        projectName: 'Perplexity AI Concat',
+        projectName: 'AI 串接測試工具 - Perplexity AI Concat',
         projectTags: [
             '2025',
             'Perplexity API',
@@ -110,13 +110,13 @@ export const ProjectsConfig = [
     {
         imageUrl: '/assets/projects/gemini-api-tester.jpg',
         projectUrl: 'https://garylin0969-gemini-tester.vercel.app/',
-        projectName: 'Gemini API Tester',
+        projectName: 'AI 串接測試工具 - Gemini API Tester',
         projectTags: ['2025', 'Gemini', 'Next', 'TypeScript', 'Tailwind CSS', 'Shadcn UI', 'React Query'],
     },
     {
         imageUrl: '/assets/projects/blog.jpg',
         projectUrl: 'https://github.com/garylin0969/blog',
-        projectName: 'Blog',
+        projectName: 'Blog - GaryLin.dev',
         projectTags: [
             '2024',
             'Next',
@@ -131,31 +131,31 @@ export const ProjectsConfig = [
     {
         imageUrl: '/assets/projects/chinese-number-format.avif',
         projectUrl: 'https://www.npmjs.com/package/chinese-number-format',
-        projectName: 'chinese-number-format',
+        projectName: 'NPM 套件 - chinese-number-format',
         projectTags: ['2024', 'TypeScript', 'Jest', 'NPM'],
     },
     {
         imageUrl: '/assets/projects/Next13-Google-Clone.avif',
         projectUrl: 'https://github.com/garylin0969/next13-google-clone',
-        projectName: 'Next13-Google-Clone',
+        projectName: 'Clone - Google',
         projectTags: ['2023', 'Next', 'TypeScript', 'React Hook Form', 'SWR', 'Tailwind CSS'],
     },
     {
         imageUrl: '/assets/projects/Next13-IMDb-Clone.avif',
         projectUrl: 'https://github.com/garylin0969/next13-imdb-clone',
-        projectName: 'Next13-IMDb-Clone',
+        projectName: 'Clone - IMDb',
         projectTags: ['2023', 'Next', 'TypeScript', 'React Hook Form', 'SWR', 'Tailwind CSS', 'next-themes'],
     },
     {
         imageUrl: '/assets/projects/Akatsuki.avif',
         projectUrl: 'https://garylin0969-akatsuki.vercel.app/',
-        projectName: '火影忍者Akatsuki',
+        projectName: '火影忍者 - 曉組織成員介紹',
         projectTags: ['2023', 'React', 'Redux', 'TypeScript', 'Styled Components'],
     },
     {
         imageUrl: '/assets/projects/iSpan.avif',
         projectUrl: 'https://github.com/garylin0969/react-ispan-project',
-        projectName: 'iSpan',
+        projectName: 'iSpan 資策會 - 專案',
         projectTags: ['2022', 'React', 'JypeScript', 'Socket.IO', 'Bootstrap', 'GSAP'],
     },
 ];
