@@ -58,7 +58,7 @@ const Posts = ({ params }: PostProps) => {
         <article className={cn('space-y-8')}>
             <header className={cn('space-y-3')}>
                 <ArticleMeta date={date} category={category} />
-                <h1 className={cn('text-3xl font-bold dark:text-white')}>{title}</h1>
+                <h2 className={cn('text-3xl font-bold dark:text-white')}>{title}</h2>
             </header>
             <div className="grid grid-cols-1">
                 <div
