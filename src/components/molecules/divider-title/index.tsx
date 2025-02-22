@@ -24,6 +24,7 @@ const DividerTitle = ({ align = 'center', title = '', className, ...props }: Div
             {align !== 'left' && <DividerLine />}
             <span
                 className={cn(
+                    !title && 'hidden',
                     align === 'center' && 'shrink-0 px-6',
                     align === 'left' && 'pr-6',
                     align === 'right' && 'pl-6',
