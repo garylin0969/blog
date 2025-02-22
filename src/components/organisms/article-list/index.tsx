@@ -16,7 +16,9 @@ const ArticleList = ({ posts }: ArticleListProps) => {
                         className={cn(
                             'flex justify-center',
                             'rounded-xl border dark:border-white/30',
-                            'shadow-lg hover:shadow-xl',
+                            'shadow-lg',
+                            'transition-scale duration-300',
+                            'hover:scale-[1.02] hover:shadow-xl',
                         )}
                     >
                         <ArticleCard className="w-full" post={post} />
