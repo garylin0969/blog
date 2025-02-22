@@ -1,82 +1,159 @@
 ---
 category: Notes
 title: GSAP 參考指南
-description: 一些關於GSAP的基本屬性及應用
+description: 本文介紹了 GSAP（GreenSock Animation Platform）的基本用法，包括安裝、常見動畫示例和最佳實踐，幫助開發者輕鬆使用 GSAP 創建流暢的動畫效果。
 coverImage: /assets/blog/notes/2024/11/gsap.jpg
 date: 2024-11-22
 ---
 
-一些關於GSAP的基本屬性及應用
+## 什麼是 GSAP？
 
-## 基本動畫屬性
+GSAP（GreenSock Animation Platform）是一個強大的 JavaScript 動畫庫，能夠創建高效、流暢的動畫效果。它支持多種瀏覽器，並且可以與其他庫（如 React、Vue 等）無縫集成。
 
--   `x`: 100 // X 軸位移
--   `y`: 50 // Y 軸位移
--   `rotation`: 360 // 旋轉角度
--   `scale`: 1.5 // 縮放
--   `opacity`: 0.5 // 透明度
--   `backgroundColor`: "#ff0000" // 背景顏色
--   `width`: "100px" // 寬度
--   `height`: "100px" // 高度
+## 安裝 GSAP
 
-## 時間控制
+你可以通過 npm 或 CDN 來安裝 GSAP。
 
--   `duration`: 2 // 動畫持續時間（秒）
--   `delay`: 1 // 延遲開始時間
--   `repeat`: 2 // 重複次數 (-1 為無限重複)
--   `repeatDelay`: 1 // 每次重複之間的延遲
--   `yoyo`: true // 是否來回播放
+### 使用 npm 安裝
 
-## 緩動函數 (Easing)
+```
+npm install gsap
+```
 
--   `ease`: "power1.inOut" // 內建緩動
--   `ease`: "elastic.out(1, 0.3)" // 彈性動畫
--   `ease`: "bounce.out" // 彈跳效果
--   `ease`: "steps(12)" // 步進動畫
+### 使用 CDN
 
-## 回調函數
+在你的 HTML 文件中添加以下 `<script>` 標籤：
 
--   `onStart`: () => console.log("動畫開始")
--   `onUpdate`: () => console.log("動畫更新中")
--   `onComplete`: () => console.log("動畫完成")
--   `onRepeat`: () => console.log("動畫重複")
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+```
 
-## 隨機值與函數
+## 在 React 或 Next.js 中使用 GSAP
 
--   `x`: "random(-100, 100)" // 隨機值
--   `rotation`: "random([0, 90, 180, 270])" // 隨機數組
--   `scale`: () => Math.random() \* 2 // 函數返回值
+### 基本用法
 
-## 變形相關
+在 React 或 Next.js 中使用 GSAP 時，通常會在 `useEffect` 中進行動畫初始化，以確保 DOM 元素已經渲染。
 
--   `transformOrigin`: "left center" // 變形原點
--   `skewX`: 45 // X 軸傾斜
--   `skewY`: 45 // Y 軸傾斜
+### 創建簡單動畫
 
-## 特殊控制
+以下是一個簡單的 GSAP 動畫示例，將一個元素從左側移動到右側：
 
--   `paused`: true // 創建時暫停
--   `immediateRender`: true // 立即渲染第一幀
--   `overwrite`: "auto" // 覆蓋規則
--   `stagger`: // 序列動畫
-    -   `amount`: 1 // 總時間
-    -   `from`: "start" // 起始位置
-    -   `each`: 0.1 // 每個元素的延遲
+```javascript
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
 
-## SVG 特定屬性
+const Box = () => {
+    useEffect(() => {
+        gsap.to('#box', { x: 300, duration: 2 });
+    }, []);
 
--   `fill`: "#ff0000" // 填充顏色
--   `stroke`: "#000000" // 描邊顏色
--   `strokeWidth`: 2 // 描邊寬度
--   `drawSVG`: "0% 100%" // SVG 繪製動畫
+    return <div id="box" style={{ width: '100px', height: '100px', backgroundColor: 'red' }} />;
+};
 
-## TextPlugin 屬性
+export default Box;
+```
 
--   `text`（需要 TextPlugin）：
-    -   **作用**：定義元素的文本內容。
-    -   **範例**：`text: 'Hello, World!'` 表示將元素的文本內容設置為 'Hello, World!'。
+### 動畫參數
 
----
+GSAP 提供了多種參數來控制動畫效果：
+
+-   `duration`: 動畫持續時間（秒）。
+-   `x`, `y`: 移動的距離。
+-   `opacity`: 透明度。
+-   `scale`: 縮放比例。
+
+### 連續動畫
+
+你可以使用 `stagger` 參數來創建連續動畫效果：
+
+```javascript
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
+
+const Boxes = () => {
+    useEffect(() => {
+        gsap.to('.box', {
+            x: 300,
+            duration: 1,
+            stagger: 0.5, // 每個元素之間的延遲
+        });
+    }, []);
+
+    return (
+        <>
+            <div className="box" style={{ width: '100px', height: '100px', backgroundColor: 'red', margin: '10px' }} />
+            <div
+                className="box"
+                style={{ width: '100px', height: '100px', backgroundColor: 'green', margin: '10px' }}
+            />
+            <div className="box" style={{ width: '100px', height: '100px', backgroundColor: 'blue', margin: '10px' }} />
+        </>
+    );
+};
+
+export default Boxes;
+```
+
+## GSAP 的進階用法
+
+### Timeline
+
+GSAP 的 `Timeline` 功能可以讓你更方便地管理多個動畫：
+
+```javascript
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
+
+const TimelineExample = () => {
+    useEffect(() => {
+        const tl = gsap.timeline();
+        tl.to('#box', { x: 300, duration: 1 })
+            .to('#box', { rotation: 360, duration: 1 })
+            .to('#box', { scale: 2, duration: 1 });
+    }, []);
+
+    return <div id="box" style={{ width: '100px', height: '100px', backgroundColor: 'red' }} />;
+};
+
+export default TimelineExample;
+```
+
+### 事件回調
+
+GSAP 也支持事件回調，讓你在動畫開始、結束或中斷時執行特定的函數：
+
+```javascript
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
+
+const BoxWithCallback = () => {
+    useEffect(() => {
+        gsap.to('#box', {
+            x: 300,
+            duration: 2,
+            onComplete: () => {
+                console.log('Animation completed!');
+            },
+        });
+    }, []);
+
+    return <div id="box" style={{ width: '100px', height: '100px', backgroundColor: 'red' }} />;
+};
+
+export default BoxWithCallback;
+```
+
+## 常見錯誤
+
+-   **未正確引入 GSAP**：確保在使用 GSAP 之前已經正確引入庫。
+-   **選擇器錯誤**：檢查選擇器是否正確，確保動畫目標存在於 DOM 中。
+-   **動畫持續時間過短**：如果動畫過快，可能會導致效果不明顯，適當調整 `duration`。
+
+## 最佳實踐
+
+-   **使用 Timeline**：對於複雜的動畫，使用 `Timeline` 來管理動畫順序。
+-   **避免重複動畫**：在開始新動畫之前，確保停止或清除舊動畫，以避免性能問題。
+-   **測試不同瀏覽器**：GSAP 支持多種瀏覽器，但在不同環境中測試動畫效果是個好習慣。
 
 ## 實用範例
 
@@ -132,4 +209,3 @@ gsap.to(element, {
 7. **特殊控制**：介紹了特殊控制屬性，如暫停、立即渲染、覆蓋規則、序列動畫等。
 8. **SVG 特定屬性**：列出了 SVG 動畫中特有的屬性。
 9. **TextPlugin 屬性**：介紹了 [`TextPlugin`](command:_github.copilot.openSymbolFromReferences?%5B%22%22%2C%5B%7B%22uri%22%3A%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FUsers%2Fgarylin%2FDesktop%2FGitHub%2Fblog-starter-app%2Fdocs%2Fgsap-reference.md%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%2C%22pos%22%3A%7B%22line%22%3A0%2C%22character%22%3A8%7D%7D%5D%2C%221ef9ccc6-5afa-4d07-9915-e1aa8a7fba04%22%5D 'Go to definition') 的使用方法。
-10. **實用範例**：提供了一些常見的動畫組合範例。

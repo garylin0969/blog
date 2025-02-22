@@ -1,26 +1,26 @@
 ---
 category: Notes
-title: 發布NPM
-description: 如何發布Node Package Manager
+title: 發布 NPM
+description: 如何發布 Node Package Manager 套件，從初始化到發布的完整流程。
 coverImage: /assets/blog/notes/2024/12/npm.webp
 date: 2024-12-05
 ---
 
-### 初始化項目
+## 初始化項目
 
-需回答預設值
+要開始創建一個 NPM 套件，首先需要初始化一個新的項目。這可以通過以下命令完成：
 
-```bash
+```
 npm init
 ```
 
-如果只是想要快速建立一個 **`package.json`** 檔案
+如果只是想要快速建立一個 **`package.json`** 檔案，可以使用：
 
-```bash
+```
 npm init -y
 ```
 
-**`package.json`** 的基本資訊範例
+### `package.json` 的基本資訊範例
 
 -   **package name (名稱)**：**`taiwan-number-format`**
 -   **version (版本)**：可以從 **`1.0.0`** 開始
@@ -32,13 +32,15 @@ npm init -y
 -   **author (作者)**：填寫你的名字或組織
 -   **license (授權)**：根據偏好，選擇一個適合套件的授權類型，如 MIT、Apache-2.0、ISC 等
 
-```javascript
+以下是一個 **`package.json`** 的範例：
+
+```json
 {
     "name": "chinese-number-format",
     "version": "1.0.2",
     "description": "中文數字轉換Chinese numeral conversion",
-    "main": "dist/index.js", //入口
-    "types": "dist/index.d.ts", //使用ts的定義文件
+    "main": "dist/index.js", // 入口
+    "types": "dist/index.d.ts", // 使用 TypeScript 的定義文件
     "scripts": {
         "test": "jest"
     },
@@ -46,10 +48,7 @@ npm init -y
         "type": "git",
         "url": "https://github.com/garylin0969/chinese-number-format.git"
     },
-    "keywords": [
-        "台灣",
-        "中華民國",
-    ],
+    "keywords": ["台灣", "中華民國"],
     "author": {
         "name": "GaryLin",
         "email": "xxxxxx@gmail.com"
@@ -64,19 +63,23 @@ npm init -y
 }
 ```
 
-### 使用TypeScript
+## 使用 TypeScript
 
-```bash
+如果你的套件使用 TypeScript，首先需要安裝 TypeScript：
+
+```
 npm install typescript --save-dev
+```
 
+然後初始化 TypeScript 配置：
+
+```
 npx tsc --init
 ```
 
-根目錄創建dist資料夾
+這將在根目錄創建一個 `tsconfig.json` 文件。以下是 **`tsconfig.json`** 的基本資訊範例：
 
-**`tsconfig.json`** 的基本資訊範例
-
-```javascript
+```json
 {
     "compilerOptions": {
         "target": "es2016",
@@ -86,7 +89,7 @@ npx tsc --init
         "forceConsistentCasingInFileNames": true,
         "strict": true,
         "moduleResolution": "node",
-        "declaration": true, // 生成 .d.ts
+        "declaration": true, // 生成 .d.ts 文件
         "skipLibCheck": true
     },
     "include": [
@@ -96,28 +99,56 @@ npx tsc --init
 }
 ```
 
-編譯TypeScript
+編譯 TypeScript：
 
-```bash
+```
 npx tsc
 ```
 
-### 初次發布
+## 初次發布
 
-```bash
+當你準備好發布你的套件時，使用以下命令：
+
+```
 npm publish
 ```
 
-### 更新發布
+## 更新發布
 
-需要更新套件的版本號。 可以將套件的版本號升級一個小型的修訂版本，例如從 1.0.0 升級到 1.0.1。 這可以透過手動修改 package.json 檔案中的 version 欄位來完成，或使用 npm 提供的版本升級命令
+如果需要更新套件的版本號，可以將套件的版本號升級一個小型的修訂版本，例如從 1.0.0 升級到 1.0.1。這可以透過手動修改 `package.json` 檔案中的 version 欄位來完成，或使用 npm 提供的版本升級命令：
 
-```bash
+```
 npm version patch
 ```
 
-然後再次發布
+然後再次發布：
 
-```bash
+```
 npm publish
 ```
+
+## 常見問題
+
+### 如何處理版本衝突？
+
+如果在發布時遇到版本衝突，請檢查你的 `package.json` 中的版本號，確保它是唯一的。你可以使用 `npm version` 命令來自動更新版本號。
+
+### 如何撤回發布的版本？
+
+如果需要撤回已發布的版本，可以使用以下命令：
+
+```
+npm deprecate <package-name>@<version> "這個版本已經不再使用"
+```
+
+這樣可以讓使用者知道該版本不再推薦使用。
+
+### 如何查看已發布的版本？
+
+你可以使用以下命令查看已發布的版本：
+
+```
+npm view <package-name> versions --json
+```
+
+這將返回一個 JSON 格式的版本列表。
