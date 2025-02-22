@@ -1,6 +1,6 @@
 # GaryLin.dev
 
-website: https://www.garylin.dev
+https://www.garylin.dev
 
 ## Tech Stack
 
