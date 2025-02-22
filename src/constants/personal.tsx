@@ -35,7 +35,7 @@ export const SocialIconLinksConfig = [
         icon: <FaGithub className="cursor-pointer opacity-90" />,
     },
     {
-        link: 'https://www.linkedin.com/in/gary-lin-95723a247/',
+        link: 'https://www.linkedin.com/in/garylin0969/',
         icon: <FaLinkedin className="cursor-pointer opacity-90" />,
     },
     {
