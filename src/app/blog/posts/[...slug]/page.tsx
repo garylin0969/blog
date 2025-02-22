@@ -1,10 +1,11 @@
 import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { useMDXComponent } from 'next-contentlayer/hooks';
-import { getAllPosts, getPostBySlug } from '@/utils/posts';
-import cn from '@/utils/cn';
 import ArticleMeta from '@/components/molecules/article-meta';
+import DividerTitle from '@/components/molecules/divider-title';
 import Comments from '@/components/molecules/comments';
+import cn from '@/utils/cn';
+import { getAllPosts, getPostBySlug } from '@/utils/posts';
+import { useMDXComponent } from 'next-contentlayer/hooks';
 
 interface PostProps {
     params: {
@@ -60,6 +61,7 @@ const Posts = ({ params }: PostProps) => {
                 <ArticleMeta date={date} category={category} />
                 <h2 className={cn('text-3xl font-bold dark:text-white')}>{title}</h2>
             </header>
+            <DividerTitle />
             <div className="grid grid-cols-1">
                 <div
                     className={cn(
