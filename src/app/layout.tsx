@@ -63,7 +63,8 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
                         className={cn(
                             'transition-colors duration-300',
                             'text-slate-700 dark:text-slate-300',
-                            'dark:bg-slate-900',
+                            'bg-gradient-to-b from-pink-50 via-purple-50 to-sky-50',
+                            'dark:bg-slate-900 dark:bg-none',
                         )}
                     >
                         <Header />
