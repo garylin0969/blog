@@ -42,3 +42,8 @@ export const isCategoryExists = (category: string): boolean => {
 export const getPostBySlug = (slug: string) => {
     return publishedPosts.find((post) => post?.url === slug);
 };
+
+// 根據數量獲取最新文章
+export const getLatestPosts = (number: number) => {
+    return publishedPosts.slice(0, number).sort(sortPostsByDate);
+};

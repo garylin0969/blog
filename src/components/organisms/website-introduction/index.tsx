@@ -5,8 +5,12 @@ import DisplayElement from '@/components/molecules/display-element';
 
 const WebsiteIntroduction = ({ className, ...props }: DivPropsT) => {
     return (
-        <div className={cn('h-full w-full', 'flex items-center justify-center', 'md:text-2xl', className)} {...props}>
-            <DisplayElement tag="body">
+        <div className={cn('w-full', 'flex items-center justify-center', 'md:text-2xl', className)} {...props}>
+            <div className="flex flex-col items-center justify-center space-y-2 md:hidden">
+                <h1 className="text-2xl font-bold">Hi, my name is Gary Lin</h1>
+                <p className="text-xl">A Frontend Developer</p>
+            </div>
+            <DisplayElement tag="body" className="hidden md:block">
                 <DisplayElement tag="main">
                     <DisplayElement tag="h1" wrap={false} className="mb-8">
                         <span className="font-bold dark:text-white md:text-5xl">Hi, my name is Gary Lin</span>
