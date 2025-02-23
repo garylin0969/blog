@@ -46,25 +46,35 @@ const ProjectCard = ({
                         alt={projectName}
                     />
                 </div>
-                <div className={cn('flex-grow', 'p-6', 'flex flex-col justify-between')}>
+                <div className={cn('flex-grow space-y-6', 'p-6')}>
                     <div>
-                        <div className={cn('mb-2')}>
+                        <h3
+                            className={cn(
+                                'text-2xl font-bold tracking-tighter',
+                                'group-hover:text-sky-500 dark:group-hover:text-sky-400',
+                            )}
+                        >
+                            {projectName}
+                        </h3>
+                    </div>
+                    <div className={cn('flex flex-wrap gap-2')}>
+                        {projectTags?.map((tag) => (
                             <span
+                                key={tag}
                                 className={cn(
-                                    'text-2xl font-bold tracking-tighter',
-                                    'group-hover:text-sky-500 dark:group-hover:text-sky-400',
+                                    'px-2 py-1',
+                                    'text-sm',
+                                    'rounded-md',
+                                    'bg-slate-100 dark:bg-slate-800',
+                                    'text-slate-600 dark:text-slate-300',
+                                    'border border-slate-200 dark:border-slate-700',
+                                    'transition-colors',
+                                    'hover:bg-slate-200 dark:hover:bg-slate-700',
                                 )}
                             >
-                                {projectName}
+                                {tag}
                             </span>
-                        </div>
-                        <p className={cn('mb-6', 'flex flex-wrap gap-2')}>
-                            {projectTags?.map((tag) => (
-                                <span key={tag} className="dark:text-slate-400">
-                                    #{tag}
-                                </span>
-                            ))}
-                        </p>
+                        ))}
                     </div>
                 </div>
             </div>
