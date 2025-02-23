@@ -17,14 +17,13 @@ export default function Comments() {
             repoId="R_kgDONFDN5Q"
             category="General"
             categoryId="DIC_kwDONFDN5c4CnIE8"
-            mapping="pathname"
+            mapping="og:title"
             reactionsEnabled="1"
             emitMetadata="0"
             inputPosition="bottom"
-            theme={theme === 'dark' ? 'dark' : 'light'}
+            theme={theme === 'dark' ? 'dark_tritanopia' : 'light'}
             lang="zh-TW"
             loading="lazy"
-            strict="0"
         />
     );
 }
