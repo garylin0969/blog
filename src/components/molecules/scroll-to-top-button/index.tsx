@@ -26,7 +26,7 @@ const ScrollToTopButton = () => {
         <button
             onClick={handleScrollToTop}
             className={cn(
-                'group z-10',
+                'z-10',
                 'fixed bottom-6 right-6 md:bottom-12 md:right-12',
                 'h-10 w-10 rounded-full md:h-12 md:w-12',
                 'bg-white text-slate-800',
@@ -36,7 +36,7 @@ const ScrollToTopButton = () => {
                 isVisible ? 'opacity-100' : 'pointer-events-none opacity-0',
             )}
         >
-            <FaArrowUp className="transition-transform duration-300 group-hover:scale-150" />
+            <FaArrowUp />
         </button>
     );
 };
