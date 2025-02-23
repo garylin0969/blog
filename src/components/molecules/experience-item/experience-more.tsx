@@ -2,8 +2,9 @@
 
 import { useState, memo } from 'react';
 import cn from '@/utils/cn';
-import { BurgerContainer } from '../burger';
 import { DivPropsT } from '@/interfaces/html';
+import { BurgerContainer } from '../burger';
+import { BaseButton } from '@/components/atoms/button';
 
 interface ExperienceMoreProps extends DivPropsT {
     responsibilities?: string[];
@@ -18,18 +19,15 @@ const ExperienceMore = memo(({ responsibilities = [] }: ExperienceMoreProps) => 
     return (
         <>
             <div className="mt-2">
-                <button
+                <BaseButton
                     onClick={toggleExpand}
                     className={cn(
                         'flex w-full items-center justify-center gap-2',
-                        'px-4 py-2',
-                        'rounded-lg',
                         'text-sm font-medium',
                         'bg-sky-500 hover:bg-sky-600',
                         'dark:bg-sky-400 dark:hover:bg-sky-500',
                         'text-white',
                         'shadow-sm hover:shadow',
-                        'transform transition-all duration-200',
                     )}
                 >
                     <span className={cn('transition-transform duration-200', isOpend ? 'rotate-180' : '')}>
@@ -39,7 +37,7 @@ const ExperienceMore = memo(({ responsibilities = [] }: ExperienceMoreProps) => 
                         </svg>
                     </span>
                     <span>More details</span>
-                </button>
+                </BaseButton>
             </div>
             <BurgerContainer className="relative" isOpen={isOpend} direction="down">
                 <ul className={cn('list-inside list-disc space-y-1 rounded-lg', 'p-4')}>
