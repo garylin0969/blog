@@ -44,7 +44,7 @@ const ExperienceMore = memo(({ responsibilities = [] }: ExperienceMoreProps) => 
                     {responsibilities.map((responsibility, index) => (
                         <li
                             key={index}
-                            className="ml-4 rounded-md border border-transparent p-1 text-base transition-colors duration-200 hover:border-gray-300 hover:bg-gray-200 dark:hover:border-slate-500 dark:hover:bg-slate-600"
+                            className="rounded-md border border-transparent p-1 text-base transition-colors duration-200 hover:border-gray-300 hover:bg-gray-200 dark:hover:border-slate-500 dark:hover:bg-slate-600"
                         >
                             {responsibility}
                         </li>
