@@ -42,7 +42,7 @@ const BurgerMenu = () => {
                             </li>
                         ))}
                         <li>
-                            <SocialIconLinks className="text-xl" />
+                            <SocialIconLinks className="gap-3 text-2xl" />
                         </li>
                     </ul>
                 </nav>
