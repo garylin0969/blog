@@ -38,7 +38,7 @@ const ProjectCard = ({
                         src={imageUrl}
                         className={cn(
                             'aspect-[3/2] object-cover',
-                            'transition duration-300 group-hover:scale-105',
+                            'transition duration-300 group-hover:scale-110',
                             'group-hover:brightness-110',
                         )}
                         width={3000}
