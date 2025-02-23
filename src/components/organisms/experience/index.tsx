@@ -14,7 +14,15 @@ const Experience = ({ className, ...props }: SectionPropsT) => {
                 />
                 <div className="space-y-4">
                     {ExperienceConfig?.map(
-                        ({ companyName, logoSrc, title, companyUrl, employmentStartDate, employmentEndDate }) => (
+                        ({
+                            companyName,
+                            logoSrc,
+                            title,
+                            companyUrl,
+                            employmentStartDate,
+                            employmentEndDate,
+                            responsibilities,
+                        }) => (
                             <li key={companyName} className={cn('group relative md:grid md:grid-cols-2')}>
                                 <div
                                     className={cn(
@@ -29,6 +37,7 @@ const Experience = ({ className, ...props }: SectionPropsT) => {
                                     companyName={companyName}
                                     employmentStartDate={employmentStartDate}
                                     employmentEndDate={employmentEndDate}
+                                    responsibilities={responsibilities}
                                 />
                             </li>
                         ),
