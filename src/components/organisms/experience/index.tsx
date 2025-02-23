@@ -5,52 +5,37 @@ import { ExperienceConfig } from '@/constants/personal';
 
 const Experience = ({ className, ...props }: SectionPropsT) => {
     return (
-        <>
-            <section className={cn('grid place-content-center', className)} {...props}>
-                <ul className={cn('relative')}>
-                    <div
-                        className={cn(
-                            'hidden md:block',
-                            'absolute left-1/2 translate-x-[-50%]',
-                            'h-full',
-                            'border border-sky-500 dark:border-sky-400',
-                        )}
-                    />
-                    <div className="space-y-4">
-                        {ExperienceConfig?.map((data) => {
-                            return (
-                                <li
-                                    key={data?.companyName}
-                                    className={cn('relative', 'md:grid md:grid-cols-2', 'group')}
-                                >
-                                    <div
-                                        className={cn(
-                                            'hidden md:block',
-                                            'rounded-full',
-                                            'bg-sky-500 dark:bg-sky-400',
-                                            'absolute left-1/2 top-1/2 h-4 w-4 translate-x-[-50%] translate-y-[-50%]',
-                                        )}
-                                    />
-                                    <ExperienceItem
-                                        className={cn(
-                                            'm-1 p-2 md:m-3',
-                                            'md:group-even:col-end-3',
-                                            // 'md:group-odd:justify-end',
-                                        )}
-                                        logoSrc={data?.logoSrc}
-                                        title={data?.title}
-                                        companyUrl={data?.companyUrl}
-                                        companyName={data?.companyName}
-                                        employmentStartDate={data?.employmentStartDate}
-                                        employmentEndDate={data?.employmentEndDate}
-                                    />
-                                </li>
-                            );
-                        })}
-                    </div>
-                </ul>
-            </section>
-        </>
+        <section className={cn('grid place-content-center', className)} {...props}>
+            <ul className={cn('relative')}>
+                <div
+                    className={cn(
+                        'absolute left-1/2 hidden h-full translate-x-[-50%] border border-sky-500 dark:border-sky-400 md:block',
+                    )}
+                />
+                <div className="space-y-4">
+                    {ExperienceConfig?.map(
+                        ({ companyName, logoSrc, title, companyUrl, employmentStartDate, employmentEndDate }) => (
+                            <li key={companyName} className={cn('group relative md:grid md:grid-cols-2')}>
+                                <div
+                                    className={cn(
+                                        'absolute left-1/2 top-1/2 hidden h-4 w-4 translate-x-[-50%] translate-y-[-50%] rounded-full bg-sky-500 dark:bg-sky-400 md:block',
+                                    )}
+                                />
+                                <ExperienceItem
+                                    className={cn('m-1 p-2 md:m-3 md:group-even:col-end-3')}
+                                    logoSrc={logoSrc}
+                                    title={title}
+                                    companyUrl={companyUrl}
+                                    companyName={companyName}
+                                    employmentStartDate={employmentStartDate}
+                                    employmentEndDate={employmentEndDate}
+                                />
+                            </li>
+                        ),
+                    )}
+                </div>
+            </ul>
+        </section>
     );
 };
 
