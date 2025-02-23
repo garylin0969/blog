@@ -12,23 +12,16 @@ const Header = () => {
     return (
         <header
             className={cn(
-                'z-50',
-                'fixed top-0',
-                'flex items-center',
-                'h-16 w-full',
-                'px-4 md:px-6 lg:px-8',
-                'font-serif',
-                'bg-white/70 backdrop-blur-md dark:bg-slate-900/70',
-                'shadow',
+                'fixed top-0 z-50 flex h-16 w-full items-center bg-white/70 px-4 font-serif shadow backdrop-blur-md dark:bg-slate-900/70 md:px-6 lg:px-8',
             )}
         >
-            <div className={cn('mx-auto w-full max-w-6xl', 'flex items-center justify-between')}>
+            <div className={cn('mx-auto flex w-full max-w-6xl items-center justify-between')}>
                 <Link href="/" className={cn('flex items-center gap-2')}>
                     <Image className="rounded-md" src={logoImg} width={36} height={36} alt="logo" priority />
                     <h1 className="text-xl font-semibold text-slate-700 dark:text-slate-200">{siteTitle}</h1>
                 </Link>
                 <div className={cn('flex items-center gap-4')}>
-                    <div className={cn('hidden', 'items-center gap-2 md:flex')}>
+                    <div className={cn('hidden items-center gap-2 md:flex')}>
                         <NavMenu />
                         <SocialIconLinks
                             className="border-x border-slate-200 px-2 dark:border-slate-800"
