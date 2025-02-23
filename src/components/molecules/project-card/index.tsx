@@ -20,10 +20,10 @@ const ProjectCard = ({
     ...props
 }: ProjectCardProps) => {
     return (
-        <BaseLink href={projectUrl} className="group hover:text-inherit dark:hover:text-inherit">
+        <BaseLink href={projectUrl} className="group h-full w-full hover:text-inherit dark:hover:text-inherit">
             <div
                 className={cn(
-                    'h-full w-full max-w-sm',
+                    'h-full w-full',
                     'shadow-lg transition-shadow duration-300 hover:shadow-xl',
                     'rounded-xl border border-purple-100 dark:border-white/30',
                     'overflow-hidden',
@@ -33,22 +33,22 @@ const ProjectCard = ({
                 )}
                 {...props}
             >
-                <div className="overflow-hidden">
+                <div className="relative aspect-video w-full overflow-hidden">
                     <Image
                         src={imageUrl}
                         className={cn(
-                            'aspect-[3/2] object-cover',
+                            'object-cover',
                             'transition duration-300 group-hover:scale-110',
                             'group-hover:brightness-110',
                         )}
-                        width={3000}
-                        height={2000}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         alt={projectName}
                     />
                 </div>
-                <div className={cn('flex-grow space-y-6', 'p-6')}>
+                <div className={cn('flex-grow', 'space-y-3 md:space-y-6', 'p-3 md:p-6')}>
                     <div>
-                        <h3 className={cn('text-2xl font-bold tracking-tighter')}>{projectName}</h3>
+                        <h3 className={cn('text-lg font-bold tracking-tighter md:text-xl')}>{projectName}</h3>
                     </div>
                     <div className={cn('flex flex-wrap gap-2')}>
                         {projectTags?.map((tag) => (
