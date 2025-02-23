@@ -20,19 +20,19 @@ const ProjectCard = ({
     ...props
 }: ProjectCardProps) => {
     return (
-        <BaseLink href={projectUrl} className="group h-full w-full hover:text-inherit dark:hover:text-inherit">
-            <div
-                className={cn(
-                    'h-full w-full',
-                    'shadow-lg transition-shadow duration-300 hover:shadow-xl',
-                    'rounded-xl border border-purple-100 dark:border-white/30',
-                    'overflow-hidden',
-                    'flex flex-col',
-                    'bg-gradient-to-br from-white to-purple-50/30 dark:from-slate-900 dark:to-slate-900',
-                    className,
-                )}
-                {...props}
-            >
+        <div
+            className={cn(
+                'h-full w-full',
+                'shadow-lg transition-shadow duration-300 hover:shadow-xl',
+                'rounded-xl border border-purple-100 dark:border-white/30',
+                'overflow-hidden',
+                'flex flex-col',
+                'bg-gradient-to-br from-white to-purple-50/30 dark:from-slate-900 dark:to-slate-900',
+                className,
+            )}
+            {...props}
+        >
+            <BaseLink href={projectUrl} className="group hover:text-inherit dark:hover:text-inherit">
                 <div className="relative aspect-video w-full overflow-hidden">
                     <Image
                         src={imageUrl}
@@ -70,8 +70,8 @@ const ProjectCard = ({
                         ))}
                     </div>
                 </div>
-            </div>
-        </BaseLink>
+            </BaseLink>
+        </div>
     );
 };
 
