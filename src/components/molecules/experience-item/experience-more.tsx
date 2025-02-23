@@ -30,7 +30,6 @@ const ExperienceMore = memo(({ responsibilities = [] }: ExperienceMoreProps) => 
                         'text-white',
                         'shadow-sm hover:shadow',
                         'transform transition-all duration-200',
-                        'focus:outline-none focus:ring-2 focus:ring-sky-500/50 dark:focus:ring-sky-400/50',
                     )}
                 >
                     <span className={cn('transition-transform duration-200', isOpend ? 'rotate-180' : '')}>
