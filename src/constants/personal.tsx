@@ -161,6 +161,6 @@ export const ProjectsConfig = [
         imageUrl: '/assets/projects/ispan.avif',
         projectUrl: 'https://github.com/garylin0969/react-ispan-project',
         projectName: 'iSpan 資策會 - 專案',
-        projectTags: ['2022', 'React', 'JypeScript', 'Socket.IO', 'Bootstrap', 'GSAP'],
+        projectTags: ['2022', 'React', 'JavaScript', 'Socket.IO', 'Bootstrap', 'GSAP'],
     },
 ];
