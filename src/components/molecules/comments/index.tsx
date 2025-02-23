@@ -24,6 +24,7 @@ export default function Comments() {
             theme={theme === 'dark' ? 'dark' : 'light'}
             lang="zh-TW"
             loading="lazy"
+            strict="0"
         />
     );
 }
