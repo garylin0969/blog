@@ -40,13 +40,7 @@ const ExperienceItem = ({
             <div className="flex gap-4">
                 <div>
                     <Image
-                        className={cn(
-                            'aspect-square w-16',
-                            'bg-white',
-                            'rounded-lg',
-                            'shadow-sm',
-                            'transition-transform duration-300 hover:scale-105',
-                        )}
+                        className={cn('aspect-square w-16 bg-white')}
                         src={logoSrc}
                         width={64}
                         height={64}
