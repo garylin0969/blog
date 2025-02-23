@@ -140,16 +140,16 @@ export const ProjectsConfig = [
         projectTags: ['2024', 'TypeScript', 'Jest', 'NPM'],
     },
     {
-        imageUrl: '/assets/projects/next13-google-clone.avif',
-        projectUrl: 'https://garylin0969-next-google-clone.vercel.app',
-        projectName: 'Clone - Google',
-        projectTags: ['2023', 'Next', 'TypeScript', 'React Hook Form', 'SWR', 'Tailwind CSS'],
-    },
-    {
         imageUrl: '/assets/projects/next13-imdb-clone.avif',
         projectUrl: 'https://garylin0969-next-imdb-clone.vercel.app',
         projectName: 'Clone - IMDb',
         projectTags: ['2023', 'Next', 'TypeScript', 'React Hook Form', 'SWR', 'Tailwind CSS', 'next-themes'],
+    },
+    {
+        imageUrl: '/assets/projects/next13-google-clone.avif',
+        projectUrl: 'https://garylin0969-next-google-clone.vercel.app',
+        projectName: 'Clone - Google',
+        projectTags: ['2023', 'Next', 'TypeScript', 'React Hook Form', 'SWR', 'Tailwind CSS'],
     },
     {
         imageUrl: '/assets/projects/akatsuki.avif',
