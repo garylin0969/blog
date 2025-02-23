@@ -14,30 +14,33 @@ const BurgerMenu = () => {
 
     return (
         <>
+            {/* 背景遮罩 */}
+            <div
+                className={cn(
+                    'fixed inset-0 top-16 h-[calc(100vh-64px)] w-screen bg-black/50 backdrop-blur-sm transition-all duration-300 md:hidden',
+                    isOpen ? 'opacity-100' : 'pointer-events-none opacity-0',
+                )}
+                onClick={toggleMenu} // 點擊遮罩關閉選單
+            />
             <BurgerButton isOpen={isOpen} toggleMenu={toggleMenu} className="md:hidden" />
             <BurgerContainer
                 isOpen={isOpen}
                 direction="down"
-                className={cn('top-16', 'bg-white/90 dark:bg-slate-900', 'md:hidden', isOpen && 'shadow')}
+                className={cn('top-16 z-50 bg-white dark:bg-slate-900 md:hidden', isOpen && 'shadow')}
             >
                 <nav
                     className={cn(
-                        'p-4',
-                        'text-center',
-                        'flex items-center justify-center',
-                        'font-semibold text-slate-700 dark:text-slate-400',
+                        'flex items-center justify-center p-4 text-center font-semibold text-slate-700 dark:text-slate-400',
                     )}
                 >
                     <ul className={cn('flex flex-col gap-4')}>
-                        {NavigationConfig?.map((data) => {
-                            return (
-                                <li key={data?.href}>
-                                    <Link href={data?.href} onClick={toggleMenu}>
-                                        {data?.label}
-                                    </Link>
-                                </li>
-                            );
-                        })}
+                        {NavigationConfig?.map(({ href, label }) => (
+                            <li key={href}>
+                                <Link href={href} onClick={toggleMenu}>
+                                    {label}
+                                </Link>
+                            </li>
+                        ))}
                         <li>
                             <SocialIconLinks className="text-xl" />
                         </li>
