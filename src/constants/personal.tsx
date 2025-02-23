@@ -200,3 +200,18 @@ export const ProjectsConfig = [
         projectTags: ['2022', 'React', 'JavaScript', 'Socket.IO', 'Bootstrap', 'GSAP'],
     },
 ];
+
+export const SkillsConfig = [
+    {
+        title: 'HTML/CSS',
+        skills: ['HTML5', 'CSS3', 'Tailwind CSS', 'Shadcn UI', 'Bootstrap', 'styled-components'],
+    },
+    {
+        title: 'JavaScript',
+        skills: ['TypeScript', 'React.js', 'Next.js', 'React Hook Form', 'Redux', 'Zustand', 'React Query', 'i18n'],
+    },
+    {
+        title: 'Others',
+        skills: ['Scrum', 'Git', 'GitLab', 'Git Flow', 'Jira', 'Confluence', 'Google Analytics'],
+    },
+];
