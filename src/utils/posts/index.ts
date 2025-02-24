@@ -1,8 +1,8 @@
 import { allPosts } from 'contentlayer/generated';
-import { Post } from '@/interfaces/post';
+import { PostT } from '@/interfaces/post';
 
 // 排序文章根據日期
-const sortPostsByDate = (post1: Post, post2: Post) => {
+const sortPostsByDate = (post1: PostT, post2: PostT) => {
     const date1 = post1?.date ? new Date(post1.date)?.getTime() : 0;
     const date2 = post2?.date ? new Date(post2.date)?.getTime() : 0;
     return date2 - date1;

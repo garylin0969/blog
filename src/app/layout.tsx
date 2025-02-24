@@ -4,9 +4,7 @@ import { ReactNode } from 'react';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import cn from '@/utils/cn';
 import ThemeProvider from '@/providers/theme-provider';
-import Header from '@/components/organisms/header';
-import Footer from '@/components/organisms/footer';
-import ScrollToTopButton from '@/components/molecules/scroll-to-top-button';
+import RootTemplateProps from '@/components/templates/root-template';
 
 import '@/styles/prism-plus.css';
 import '@/styles/prism-vsc-dark-plus.css';
@@ -59,32 +57,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             <GoogleAnalytics gaId="G-F0MRGZ2J39" />
             <body className={cn(inter.className, 'antialiased')}>
                 <ThemeProvider>
-                    <div className={cn('relative', 'text-slate-700 dark:text-slate-300')}>
-                        <div
-                            className={cn(
-                                'absolute inset-0',
-                                'bg-gradient-to-b from-pink-50 via-purple-50 to-sky-50',
-                                'transition-opacity duration-300',
-                                'dark:opacity-0',
-                            )}
-                        />
-                        <div
-                            className={cn(
-                                'absolute inset-0',
-                                'bg-slate-900',
-                                'transition-opacity duration-300',
-                                'opacity-0 dark:opacity-100',
-                            )}
-                        />
-                        <div className="relative">
-                            <Header />
-                            <div className="flex min-h-[calc(100vh-68px)] pt-16">
-                                <main className="flex-grow">{children}</main>
-                            </div>
-                            <Footer />
-                            <ScrollToTopButton />
-                        </div>
-                    </div>
+                    <RootTemplateProps>{children}</RootTemplateProps>
                 </ThemeProvider>
             </body>
         </html>
