@@ -4,33 +4,30 @@ import { useEffect, useRef, useState } from 'react';
 import cn from '@/utils/cn';
 import { DivPropsT } from '@/interfaces/html';
 
-interface BurgerContainerProps extends DivPropsT {
+interface ExpandableContainerProps extends DivPropsT {
     isOpen: boolean;
     direction?: 'up' | 'down' | 'left' | 'right';
 }
 
-// BurgerContainer 元件，用於控制展開和收合方向
-const BurgerContainer = ({ isOpen, direction = 'down', className, children }: BurgerContainerProps) => {
-    const isVertical = ['up', 'down']?.includes(direction); // 判斷方向是否為垂直方向
-    const containerRef = useRef<HTMLDivElement>(null); // 用於獲取容器的引用
-    const [size, setSize] = useState<string>('0px'); // 用於管理容器的大小
-    const transitionClass = isVertical ? 'transition-[height]' : 'transition-[width]'; // 根據方向設置過渡類別
-    const sizeStyle = isVertical ? { height: size } : { width: size }; // 根據方向設置大小樣式
+const ExpandableContainer = ({ isOpen, direction = 'down', className, children }: ExpandableContainerProps) => {
+    const isVertical = ['up', 'down']?.includes(direction);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [size, setSize] = useState<string>('0px');
+    const transitionClass = isVertical ? 'transition-[height]' : 'transition-[width]';
+    const sizeStyle = isVertical ? { height: size } : { width: size };
 
     useEffect(() => {
         if (!isOpen) {
-            setSize('0px'); // 收合時設置大小為 0
+            setSize('0px');
             return;
         }
 
         if (containerRef?.current) {
-            // 判斷方向是否為垂直方向
             if (isVertical) {
-                setSize(`${containerRef?.current?.scrollHeight}px`); // 設置高度
+                setSize(`${containerRef?.current?.scrollHeight}px`);
                 return;
             }
-
-            setSize(`100%`); // 設置寬度
+            setSize(`100%`);
         }
     }, [isOpen, direction]);
 
@@ -55,4 +52,4 @@ const BurgerContainer = ({ isOpen, direction = 'down', className, children }: Bu
     );
 };
 
-export default BurgerContainer;
+export default ExpandableContainer;

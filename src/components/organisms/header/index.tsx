@@ -1,11 +1,9 @@
-import Link from 'next/link';
-import Image from 'next/image';
 import cn from '@/utils/cn';
-import { siteTitle, logoImg } from '@/constants/header';
+import Logo from '@/components/atoms/logo';
 import ThemeSwitch from '@/components/molecules/theme-switch';
-import NavMenu from './nav-menu';
+import NavMenu from '@/components/molecules/nav-menu';
 import SocialIconLinks from '@/components/molecules/social-icon-links';
-import BurgerMenu from './burger-menu';
+import BurgerMenu from '@/components/molecules/burger-menu';
 import { HeaderSocialIconLinksConfig } from '@/constants/personal';
 
 const Header = () => {
@@ -16,10 +14,7 @@ const Header = () => {
             )}
         >
             <div className={cn('mx-auto flex w-full max-w-6xl items-center justify-between')}>
-                <Link href="/" className={cn('flex items-center gap-2')}>
-                    <Image className="rounded-md" src={logoImg} width={36} height={36} alt="logo" priority />
-                    <h1 className="text-xl font-semibold text-slate-700 dark:text-slate-200">{siteTitle}</h1>
-                </Link>
+                <Logo />
                 <div className={cn('flex items-center gap-4')}>
                     <div className={cn('hidden items-center gap-2 md:flex')}>
                         <NavMenu />

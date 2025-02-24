@@ -3,8 +3,8 @@
 import { useState, memo } from 'react';
 import cn from '@/utils/cn';
 import { DivPropsT } from '@/interfaces/html';
-import { BurgerContainer } from '../burger';
 import { BaseButton } from '@/components/atoms/button';
+import ExpandableContainer from '@/components/atoms/expandable-container';
 
 interface ExperienceMoreProps extends DivPropsT {
     responsibilities?: string[];
@@ -39,7 +39,7 @@ const ExperienceMore = memo(({ responsibilities = [] }: ExperienceMoreProps) => 
                     <span>More details</span>
                 </BaseButton>
             </div>
-            <BurgerContainer className="relative" isOpen={isOpend} direction="down">
+            <ExpandableContainer className="relative" isOpen={isOpend} direction="down">
                 <ul className={cn('list-inside list-disc space-y-1 rounded-lg', 'p-4')}>
                     {responsibilities.map((responsibility, index) => (
                         <li
@@ -50,7 +50,7 @@ const ExperienceMore = memo(({ responsibilities = [] }: ExperienceMoreProps) => 
                         </li>
                     ))}
                 </ul>
-            </BurgerContainer>
+            </ExpandableContainer>
         </>
     );
 });
