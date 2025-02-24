@@ -177,7 +177,7 @@ export const ProjectsConfig = [
             '2024',
             'Next',
             'TypeScript',
-            'GoogleAnalytics',
+            'Google Analytics',
             'Contentlayer',
             'Tailwind CSS',
             'next-themes',
