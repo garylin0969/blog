@@ -1,11 +1,11 @@
 import cn from '@/utils/cn';
 import { ArticlePropsT } from '@/interfaces/html';
-import { Post } from '@/interfaces/post';
+import { PostT } from '@/interfaces/post';
 import { NextLink } from '@/components/atoms/link';
 import ArticleMeta from '@/components/molecules/article-meta';
 
 interface ArticleCardProps extends ArticlePropsT {
-    post: Post;
+    post: PostT;
 }
 
 const ArticleCard = ({ className, post, ...props }: ArticleCardProps) => {
