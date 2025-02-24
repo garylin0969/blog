@@ -23,7 +23,7 @@ const GradientText = ({ text, gradient, className }: { text: string; gradient: s
 
 const WebsiteIntroduction = ({ className, ...props }: DivPropsT) => {
     return (
-        <div className={cn('w-full', 'flex items-center justify-center', 'md:text-2xl', className)} {...props}>
+        <div className={cn('flex w-full items-center justify-center md:text-2xl', className)} {...props}>
             {/* 移動端顯示 */}
             <div className="space-y-2 text-center md:hidden">
                 <h2 className="text-2xl font-bold">
