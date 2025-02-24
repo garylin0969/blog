@@ -1,9 +1,9 @@
 import cn from '@/utils/cn';
-import { Post } from '@/interfaces/post';
+import { PostT } from '@/interfaces/post';
 import ArticleCard from '@/components/molecules/article-card';
 
 interface ArticleListProps {
-    posts: Post[];
+    posts: PostT[];
 }
 
 const ArticleList = ({ posts }: ArticleListProps) => {
