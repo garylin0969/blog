@@ -19,13 +19,13 @@ export async function generateMetadata({ params }: PostProps): Promise<Metadata>
         };
     }
 
-    const title = post.title; // 會自動變成 'GaryLin | 文章標題'
+    const title = post.title;
 
     return {
         title,
         description: post.description,
         openGraph: {
-            title,
+            title: title,
             description: post.description,
             url: `https://www.garylin.dev/blog/posts${post.url}`,
             siteName: 'Gary Lin Portfolio',
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: PostProps): Promise<Metadata>
         },
         twitter: {
             card: 'summary_large_image',
-            title,
+            title: title,
             description: post.description,
             images: [
                 {
@@ -54,7 +54,17 @@ export async function generateMetadata({ params }: PostProps): Promise<Metadata>
                 },
             ],
         },
-        keywords: ['Gary Lin', 'Blog', 'Frontend Development', ...(post.tags || [])],
+        keywords: [
+            'Gary Lin',
+            'Blog',
+            'Frontend Developer',
+            'React.js',
+            'Next.js',
+            'TypeScript',
+            'Web Development',
+            'JavaScript',
+            ...(post?.tags || []),
+        ],
         authors: [{ name: 'Gary Lin', url: 'https://www.garylin.dev' }],
         alternates: {
             canonical: `https://www.garylin.dev/blog/posts${post.url}`,

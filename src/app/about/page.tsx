@@ -38,13 +38,13 @@ export const metadata: Metadata = {
     },
     keywords: [
         'Gary Lin',
+        'About',
         'Frontend Developer',
         'Web Development',
         'JavaScript',
         'React.js',
         'Next.js',
         'TypeScript',
-        'About',
     ],
     authors: [{ name: 'Gary Lin', url: 'https://www.garylin.dev' }],
     robots: {
