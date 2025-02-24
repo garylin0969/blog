@@ -14,15 +14,14 @@ interface PostProps {
 }
 
 export async function generateMetadata({ params }: PostProps): Promise<Metadata> {
-    // 將 slug 中的每個部分解碼
-    const decodedSlug = params?.slug?.map((part) => decodeURIComponent(part))?.join('/');
+    const decodedSlug = params?.slug?.map(decodeURIComponent).join('/');
     const post = getPostBySlug(`/${decodedSlug}`);
     const title = `GaryLin | ${post?.title}`;
 
     return {
         title,
         openGraph: {
-            title: title,
+            title,
             description: post?.description,
             url: `https://www.garylin.dev/blog/posts${post?.url}`,
             images: [
@@ -35,7 +34,7 @@ export async function generateMetadata({ params }: PostProps): Promise<Metadata>
 }
 
 export async function generateStaticParams() {
-    const posts = getAllPosts(); // 從資料庫或 CMS 獲取文章
+    const posts = getAllPosts();
 
     return posts.map((post) => ({
         slug: post?.url?.split('/').filter(Boolean),
@@ -43,9 +42,7 @@ export async function generateStaticParams() {
 }
 
 const Posts = ({ params }: PostProps) => {
-    // 將 slug 中的每個部分解碼
-    const decodedSlug = params?.slug?.map((part) => decodeURIComponent(part))?.join('/');
-
+    const decodedSlug = params?.slug?.map(decodeURIComponent).join('/');
     const post = getPostBySlug(`/${decodedSlug}`);
 
     if (!post) {
