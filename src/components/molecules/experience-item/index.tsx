@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import cn from '@/utils/cn';
 import { DivPropsT } from '@/interfaces/html';
-import ExperienceMore from './experience-more';
+import ExperienceMore from '@/components/molecules/experience-more';
 
 interface ExperienceItemProps extends DivPropsT {
     logoSrc?: string;
@@ -48,9 +48,7 @@ const ExperienceItem = ({
                     />
                 </div>
                 <div>
-                    <div>
-                        <h4 className="text-lg font-semibold">{title}</h4>
-                    </div>
+                    <h4 className="text-lg font-semibold">{title}</h4>
                     <div className="mb-1 text-base">
                         {companyUrl ? (
                             <a
