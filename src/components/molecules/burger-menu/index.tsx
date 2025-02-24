@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import cn from '@/utils/cn';
-import BurgerButton from './burger-button';
 import ExpandableContainer from '@/components/atoms/expandable-container';
+import BurgerButton from './burger-button';
 import MobileNavMenu from './mobile-nav-menu';
 
 const BurgerMenu = () => {
