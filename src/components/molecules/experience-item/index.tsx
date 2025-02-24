@@ -24,29 +24,26 @@ const ExperienceItem = ({
     className,
     ...props
 }: ExperienceItemProps) => {
+    const itemClasses = cn(
+        'max-w-xl',
+        'p-4',
+        'shadow-lg hover:shadow-xl',
+        'rounded-xl border border-purple-100 dark:border-white/30',
+        'bg-gradient-to-br from-white to-purple-50/30',
+        'dark:from-slate-900 dark:to-slate-900',
+        className,
+    );
+
     return (
-        <div
-            className={cn(
-                'max-w-xl',
-                'p-4',
-                'shadow-lg hover:shadow-xl',
-                'rounded-xl border border-purple-100 dark:border-white/30',
-                'bg-gradient-to-br from-white to-purple-50/30',
-                'dark:from-slate-900 dark:to-slate-900',
-                className,
-            )}
-            {...props}
-        >
+        <div className={itemClasses} {...props}>
             <div className="flex gap-4">
-                <div>
-                    <Image
-                        className={cn('aspect-square w-16 bg-white')}
-                        src={logoSrc}
-                        width={64}
-                        height={64}
-                        alt={companyName}
-                    />
-                </div>
+                <Image
+                    className={cn('aspect-square w-16 bg-white')}
+                    src={logoSrc}
+                    width={64}
+                    height={64}
+                    alt={companyName}
+                />
                 <div>
                     <h4 className="text-lg font-semibold">{title}</h4>
                     <div className="mb-1 text-base">
