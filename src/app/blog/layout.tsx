@@ -3,11 +3,11 @@ import { Metadata } from 'next';
 import BlogTemplate from '@/components/templates/blog-template';
 
 export const metadata: Metadata = {
-    title: 'Blog',
+    title: 'GaryLin | Blog',
     description:
         "Welcome to Gary Lin's blog. Here I share my thoughts and experiences about frontend development, React.js, Next.js, and more.",
     openGraph: {
-        title: 'Blog',
+        title: 'GaryLin | Blog',
         description:
             "Welcome to Gary Lin's blog. Here I share my thoughts and experiences about frontend development, React.js, Next.js, and more.",
         url: 'https://www.garylin.dev/blog',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Blog',
+        title: 'GaryLin | Blog',
         description:
             "Welcome to Gary Lin's blog. Here I share my thoughts and experiences about frontend development, React.js, Next.js, and more.",
         images: [
