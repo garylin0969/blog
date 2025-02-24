@@ -127,6 +127,21 @@ export const ExperienceConfig = [
     },
 ];
 
+export const SkillsConfig = [
+    {
+        title: 'HTML/CSS',
+        skills: ['HTML5', 'CSS3', 'Tailwind CSS', 'Shadcn UI', 'Bootstrap', 'styled-components'],
+    },
+    {
+        title: 'JavaScript',
+        skills: ['TypeScript', 'React.js', 'Next.js', 'React Hook Form', 'Redux', 'Zustand', 'React Query', 'i18n'],
+    },
+    {
+        title: 'Others',
+        skills: ['Scrum', 'Git', 'GitLab', 'Git Flow', 'Jira', 'Confluence', 'Google Analytics'],
+    },
+];
+
 export const ProjectsConfig = [
     {
         imageUrl: '/assets/projects/life-restart.jpg',
@@ -196,22 +211,7 @@ export const ProjectsConfig = [
     {
         imageUrl: '/assets/projects/ispan.avif',
         projectUrl: 'https://github.com/garylin0969/react-ispan-project',
-        projectName: 'iSpan 資策會 - 專案',
+        projectName: 'iSpan 資策會 - 專題',
         projectTags: ['2022', 'React', 'JavaScript', 'Socket.IO', 'Bootstrap', 'GSAP'],
-    },
-];
-
-export const SkillsConfig = [
-    {
-        title: 'HTML/CSS',
-        skills: ['HTML5', 'CSS3', 'Tailwind CSS', 'Shadcn UI', 'Bootstrap', 'styled-components'],
-    },
-    {
-        title: 'JavaScript',
-        skills: ['TypeScript', 'React.js', 'Next.js', 'React Hook Form', 'Redux', 'Zustand', 'React Query', 'i18n'],
-    },
-    {
-        title: 'Others',
-        skills: ['Scrum', 'Git', 'GitLab', 'Git Flow', 'Jira', 'Confluence', 'Google Analytics'],
     },
 ];
