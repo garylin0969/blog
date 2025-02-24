@@ -5,9 +5,9 @@ interface DateFormatterProps {
 }
 
 const DateFormatter = ({ dateString }: DateFormatterProps) => {
-    const date = dateString ? parseISO(dateString) : '';
+    const date = dateString ? parseISO(dateString) : null;
 
-    return <time dateTime={dateString}>{format(date, 'LLLL	d, yyyy')}</time>;
+    return <time dateTime={dateString}>{date ? format(date, 'LLLL d, yyyy') : 'Invalid date'}</time>;
 };
 
 export default DateFormatter;
