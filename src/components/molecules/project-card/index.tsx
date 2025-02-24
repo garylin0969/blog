@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { DivPropsT } from '@/interfaces/html';
 import cn from '@/utils/cn';
 import { BaseLink } from '@/components/atoms/link';
-import { BaseButton } from '@/components/atoms/button';
 
 interface ProjectCardProps extends DivPropsT {
     imageUrl?: string;
@@ -19,19 +18,29 @@ const ProjectCard = ({
     projectTags = [],
     ...props
 }: ProjectCardProps) => {
+    const cardClasses = cn(
+        'h-full w-full',
+        'shadow-lg transition-shadow duration-300 hover:shadow-xl',
+        'rounded-xl border border-purple-100 dark:border-white/30',
+        'overflow-hidden',
+        'flex flex-col',
+        'bg-gradient-to-br from-white to-purple-50/30 dark:from-slate-900 dark:to-slate-900',
+        className,
+    );
+
+    const tagClasses = cn(
+        'px-2 py-1',
+        'text-sm',
+        'rounded-md',
+        'bg-sky-50 dark:bg-sky-400/10',
+        'text-sky-500 dark:text-sky-400',
+        'border border-sky-200 dark:border-sky-400/20',
+        'transition-colors',
+        'hover:bg-sky-100 dark:hover:bg-sky-400/20',
+    );
+
     return (
-        <div
-            className={cn(
-                'h-full w-full',
-                'shadow-lg transition-shadow duration-300 hover:shadow-xl',
-                'rounded-xl border border-purple-100 dark:border-white/30',
-                'overflow-hidden',
-                'flex flex-col',
-                'bg-gradient-to-br from-white to-purple-50/30 dark:from-slate-900 dark:to-slate-900',
-                className,
-            )}
-            {...props}
-        >
+        <div className={cardClasses} {...props}>
             <BaseLink href={projectUrl} className="group hover:text-inherit dark:hover:text-inherit">
                 <div className="relative aspect-video w-full overflow-hidden">
                     <Image
@@ -47,24 +56,10 @@ const ProjectCard = ({
                     />
                 </div>
                 <div className={cn('flex-grow', 'space-y-3 md:space-y-6', 'p-3 md:p-6')}>
-                    <div>
-                        <h3 className={cn('text-lg font-bold tracking-tighter md:text-xl')}>{projectName}</h3>
-                    </div>
+                    <h3 className={cn('text-lg font-bold tracking-tighter md:text-xl')}>{projectName}</h3>
                     <div className={cn('flex flex-wrap gap-2')}>
                         {projectTags?.map((tag) => (
-                            <span
-                                key={tag}
-                                className={cn(
-                                    'px-2 py-1',
-                                    'text-sm',
-                                    'rounded-md',
-                                    'bg-sky-50 dark:bg-sky-400/10',
-                                    'text-sky-500 dark:text-sky-400',
-                                    'border border-sky-200 dark:border-sky-400/20',
-                                    'transition-colors',
-                                    'hover:bg-sky-100 dark:hover:bg-sky-400/20',
-                                )}
-                            >
+                            <span key={tag} className={tagClasses}>
                                 {tag}
                             </span>
                         ))}
