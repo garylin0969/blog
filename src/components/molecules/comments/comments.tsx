@@ -22,7 +22,7 @@ export default function Comments() {
             reactionsEnabled="1"
             emitMetadata="0"
             inputPosition="bottom"
-            theme={theme === 'dark' ? 'dark_tritanopia' : 'light'}
+            theme={theme === 'dark' ? 'dark_tritanopia' : 'light_tritanopia'}
             lang="zh-TW"
             loading="lazy"
         />
