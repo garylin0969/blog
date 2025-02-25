@@ -2,11 +2,11 @@ import { Metadata } from 'next';
 import AboutPage from '@/components/pages/about-page';
 
 export const metadata: Metadata = {
-    title: 'About',
+    title: 'GaryLin | About',
     description:
         'Hi, my name is Gary Lin, a Frontend Developer. I specialize in creating beautiful and efficient user interfaces.',
     openGraph: {
-        title: 'About',
+        title: 'GaryLin | About',
         description:
             'Hi, my name is Gary Lin, a Frontend Developer. I specialize in creating beautiful and efficient user interfaces.',
         url: 'https://www.garylin.dev/about',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'About',
+        title: 'GaryLin | About',
         description:
             'Hi, my name is Gary Lin, a Frontend Developer. I specialize in creating beautiful and efficient user interfaces.',
         images: [

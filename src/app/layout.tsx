@@ -19,10 +19,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://www.garylin.dev'),
-    title: {
-        default: 'GaryLin | Dev',
-        template: 'GaryLin | %s',
-    },
+    title: 'GaryLin | Dev',
     description:
         'Hi, my name is Gary Lin, a Frontend Developer specializing in React.js, Next.js, and modern web technologies.',
     generator: 'Next.js',
