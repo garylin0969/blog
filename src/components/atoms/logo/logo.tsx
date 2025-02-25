@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import cn from '@/utils/cn';
-import { siteTitle, logoImg } from '@/constants/header';
+import { header as headerConfig } from '@/configs/components.config.json';
 
 const Logo = () => {
     return (
@@ -9,14 +9,14 @@ const Logo = () => {
             <div className={cn('flex items-center gap-2')}>
                 <Image
                     className="rounded-md"
-                    src={logoImg}
+                    src={headerConfig.logoImage}
                     width={36}
                     height={36}
                     style={{ width: 'auto', height: 'auto' }}
                     alt="logo"
                     priority
                 />
-                <h1 className="text-2xl font-bold text-slate-700 dark:text-slate-200">{siteTitle}</h1>
+                <h1 className="text-2xl font-bold text-slate-700 dark:text-slate-200">{headerConfig.title}</h1>
             </div>
         </Link>
     );
