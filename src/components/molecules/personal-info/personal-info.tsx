@@ -8,7 +8,7 @@ const PersonalInfo = () => {
             <div className={cn('flex justify-center')}>
                 <Avatar />
             </div>
-            <div className={cn('text-center font-serif text-4xl font-bold tracking-wider')}>{author}</div>
+            <div className={cn('text-center text-4xl font-bold tracking-wider')}>{author}</div>
         </>
     );
 };
