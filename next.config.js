@@ -5,7 +5,14 @@ const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
     images: {
-        domains: ['giscus.app'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'giscus.app',
+                port: '',
+                pathname: '/**',
+            },
+        ],
     },
 };
 
