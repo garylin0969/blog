@@ -18,6 +18,7 @@ export default function Comments() {
             category="General"
             categoryId="DIC_kwDONFDN5c4CnIE8"
             mapping="og:title"
+            strict="0"
             reactionsEnabled="1"
             emitMetadata="0"
             inputPosition="bottom"
