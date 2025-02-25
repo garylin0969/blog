@@ -6,8 +6,6 @@ import cn from '@/utils/cn';
 import ThemeProvider from '@/providers/theme-provider';
 import RootTemplateProps from '@/components/templates/root-template';
 
-import '@/styles/prism-plus.css';
-import '@/styles/prism-vsc-dark-plus.css';
 import './globals.css';
 
 const inter = Inter({

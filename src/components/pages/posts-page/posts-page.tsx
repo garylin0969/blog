@@ -6,6 +6,8 @@ import cn from '@/utils/cn';
 import { getPostBySlug } from '@/utils/posts';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
+import '@/styles/prism-vsc-dark-plus.css';
+
 interface PostProps {
     params: {
         slug: string[];
