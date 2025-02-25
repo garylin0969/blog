@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import ArticleMeta from '@/components/molecules/article-meta';
-import DividerTitle from '@/components/molecules/divider-title';
+import SectionTitle from '@/components/molecules/section-title';
 import Comments from '@/components/molecules/comments';
 import cn from '@/utils/cn';
 import { getPostBySlug } from '@/utils/posts';
@@ -29,7 +29,7 @@ const PostsPage = ({ params }: PostProps) => {
                 <ArticleMeta date={date} category={category} />
                 <h2 className={cn('text-3xl font-bold dark:text-white')}>{title}</h2>
             </header>
-            <DividerTitle />
+            <SectionTitle />
             <div className="grid grid-cols-1">
                 <div
                     className={cn(
