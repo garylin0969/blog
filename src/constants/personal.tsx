@@ -209,7 +209,7 @@ export const ProjectsConfig = [
         projectTags: ['2023', 'React', 'Redux', 'TypeScript', 'Styled Components'],
     },
     {
-        imageUrl: '/assets/projects/ispan.avif',
+        imageUrl: '/assets/projects/ispan-project.jpg',
         projectUrl: 'https://github.com/garylin0969/react-ispan-project',
         projectName: 'iSpan 資策會 - 專題',
         projectTags: ['2022', 'React', 'JavaScript', 'Socket.IO', 'Bootstrap', 'GSAP'],
