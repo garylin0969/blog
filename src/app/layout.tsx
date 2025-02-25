@@ -17,6 +17,12 @@ const inter = Inter({
     adjustFontFallback: true,
 });
 
+export const viewport = {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+};
+
 export const metadata: Metadata = {
     metadataBase: new URL('https://www.garylin.dev'),
     title: 'GaryLin | Dev',
@@ -78,11 +84,6 @@ export const metadata: Metadata = {
                 alt: 'Gary Lin - Frontend Developer Portfolio',
             },
         ],
-    },
-    viewport: {
-        width: 'device-width',
-        initialScale: 1,
-        maximumScale: 5,
     },
     robots: {
         index: true,
