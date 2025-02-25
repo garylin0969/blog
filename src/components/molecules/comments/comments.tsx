@@ -18,7 +18,6 @@ export default function Comments() {
             category="General"
             categoryId="DIC_kwDONFDN5c4CnIE8"
             mapping="og:title"
-            term="Blog Comments Section"
             strict="0"
             reactionsEnabled="1"
             emitMetadata="0"
