@@ -8,7 +8,8 @@ const Footer = () => {
     return (
         <footer className={cn('py-6', 'text-center text-sm tracking-wide')}>
             <p>
-                &copy; {footerConfig.startYear}-{currentYear}
+                &copy;{' '}
+                {footerConfig.startYear === currentYear ? currentYear : `${footerConfig.startYear}-${currentYear}`}
                 <span className={cn('mx-1')}>
                     <BaseLink href={footerConfig.link}>{footerConfig.linkTitle}</BaseLink>
                 </span>
