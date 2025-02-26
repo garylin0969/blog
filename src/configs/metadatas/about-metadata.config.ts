@@ -11,7 +11,7 @@ const aboutMetadata: Partial<Metadata> = {
         siteName: 'Gary Lin Portfolio',
         images: [
             {
-                url: '/assets/default-open-graph.jpg',
+                url: '/assets/logo.jpg',
                 width: 1200,
                 height: 630,
                 alt: 'Gary Lin - Portfolio',
@@ -26,7 +26,7 @@ const aboutMetadata: Partial<Metadata> = {
         description: '嗨，我是 Gary Lin，專精於 React.js、Next.js 和現代網頁技術的前端工程師。',
         images: [
             {
-                url: '/assets/default-open-graph.jpg',
+                url: '/assets/logo.jpg',
                 width: 1200,
                 height: 630,
                 alt: 'Gary Lin - Portfolio',

@@ -24,7 +24,7 @@ export default async ({ params }: { params: { slug: string[] } }): Promise<Metad
             siteName: 'Gary Lin Blog',
             images: [
                 {
-                    url: post.coverImage || '/assets/default-open-graph.jpg',
+                    url: post.coverImage || '/assets/logo.jpg',
                     width: 1200,
                     height: 630,
                     alt: `${post.title} - Gary Lin Blog`,
@@ -40,7 +40,7 @@ export default async ({ params }: { params: { slug: string[] } }): Promise<Metad
             description: post.description,
             images: [
                 {
-                    url: post.coverImage || '/assets/default-open-graph.jpg',
+                    url: post.coverImage || '/assets/logo.jpg',
                     width: 1200,
                     height: 630,
                     alt: `${post.title} - Gary Lin Blog`,
