@@ -27,7 +27,7 @@ const ArticleMeta = ({ className, date, category, tags = [], ...props }: Article
             {tags?.length > 0 && (
                 <div className="flex flex-wrap gap-2">
                     {tags.map((tag) => (
-                        <Tag key={tag} className="text-xs" variant="default">
+                        <Tag key={tag} className="text-xs">
                             {tag}
                         </Tag>
                     ))}
