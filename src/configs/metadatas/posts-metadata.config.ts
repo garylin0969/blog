@@ -1,26 +1,27 @@
+import { Metadata } from 'next';
 import { getPostBySlug } from '@/utils/posts';
+import { baseMetadata } from './base-metadata.config';
 
-export default async ({ params }: { params: { slug: string[] } }) => {
+export default async ({ params }: { params: { slug: string[] } }): Promise<Metadata> => {
     const decodedSlug = params?.slug?.map(decodeURIComponent).join('/');
     const post = getPostBySlug(`/${decodedSlug}`);
 
     if (!post) {
         return {
-            title: 'Post Not Found',
-            description: 'The requested blog post could not be found.',
+            ...baseMetadata,
+            title: '找不到文章',
+            description: '您請求的文章無法找到。',
         };
     }
 
-    const title = post.title;
-
-    return {
-        title,
+    const postMetadata: Partial<Metadata> = {
+        title: post.title,
         description: post.description,
         openGraph: {
-            title: title,
+            title: post.title,
             description: post.description,
             url: `https://www.garylin.dev/blog/posts${post.url}`,
-            siteName: 'Gary Lin Portfolio',
+            siteName: 'Gary Lin Blog',
             images: [
                 {
                     url: post.coverImage || '/assets/default-open-graph.jpg',
@@ -35,7 +36,7 @@ export default async ({ params }: { params: { slug: string[] } }) => {
         },
         twitter: {
             card: 'summary_large_image',
-            title: title,
+            title: post.title,
             description: post.description,
             images: [
                 {
@@ -48,24 +49,26 @@ export default async ({ params }: { params: { slug: string[] } }) => {
         },
         keywords: [
             'Gary Lin',
-            'Blog',
             'Frontend Developer',
+            'Web Development',
             'React.js',
             'Next.js',
             'TypeScript',
-            'Web Development',
             'JavaScript',
+            'Blog',
+            '前端',
+            '前端開發',
+            '前端開發者',
+            '前端工程師',
+            '前端開發人員',
+            '網頁開發',
+            '部落格',
+            '技術部落格',
             ...(post?.tags || []),
         ],
         authors: [{ name: 'Gary Lin', url: 'https://www.garylin.dev' }],
-        alternates: {
-            canonical: `https://www.garylin.dev/blog/posts${post.url}`,
-        },
-        robots: {
-            index: true,
-            follow: true,
-            'max-image-preview': 'large',
-            'max-snippet': -1,
-        },
+        alternates: { canonical: `https://www.garylin.dev/blog/posts${post.url}` },
     };
+
+    return { ...baseMetadata, ...postMetadata };
 };

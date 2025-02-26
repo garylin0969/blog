@@ -22,7 +22,7 @@ export const viewport = {
     maximumScale: 5,
 };
 
-export const metadata = rootMetadataConfig as Metadata;
+export const metadata: Metadata = rootMetadataConfig;
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
     return (

@@ -1,38 +1,28 @@
-export default {
-    metadataBase: new URL('https://www.garylin.dev'),
+import { Metadata } from 'next';
+import { baseMetadata } from './base-metadata.config';
+
+const rootMetadata: Partial<Metadata> = {
     title: 'GaryLin | Dev',
-    description:
-        'Hi, my name is Gary Lin, a Frontend Developer specializing in React.js, Next.js, and modern web technologies.',
-    generator: 'Next.js',
-    applicationName: 'Gary Lin Portfolio',
-    referrer: 'origin-when-cross-origin',
-    keywords: ['Gary Lin', 'Frontend Developer', 'React.js', 'Next.js', 'TypeScript', 'Web Development', 'JavaScript'],
-    authors: [
-        {
-            name: 'Gary Lin',
-            url: 'https://www.garylin.dev',
-        },
+    description: '嗨，我是 Gary Lin，專精於 React.js、Next.js 和現代網頁技術的前端工程師。',
+    keywords: [
+        'Gary Lin',
+        'Frontend Developer',
+        'Web Development',
+        'React.js',
+        'Next.js',
+        'TypeScript',
+        'JavaScript',
+        '前端',
+        '前端開發',
+        '前端開發者',
+        '前端工程師',
+        '前端開發人員',
+        '網頁開發',
     ],
-    creator: 'Gary Lin',
-    publisher: 'Gary Lin',
-    formatDetection: {
-        email: false,
-        address: false,
-        telephone: false,
-    },
-    icons: {
-        icon: { url: '/assets/logo.jpg' },
-        shortcut: { url: '/assets/logo.jpg' },
-        apple: { url: '/assets/logo.jpg' },
-        other: {
-            rel: 'apple-touch-icon-precomposed',
-            url: '/assets/logo.jpg',
-        },
-    },
+    authors: [{ name: 'Gary Lin', url: 'https://www.garylin.dev' }],
     openGraph: {
         title: 'GaryLin | Dev',
-        description:
-            'Hi, my name is Gary Lin, a Frontend Developer specializing in React.js, Next.js, and modern web technologies.',
+        description: '嗨，我是 Gary Lin，專精於 React.js、Next.js 和現代網頁技術的前端工程師。',
         url: 'https://www.garylin.dev',
         siteName: 'Gary Lin Portfolio',
         images: [
@@ -40,7 +30,7 @@ export default {
                 url: '/assets/default-open-graph.jpg',
                 width: 1200,
                 height: 630,
-                alt: 'Gary Lin - Frontend Developer Portfolio',
+                alt: 'Gary Lin - Portfolio',
             },
         ],
         locale: 'zh_TW',
@@ -49,32 +39,17 @@ export default {
     twitter: {
         card: 'summary_large_image',
         title: 'GaryLin | Dev',
-        description:
-            'Hi, my name is Gary Lin, a Frontend Developer specializing in React.js, Next.js, and modern web technologies.',
+        description: '嗨，我是 Gary Lin，專精於 React.js、Next.js 和現代網頁技術的前端工程師。',
         images: [
             {
                 url: '/assets/default-open-graph.jpg',
                 width: 1200,
                 height: 630,
-                alt: 'Gary Lin - Frontend Developer Portfolio',
+                alt: 'Gary Lin - Portfolio',
             },
         ],
     },
-    robots: {
-        index: true,
-        follow: true,
-        googleBot: {
-            index: true,
-            follow: true,
-            'max-video-preview': -1,
-            'max-image-preview': 'large',
-            'max-snippet': -1,
-        },
-    },
-    alternates: {
-        canonical: 'https://www.garylin.dev',
-    },
-    verification: {
-        google: 'CtxomoS71tuDi5qlZJbJpoLQ7dcgEOXcW_oCY8zyLUw',
-    },
+    alternates: { canonical: 'https://www.garylin.dev' },
 };
+
+export default { ...baseMetadata, ...rootMetadata };

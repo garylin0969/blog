@@ -1,13 +1,14 @@
-export default {
+import { Metadata } from 'next';
+import { baseMetadata } from './base-metadata.config';
+
+const blogMetadata: Partial<Metadata> = {
     title: 'GaryLin | Blog',
-    description:
-        "Welcome to Gary Lin's blog. Here I share my thoughts and experiences about frontend development, React.js, Next.js, and more.",
+    description: '歡迎來到 Gary Lin 的Blog。在這裡我分享關於前端開發、React.js、Next.js 等方面的想法和經驗。',
     openGraph: {
         title: 'GaryLin | Blog',
-        description:
-            "Welcome to Gary Lin's blog. Here I share my thoughts and experiences about frontend development, React.js, Next.js, and more.",
+        description: '歡迎來到 Gary Lin 的Blog。在這裡我分享關於前端開發、React.js、Next.js 等方面的想法和經驗。',
         url: 'https://www.garylin.dev/blog',
-        siteName: 'Gary Lin Portfolio',
+        siteName: 'Gary Lin Blog',
         images: [
             {
                 url: '/assets/default-open-graph.jpg',
@@ -22,8 +23,7 @@ export default {
     twitter: {
         card: 'summary_large_image',
         title: 'GaryLin | Blog',
-        description:
-            "Welcome to Gary Lin's blog. Here I share my thoughts and experiences about frontend development, React.js, Next.js, and more.",
+        description: '歡迎來到 Gary Lin 的Blog。在這裡我分享關於前端開發、React.js、Next.js 等方面的想法和經驗。',
         images: [
             {
                 url: '/assets/default-open-graph.jpg',
@@ -35,21 +35,23 @@ export default {
     },
     keywords: [
         'Gary Lin',
-        'Blog',
-        'Frontend Development',
+        'Frontend Developer',
+        'Web Development',
         'React.js',
         'Next.js',
         'TypeScript',
-        'Web Development',
-        'Technical Blog',
+        'JavaScript',
+        'Blog',
+        '前端',
+        '前端開發',
+        '前端開發者',
+        '前端工程師',
+        '前端開發人員',
+        '網頁開發',
+        '部落格',
+        '技術部落格',
     ],
-    alternates: {
-        canonical: 'https://www.garylin.dev/blog',
-    },
-    robots: {
-        index: true,
-        follow: true,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-    },
+    alternates: { canonical: 'https://www.garylin.dev/blog' },
 };
+
+export default { ...baseMetadata, ...blogMetadata };
