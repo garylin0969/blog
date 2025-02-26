@@ -17,8 +17,12 @@ const ArticleCard = ({ className, post, ...props }: ArticleCardProps) => {
         <article
             className={cn(
                 'p-5',
+                'rounded-xl border dark:border-white/30',
+                'shadow duration-300',
+                'hover:shadow-sm',
                 'hover:bg-gradient-to-br hover:from-purple-50/50 hover:to-pink-50/50',
                 'dark:hover:from-slate-800/50 dark:hover:to-slate-800/50',
+                // 'dark:hover:shadow-sky-800',
                 className,
             )}
             {...props}

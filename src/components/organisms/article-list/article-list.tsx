@@ -9,7 +9,7 @@ interface ArticleListProps {
 const ArticleList = ({ posts }: ArticleListProps) => {
     return (
         <div className="space-y-3">
-            {posts?.map((post) => (
+            {/* {posts?.map((post) => (
                 <div
                     key={post?.title}
                     className={cn(
@@ -21,7 +21,8 @@ const ArticleList = ({ posts }: ArticleListProps) => {
                 >
                     <ArticleCard className="w-full" post={post} />
                 </div>
-            ))}
+            ))} */}
+            {posts?.map((post) => <ArticleCard key={post?.title} className="w-full" post={post} />)}
         </div>
     );
 };
