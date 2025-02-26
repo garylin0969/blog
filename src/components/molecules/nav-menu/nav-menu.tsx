@@ -1,6 +1,6 @@
 import cn from '@/utils/cn';
 import { NextLink } from '@/components/atoms/link';
-import { header as headerConfig } from '@/configs/components.config.json';
+import headerConfig from '@/configs/components/header.config';
 
 const NavMenu = () => {
     return (
@@ -8,7 +8,7 @@ const NavMenu = () => {
             <ul className={cn('flex gap-4')}>
                 {headerConfig?.navMenuLinks?.map((data) => {
                     return (
-                        <li key={data?.href}>
+                        <li key={data?.label}>
                             <NextLink href={data?.href}>{data?.label}</NextLink>
                         </li>
                     );

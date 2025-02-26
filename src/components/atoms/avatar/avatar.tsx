@@ -1,12 +1,12 @@
 import Image, { ImageProps } from 'next/image';
-import { authorImg } from '@/constants/personal';
+import { infoImage } from '@/configs/components/info.config';
 
 const avatarInitProps = {
     className: 'rounded-full aspect-square',
-    src: authorImg,
+    src: infoImage.url,
     width: 160,
     height: 160,
-    alt: 'avatar',
+    alt: infoImage.alt,
 };
 
 const Avatar = ({ ...props }: Partial<ImageProps>) => {

@@ -1,6 +1,6 @@
-import { author } from '@/constants/personal';
-import Avatar from '@/components/atoms/avatar';
 import cn from '@/utils/cn';
+import Avatar from '@/components/atoms/avatar';
+import { infoName } from '@/configs/components/info.config';
 
 const PersonalInfo = () => {
     return (
@@ -8,7 +8,7 @@ const PersonalInfo = () => {
             <div className={cn('flex justify-center')}>
                 <Avatar />
             </div>
-            <div className={cn('text-center text-4xl font-bold tracking-wider')}>{author}</div>
+            <div className={cn('text-center text-4xl font-bold tracking-wider')}>{infoName}</div>
         </>
     );
 };

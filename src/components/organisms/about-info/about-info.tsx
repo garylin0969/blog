@@ -1,12 +1,12 @@
 import cn from '@/utils/cn';
 import { DivPropsT } from '@/interfaces/html';
-import { AboutInfoConfig } from '@/constants/personal';
+import { infoDescriptions } from '@/configs/components/info.config';
 
 interface AboutInfoProps extends DivPropsT {
-    info?: string[];
+    infoList?: string[];
 }
 
-const AboutInfo = ({ info = AboutInfoConfig, className, ...props }: AboutInfoProps) => {
+const AboutInfo = ({ infoList = infoDescriptions, className, ...props }: AboutInfoProps) => {
     const containerClasses = cn(
         'relative',
         'p-6 md:p-8',
@@ -34,7 +34,7 @@ const AboutInfo = ({ info = AboutInfoConfig, className, ...props }: AboutInfoPro
             <div className={gradientClasses} />
             {/* 使用 React.Fragment 來包裹 info 的映射 */}
             <>
-                {info?.map((data) => (
+                {infoList?.map((data) => (
                     <p key={data} className={cn('font-semibold')}>
                         {data}
                     </p>

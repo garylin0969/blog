@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import cn from '@/utils/cn';
-import { header as headerConfig } from '@/configs/components.config.json';
+import headerConfig from '@/configs/components/header.config';
 
 const Logo = () => {
     return (
@@ -9,7 +9,7 @@ const Logo = () => {
             <div className={cn('flex items-center gap-2')}>
                 <Image
                     className="rounded-md"
-                    src={headerConfig.logoImage}
+                    src={headerConfig.logoImageUrl}
                     width={36}
                     height={36}
                     style={{ width: 'auto', height: 'auto' }}

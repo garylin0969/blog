@@ -1,7 +1,7 @@
 import cn from '@/utils/cn';
 import { SectionPropsT } from '@/interfaces/html';
 import ExperienceItem from '@/components/molecules/experience-item';
-import { ExperienceConfig } from '@/constants/personal';
+import experienceConfig from '@/configs/components/experience.config';
 
 const Experience = ({ className, ...props }: SectionPropsT) => {
     return (
@@ -13,8 +13,9 @@ const Experience = ({ className, ...props }: SectionPropsT) => {
                     )}
                 />
                 <div className="space-y-4">
-                    {ExperienceConfig?.map(
+                    {experienceConfig?.map(
                         ({
+                            id,
                             companyName,
                             logoSrc,
                             title,
@@ -23,7 +24,7 @@ const Experience = ({ className, ...props }: SectionPropsT) => {
                             employmentEndDate,
                             responsibilities,
                         }) => (
-                            <li key={companyName} className={cn('group relative md:grid md:grid-cols-2')}>
+                            <li key={id} className={cn('group relative md:grid md:grid-cols-2')}>
                                 <div
                                     className={cn(
                                         'absolute left-1/2 top-1/2 hidden h-4 w-4 translate-x-[-50%] translate-y-[-50%] rounded-full bg-sky-500 dark:bg-sky-400 md:block',

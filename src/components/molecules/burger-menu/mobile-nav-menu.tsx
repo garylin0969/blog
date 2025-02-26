@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import cn from '@/utils/cn';
-import { header as headerConfig } from '@/configs/components.config.json';
+import headerConfig from '@/configs/components/header.config';
 import SocialIconLinks from '@/components/molecules/social-icon-links';
 
 interface MobileNavMenuProps {
@@ -16,7 +16,7 @@ const MobileNavMenu = ({ onItemClick }: MobileNavMenuProps) => {
         >
             <ul className={cn('flex flex-col gap-4')}>
                 {headerConfig?.navMenuLinks?.map((data) => (
-                    <li key={data?.href}>
+                    <li key={data?.label}>
                         <Link href={data?.href} onClick={onItemClick}>
                             {data?.label}
                         </Link>

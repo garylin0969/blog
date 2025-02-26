@@ -1,7 +1,7 @@
 import cn from '@/utils/cn';
 import { SectionPropsT } from '@/interfaces/html';
 import ProjectCard from '@/components/molecules/project-card';
-import { ProjectsConfig } from '@/constants/personal';
+import projectsConfig from '@/configs/components/projects.config';
 
 const Projects = ({ className, ...props }: SectionPropsT) => {
     return (
@@ -9,9 +9,9 @@ const Projects = ({ className, ...props }: SectionPropsT) => {
             className={cn('grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3', 'gap-4', 'px-2 md:px-0', className)}
             {...props}
         >
-            {ProjectsConfig?.map((data) => {
+            {projectsConfig?.map((data) => {
                 return (
-                    <div key={data?.projectUrl} className={cn('h-full w-full', 'flex justify-center')}>
+                    <div key={data?.id} className={cn('h-full w-full', 'flex justify-center')}>
                         <ProjectCard
                             imageUrl={data?.imageUrl}
                             projectUrl={data?.projectUrl}

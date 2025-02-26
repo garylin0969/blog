@@ -1,6 +1,6 @@
 import cn from '@/utils/cn';
 import { BaseLink } from '@/components/atoms/link';
-import { footer as footerConfig } from '@/configs/components.config.json';
+import footerConfig from '@/configs/components/footer.config';
 
 const currentYear = new Date().getFullYear();
 

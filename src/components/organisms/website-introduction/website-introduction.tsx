@@ -1,7 +1,7 @@
 import cn from '@/utils/cn';
 import { DivPropsT } from '@/interfaces/html';
 import DisplayElement from '@/components/molecules/display-element';
-import { WebsiteIntroductionConfig } from '@/constants/personal';
+import WebsiteIntroductionConfig from '@/configs/components/website-introduction.config';
 
 // 抽取共用的樣式配置
 const titleGradient = cn(
