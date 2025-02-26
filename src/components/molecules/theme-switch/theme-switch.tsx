@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { MdLightMode } from 'react-icons/md';
 import { BsFillMoonFill } from 'react-icons/bs';
+import themeConfig from '@/configs/theme.config';
 
 const ThemeSwitch = () => {
     const { systemTheme, theme, setTheme } = useTheme();
@@ -11,9 +12,20 @@ const ThemeSwitch = () => {
 
     useEffect(() => {
         setMounted(true);
+
+        if (['dark', 'light'].includes(themeConfig.mode)) {
+            setTheme(themeConfig.mode);
+        } else {
+            setTheme(systemTheme || 'system');
+        }
     }, []);
 
     const currentTheme: string | undefined = theme === 'system' ? systemTheme : theme;
+
+    // If theme switch is disabled in config, don't render anything
+    if (!themeConfig.enabled) {
+        return null;
+    }
 
     return (
         <>
