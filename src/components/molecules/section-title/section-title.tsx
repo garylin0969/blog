@@ -6,7 +6,7 @@ const DividerLine = () => {
 };
 
 interface SectionTitleProps extends SpanPropsT {
-    align?: 'left' | 'center' | 'right';
+    align?: string;
     title?: string;
     showDivider?: boolean;
 }
@@ -15,7 +15,7 @@ const SectionTitle = ({ align = 'center', title = '', showDivider = true, classN
     return (
         <span
             className={cn(
-                'flex items-center',
+                showDivider && 'flex items-center',
                 'font-serif text-xl font-bold tracking-wider dark:text-slate-200',
                 'md:text-3xl',
                 className,
@@ -29,6 +29,9 @@ const SectionTitle = ({ align = 'center', title = '', showDivider = true, classN
                         align === 'center' && 'shrink-0 px-6',
                         align === 'left' && (showDivider ? 'pr-6' : ''),
                         align === 'right' && (showDivider ? 'pl-6' : ''),
+                        !showDivider && align === 'center' && 'text-center',
+                        !showDivider && align === 'left' && 'text-left',
+                        !showDivider && align === 'right' && 'text-right',
                     )}
                 >
                     {title}

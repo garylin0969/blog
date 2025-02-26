@@ -7,7 +7,11 @@ export default [
         companyName: 'Anue 鉅亨網',
         employmentStartDate: '2024.03',
         employmentEndDate: 'Now',
-        responsibilities: [
+        button: {
+            enabled: true,
+            text: 'More details',
+        },
+        details: [
             '參與 Scrum 開發流程，運用 Jira、Slack 與 Confluence 促進跨部門協作及專案管理。',
             '負責外匯及新聞領域專案的開發，涵蓋約 10 項專案的功能維護與新增需求。',
             '採用 Docker 將網站封裝為映像檔，結合 GitLab CI/CD 部署至 GitLab Container Registry。',
@@ -28,7 +32,11 @@ export default [
         companyName: 'Universal EC Inc.',
         employmentStartDate: '2022.10',
         employmentEndDate: '2024.02',
-        responsibilities: [
+        button: {
+            enabled: true,
+            text: 'More details',
+        },
+        details: [
             '參與 Scrum 敏捷開發流程，運用 Mantis 與 Asana 進行跨部門協作及專案管理。',
             '重構系統架構，導入 Prettier、JWT 與 Jest 等技術，以顯著提升程式碼品質與系統效能。',
             '深入研究 Next.js 技術，應用於前台系統的升級及新功能開發，推動技術革新。',
@@ -53,7 +61,11 @@ export default [
         companyName: 'iSpan International Inc.',
         employmentStartDate: '2022.03',
         employmentEndDate: '2022.08',
-        responsibilities: [
+        button: {
+            enabled: true,
+            text: 'More details',
+        },
+        details: [
             '實施 JSON Web Token (JWT) 與 Google OAuth 認證機制。',
             '開發會員中心及收藏功能，提供完善的用戶資料管理與個性化服務，優化用戶體驗。',
             '整合 Socket.IO 架構聊天室，實現用戶間即時的通訊互動。',

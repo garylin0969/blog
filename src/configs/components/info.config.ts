@@ -11,17 +11,17 @@ export const infoName = 'Gary Lin';
 
 export const infoList = [
     {
-        icon: FaBuilding,
+        icon: () => FaBuilding({}),
         link: 'https://www.cnyes.com/',
         text: 'Anue 鉅亨網',
     },
     {
-        icon: FaLocationDot,
+        icon: () => FaLocationDot({}),
         link: '',
         text: 'Taipei, Taiwan',
     },
     {
-        icon: IoMdMail,
+        icon: () => IoMdMail({}),
         link: 'mailto:garylin0969@gmail.com',
         text: 'garylin0969@gmail.com',
     },

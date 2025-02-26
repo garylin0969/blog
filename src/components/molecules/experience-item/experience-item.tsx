@@ -10,7 +10,11 @@ interface ExperienceItemProps extends DivPropsT {
     companyName?: string;
     employmentStartDate?: string;
     employmentEndDate?: string;
-    responsibilities?: string[];
+    button?: {
+        enabled: boolean;
+        text: string;
+    };
+    details?: string[];
 }
 
 const ExperienceItem = ({
@@ -20,7 +24,11 @@ const ExperienceItem = ({
     companyName = '',
     employmentStartDate = '',
     employmentEndDate = '',
-    responsibilities = [],
+    button = {
+        enabled: false,
+        text: '',
+    },
+    details = [],
     className,
     ...props
 }: ExperienceItemProps) => {
@@ -67,7 +75,8 @@ const ExperienceItem = ({
                     </div>
                 </div>
             </div>
-            <ExperienceMore responsibilities={responsibilities} />
+            <div className="relative flex w-full" />
+            {button?.enabled && <ExperienceMore details={details} button={button} />}
         </div>
     );
 };
