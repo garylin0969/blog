@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { DivPropsT } from '@/types/html';
 import cn from '@/utils/cn';
 import { BaseLink } from '@/components/atoms/link';
+import { Tag } from '@/components/atoms/tag';
 
 interface ProjectCardProps extends DivPropsT {
     imageUrl?: string;
@@ -28,17 +29,6 @@ const ProjectCard = ({
         className,
     );
 
-    const tagClasses = cn(
-        'px-2 py-1',
-        'text-sm',
-        'rounded-md',
-        'bg-sky-50 dark:bg-sky-400/10',
-        'text-sky-500 dark:text-sky-400',
-        'border border-sky-200 dark:border-sky-400/20',
-        'transition-colors',
-        'hover:bg-sky-100 dark:hover:bg-sky-400/20',
-    );
-
     return (
         <div className={cardClasses} {...props}>
             <BaseLink href={projectUrl} className="group hover:text-inherit dark:hover:text-inherit">
@@ -58,11 +48,7 @@ const ProjectCard = ({
                 <div className={cn('flex-grow', 'space-y-3 md:space-y-6', 'p-3 md:p-6')}>
                     <h3 className={cn('text-lg font-bold tracking-tighter md:text-xl')}>{projectName}</h3>
                     <div className={cn('flex flex-wrap gap-2')}>
-                        {projectTags?.map((tag) => (
-                            <span key={tag} className={tagClasses}>
-                                {tag}
-                            </span>
-                        ))}
+                        {projectTags?.map((tag) => <Tag key={tag}>{tag}</Tag>)}
                     </div>
                 </div>
             </BaseLink>

@@ -23,13 +23,13 @@ const PostsPage = ({ params }: PostProps) => {
     }
 
     const MDXContent = useMDXComponent(post?.body?.code);
-    const { date, category, title } = post;
+    const { date, category, title, tags } = post;
 
     return (
-        <article className={cn('space-y-8')}>
+        <article className={cn('space-y-6')}>
             <header className={cn('space-y-3')}>
-                <ArticleMeta date={date} category={category} />
                 <h2 className={cn('text-3xl font-bold dark:text-white')}>{title}</h2>
+                <ArticleMeta className="space-y-3" date={date} category={category} tags={tags} />
             </header>
             <SectionTitle />
             <div className="grid grid-cols-1">

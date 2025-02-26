@@ -1,8 +1,14 @@
 ---
 category: Notes
-title: 發布 NPM
-description: 如何發布 Node Package Manager 套件，從初始化到發布的完整流程。
-coverImage: /assets/blog/notes/2024/12/npm.webp
+title: 發布 NPM 套件指南
+description: 本文介紹如何建立和發布 NPM 套件，包含套件開發、測試、發布流程等完整說明。
+tags:
+    - NPM
+    - Node.js
+    - JavaScript
+    - Package Management
+    - Development
+coverImage: /assets/blog/notes/2024/12/npm.jpg
 date: 2024-12-05
 ---
 
@@ -98,57 +104,3 @@ npx tsc --init
     "exclude": ["node_modules"] // 不需要編譯的文件
 }
 ```
-
-編譯 TypeScript：
-
-```
-npx tsc
-```
-
-## 初次發布
-
-當你準備好發布你的套件時，使用以下命令：
-
-```
-npm publish
-```
-
-## 更新發布
-
-如果需要更新套件的版本號，可以將套件的版本號升級一個小型的修訂版本，例如從 1.0.0 升級到 1.0.1。這可以透過手動修改 `package.json` 檔案中的 version 欄位來完成，或使用 npm 提供的版本升級命令：
-
-```
-npm version patch
-```
-
-然後再次發布：
-
-```
-npm publish
-```
-
-## 常見問題
-
-### 如何處理版本衝突？
-
-如果在發布時遇到版本衝突，請檢查你的 `package.json` 中的版本號，確保它是唯一的。你可以使用 `npm version` 命令來自動更新版本號。
-
-### 如何撤回發布的版本？
-
-如果需要撤回已發布的版本，可以使用以下命令：
-
-```
-npm deprecate <package-name>@<version> "這個版本已經不再使用"
-```
-
-這樣可以讓使用者知道該版本不再推薦使用。
-
-### 如何查看已發布的版本？
-
-你可以使用以下命令查看已發布的版本：
-
-```
-npm view <package-name> versions --json
-```
-
-這將返回一個 JSON 格式的版本列表。
