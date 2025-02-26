@@ -8,11 +8,11 @@ const Logo = () => {
         <Link href="/">
             <div className={cn('flex items-center gap-2')}>
                 <Image
-                    className="rounded-md"
+                    className="h-9 w-9 rounded-md"
                     src={headerConfig.logoImageUrl}
                     width={36}
                     height={36}
-                    style={{ width: 'auto', height: 'auto' }}
+                    style={{ width: '36px', height: '36px' }}
                     alt="logo"
                     priority
                 />
