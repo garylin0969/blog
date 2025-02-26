@@ -54,11 +54,11 @@ let n: null = null;
 
 ## any 與 unknown 的差異
 
-TypeScript 中的 `any` 和 `unknown` 型別都可以接受任何值，但它們在型別安全性上有重要的區別：
+TypeScript 中的 **any** 和 **unknown** 型別都可以接受任何值，但它們在型別安全性上有重要的區別：
 
 ### any 型別
 
-`any` 型別基本上會關閉 TypeScript 的型別檢查：
+**any** 型別基本上會關閉 TypeScript 的型別檢查：
 
 ```typescript
 let anyValue: any = 10;
@@ -71,7 +71,7 @@ anyValue(); // 不會報錯
 anyValue.trim(); // 不會報錯
 ```
 
-使用 `any` 的問題：
+**any** 的問題：
 
 -   繞過了型別檢查
 -   可能導致運行時錯誤
@@ -80,7 +80,7 @@ anyValue.trim(); // 不會報錯
 
 ### unknown 型別
 
-`unknown` 是型別安全的 `any`：
+**unknown** 是型別安全的 **any**：
 
 ```typescript
 let unknownValue: unknown = 10;
@@ -102,7 +102,7 @@ const stringValue = unknownValue as string;
 stringValue.trim(); // 可以，但如果實際不是字符串會在運行時出錯
 ```
 
-`unknown` 的優點：
+**unknown** 的優點：
 
 -   需要先進行型別檢查或型別斷言才能使用
 -   強制開發者處理型別安全問題
@@ -145,15 +145,15 @@ async function processUserData() {
 }
 ```
 
-在這個例子中，使用 `unknown` 而不是 `any` 迫使我們處理可能的型別問題，使程式碼更加健壯。
+在這個例子中，使用 **unknown** 而不是 **any** 迫使我們處理可能的型別問題，使程式碼更加健壯。
 
 ## Type vs Interface
 
-TypeScript 提供了兩種定義型別的方式：`type` 和 `interface`。
+TypeScript 提供了兩種定義型別的方式：**type** 和 **interface**。
 
 ### 使用 Interface
 
-Interface 主要用於定義對象的形狀：
+**Interface** 主要用於定義對象的形狀：
 
 ```typescript
 // 定義接口
@@ -181,7 +181,7 @@ const searchStr: SearchFunction = (src, sub) => src.includes(sub);
 
 ### 使用 Type
 
-Type 可以用於定義聯合型別、交叉型別和其他複雜型別：
+**Type** 可以用於定義聯合型別、交叉型別和其他複雜型別：
 
 ```typescript
 // 聯合型別
@@ -256,7 +256,7 @@ const userResponse: GenericResponse<User> = {
 
 TypeScript 提供了多種內置的工具型別，幫助你轉換和操作型別：
 
-### `Partial<T>`
+### Partial\<T\>
 
 將型別的所有屬性設為可選：
 
@@ -284,7 +284,7 @@ function updateUser(userId: number, updates: Partial<User>) {
 updateUser(1, { name: 'New Name' }); // 有效
 ```
 
-### `Required<T>`
+### Required\<T\>
 
 將型別的所有屬性設為必需：
 
@@ -305,7 +305,7 @@ type RequiredConfig = Required<Config>;
 // }
 ```
 
-### `Pick<T, K>`
+### Pick\<T, K\>
 
 從型別 T 中選擇一組屬性 K：
 
@@ -334,7 +334,7 @@ function getUserPublicInfo(user: User): UserBasicInfo {
 }
 ```
 
-### `Omit<T, K>`
+### Omit\<T, K\>
 
 從型別 T 中排除一組屬性 K：
 
@@ -356,7 +356,7 @@ type UserPublicInfo = Omit<User, 'password'>;
 // }
 ```
 
-### `Record<K, T>`
+### Record\<K, T\>
 
 創建一個具有指定鍵型別 K 和值型別 T 的對象型別：
 
@@ -376,9 +376,9 @@ const rolePermissions: RoleConfig = {
 };
 ```
 
-### `Exclude<T, U>` 和 `Extract<T, U>`
+### Exclude\<T, U\> 和 Extract\<T, U\>
 
-`Exclude<T, U>` 從 T 中排除可分配給 U 的型別，而 `Extract<T, U>` 從 T 中提取可分配給 U 的型別：
+Exclude\<T, U\> 從 T 中排除可分配給 U 的型別，而 Extract\<T, U\> 從 T 中提取可分配給 U 的型別：
 
 ```typescript
 type T0 = Exclude<'a' | 'b' | 'c', 'a'>; // 'b' | 'c'

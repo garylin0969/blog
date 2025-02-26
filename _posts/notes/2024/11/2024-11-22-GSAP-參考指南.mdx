@@ -36,7 +36,7 @@ npm install gsap
 
 ### 基本用法
 
-在 React 或 Next.js 中使用 GSAP 時，通常會在 `useEffect` 中進行動畫初始化，以確保 DOM 元素已經渲染。
+在 React 或 Next.js 中使用 GSAP 時，通常會在 useEffect 中進行動畫初始化，以確保 DOM 元素已經渲染。
 
 ### 創建簡單動畫
 
@@ -61,14 +61,14 @@ export default Box;
 
 GSAP 提供了多種參數來控制動畫效果：
 
--   `duration`: 動畫持續時間（秒）。
--   `x`, `y`: 移動的距離。
--   `opacity`: 透明度。
--   `scale`: 縮放比例。
+-   **duration**: 動畫持續時間（秒）。
+-   **x**, **y**: 移動的距離。
+-   **opacity**: 透明度。
+-   **scale**: 縮放比例。
 
 ### 連續動畫
 
-你可以使用 `stagger` 參數來創建連續動畫效果：
+你可以使用 **stagger** 參數來創建連續動畫效果：
 
 ```javascript
 import React, { useEffect } from 'react';
@@ -102,7 +102,7 @@ export default Boxes;
 
 ### Timeline
 
-GSAP 的 `Timeline` 功能可以讓你更方便地管理多個動畫：
+GSAP 的 **Timeline** 功能可以讓你更方便地管理多個動畫：
 
 ```javascript
 import React, { useEffect } from 'react';
@@ -151,11 +151,11 @@ export default BoxWithCallback;
 
 -   **未正確引入 GSAP**：確保在使用 GSAP 之前已經正確引入庫。
 -   **選擇器錯誤**：檢查選擇器是否正確，確保動畫目標存在於 DOM 中。
--   **動畫持續時間過短**：如果動畫過快，可能會導致效果不明顯，適當調整 `duration`。
+-   **動畫持續時間過短**：如果動畫過快，可能會導致效果不明顯，適當調整 **duration**。
 
 ## 最佳實踐
 
--   **使用 Timeline**：對於複雜的動畫，使用 `Timeline` 來管理動畫順序。
+-   **使用 Timeline**：對於複雜的動畫，使用 **Timeline** 來管理動畫順序。
 -   **避免重複動畫**：在開始新動畫之前，確保停止或清除舊動畫，以避免性能問題。
 -   **測試不同瀏覽器**：GSAP 支持多種瀏覽器，但在不同環境中測試動畫效果是個好習慣。
 
@@ -212,4 +212,4 @@ gsap.to(element, {
 6. **變形相關**：介紹了變形相關的屬性，如變形原點、傾斜等。
 7. **特殊控制**：介紹了特殊控制屬性，如暫停、立即渲染、覆蓋規則、序列動畫等。
 8. **SVG 特定屬性**：列出了 SVG 動畫中特有的屬性。
-9. **TextPlugin 屬性**：介紹了 [`TextPlugin`](command:_github.copilot.openSymbolFromReferences?%5B%22%22%2C%5B%7B%22uri%22%3A%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FUsers%2Fgarylin%2FDesktop%2FGitHub%2Fblog-starter-app%2Fdocs%2Fgsap-reference.md%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%2C%22pos%22%3A%7B%22line%22%3A0%2C%22character%22%3A8%7D%7D%5D%2C%221ef9ccc6-5afa-4d07-9915-e1aa8a7fba04%22%5D 'Go to definition') 的使用方法。
+9. **TextPlugin 屬性**：介紹了 [TextPlugin](command:_github.copilot.openSymbolFromReferences?%5B%22%22%2C%5B%7B%22uri%22%3A%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2FUsers%2Fgarylin%2FDesktop%2FGitHub%2Fblog-starter-app%2Fdocs%2Fgsap-reference.md%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%2C%22pos%22%3A%7B%22line%22%3A0%2C%22character%22%3A8%7D%7D%5D%2C%221ef9ccc6-5afa-4d07-9915-e1aa8a7fba04%22%5D 'Go to definition') 的使用方法。

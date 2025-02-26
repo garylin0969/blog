@@ -53,7 +53,7 @@ pnpm dev
 
 ### 1. 建立 Dockerfile
 
-在專案根目錄創建 `Dockerfile`：
+在專案根目錄創建 **Dockerfile**：
 
 ```dockerfile
 # 建置階段
@@ -108,7 +108,7 @@ module.exports = nextConfig;
 
 ### 2. 建立 .gitlab-ci.yml
 
-在專案根目錄創建 `.gitlab-ci.yml`：
+在專案根目錄創建 **.gitlab-ci.yml**：
 
 ```yaml
 image: docker:latest
@@ -179,7 +179,7 @@ deploy:
 
 ### 4. 更新 Kubernetes 配置
 
-更新 `kubernetes/deployment.yaml` 中的映像路徑：
+更新 **kubernetes/deployment.yaml** 中的映像路徑：
 
 ```yaml
 apiVersion: apps/v1
@@ -244,7 +244,7 @@ gcloud container clusters create my-cluster \
 
 ### 3. 建立 Kubernetes 配置
 
-建立 `kubernetes/deployment.yaml`：
+建立 **kubernetes/deployment.yaml**：
 
 ```yaml
 apiVersion: apps/v1
@@ -284,7 +284,7 @@ git push origin main
 2. **監控部署過程**
 
 -   在 GitLab CI/CD Pipeline 頁面查看部署狀態
--   使用 `kubectl` 命令檢查部署狀態：
+-   使用 **kubectl** 命令檢查部署狀態：
 
 ```bash
 kubectl get pods
@@ -293,7 +293,7 @@ kubectl get services
 
 3. **驗證部署**
 
--   使用 `kubectl get service nextjs-app-service` 獲取外部 IP
+-   使用 **kubectl get service nextjs-app-service** 獲取外部 IP
 -   在瀏覽器訪問該 IP 確認應用是否正常運行
 
 ## 常見問題與解決方案
@@ -338,7 +338,7 @@ kubectl get services
 
 4. **Container Registry 最佳實踐**
     - 定期清理舊的容器映像
-    - 使用具體的標籤而不是 `latest`
+    - 使用具體的標籤而不是 **latest**
     - 實施映像掃描檢查安全漏洞
     - 設定適當的存取權限控制
 

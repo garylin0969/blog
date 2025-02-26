@@ -34,16 +34,16 @@ tags:
 
 宏任務是指那些在事件循環中被處理的主要任務。這些任務包括：
 
--   `setTimeout`
--   `setInterval`
+-   **setTimeout**
+-   **setInterval**
 -   I/O 操作
 
 ### 微任務 (Micro Task)
 
 微任務是指那些在當前任務完成後立即執行的任務。這些任務包括：
 
--   `Promise` 的回調函數
--   `MutationObserver`
+-   **Promise** 的回調函數
+-   **MutationObserver**
 
 微任務的優先級高於宏任務，這意味著在執行下一個宏任務之前，所有的微任務都會被執行。
 

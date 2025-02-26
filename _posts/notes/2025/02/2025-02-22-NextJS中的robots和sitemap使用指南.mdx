@@ -14,18 +14,18 @@ tags:
 
 ## 什麼是 robots.txt 和 sitemap.xml？
 
-在網站開發中，`robots.txt` 和 `sitemap.xml` 是兩個重要的文件，幫助搜索引擎爬蟲更好地理解和索引網站內容。
+在網站開發中，**robots.txt** 和 **sitemap.xml** 是兩個重要的文件，幫助搜索引擎爬蟲更好地理解和索引網站內容。
 
 -   **robots.txt**：告訴搜索引擎哪些頁面可以被爬取，哪些頁面不可以。
 -   **sitemap.xml**：提供網站的結構和所有可訪問頁面的列表，幫助搜索引擎更有效地索引網站。
 
 ## 在 Next.js 中使用 robots.txt
 
-在 Next.js 中，你可以通過創建一個 `robots.ts` 文件來生成 `robots.txt` 文件。以下是如何實現的示例：
+在 Next.js 中，你可以通過創建一個 **robots.ts** 文件來生成 **robots.txt** 文件。以下是如何實現的示例：
 
 ### 創建 robots.ts 文件
 
-在 `src/app` 目錄下創建 `robots.ts` 文件，並添加以下：
+在 **src/app** 目錄下創建 **robots.ts** 文件，並添加以下：
 
 ```typescript:src/app/robots.ts
 import { MetadataRoute } from 'next';
@@ -42,15 +42,15 @@ export default function robots(): MetadataRoute.Robots {
 }
 ```
 
-這段告訴搜索引擎可以訪問網站的所有頁面，但禁止訪問 `/private/` 路徑下的頁面。
+這段告訴搜索引擎可以訪問網站的所有頁面，但禁止訪問 **/private/** 路徑下的頁面。
 
 ## 在 Next.js 中使用 sitemap.xml
 
-同樣地，你可以通過創建一個 `sitemap.ts` 文件來生成 `sitemap.xml` 文件。以下是如何實現的示例：
+同樣地，你可以通過創建一個 **sitemap.ts** 文件來生成 **sitemap.xml** 文件。以下是如何實現的示例：
 
 ### 創建 sitemap.ts 文件
 
-在 `src/app` 目錄下創建 `sitemap.ts` 文件，並添加以下：
+在 **src/app** 目錄下創建 **sitemap.ts** 文件，並添加以下：
 
 ```typescript:src/app/sitemap.ts
 import { MetadataRoute } from 'next';
@@ -98,7 +98,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
 ## 總結
 
-在 Next.js 中使用 `robots.txt` 和 `sitemap.xml` 能夠更好地管理網站的搜索引擎優化（SEO）。
+在 Next.js 中使用 **robots.txt** 和 **sitemap.xml** 能夠更好地管理網站的搜索引擎優化（SEO）。
 
 ## 參考來源
 
