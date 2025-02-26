@@ -1,6 +1,6 @@
 import { BaseButton } from '@/components/atoms/button';
 import { NextLink } from '@/components/atoms/link';
-import { UlPropsT } from '@/interfaces/html';
+import { UlPropsT } from '@/types/html';
 import { getAllCategories } from '@/utils/posts';
 
 const ArticleCategories = ({ className, ...props }: UlPropsT) => {

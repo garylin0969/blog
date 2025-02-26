@@ -1,5 +1,5 @@
 import cn from '@/utils/cn';
-import { DivPropsT } from '@/interfaces/html';
+import { DivPropsT } from '@/types/html';
 import { DateFormatter } from '@/components/atoms/date';
 import { NextLink } from '@/components/atoms/link';
 

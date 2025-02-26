@@ -1,5 +1,5 @@
 import cn from '@/utils/cn';
-import { DivPropsT } from '@/interfaces/html';
+import { DivPropsT } from '@/types/html';
 import { infoDescriptions } from '@/configs/components/info.config';
 
 interface AboutInfoProps extends DivPropsT {

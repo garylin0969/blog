@@ -1,5 +1,5 @@
 import cn from '@/utils/cn';
-import { DivPropsT } from '@/interfaces/html';
+import { DivPropsT } from '@/types/html';
 
 const tagColor = 'text-slate-400 dark:text-slate-300';
 const tagTextColor = 'text-[#f92672]';

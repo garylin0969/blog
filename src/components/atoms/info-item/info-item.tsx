@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import cn from '@/utils/cn';
-import { DivPropsT } from '@/interfaces/html';
+import { DivPropsT } from '@/types/html';
 
 interface InfoItemProps extends DivPropsT {
     icon?: ReactNode | (() => JSX.Element);

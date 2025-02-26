@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import cn from '@/utils/cn';
-import { DivPropsT } from '@/interfaces/html';
+import { DivPropsT } from '@/types/html';
 import ExperienceMore from '@/components/molecules/experience-more';
 
 interface ExperienceItemProps extends DivPropsT {

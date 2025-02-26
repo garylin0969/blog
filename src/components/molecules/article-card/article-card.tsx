@@ -1,6 +1,6 @@
 import cn from '@/utils/cn';
-import { ArticlePropsT } from '@/interfaces/html';
-import { PostT } from '@/interfaces/post';
+import { ArticlePropsT } from '@/types/html';
+import { PostT } from '@/types/post';
 import { NextLink } from '@/components/atoms/link';
 import ArticleMeta from '@/components/molecules/article-meta';
 

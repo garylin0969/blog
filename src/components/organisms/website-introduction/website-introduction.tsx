@@ -1,5 +1,5 @@
 import cn from '@/utils/cn';
-import { DivPropsT } from '@/interfaces/html';
+import { DivPropsT } from '@/types/html';
 import DisplayElement from '@/components/molecules/display-element';
 import WebsiteIntroductionConfig from '@/configs/components/website-introduction.config';
 

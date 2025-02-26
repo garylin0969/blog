@@ -1,4 +1,4 @@
-import { SpanPropsT } from '@/interfaces/html';
+import { SpanPropsT } from '@/types/html';
 import cn from '@/utils/cn';
 
 const DividerLine = () => {

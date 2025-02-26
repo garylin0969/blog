@@ -1,5 +1,5 @@
 import cn from '@/utils/cn';
-import { SectionPropsT } from '@/interfaces/html';
+import { SectionPropsT } from '@/types/html';
 import ExperienceItem from '@/components/molecules/experience-item';
 import experienceConfig from '@/configs/components/experience.config';
 

@@ -2,7 +2,7 @@
 
 import { useState, memo } from 'react';
 import cn from '@/utils/cn';
-import { DivPropsT } from '@/interfaces/html';
+import { DivPropsT } from '@/types/html';
 import { BaseButton } from '@/components/atoms/button';
 import ExpandableContainer from '@/components/atoms/expandable-container';
 

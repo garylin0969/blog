@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { LinkPropsT } from '@/interfaces/html';
+import { LinkPropsT } from '@/types/html';
 import cn from '@/utils/cn';
 
 const BaseLink = forwardRef<HTMLAnchorElement, LinkPropsT>(({ href, className, children, ...props }, ref) => {

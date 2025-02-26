@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { DivPropsT } from '@/interfaces/html';
+import { DivPropsT } from '@/types/html';
 import cn from '@/utils/cn';
 import { BaseLink } from '@/components/atoms/link';
 

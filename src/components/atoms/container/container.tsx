@@ -1,4 +1,4 @@
-import { DivPropsT } from '@/interfaces/html';
+import { DivPropsT } from '@/types/html';
 import cn from '@/utils/cn';
 
 const Container = ({ className, children, ...props }: DivPropsT) => {

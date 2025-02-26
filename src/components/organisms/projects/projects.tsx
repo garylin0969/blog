@@ -1,5 +1,5 @@
 import cn from '@/utils/cn';
-import { SectionPropsT } from '@/interfaces/html';
+import { SectionPropsT } from '@/types/html';
 import ProjectCard from '@/components/molecules/project-card';
 import projectsConfig from '@/configs/components/projects.config';
 

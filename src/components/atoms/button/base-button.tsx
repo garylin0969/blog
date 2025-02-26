@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import cn from '@/utils/cn';
-import { ButtonPropsT } from '@/interfaces/html';
+import { ButtonPropsT } from '@/types/html';
 
 const BaseButton = forwardRef<HTMLButtonElement, ButtonPropsT>(({ className, children, ...props }, ref) => {
     return (
