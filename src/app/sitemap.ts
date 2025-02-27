@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next';
-import { getAllPosts } from '@/utils/posts';
+import { getAllCategories, getAllPosts } from '@/utils/posts';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // 獲取所有文章
     const posts = getAllPosts();
+    const categories = getAllCategories();
 
     // 基本頁面
     const routes = [
@@ -27,6 +28,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         },
     ];
 
+    // 分類頁面
+    const categoryRoutes = [
+        // 加入 all 分類
+        {
+            url: 'https://www.garylin.dev/blog/all',
+            lastModified: new Date(),
+            changeFrequency: 'daily' as const,
+            priority: 0.8, // 分類頁面優先級
+        },
+        // 其他分類
+        ...categories.map((category) => ({
+            url: `https://www.garylin.dev/blog/${category.toLowerCase()}`,
+            lastModified: new Date(),
+            changeFrequency: 'daily' as const,
+            priority: 0.8,
+        })),
+    ];
+
     // 為每篇文章生成 sitemap 項目
     const postRoutes = posts?.map((post) => ({
         url: `https://www.garylin.dev/blog/posts${post?.url}`,
@@ -35,5 +54,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.7, // 文章頁面
     }));
 
-    return [...routes, ...postRoutes];
+    return [...routes, ...categoryRoutes, ...postRoutes];
 }
