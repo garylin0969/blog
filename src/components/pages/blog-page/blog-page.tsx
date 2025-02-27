@@ -47,7 +47,7 @@ const BlogPage = ({ params: { category = 'all' }, searchParams }: BlogPageProps)
                 <ArticleList posts={posts} />
             </div>
             {totalPages > 1 && (
-                <div className="py-6">
+                <div className="pt-6">
                     <Pagination currentPage={currentPage} totalPages={totalPages} baseUrl={`/blog/${category}`} />
                 </div>
             )}
