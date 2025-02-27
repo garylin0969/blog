@@ -1,3 +1,7 @@
-import Page from './[category]/page';
+import { redirect } from 'next/navigation';
 
-export default Page;
+const page = () => {
+    redirect('/blog');
+};
+
+export default page;
