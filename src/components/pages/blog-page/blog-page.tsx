@@ -1,14 +1,20 @@
 import { notFound } from 'next/navigation';
-import { getAllCategories, getAllPosts, getPostsByCategory } from '@/utils/posts';
+import { getAllCategories, getAllPosts, getPostsByCategory, POSTS_PER_PAGE } from '@/utils/posts';
 import ArticleList from '@/components/organisms/article-list';
+import Pagination from '@/components/atoms/pagination';
 
 interface BlogPageProps {
     params: {
         category: string;
     };
+    searchParams: {
+        page?: string;
+    };
 }
 
-const BlogPage = ({ params: { category = 'all' } }: BlogPageProps) => {
+const BlogPage = ({ params: { category = 'all' }, searchParams }: BlogPageProps) => {
+    const currentPage = Number(searchParams?.page) || 1;
+
     // 檢查分類是否有效（除了 'all' 之外）
     if (
         category !== 'all' &&
@@ -20,9 +26,29 @@ const BlogPage = ({ params: { category = 'all' } }: BlogPageProps) => {
     }
 
     // 獲取文章列表
-    const posts = category === 'all' ? getAllPosts() : getPostsByCategory(category);
+    let posts;
+    let totalPages;
 
-    return <ArticleList posts={posts} />;
+    if (category === 'all') {
+        const allPosts = getAllPosts();
+        totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
+        const start = (currentPage - 1) * POSTS_PER_PAGE;
+        const end = start + POSTS_PER_PAGE;
+        posts = allPosts.slice(start, end);
+    } else {
+        const result = getPostsByCategory(category, currentPage);
+        posts = result.posts;
+        totalPages = result.totalPages;
+    }
+
+    return (
+        <div className="space-y-6">
+            <ArticleList posts={posts} />
+            {totalPages > 1 && (
+                <Pagination currentPage={currentPage} totalPages={totalPages} baseUrl={`/blog/${category}`} />
+            )}
+        </div>
+    );
 };
 
 export default BlogPage;
