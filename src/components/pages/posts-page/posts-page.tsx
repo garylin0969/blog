@@ -38,6 +38,8 @@ const PostsPage = ({ params }: PostProps) => {
                         'col-span-1 max-w-none',
                         'prose md:prose-lg',
                         'prose-code:before:content-none prose-code:after:content-none',
+                        'prose-pre:!m-0',
+                        'prose-pre:!border prose-pre:!border-white/30',
                         'dark:prose-invert dark:prose-pre:bg-[#282C34]',
                     )}
                 >
