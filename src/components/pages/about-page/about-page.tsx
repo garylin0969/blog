@@ -7,7 +7,11 @@ import Experience from '@/components/organisms/experience';
 import Skills from '@/components/organisms/skills';
 import Projects from '@/components/organisms/projects';
 
-const { experience: experienceConfig, skills: skillsConfig, projects: projectsConfig } = aboutSectionTitleConfig;
+const {
+    experience: experienceSectionConfig,
+    skills: skillsSectionConfig,
+    projects: projectsSectionConfig,
+} = aboutSectionTitleConfig;
 
 const AboutPage = () => {
     return (
@@ -15,21 +19,21 @@ const AboutPage = () => {
             <InfoCard className="mt-6" />
             <AboutInfo className="mx-auto max-w-3xl" />
             <SectionTitle
-                align={experienceConfig?.align}
-                title={experienceConfig?.title}
-                showDivider={experienceConfig?.showDivider}
+                align={experienceSectionConfig?.align}
+                title={experienceSectionConfig?.title}
+                showDivider={experienceSectionConfig?.showDivider}
             />
             <Experience />
             <SectionTitle
-                align={skillsConfig?.align}
-                title={skillsConfig?.title}
-                showDivider={skillsConfig?.showDivider}
+                align={skillsSectionConfig?.align}
+                title={skillsSectionConfig?.title}
+                showDivider={skillsSectionConfig?.showDivider}
             />
             <Skills />
             <SectionTitle
-                align={projectsConfig?.align}
-                title={projectsConfig?.title}
-                showDivider={projectsConfig?.showDivider}
+                align={projectsSectionConfig?.align}
+                title={projectsSectionConfig?.title}
+                showDivider={projectsSectionConfig?.showDivider}
             />
             <Projects className="pb-6" />
         </Container>
