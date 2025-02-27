@@ -8,7 +8,7 @@ export default {
         },
         {
             label: 'Blog',
-            href: '/blog',
+            href: '/blog/all',
         },
         {
             label: 'About',
