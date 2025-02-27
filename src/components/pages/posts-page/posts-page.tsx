@@ -44,7 +44,14 @@ const mdxComponents: MDXComponents = {
         // 渲染後重置標題
         const result = (
             <CodeBlock title={title} currentProps={props}>
-                <pre className={cn(props.className, '!m-0 !rounded-t-none p-4')}>{props.children}</pre>
+                <pre
+                    className={cn(
+                        props.className,
+                        '!m-0 flex !min-h-[50px] flex-col justify-center !rounded-t-none p-4',
+                    )}
+                >
+                    {props.children}
+                </pre>
             </CodeBlock>
         );
 
