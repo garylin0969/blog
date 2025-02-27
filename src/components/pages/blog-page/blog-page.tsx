@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getAllCategories, getAllPosts, getPostsByCategory, POSTS_PER_PAGE } from '@/utils/posts';
 import ArticleList from '@/components/organisms/article-list';
-import Pagination from '@/components/atoms/pagination';
+import Pagination from '@/components/molecules/pagination';
 
 interface BlogPageProps {
     params: {
@@ -42,10 +42,14 @@ const BlogPage = ({ params: { category = 'all' }, searchParams }: BlogPageProps)
     }
 
     return (
-        <div className="space-y-6">
-            <ArticleList posts={posts} />
+        <div className="flex flex-1 flex-col">
+            <div className="flex-1">
+                <ArticleList posts={posts} />
+            </div>
             {totalPages > 1 && (
-                <Pagination currentPage={currentPage} totalPages={totalPages} baseUrl={`/blog/${category}`} />
+                <div className="py-6">
+                    <Pagination currentPage={currentPage} totalPages={totalPages} baseUrl={`/blog/${category}`} />
+                </div>
             )}
         </div>
     );
