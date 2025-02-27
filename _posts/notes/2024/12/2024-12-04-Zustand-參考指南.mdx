@@ -18,7 +18,7 @@ Zustand 是一個輕量級的狀態管理庫，專為 React 應用設計。它�
 
 ### 使用 npm 安裝
 
-```
+```bash
 npm install zustand
 ```
 
@@ -28,7 +28,7 @@ npm install zustand
 
 使用 **create** 函數來創建一個 store，並定義狀態和操作：
 
-```javascript
+```typescript:store.ts
 import create from 'zustand';
 
 const useStore = create((set) => ({
@@ -40,9 +40,9 @@ const useStore = create((set) => ({
 
 ### 使用 store
 
-在你的組件中使用 **useStore** 來訪問狀態和操作：
+在你的元件中使用 **useStore** 來訪問狀態和操作：
 
-```javascript
+```typescript
 import React from 'react';
 import { useStore } from './store'; // 假設 store 在同一目錄下
 
@@ -71,7 +71,7 @@ Zustand 支持中間件，可以用來擴展功能，例如持久化狀態或進
 
 使用 **persist** 中間件來持久化狀態：
 
-```javascript
+```typescript
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
 
@@ -93,7 +93,7 @@ const useStore = create(
 
 你可以使用選擇器來選擇狀態的一部分，這樣可以提高性能：
 
-```javascript
+```typescript
 const count = useStore((state) => state.count);
 ```
 
@@ -107,13 +107,13 @@ const count = useStore((state) => state.count);
 
 -   **使用中間件**：根據需要使用中間件來擴展 Zustand 的功能。
 -   **保持狀態簡單**：將狀態保持在最小範圍內，避免不必要的複雜性。
--   **測試不同組件**：在不同組件中測試 Zustand 的使用，確保狀態管理的有效性。
+-   **測試不同元件**：在不同元件中測試 Zustand 的使用，確保狀態管理的有效性。
 
 ## 實用範例
 
 ### 基本計數器
 
-```javascript
+```typescript
 import React from 'react';
 import create from 'zustand';
 
@@ -140,7 +140,7 @@ export default Counter;
 
 ### 使用持久化狀態的計數器
 
-```javascript
+```typescript
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
 

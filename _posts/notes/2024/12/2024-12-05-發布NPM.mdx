@@ -16,13 +16,13 @@ date: 2024-12-05
 
 要開始創建一個 NPM 套件，首先需要初始化一個新的項目。這可以通過以下命令完成：
 
-```
+```bash
 npm init
 ```
 
 如果只是想要快速建立一個 **package.json** 檔案，可以使用：
 
-```
+```bash
 npm init -y
 ```
 
@@ -40,7 +40,7 @@ npm init -y
 
 以下是一個 **package.json** 的範例：
 
-```json
+```json:package.json
 {
     "name": "chinese-number-format",
     "version": "1.0.2",
@@ -73,19 +73,19 @@ npm init -y
 
 如果你的套件使用 TypeScript，首先需要安裝 TypeScript：
 
-```
+```bash
 npm install typescript --save-dev
 ```
 
 然後初始化 TypeScript 配置：
 
-```
+```bash
 npx tsc --init
 ```
 
 這將在根目錄創建一個 tsconfig.json 文件。以下是 **tsconfig.json** 的基本資訊範例：
 
-```json
+```json:tsconfig.json
 {
     "compilerOptions": {
         "target": "es2016",

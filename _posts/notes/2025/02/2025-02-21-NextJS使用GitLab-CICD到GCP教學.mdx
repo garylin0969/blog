@@ -55,7 +55,7 @@ pnpm dev
 
 在專案根目錄創建 **Dockerfile**：
 
-```dockerfile
+```dockerfile:Dockerfile
 # 建置階段
 FROM node:18-alpine AS builder
 WORKDIR /app
@@ -81,9 +81,9 @@ ENV HOSTNAME "0.0.0.0"
 CMD ["node", "server.js"]
 ```
 
-### 2. 更新 next.config.js
+### 2. 更新 next.config.ts
 
-```javascript
+```typescript:next.config.ts
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     output: 'standalone',
@@ -110,7 +110,7 @@ module.exports = nextConfig;
 
 在專案根目錄創建 **.gitlab-ci.yml**：
 
-```yaml
+```yaml:.gitlab-ci.yml
 image: docker:latest
 
 services:
