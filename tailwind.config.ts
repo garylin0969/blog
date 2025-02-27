@@ -9,6 +9,34 @@ const config: Config = {
     ],
     theme: {
         extend: {
+            typography: {
+                DEFAULT: {
+                    css: {
+                        code: {
+                            backgroundColor: '#f0f9ff',
+                            color: '#0ea5e9',
+                            borderRadius: '0.25rem',
+                            padding: '0.2rem 0.4rem',
+                        },
+                        'pre code': {
+                            backgroundColor: 'transparent',
+                            color: 'inherit',
+                        },
+                    },
+                },
+                invert: {
+                    css: {
+                        code: {
+                            backgroundColor: 'rgba(14, 165, 233, 0.1)',
+                            color: '#38bdf8',
+                        },
+                        'pre code': {
+                            backgroundColor: 'transparent',
+                            color: 'inherit',
+                        },
+                    },
+                },
+            },
             backgroundImage: {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
                 'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
