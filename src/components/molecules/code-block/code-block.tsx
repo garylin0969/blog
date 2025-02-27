@@ -52,7 +52,9 @@ const CodeBlock = ({ title = '', currentProps, children }: CodeBlockProps) => {
     return (
         <div className={cn('group relative my-6 overflow-hidden rounded-lg border border-white/30 shadow-md')}>
             <div className="flex items-center justify-between border-b border-white/30 bg-gray-800 px-4 py-2 font-mono text-sm text-gray-200">
-                <span className="font-bold">{title}</span>
+                <span className="max-w-[180px] truncate font-bold sm:max-w-full" title={title}>
+                    {title}
+                </span>
                 <div className="flex items-center gap-2">
                     {language && (
                         <Tag variant="secondary" mode="dark">
