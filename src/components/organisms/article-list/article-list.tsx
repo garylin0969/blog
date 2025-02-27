@@ -1,4 +1,3 @@
-import cn from '@/utils/cn';
 import { PostT } from '@/types/post';
 import ArticleCard from '@/components/molecules/article-card';
 
