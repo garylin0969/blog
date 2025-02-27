@@ -42,8 +42,6 @@ pre[class*='language-'] {
     padding: 1.5em;
     margin: 0.8em 0;
     overflow: auto;
-    /* overflow-x: auto; */
-    white-space: pre;
     background: #282c34; /* One Dark Pro background */
     border-radius: 6px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
@@ -418,7 +416,7 @@ pre[class*='language-'].line-numbers > code {
 }
 
 /* Add code block language label */
-/* pre[class*='language-']::before {
+pre[class*='language-']::before {
     content: attr(class);
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.8rem;
@@ -428,10 +426,10 @@ pre[class*='language-'].line-numbers > code {
     color: #636d83;
     text-transform: uppercase;
     opacity: 0.6;
-} */
+}
 
 /* Hover effects for better UX */
-/* pre[class*='language-']:hover {
+pre[class*='language-']:hover {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     transition: box-shadow 0.3s ease;
-} */
+}

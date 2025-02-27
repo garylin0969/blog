@@ -1,8 +1,8 @@
 /* Base code styling */
 pre[class*='language-'],
 code[class*='language-'] {
-    color: #abb2bf;
-    font-size: 15px;
+    color: #e3e3e3;
+    font-size: 15px; /* Slightly increased font size for better readability */
     text-shadow: none;
     font-family: 'JetBrains Mono', Menlo, Monaco, Consolas, 'Andale Mono', 'Ubuntu Mono', 'Courier New', monospace;
     direction: ltr;
@@ -10,7 +10,7 @@ code[class*='language-'] {
     white-space: pre;
     word-spacing: normal;
     word-break: normal;
-    line-height: 1.7;
+    line-height: 1.7; /* Improved line height for readability */
     -moz-tab-size: 4;
     -o-tab-size: 4;
     tab-size: 4;
@@ -26,7 +26,7 @@ code[class*='language-']::selection,
 pre[class*='language-'] *::selection,
 code[class*='language-'] *::selection {
     text-shadow: none;
-    background: #3e4451;
+    background: #3a4055;
 }
 
 /* Print styles */
@@ -37,47 +37,45 @@ code[class*='language-'] *::selection {
     }
 }
 
-/* Code block container - One Dark Pro style */
+/* Code block container */
 pre[class*='language-'] {
-    padding: 1.5em;
-    margin: 0.8em 0;
+    padding: 1.5em; /* More padding */
+    margin: 0.8em 0; /* Better vertical spacing */
     overflow: auto;
-    /* overflow-x: auto; */
-    white-space: pre;
-    background: #282c34; /* One Dark Pro background */
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    border: 1px solid #3e4451;
+    background: #1a1b26;
+    border-radius: 8px; /* Increased border radius */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow for depth */
+    border: 1px solid #2a2b36; /* Subtle border */
 }
 
 /* Inline code */
 :not(pre) > code[class*='language-'] {
     padding: 0.2em 0.4em;
     border-radius: 0.3em;
-    color: #e06c75; /* One Dark Pro red */
-    background: #282c34;
-    font-weight: 500;
+    color: #f7768e;
+    background: #1a1b26;
+    font-weight: 500; /* Better visibility for inline code */
 }
 
 /*********************************************************
-* Tokens - One Dark Pro Colors
+* Tokens
 */
 .namespace {
     opacity: 0.7;
 }
 
 .token.doctype .token.doctype-tag {
-    color: #c678dd; /* One Dark Pro purple */
+    color: #bb9af7;
 }
 
 .token.doctype .token.name {
-    color: #e5c07b; /* One Dark Pro yellow */
+    color: #e0af68;
 }
 
-/* Comments - color changed as requested */
+/* Changed comment color as requested */
 .token.comment,
 .token.prolog {
-    color: #ff9eb4; /* Pink as requested */
+    color: #ff9eb4; /* Changed from green to pink */
     font-style: italic;
     font-weight: 500;
 }
@@ -85,7 +83,7 @@ pre[class*='language-'] {
 .token.punctuation,
 .language-html .language-css .token.punctuation,
 .language-html .language-javascript .token.punctuation {
-    color: #abb2bf; /* One Dark Pro foreground */
+    color: #9abdf5;
 }
 
 .token.property,
@@ -94,14 +92,14 @@ pre[class*='language-'] {
 .token.symbol,
 .token.inserted,
 .token.unit {
-    color: #d19a66; /* One Dark Pro orange */
+    color: #ff9e64;
 }
 
 .token.string,
 .token.char,
 .token.builtin,
 .token.deleted {
-    color: #98c379; /* One Dark Pro green */
+    color: #9ece6a;
 }
 
 .language-css .token.string.url {
@@ -110,54 +108,54 @@ pre[class*='language-'] {
 
 .token.operator,
 .token.entity {
-    color: #56b6c2; /* One Dark Pro cyan */
+    color: #89ddff;
 }
 
 .token.operator.arrow {
-    color: #c678dd; /* One Dark Pro purple */
+    color: #bb9af7;
 }
 
 .token.atrule {
-    color: #c678dd; /* One Dark Pro purple */
+    color: #bb9af7;
 }
 
 .token.atrule .token.rule {
-    color: #c678dd;
+    color: #bb9af7;
 }
 
 .token.atrule .token.url {
-    color: #e5c07b;
+    color: #e0af68;
 }
 
 .token.atrule .token.url .token.function {
-    color: #61afef;
+    color: #7aa2f7;
 }
 
 .token.atrule .token.url .token.punctuation {
-    color: #abb2bf;
+    color: #c0caf5;
 }
 
 .token.keyword {
-    color: #c678dd; /* One Dark Pro purple */
-    font-weight: 600;
+    color: #bb9af7;
+    font-weight: 600; /* Stronger keywords */
 }
 
 .token.keyword.module,
 .token.keyword.control-flow {
-    color: #c678dd;
+    color: #bb9af7;
 }
 
 .token.function,
 .token.function .token.maybe-class-name {
-    color: #61afef; /* One Dark Pro blue */
+    color: #7aa2f7;
 }
 
 .token.regex {
-    color: #98c379;
+    color: #9ece6a;
 }
 
 .token.important {
-    color: #c678dd;
+    color: #bb9af7;
     font-weight: bold;
 }
 
@@ -166,172 +164,172 @@ pre[class*='language-'] {
 }
 
 .token.constant {
-    color: #d19a66;
+    color: #ff9e64;
 }
 
 .token.class-name,
 .token.maybe-class-name {
-    color: #e5c07b; /* One Dark Pro yellow */
-    font-weight: 600;
+    color: #e0af68;
+    font-weight: 600; /* Emphasize class names */
 }
 
 .token.console {
-    color: #61afef;
+    color: #7aa2f7;
 }
 
 .token.parameter {
-    color: #abb2bf;
+    color: #c0caf5;
 }
 
 .token.interpolation {
-    color: #abb2bf;
+    color: #c0caf5;
 }
 
 .token.punctuation.interpolation-punctuation {
-    color: #c678dd;
+    color: #bb9af7;
 }
 
 .token.boolean {
-    color: #d19a66;
-    font-weight: 600;
+    color: #ff9e64;
+    font-weight: 600; /* Emphasize booleans */
 }
 
 .token.property,
 .token.imports .token.maybe-class-name,
 .token.exports .token.maybe-class-name {
-    color: #e06c75; /* One Dark Pro red */
+    color: #f7768e;
 }
 
 .token.selector {
-    color: #e06c75;
+    color: #f7768e;
 }
 
 .token.escape {
-    color: #56b6c2;
+    color: #89ddff;
 }
 
 .token.tag {
-    color: #e06c75;
+    color: #f7768e;
 }
 
 .token.tag .token.punctuation {
-    color: #abb2bf;
+    color: #c0caf5;
 }
 
 .token.cdata {
-    color: #abb2bf;
+    color: #c0caf5;
 }
 
 .token.attr-name {
-    color: #d19a66;
+    color: #ff9e64;
 }
 
 .token.attr-value,
 .token.attr-value .token.punctuation {
-    color: #98c379;
+    color: #9ece6a;
 }
 
 .token.attr-value .token.punctuation.attr-equals {
-    color: #abb2bf;
+    color: #c0caf5;
 }
 
 .token.entity {
-    color: #e06c75;
+    color: #f7768e;
 }
 
 .token.namespace {
-    color: #e5c07b;
+    color: #e0af68;
 }
 
 /* JSX/TSX improvements */
 .language-jsx .token.punctuation,
 .language-tsx .token.punctuation {
-    color: #abb2bf;
+    color: #c0caf5;
 }
 
 .language-jsx .token.tag .token.punctuation,
 .language-tsx .token.tag .token.punctuation {
-    color: #e06c75;
+    color: #f7768e;
 }
 
 .language-jsx .token.tag,
 .language-tsx .token.tag {
-    color: #e06c75;
+    color: #f7768e;
 }
 
 .language-jsx .token.string,
 .language-tsx .token.string {
-    color: #98c379;
+    color: #9ece6a;
 }
 
 .language-jsx .token.interpolation-punctuation,
 .language-tsx .token.interpolation-punctuation {
-    color: #c678dd;
+    color: #bb9af7;
 }
 
 /* Variables */
 .token.variable {
-    color: #e06c75;
+    color: #c0caf5;
 }
 
 /* Object property names */
 .token.property {
-    color: #e06c75;
+    color: #f7768e;
 }
 
 /* Method calls */
 .token.method {
-    color: #61afef;
+    color: #7aa2f7;
 }
 
 /* Special words */
 .token.null,
 .token.undefined {
-    color: #d19a66;
-    font-style: italic;
+    color: #ff9e64;
+    font-style: italic; /* Emphasize null/undefined */
 }
 
 /* Interpolation punctuation */
 .token.interpolation-punctuation {
-    color: #c678dd;
+    color: #bb9af7;
 }
 
 /* Parameters in function definition */
 .token.parameter {
-    color: #e06c75;
+    color: #f7768e;
 }
 
 /* Return keyword */
 .token.keyword.return {
-    color: #c678dd;
+    color: #bb9af7;
 }
 
 /* If statement */
 .token.keyword.if {
-    color: #c678dd;
+    color: #bb9af7;
 }
 
 /* Const keyword */
 .token.keyword.const {
-    color: #c678dd;
+    color: #bb9af7;
 }
 
 /* JSX/TSX component tags */
 .language-jsx .token.class-name,
 .language-tsx .token.class-name {
-    color: #e5c07b;
+    color: #e0af68;
 }
 
 /* Component attribute names */
 .language-jsx .token.attr-name,
 .language-tsx .token.attr-name {
-    color: #d19a66;
+    color: #ff9e64;
 }
 
 /* Strings in JSX/TSX */
 .language-jsx .token.attr-value,
 .language-tsx .token.attr-value {
-    color: #98c379;
+    color: #9ece6a;
 }
 
 /*********************************************************
@@ -345,25 +343,25 @@ pre[class*='language-typescript'],
 code[class*='language-typescript'],
 pre[class*='language-tsx'],
 code[class*='language-tsx'] {
-    color: #abb2bf;
+    color: #c0caf5;
 }
 
 pre[class*='language-css'],
 code[class*='language-css'] {
-    color: #abb2bf;
+    color: #c0caf5;
 }
 
 pre[class*='language-html'],
 code[class*='language-html'] {
-    color: #abb2bf;
+    color: #c0caf5;
 }
 
 .language-regex .token.anchor {
-    color: #d19a66;
+    color: #ff9e64;
 }
 
 .language-html .token.punctuation {
-    color: #abb2bf;
+    color: #c0caf5;
 }
 
 /*********************************************************
@@ -375,15 +373,15 @@ pre[class*='language-'] > code[class*='language-'] {
 }
 
 .line-highlight.line-highlight {
-    background: #3a3f4b;
-    box-shadow: inset 5px 0 0 #528bff; /* One Dark Pro highlight color */
+    background: #2f3146;
+    box-shadow: inset 5px 0 0 #3d59a1;
     z-index: 0;
 }
 
 /* Improved line numbers */
 pre[class*='language-'].line-numbers {
     position: relative;
-    padding-left: 4em;
+    padding-left: 4em; /* More space for line numbers */
     counter-reset: linenumber;
 }
 
@@ -398,9 +396,9 @@ pre[class*='language-'].line-numbers > code {
     top: 0;
     font-size: 100%;
     left: -4em;
-    width: 3.5em;
+    width: 3.5em; /* More space for larger numbers */
     letter-spacing: -1px;
-    border-right: 1px solid #3a3f4b;
+    border-right: 1px solid #404556;
     user-select: none;
 }
 
@@ -411,27 +409,27 @@ pre[class*='language-'].line-numbers > code {
 
 .line-numbers-rows > span:before {
     content: counter(linenumber);
-    color: #636d83; /* One Dark Pro dimmed color */
+    color: #6a7088; /* Brighter line numbers */
     display: block;
     padding-right: 0.8em;
     text-align: right;
 }
 
 /* Add code block language label */
-/* pre[class*='language-']::before {
+pre[class*='language-']::before {
     content: attr(class);
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.8rem;
     position: absolute;
     top: 0.5rem;
     right: 1rem;
-    color: #636d83;
+    color: #7a7c9c;
     text-transform: uppercase;
     opacity: 0.6;
-} */
+}
 
 /* Hover effects for better UX */
-/* pre[class*='language-']:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+pre[class*='language-']:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
     transition: box-shadow 0.3s ease;
-} */
+}

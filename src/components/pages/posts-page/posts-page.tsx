@@ -9,7 +9,7 @@ import Comments from '@/components/molecules/comments';
 import cn from '@/utils/cn';
 import { getPostBySlug } from '@/utils/posts';
 
-import '@/styles/prism-vsc-dark-plus.css';
+import '@/styles/prism-one-dark.css';
 
 interface PostProps {
     params: {
