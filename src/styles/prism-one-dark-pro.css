@@ -1,0 +1,247 @@
+/* Base code styling */
+pre[class*='language-'],
+code[class*='language-'] {
+    color: #abb2bf; /* 前景色 */
+    font-size: 15px;
+    text-shadow: none;
+    font-family: 'JetBrains Mono', Menlo, Monaco, Consolas, 'Andale Mono', 'Ubuntu Mono', 'Courier New', monospace;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    line-height: 1.7;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+/* Selection styles */
+pre[class*='language-']::selection,
+code[class*='language-']::selection,
+pre[class*='language-'] *::selection,
+code[class*='language-'] *::selection {
+    text-shadow: none;
+    background: #3e4451; /* 選取背景色 */
+}
+
+/* Print styles */
+@media print {
+    pre[class*='language-'],
+    code[class*='language-'] {
+        text-shadow: none;
+    }
+}
+
+/* Code block container */
+pre[class*='language-'] {
+    padding: 1.5em;
+    margin: 0.8em 0;
+    overflow: auto;
+    white-space: pre;
+    background: #282c34; /* 背景色 */
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    border: 1px solid #3e4451; /* 邊框色 */
+}
+
+/* Inline code */
+:not(pre) > code[class*='language-'] {
+    padding: 0.2em 0.4em;
+    border-radius: 0.3em;
+    color: #e06c75; /* Inline code 前景色 */
+    background: #282c34; /* Inline code 背景色 */
+    font-weight: 500;
+}
+
+/* Tokens - One Dark Pro Colors */
+.token.comment,
+.token.prolog {
+    color: #ff9eb4; /* 註解色 */
+    font-style: italic;
+    font-weight: 500;
+}
+
+.token.punctuation,
+.language-html .language-css .token.punctuation,
+.language-html .language-javascript .token.punctuation {
+    color: #abb2bf; /* 標點符號色 */
+}
+
+.token.property,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.inserted,
+.token.unit {
+    color: #d19a66; /* 屬性、數字等色 */
+}
+
+.token.string,
+.token.char,
+.token.builtin,
+.token.deleted {
+    color: #98c379; /* 字串色 */
+}
+
+.token.operator,
+.token.entity {
+    color: #56b6c2; /* 運算符色 */
+}
+
+.token.atrule {
+    color: #c678dd; /* @規則色 */
+}
+
+.token.keyword {
+    color: #c678dd; /* 關鍵字色 */
+    font-weight: 600;
+}
+
+.token.function,
+.token.function .token.maybe-class-name {
+    color: #61afef; /* 函數色 */
+}
+
+.token.regex {
+    color: #98c379; /* 正則表達式色 */
+}
+
+.token.important {
+    color: #c678dd; /* 重要色 */
+    font-weight: bold;
+}
+
+.token.class-name,
+.token.maybe-class-name {
+    color: #e5c07b; /* 類別名色 */
+    font-weight: 600;
+}
+
+.token.console {
+    color: #61afef; /* 主控台色 */
+}
+
+.token.parameter {
+    color: #abb2bf; /* 參數色 */
+}
+
+.token.boolean {
+    color: #d19a66; /* 布林值色 */
+    font-weight: 600;
+}
+
+.token.selector {
+    color: #e06c75; /* 選擇器色 */
+}
+
+.token.escape {
+    color: #56b6c2; /* 逸出序列色 */
+}
+
+.token.tag {
+    color: #e06c75; /* 標籤色 */
+}
+
+.token.tag .token.punctuation {
+    color: #abb2bf; /* 標籤標點符號色 */
+}
+
+.token.cdata {
+    color: #abb2bf; /* CDATA色 */
+}
+
+.token.attr-name {
+    color: #d19a66; /* 屬性名色 */
+}
+
+.token.attr-value,
+.token.attr-value .token.punctuation {
+    color: #98c379; /* 屬性值色 */
+}
+
+.token.attr-value .token.punctuation.attr-equals {
+    color: #abb2bf; /* 屬性值等號色 */
+}
+
+.token.entity {
+    color: #e06c75; /* 實體色 */
+}
+
+.token.namespace {
+    color: #e5c07b; /* 命名空間色 */
+}
+
+pre[class*='language-javascript'],
+code[class*='language-javascript'],
+pre[class*='language-jsx'],
+code[class*='language-jsx'],
+pre[class*='language-typescript'],
+code[class*='language-typescript'],
+pre[class*='language-tsx'],
+code[class*='language-tsx'] {
+    color: #abb2bf;
+}
+
+pre[class*='language-css'],
+code[class*='language-css'] {
+    color: #abb2bf;
+}
+
+pre[class*='language-html'],
+code[class*='language-html'] {
+    color: #abb2bf;
+}
+
+/* Improved line numbers */
+pre[class*='language-'].line-numbers {
+    position: relative;
+    padding-left: 4em;
+    counter-reset: linenumber;
+}
+
+pre[class*='language-'].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -4em;
+    width: 3.5em;
+    letter-spacing: -1px;
+    border-right: 1px solid #3a3f4b;
+    user-select: none;
+}
+
+.line-numbers-rows > span {
+    display: block;
+    counter-increment: linenumber;
+}
+
+.line-numbers-rows > span:before {
+    content: counter(linenumber);
+    color: #636d83; /* 行號色 */
+    display: block;
+    padding-right: 0.8em;
+    text-align: right;
+}
+
+/* Line highlighting */
+pre[class*='language-'] > code[class*='language-'] {
+    position: relative;
+    z-index: 1;
+}
+
+.line-highlight.line-highlight {
+    background: #3a3f4b;
+    box-shadow: inset 5px 0 0 #528bff; /* 高亮色 */
+    z-index: 0;
+}
