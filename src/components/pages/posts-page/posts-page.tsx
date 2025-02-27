@@ -6,10 +6,11 @@ import CodeBlock from '@/components/molecules/code-block';
 import ArticleMeta from '@/components/molecules/article-meta';
 import SectionTitle from '@/components/molecules/section-title';
 import Comments from '@/components/molecules/comments';
+
 import cn from '@/utils/cn';
 import { getPostBySlug } from '@/utils/posts';
 
-import '@/styles/prism-one-dark.css';
+import '@/styles/prism-one-dark-pink.css';
 
 interface PostProps {
     params: {
@@ -94,9 +95,9 @@ const PostsPage = ({ params }: PostProps) => {
     const { date, category, title, tags } = post;
 
     return (
-        <article className={cn('space-y-6')}>
-            <header className={cn('space-y-3')}>
-                <h2 className={cn('text-3xl font-bold dark:text-white')}>{title}</h2>
+        <article className="space-y-6">
+            <header className="space-y-3">
+                <h2 className={cn('text-3xl font-bold', 'dark:text-white')}>{title}</h2>
                 <ArticleMeta className="space-y-3" date={date} category={category} tags={tags} />
             </header>
             <SectionTitle />

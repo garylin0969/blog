@@ -2,8 +2,8 @@
 
 import { useMemo } from 'react';
 import cn from '@/utils/cn';
-import CopyButton from '../../atoms/button/copy-button';
-import Tag from '../../atoms/tag';
+import CopyButton from '@/components/atoms/button/copy-button';
+import Tag from '@/components/atoms/tag';
 
 interface CodeBlockProps {
     title?: string;
@@ -12,58 +12,72 @@ interface CodeBlockProps {
     currentProps?: any;
 }
 
-// 从 React 元素树中提取纯文本代码
+/**
+ * 從 React 元素樹中擷取純文字程式碼
+ */
 const extractTextFromReactElement = (element: any): string => {
-    // 如果是字符串，直接返回
-    if (typeof element === 'string') return element;
+    if (typeof element === 'string') {
+        return element;
+    }
 
-    // 如果是数组，递归处理每个元素并连接
     if (Array.isArray(element)) {
         return element.map(extractTextFromReactElement).join('');
     }
 
-    // 如果是 React 元素，处理其 children
-    if (element && element.props && element.props.children) {
+    if (element?.props?.children) {
         return extractTextFromReactElement(element.props.children);
     }
 
-    // 其他情况返回空字符串
     return '';
 };
 
+// 擷取標題元件
+const CodeBlockTitle = ({ title }: { title: string }) => (
+    <span className="max-w-[180px] truncate font-bold sm:max-w-full" title={title}>
+        {title}
+    </span>
+);
+
+// 擷取工具列元件
+const CodeBlockToolbar = ({ language, codeText }: { language: string; codeText: string }) => (
+    <div className="flex items-center gap-1">
+        {language && (
+            <Tag variant="secondary" mode="dark">
+                {language}
+            </Tag>
+        )}
+        <CopyButton copyText={codeText} className="static bg-transparent hover:bg-gray-700" />
+    </div>
+);
+
 const CodeBlock = ({ title = '', currentProps, children }: CodeBlockProps) => {
-    const className = currentProps?.className;
-
-    // 提取语言信息
+    // 擷取語言資訊
     const language = useMemo(() => {
-        if (className) {
-            const match = className.match(/language-(\w+)/);
-            return match ? match[1] : '';
-        }
-        return '';
-    }, [className]);
+        const match = currentProps?.className?.match(/language-(\w+)/);
+        return match ? match[1] : '';
+    }, [currentProps?.className]);
 
-    // 提取代码文本
+    // 擷取程式碼文字
     const codeText = useMemo(() => {
         if (!currentProps?.children?.props?.children) return '';
         return extractTextFromReactElement(currentProps.children.props.children);
     }, [currentProps]);
 
     return (
-        <div className={cn('group relative my-6 overflow-hidden rounded-lg border border-white/30 shadow-md')}>
-            <div className="flex items-center justify-between gap-1 border-b border-white/30 bg-gray-800 px-4 py-2 font-mono text-sm text-gray-200">
-                <span className="max-w-[180px] truncate font-bold sm:max-w-full" title={title}>
-                    {title}
-                </span>
-                <div className="flex items-center gap-1">
-                    {language && (
-                        <Tag variant="secondary" mode="dark">
-                            {language}
-                        </Tag>
-                    )}
-                    <CopyButton copyText={codeText} className="static bg-transparent hover:bg-gray-700" />
-                </div>
+        <div className={cn('group relative', 'my-6 overflow-hidden rounded-lg shadow-md', 'border border-white/30')}>
+            <div
+                className={cn(
+                    'flex items-center justify-between gap-1',
+                    'px-4 py-2',
+                    'bg-gray-800',
+                    'border-b border-white/30',
+                    'font-mono text-sm text-gray-200',
+                )}
+            >
+                <CodeBlockTitle title={title} />
+                <CodeBlockToolbar language={language} codeText={codeText} />
             </div>
+
             <div className="relative">{children}</div>
         </div>
     );

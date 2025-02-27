@@ -1,7 +1,7 @@
 import { allPosts } from 'contentlayer/generated';
 import { PostT } from '@/types/post';
 
-// 排序文章根據日期
+// 排序文章根據日期 由新到舊
 const sortPostsByDate = (post1: PostT, post2: PostT) => {
     const date1 = post1?.date ? new Date(post1.date)?.getTime() : 0;
     const date2 = post2?.date ? new Date(post2.date)?.getTime() : 0;
