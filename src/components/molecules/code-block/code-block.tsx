@@ -54,7 +54,11 @@ const CodeBlock = ({ title = '', currentProps, children }: CodeBlockProps) => {
             <div className="flex items-center justify-between border-b border-white/30 bg-gray-800 px-4 py-2 font-mono text-sm text-gray-200">
                 <span className="font-bold">{title}</span>
                 <div className="flex items-center gap-2">
-                    {language && <Tag mode="dark">{language}</Tag>}
+                    {language && (
+                        <Tag variant="secondary" mode="dark">
+                            {language}
+                        </Tag>
+                    )}
                     <CopyButton copyText={codeText} className="static bg-transparent hover:bg-gray-700" />
                 </div>
             </div>
