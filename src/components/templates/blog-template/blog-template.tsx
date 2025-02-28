@@ -9,7 +9,7 @@ interface BlogTemplateProps {
 const BlogTemplate = ({ children }: BlogTemplateProps) => {
     return (
         <Container className="flex min-h-full max-w-3xl flex-col">
-            <SocialIconLinks className="mt-6 text-2xl" />
+            <SocialIconLinks className="my-4 text-2xl" />
             {children}
         </Container>
     );

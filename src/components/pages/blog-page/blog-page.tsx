@@ -64,7 +64,7 @@ const BlogPage = ({ params: { category = 'all', page = '1' } }: BlogPageProps) =
 
     return (
         <div className="flex flex-1 flex-col">
-            <ArticleCategories className={cn('my-4', 'flex flex-wrap gap-4', 'font-semibold')} />
+            <ArticleCategories className={cn('mb-4', 'flex flex-wrap gap-4', 'font-semibold')} />
             <div className="flex-1">
                 <ArticleList posts={posts} />
             </div>
