@@ -1,10 +1,4 @@
-import { defineDocumentType, makeSource } from 'contentlayer/source-files';
-
-import rehypePrism from 'rehype-prism-plus';
-import rehypeCodeTitles from 'rehype-code-titles';
-import rehypeKatex from 'rehype-katex';
-import remarkMath from 'remark-math';
-import remarkGfm from 'remark-gfm';
+import { defineDocumentType, makeSource } from 'contentlayer2/source-files';
 
 export const Post = defineDocumentType(() => ({
     name: 'Post',
@@ -31,8 +25,4 @@ export const Post = defineDocumentType(() => ({
 export default makeSource({
     contentDirPath: './_posts',
     documentTypes: [Post],
-    mdx: {
-        rehypePlugins: [rehypeCodeTitles, [rehypeKatex, { strict: false }], [rehypePrism, { ignoreMissing: true }]],
-        remarkPlugins: [remarkGfm, remarkMath],
-    },
 });
