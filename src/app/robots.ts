@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { DOMAIN } from '@/configs/env';
 
 export default function robots(): MetadataRoute.Robots {
     return {
@@ -6,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: '*',
             allow: '/',
         },
-        sitemap: 'https://www.garylin.dev/sitemap.xml',
+        sitemap: `${DOMAIN}/sitemap.xml`,
     };
 }

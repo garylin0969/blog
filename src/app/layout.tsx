@@ -6,6 +6,7 @@ import cn from '@/utils/cn';
 import ThemeProvider from '@/providers/theme-provider';
 import RootTemplateProps from '@/components/templates/root-template';
 import rootMetadataConfig from '@/configs/metadatas/root-metadata.config';
+import { GA_ID } from '@/configs/env';
 
 import './globals.css';
 
@@ -35,7 +36,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
                 <ThemeProvider>
                     <RootTemplateProps>{children}</RootTemplateProps>
                 </ThemeProvider>
-                <GoogleAnalytics gaId="G-F0MRGZ2J39" />
+                <GoogleAnalytics gaId={GA_ID} />
             </body>
         </html>
     );

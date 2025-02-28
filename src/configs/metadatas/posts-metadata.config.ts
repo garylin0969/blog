@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { getPostBySlug } from '@/utils/posts';
 import { baseMetadata } from './base-metadata.config';
+import { DOMAIN } from '@/configs/env';
 
 export default async ({ params }: { params: { slug: string[] } }): Promise<Metadata> => {
     const decodedSlug = params?.slug?.map(decodeURIComponent).join('/');
@@ -20,7 +21,7 @@ export default async ({ params }: { params: { slug: string[] } }): Promise<Metad
         openGraph: {
             title: post.title,
             description: post.description,
-            url: `https://www.garylin.dev/blog/posts${post.url}`,
+            url: `${DOMAIN}/blog/posts${post.url}`,
             siteName: 'Gary Lin Blog',
             images: [
                 {
@@ -66,8 +67,8 @@ export default async ({ params }: { params: { slug: string[] } }): Promise<Metad
             '技術部落格',
             ...(post?.tags || []),
         ],
-        authors: [{ name: 'Gary Lin', url: 'https://www.garylin.dev' }],
-        alternates: { canonical: `https://www.garylin.dev/blog/posts${post.url}` },
+        authors: [{ name: 'Gary Lin', url: DOMAIN }],
+        alternates: { canonical: `${DOMAIN}/blog/posts${post.url}` },
     };
 
     return { ...baseMetadata, ...postMetadata };

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { baseMetadata } from './base-metadata.config';
+import { DOMAIN } from '@/configs/env';
 
 const aboutMetadata: Partial<Metadata> = {
     title: 'GaryLin | About',
@@ -7,7 +8,7 @@ const aboutMetadata: Partial<Metadata> = {
     openGraph: {
         title: 'GaryLin | About',
         description: '嗨，我是 Gary Lin，專精於 React.js、Next.js 和現代網頁技術的前端工程師。',
-        url: 'https://www.garylin.dev/about',
+        url: `${DOMAIN}/about`,
         siteName: 'Gary Lin Portfolio',
         images: [
             {
@@ -50,8 +51,8 @@ const aboutMetadata: Partial<Metadata> = {
         'About',
         '關於我',
     ],
-    authors: [{ name: 'Gary Lin', url: 'https://www.garylin.dev' }],
-    alternates: { canonical: 'https://www.garylin.dev/about' },
+    authors: [{ name: 'Gary Lin', url: DOMAIN }],
+    alternates: { canonical: `${DOMAIN}/about` },
 };
 
 export default { ...baseMetadata, ...aboutMetadata };
