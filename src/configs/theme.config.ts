@@ -1,4 +1,4 @@
 export default {
     enabled: true, // enable/disable theme switch
-    mode: 'system', // system, light, dark
+    mode: 'dark', // system, light, dark
 };
