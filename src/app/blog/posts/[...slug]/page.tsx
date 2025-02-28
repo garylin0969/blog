@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: { params: { slug: string[] } 
 export async function generateStaticParams() {
     const posts = getAllPosts();
 
-    return posts.map((post) => ({
+    return posts.map((post: any) => ({
         slug: post?.url?.split('/').filter(Boolean),
     }));
 }

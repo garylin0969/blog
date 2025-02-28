@@ -13,7 +13,7 @@ interface BlogPageProps {
 }
 
 // 驗證頁碼範圍
-function validatePageRange(currentPage: number, totalPages: number, category: string) {
+function validatePageRange(currentPage: number, totalPages: number) {
     if (currentPage > totalPages) {
         notFound();
     }
@@ -43,7 +43,9 @@ function getPaginatedPosts(category: string, currentPage: number) {
     };
 }
 
-const BlogPage = ({ params: { category = 'all', page = '1' } }: BlogPageProps) => {
+const BlogPage = async ({ params }: BlogPageProps) => {
+    const { category, page } = await params;
+
     // 驗證並處理頁碼
     const currentPage = Number(page);
 
@@ -60,7 +62,7 @@ const BlogPage = ({ params: { category = 'all', page = '1' } }: BlogPageProps) =
     const { posts, totalPages } = getPaginatedPosts(category, currentPage);
 
     // 驗證頁碼範圍
-    validatePageRange(currentPage, totalPages, category);
+    validatePageRange(currentPage, totalPages);
 
     return (
         <div className="flex flex-1 flex-col">

@@ -12,7 +12,9 @@ export async function generateStaticParams() {
     ];
 }
 
-const page = ({ params: { category = 'all' } }: { params: { category: string } }) => {
+const page = async ({ params }: { params: { category: string } }) => {
+    const { category } = await params;
+
     // 檢查分類是否有效（除了 'all' 之外）
     if (category !== 'all' && !isCategoryExists(category)) {
         notFound();
