@@ -14,8 +14,17 @@ const SocialIconLinks = ({ links = filteredSocialIconLinksConfig, className }: S
     return (
         <div className={cn('flex flex-wrap gap-2', className)}>
             {links?.map((data) => (
-                <BaseLink key={data?.id} href={data?.link} className="text-slate-400 dark:text-slate-300">
-                    {typeof data?.icon === 'function' ? data?.icon() : data?.icon}
+                <BaseLink
+                    key={data?.id}
+                    href={data?.link}
+                    aria-label={`Visit ${data?.id}`}
+                    className="text-slate-400 dark:text-slate-300"
+                >
+                    {typeof data?.icon === 'function' ? (
+                        <span aria-hidden="true">{data?.icon()}</span>
+                    ) : (
+                        <span aria-hidden="true">{data?.icon}</span>
+                    )}
                 </BaseLink>
             ))}
         </div>
