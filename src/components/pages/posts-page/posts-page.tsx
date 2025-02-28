@@ -20,9 +20,9 @@ import themeDark from 'shiki/dist/themes/one-dark-pro.mjs';
 import { createHighlighter } from 'shiki/bundle/web';
 
 interface PostProps {
-    params: {
+    params: Promise<{
         slug: string[];
-    };
+    }>;
 }
 
 const PostsPage = async ({ params }: PostProps) => {

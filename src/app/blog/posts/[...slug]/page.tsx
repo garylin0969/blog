@@ -3,7 +3,7 @@ import { getAllPosts } from '@/utils/posts';
 import PostsPage from '@/components/pages/posts-page';
 import postsMetadataConfig from '@/configs/metadatas/posts-metadata.config';
 
-export async function generateMetadata({ params }: { params: { slug: string[] } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
     return postsMetadataConfig({ params });
 }
 

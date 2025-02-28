@@ -6,10 +6,10 @@ import ArticleList from '@/components/organisms/article-list';
 import Pagination from '@/components/molecules/pagination';
 
 interface BlogPageProps {
-    params: {
+    params: Promise<{
         category: string;
         page: string;
-    };
+    }>;
 }
 
 // 驗證頁碼範圍
