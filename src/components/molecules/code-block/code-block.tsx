@@ -33,7 +33,7 @@ const extractTextFromReactElement = (element: any): string => {
 
 // 擷取標題元件
 const CodeBlockTitle = ({ title }: { title: string }) => (
-    <span className="max-w-[180px] truncate font-bold sm:max-w-full" title={title}>
+    <span className="max-w-[180px] truncate sm:max-w-full" title={title}>
         {title}
     </span>
 );
@@ -53,9 +53,9 @@ const CodeBlockToolbar = ({ language, codeText }: { language: string; codeText: 
 const CodeBlock = ({ title = '', currentProps, children }: CodeBlockProps) => {
     // 擷取語言資訊
     const language = useMemo(() => {
-        const match = currentProps?.className?.match(/language-(\w+)/);
-        return match ? match[1] : '';
-    }, [currentProps?.className]);
+        const dataLanguage = currentProps?.['data-language'];
+        return dataLanguage ?? '';
+    }, [currentProps?.['data-language']]);
 
     // 擷取程式碼文字
     const codeText = useMemo(() => {
