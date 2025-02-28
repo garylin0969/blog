@@ -13,7 +13,7 @@ const ArticleCategories = ({ className, ...props }: UlPropsT) => {
                     <BaseButton>All</BaseButton>
                 </NextLink>
             </li>
-            {categories.map((category) => (
+            {categories?.map((category) => (
                 <li key={category}>
                     <NextLink href={`/blog/${category.toLowerCase()}/1`}>
                         <BaseButton>{category}</BaseButton>

@@ -36,13 +36,7 @@ const PostsPage = ({ params }: PostProps) => {
             </header>
             <SectionTitle />
             <div className="grid grid-cols-1">
-                <div
-                    className={cn(
-                        'col-span-1 max-w-none',
-                        'prose md:prose-lg',
-                        'dark:prose-invert dark:prose-pre:bg-[#282C34]',
-                    )}
-                >
+                <div className={cn('col-span-1 max-w-none', 'prose md:prose-lg', 'dark:prose-invert')}>
                     <MDXContent components={mdxRenderConfig} />
                 </div>
             </div>

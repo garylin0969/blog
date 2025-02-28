@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getAllCategories, getAllPosts, getPostsByCategory, POSTS_PER_PAGE } from '@/utils/posts';
+import { getAllPosts, getPostsByCategory, isCategoryExists, POSTS_PER_PAGE } from '@/utils/posts';
 import ArticleList from '@/components/organisms/article-list';
 import Pagination from '@/components/molecules/pagination';
 
@@ -10,34 +10,55 @@ interface BlogPageProps {
     };
 }
 
+// 驗證頁碼範圍
+function validatePageRange(currentPage: number, totalPages: number, category: string) {
+    if (currentPage > totalPages) {
+        notFound();
+    }
+    if (currentPage < 1) {
+        notFound();
+    }
+}
+
+// 獲取分頁後的文章列表
+function getPaginatedPosts(category: string, currentPage: number) {
+    if (category === 'all') {
+        const allPosts = getAllPosts();
+        const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
+        const start = (currentPage - 1) * POSTS_PER_PAGE;
+        const end = start + POSTS_PER_PAGE;
+
+        return {
+            posts: allPosts.slice(start, end),
+            totalPages,
+        };
+    }
+
+    const result = getPostsByCategory(category, currentPage);
+    return {
+        posts: result.posts,
+        totalPages: result.totalPages,
+    };
+}
+
 const BlogPage = ({ params: { category = 'all', page = '1' } }: BlogPageProps) => {
+    // 驗證並處理頁碼
     const currentPage = Number(page);
 
-    // 檢查分類是否有效（除了 'all' 之外）
-    if (
-        category !== 'all' &&
-        !getAllCategories()
-            .map((cat) => cat.toLowerCase())
-            .includes(category)
-    ) {
+    if (isNaN(currentPage)) {
         notFound();
     }
 
-    // 獲取文章列表
-    let posts;
-    let totalPages;
-
-    if (category === 'all') {
-        const allPosts = getAllPosts();
-        totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
-        const start = (currentPage - 1) * POSTS_PER_PAGE;
-        const end = start + POSTS_PER_PAGE;
-        posts = allPosts.slice(start, end);
-    } else {
-        const result = getPostsByCategory(category, currentPage);
-        posts = result.posts;
-        totalPages = result.totalPages;
+    // 驗證分類
+    if (category !== 'all' && !isCategoryExists(category)) {
+        notFound();
     }
+
+    // 獲取文章和分頁數據
+    const { posts, totalPages } = getPaginatedPosts(category, currentPage);
+
+    // 驗證頁碼範圍
+    validatePageRange(currentPage, totalPages, category);
 
     return (
         <div className="flex flex-1 flex-col">
