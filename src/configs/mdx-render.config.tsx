@@ -30,10 +30,8 @@ const mdxRenderConfig: MDXComponents = {
         const result = (
             <CodeBlock title={title} currentProps={props}>
                 <pre
-                    className={cn(
-                        props.className,
-                        '!m-0 flex !min-h-[50px] flex-col justify-center !rounded-t-none p-4',
-                    )}
+                    className={cn(props.className, 'flex flex-col justify-center', '!min-h-[50px] p-4', 'bg-[#282C34]')}
+                    style={{ margin: '0', borderTopRightRadius: '0px', borderTopLeftRadius: '0px' }}
                 >
                     {props.children}
                 </pre>
