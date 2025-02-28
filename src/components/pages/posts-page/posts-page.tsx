@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import { useMDXComponent } from 'next-contentlayer/hooks';
 
 import ArticleMeta from '@/components/molecules/article-meta';
 import SectionTitle from '@/components/molecules/section-title';
@@ -9,7 +8,16 @@ import cn from '@/utils/cn';
 import { getPostBySlug } from '@/utils/posts';
 import mdxRenderConfig from '@/configs/mdx-render.config';
 
-import '@/styles/prism-one-dark-pink.css';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeMathjax from 'rehype-mathjax';
+import rehypeCodeTitles from 'rehype-code-titles';
+import type { Options } from 'rehype-pretty-code';
+
+import themeDark from 'shiki/dist/themes/one-dark-pro.mjs';
+import { createHighlighter } from 'shiki/bundle/web';
 
 interface PostProps {
     params: {
@@ -17,15 +25,15 @@ interface PostProps {
     };
 }
 
-const PostsPage = ({ params }: PostProps) => {
-    const decodedSlug = params?.slug?.map(decodeURIComponent).join('/');
+const PostsPage = async ({ params }: PostProps) => {
+    const { slug } = await params;
+    const decodedSlug = slug?.map(decodeURIComponent).join('/');
     const post = getPostBySlug(`/${decodedSlug}`);
 
     if (!post) {
         return notFound();
     }
 
-    const MDXContent = useMDXComponent(post?.body?.code);
     const { date, category, title, tags } = post;
 
     return (
@@ -37,7 +45,34 @@ const PostsPage = ({ params }: PostProps) => {
             <SectionTitle />
             <div className="grid grid-cols-1">
                 <div className={cn('col-span-1 max-w-none', 'prose md:prose-lg', 'dark:prose-invert')}>
-                    <MDXContent components={mdxRenderConfig} />
+                    <MDXRemote
+                        source={post?.body?.raw}
+                        components={mdxRenderConfig}
+                        options={{
+                            parseFrontmatter: true,
+                            mdxOptions: {
+                                remarkPlugins: [remarkGfm, remarkMath],
+                                rehypePlugins: [
+                                    [rehypeCodeTitles, {}],
+                                    [rehypeMathjax, {}],
+                                    [
+                                        rehypePrettyCode,
+                                        {
+                                            theme: themeDark,
+                                            getHighlighter: createHighlighter,
+                                            transformers: [
+                                                {
+                                                    pre(node) {
+                                                        node.properties.rawcontent = this.source;
+                                                    },
+                                                },
+                                            ],
+                                        } as Options,
+                                    ],
+                                ],
+                            },
+                        }}
+                    />
                 </div>
             </div>
             <div className="mt-10">
