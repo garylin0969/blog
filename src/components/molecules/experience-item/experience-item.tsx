@@ -46,14 +46,14 @@ const ExperienceItem = ({
         <div className={itemClasses} {...props}>
             <div className="flex gap-4">
                 <Image
-                    className={cn('aspect-square h-16 w-16 bg-white')}
+                    className={cn('h-16 w-16 rounded-md bg-white object-contain')}
                     src={logoSrc}
                     width={64}
                     height={64}
                     alt={companyName}
                 />
                 <div>
-                    <h4 className="text-lg font-semibold">{title}</h4>
+                    <h3 className="text-lg font-semibold">{title}</h3>
                     <div className="mb-1 text-base">
                         {companyUrl ? (
                             <a
@@ -61,6 +61,7 @@ const ExperienceItem = ({
                                 className="hover:text-sky-500 dark:hover:text-sky-400"
                                 target="_blank"
                                 rel="noreferrer noopener"
+                                aria-label={`Visit ${companyName}'s website`}
                             >
                                 {companyName}
                             </a>
