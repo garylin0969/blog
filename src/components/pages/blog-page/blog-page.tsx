@@ -1,5 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getAllPosts, getPostsByCategory, isCategoryExists, POSTS_PER_PAGE } from '@/utils/posts';
+import cn from '@/utils/cn';
+import ArticleCategories from '@/components/molecules/article-categories';
 import ArticleList from '@/components/organisms/article-list';
 import Pagination from '@/components/molecules/pagination';
 
@@ -62,6 +64,7 @@ const BlogPage = ({ params: { category = 'all', page = '1' } }: BlogPageProps) =
 
     return (
         <div className="flex flex-1 flex-col">
+            <ArticleCategories className={cn('my-4', 'flex flex-wrap gap-4', 'font-semibold')} />
             <div className="flex-1">
                 <ArticleList posts={posts} />
             </div>
