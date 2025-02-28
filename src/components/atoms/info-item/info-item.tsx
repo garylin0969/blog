@@ -3,7 +3,7 @@ import cn from '@/utils/cn';
 import { DivPropsT } from '@/types/html';
 
 interface InfoItemProps extends DivPropsT {
-    icon?: ReactNode | (() => JSX.Element);
+    icon?: ReactNode | (() => ReactNode);
     link?: string;
     text?: string;
 }

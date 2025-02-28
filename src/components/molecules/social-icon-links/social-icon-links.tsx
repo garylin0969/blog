@@ -6,7 +6,7 @@ import SocialIconLinksConfig from '@/configs/components/social-icon-links.config
 const filteredSocialIconLinksConfig = SocialIconLinksConfig.filter((data) => data?.enabled);
 
 interface SocialIconLinksProps {
-    links?: { id?: string; icon?: ReactNode | (() => JSX.Element); link?: string }[];
+    links?: { id?: string; icon?: ReactNode | (() => ReactNode); link?: string }[];
     className?: string;
 }
 
