@@ -25,6 +25,7 @@ const ScrollToTopButton = () => {
     return (
         <button
             onClick={handleScrollToTop}
+            aria-label="Scroll to top"
             className={cn(
                 'z-10',
                 'fixed bottom-6 right-6 md:bottom-12 md:right-12',
@@ -36,7 +37,7 @@ const ScrollToTopButton = () => {
                 isVisible ? 'opacity-100' : 'pointer-events-none opacity-0',
             )}
         >
-            <FaArrowUp />
+            <FaArrowUp aria-hidden="true" />
         </button>
     );
 };
