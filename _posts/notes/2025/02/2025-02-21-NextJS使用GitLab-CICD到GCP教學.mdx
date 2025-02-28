@@ -3,7 +3,6 @@ category: Notes
 title: Next.js 專案使用 GitLab CI/CD 到 GCP (GKE) 教學
 description: 本文將詳細介紹如何將 Next.js 專案透過 GitLab CI/CD 自動化部署到 Google Kubernetes Engine (GKE)，包含 Docker 容器化、GitLab Pipeline 設定、GCP 服務配置等完整流程。
 coverImage: /assets/blog/notes/2025/02/gitlab-cicd.jpg
-date: 2025-02-21
 tags:
     - Next.js
     - GitLab
@@ -12,6 +11,7 @@ tags:
     - Docker
     - Kubernetes
     - DevOps
+    date: 2025-02-21
 ---
 
 ## 前言
@@ -168,12 +168,12 @@ deploy:
 
 在 GitLab 專案設定中，添加以下環境變數：
 
--   `GCP_SERVICE_KEY`: GCP 服務帳號金鑰（JSON 格式）
--   `GCP_PROJECT_ID`: GCP 專案 ID
--   `GCP_COMPUTE_ZONE`: GCP 計算區域
--   `GCP_CLUSTER_NAME`: GKE 叢集名稱
--   `KUBE_DEPLOYMENT_NAME`: Kubernetes 部署名稱
--   `KUBE_CONTAINER_NAME`: Kubernetes 容器名稱
+- `GCP_SERVICE_KEY`: GCP 服務帳號金鑰（JSON 格式）
+- `GCP_PROJECT_ID`: GCP 專案 ID
+- `GCP_COMPUTE_ZONE`: GCP 計算區域
+- `GCP_CLUSTER_NAME`: GKE 叢集名稱
+- `KUBE_DEPLOYMENT_NAME`: Kubernetes 部署名稱
+- `KUBE_CONTAINER_NAME`: Kubernetes 容器名稱
 
 注意：不需要設定 Docker Hub 相關的變數，因為我們使用 GitLab 內建的 Container Registry。
 
@@ -283,8 +283,8 @@ git push origin main
 
 2. **監控部署過程**
 
--   在 GitLab CI/CD Pipeline 頁面查看部署狀態
--   使用 **kubectl** 命令檢查部署狀態：
+- 在 GitLab CI/CD Pipeline 頁面查看部署狀態
+- 使用 **kubectl** 命令檢查部署狀態：
 
 ```bash
 kubectl get pods
@@ -293,28 +293,28 @@ kubectl get services
 
 3. **驗證部署**
 
--   使用 **kubectl get service nextjs-app-service** 獲取外部 IP
--   在瀏覽器訪問該 IP 確認應用是否正常運行
+- 使用 **kubectl get service nextjs-app-service** 獲取外部 IP
+- 在瀏覽器訪問該 IP 確認應用是否正常運行
 
 ## 常見問題與解決方案
 
 ### 1. Docker 建置失敗
 
--   檢查 Dockerfile 語法
--   確認 Docker Hub 憑證正確
--   檢查網路連接狀況
+- 檢查 Dockerfile 語法
+- 確認 Docker Hub 憑證正確
+- 檢查網路連接狀況
 
 ### 2. GitLab CI/CD 失敗
 
--   確認環境變數設定正確
--   檢查 .gitlab-ci.yml 語法
--   查看 Pipeline 日誌了解詳細錯誤
+- 確認環境變數設定正確
+- 檢查 .gitlab-ci.yml 語法
+- 查看 Pipeline 日誌了解詳細錯誤
 
 ### 3. GKE 部署問題
 
--   確認 GCP 憑證正確
--   檢查 GKE 叢集狀態
--   確認 Kubernetes 配置文件正確
+- 確認 GCP 憑證正確
+- 檢查 GKE 叢集狀態
+- 確認 Kubernetes 配置文件正確
 
 ## 最佳實踐建議
 
@@ -344,7 +344,7 @@ kubectl get services
 
 ## 參考來源
 
--   [Next.js 官方文件](https://nextjs.org/docs)
--   [GitLab CI/CD 文件](https://docs.gitlab.com/ee/ci/)
--   [Google Kubernetes Engine 文件](https://cloud.google.com/kubernetes-engine/docs)
--   [Docker 官方文件](https://docs.docker.com/)
+- [Next.js 官方文件](https://nextjs.org/docs)
+- [GitLab CI/CD 文件](https://docs.gitlab.com/ee/ci/)
+- [Google Kubernetes Engine 文件](https://cloud.google.com/kubernetes-engine/docs)
+- [Docker 官方文件](https://docs.docker.com/)
