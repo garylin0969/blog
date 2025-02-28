@@ -3,21 +3,10 @@ import { notFound } from 'next/navigation';
 import ArticleMeta from '@/components/molecules/article-meta';
 import SectionTitle from '@/components/molecules/section-title';
 import Comments from '@/components/molecules/comments';
+import MDXContent from '@/components/molecules/mdx-content';
 
 import cn from '@/utils/cn';
 import { getPostBySlug } from '@/utils/posts';
-import mdxRenderConfig from '@/configs/mdx-render.config';
-
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import remarkGfm from 'remark-gfm';
-import remarkMath from 'remark-math';
-import rehypePrettyCode from 'rehype-pretty-code';
-import rehypeMathjax from 'rehype-mathjax';
-import rehypeCodeTitles from 'rehype-code-titles';
-import type { Options } from 'rehype-pretty-code';
-
-import themeDark from 'shiki/dist/themes/one-dark-pro.mjs';
-import { createHighlighter } from 'shiki/bundle/web';
 
 interface PostProps {
     params: Promise<{
@@ -44,36 +33,7 @@ const PostsPage = async ({ params }: PostProps) => {
             </header>
             <SectionTitle />
             <div className="grid grid-cols-1">
-                <div className={cn('col-span-1 max-w-none', 'prose md:prose-lg', 'dark:prose-invert')}>
-                    <MDXRemote
-                        source={post?.body?.raw}
-                        components={mdxRenderConfig}
-                        options={{
-                            parseFrontmatter: true,
-                            mdxOptions: {
-                                remarkPlugins: [remarkGfm, remarkMath],
-                                rehypePlugins: [
-                                    [rehypeCodeTitles, {}],
-                                    [rehypeMathjax, {}],
-                                    [
-                                        rehypePrettyCode,
-                                        {
-                                            theme: themeDark,
-                                            getHighlighter: createHighlighter,
-                                            transformers: [
-                                                {
-                                                    pre(node) {
-                                                        node.properties.rawcontent = this.source;
-                                                    },
-                                                },
-                                            ],
-                                        } as Options,
-                                    ],
-                                ],
-                            },
-                        }}
-                    />
-                </div>
+                <MDXContent className="col-span-1 max-w-none" content={post?.body?.raw} />
             </div>
             <div className="mt-10">
                 <Comments />
