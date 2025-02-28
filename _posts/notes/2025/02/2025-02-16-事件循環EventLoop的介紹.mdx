@@ -3,13 +3,13 @@ category: Notes
 title: 事件循環 (Event Loop) 的介紹
 description: 本文將介紹 JavaScript 的事件循環（Event Loop）機制，幫助新手理解宏任務（Macro Task）和微任務（Micro Task）的運作方式。
 coverImage: /assets/blog/notes/2025/02/event-loop.png
-date: 2025-02-16
 tags:
     - JavaScript
     - Event Loop
     - Async Programming
     - Web
     - Performance
+date: 2025-02-16
 ---
 
 ## 什麼是事件循環 (Event Loop)？
@@ -34,16 +34,16 @@ tags:
 
 宏任務是指那些在事件循環中被處理的主要任務。這些任務包括：
 
--   **setTimeout**
--   **setInterval**
--   I/O 操作
+- **setTimeout**
+- **setInterval**
+- I/O 操作
 
 ### 微任務 (Micro Task)
 
 微任務是指那些在當前任務完成後立即執行的任務。這些任務包括：
 
--   **Promise** 的回調函數
--   **MutationObserver**
+- **Promise** 的回調函數
+- **MutationObserver**
 
 微任務的優先級高於宏任務，這意味著在執行下一個宏任務之前，所有的微任務都會被執行。
 
@@ -92,5 +92,5 @@ Macro Task 2
 
 ## 參考來源
 
--   **[MDN Web Docs - Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)**
--   **[哔哩哔哩 - 2分钟了解 JavaScript Event Loop](https://b23.tv/MFuV6cn)**
+- **[MDN Web Docs - Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)**
+- **[哔哩哔哩 - 2分钟了解 JavaScript Event Loop](https://b23.tv/MFuV6cn)**
