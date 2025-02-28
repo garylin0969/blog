@@ -5,11 +5,11 @@ import { NextLink } from '../../atoms/link';
 interface PaginationProps {
     currentPage: number;
     totalPages: number;
-    baseUrl: string;
     className?: string;
+    createPageUrl: (page: number) => string;
 }
 
-const Pagination = ({ currentPage, totalPages, baseUrl, className }: PaginationProps) => {
+const Pagination = ({ currentPage, totalPages, className, createPageUrl }: PaginationProps) => {
     // 生成手機版頁碼 (最多5個)
     const getMobilePages = () => {
         const pages: number[] = [];
@@ -89,7 +89,7 @@ const Pagination = ({ currentPage, totalPages, baseUrl, className }: PaginationP
     return (
         <nav className={cn('flex items-center justify-center gap-1 md:gap-2', className)} aria-label="Pagination">
             <NextLink
-                href={`${baseUrl}?page=${currentPage - 1}`}
+                href={createPageUrl(currentPage - 1)}
                 className={cn(arrowButtonStyle, !(currentPage > 1) && 'pointer-events-none opacity-50')}
                 aria-label="Previous page"
             >
@@ -101,7 +101,7 @@ const Pagination = ({ currentPage, totalPages, baseUrl, className }: PaginationP
                 {mobilePages.map((page) => (
                     <NextLink
                         key={page}
-                        href={page === 1 ? baseUrl : `${baseUrl}?page=${page}`}
+                        href={createPageUrl(page)}
                         className={cn(pageButtonStyle, page === currentPage ? activePageStyle : inactivePageStyle)}
                         aria-current={page === currentPage ? 'page' : undefined}
                     >
@@ -123,7 +123,7 @@ const Pagination = ({ currentPage, totalPages, baseUrl, className }: PaginationP
                     ) : (
                         <NextLink
                             key={page}
-                            href={page === 1 ? baseUrl : `${baseUrl}?page=${page}`}
+                            href={createPageUrl(Number(page))}
                             className={cn(pageButtonStyle, page === currentPage ? activePageStyle : inactivePageStyle)}
                             aria-current={page === currentPage ? 'page' : undefined}
                         >
@@ -134,7 +134,7 @@ const Pagination = ({ currentPage, totalPages, baseUrl, className }: PaginationP
             </div>
 
             <NextLink
-                href={`${baseUrl}?page=${currentPage + 1}`}
+                href={createPageUrl(currentPage + 1)}
                 className={cn(arrowButtonStyle, !(currentPage < totalPages) && 'pointer-events-none opacity-50')}
                 aria-label="Next page"
             >

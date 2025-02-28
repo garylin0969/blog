@@ -6,14 +6,12 @@ import Pagination from '@/components/molecules/pagination';
 interface BlogPageProps {
     params: {
         category: string;
-    };
-    searchParams: {
-        page?: string;
+        page: string;
     };
 }
 
-const BlogPage = ({ params: { category = 'all' }, searchParams }: BlogPageProps) => {
-    const currentPage = Number(searchParams?.page) || 1;
+const BlogPage = ({ params: { category = 'all', page = '1' } }: BlogPageProps) => {
+    const currentPage = Number(page);
 
     // 檢查分類是否有效（除了 'all' 之外）
     if (
@@ -48,7 +46,11 @@ const BlogPage = ({ params: { category = 'all' }, searchParams }: BlogPageProps)
             </div>
             {totalPages > 1 && (
                 <div className="pt-6">
-                    <Pagination currentPage={currentPage} totalPages={totalPages} baseUrl={`/blog/${category}`} />
+                    <Pagination
+                        currentPage={currentPage}
+                        totalPages={totalPages}
+                        createPageUrl={(page) => `/blog/${category}/${page}`}
+                    />
                 </div>
             )}
         </div>

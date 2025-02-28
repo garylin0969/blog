@@ -1,12 +1,9 @@
+import { notFound, redirect } from 'next/navigation';
 import { getAllCategories } from '@/utils/posts';
-import BlogPage from '@/components/pages/blog-page';
 
-// 生成靜態路徑
+// 添加 generateStaticParams 使其變為靜態路由
 export async function generateStaticParams() {
-    // 獲取所有分類
     const categories = getAllCategories();
-
-    // 返回所有可能的路徑，包括 'all'
     return [
         { category: 'all' },
         ...categories.map((category) => ({
@@ -15,4 +12,17 @@ export async function generateStaticParams() {
     ];
 }
 
-export default BlogPage;
+const page = ({ params: { category = 'all' } }: { params: { category: string } }) => {
+    // 檢查分類是否有效（除了 'all' 之外）
+    if (
+        category !== 'all' &&
+        !getAllCategories()
+            .map((cat) => cat.toLowerCase())
+            .includes(category)
+    ) {
+        notFound();
+    }
+    redirect(`/blog/${category}/1`);
+};
+
+export default page;
