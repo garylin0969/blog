@@ -15,6 +15,9 @@ const BurgerButton = ({ className, isOpen, toggleMenu }: BurgerButtonProps) => {
         <button
             className={cn('space-y-1.5', 'flex flex-col items-center justify-center', 'h-7 w-7', className)}
             onClick={toggleMenu}
+            aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
         >
             <span className={cn(burgerBorderClasses, isOpen && 'translate-y-2 rotate-45')} />
             <span className={cn(burgerBorderClasses, isOpen && 'opacity-0')} />
