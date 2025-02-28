@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
-import { getAllCategories, getAllPosts, POSTS_PER_PAGE } from '@/utils/posts';
 import { DOMAIN } from '@/configs/env';
+import { getAllCategories, getAllPosts, POSTS_PER_PAGE } from '@/utils/posts';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // 獲取所有文章
