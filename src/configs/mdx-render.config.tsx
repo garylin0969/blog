@@ -68,7 +68,7 @@ const mdxRenderConfig: MDXComponents = {
                 <code
                     {...props}
                     className={cn(
-                        'rounded-md px-1.5 py-0.5',
+                        'mx-1 rounded-md px-2 py-1',
                         'text-sky-700 dark:text-sky-200',
                         'bg-sky-100 dark:bg-sky-900/50',
                     )}
