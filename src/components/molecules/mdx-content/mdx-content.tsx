@@ -3,7 +3,6 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeMathjax from 'rehype-mathjax';
-import rehypeCodeTitles from 'rehype-code-titles';
 import type { Options } from 'rehype-pretty-code';
 
 import cn from '@/utils/cn';
@@ -23,6 +22,7 @@ const MDXContent = ({ content, className }: MDXContentProps) => {
             className={cn(
                 'prose md:prose-lg',
                 'dark:prose-invert',
+                'prose-figcaption:m-0',
                 'prose-code:before:!content-none prose-code:after:!content-none',
                 className,
             )}
@@ -35,7 +35,6 @@ const MDXContent = ({ content, className }: MDXContentProps) => {
                     mdxOptions: {
                         remarkPlugins: [remarkGfm, remarkMath],
                         rehypePlugins: [
-                            [rehypeCodeTitles, {}],
                             [rehypeMathjax, {}],
                             [
                                 rehypePrettyCode,

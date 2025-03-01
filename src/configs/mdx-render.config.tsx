@@ -1,47 +1,60 @@
 import { ComponentType } from 'react';
-import CodeBlock from '@/components/molecules/code-block';
 import cn from '@/utils/cn';
+import Tag from '@/components/atoms/tag';
+import CopyButton from '@/components/atoms/button/copy-button';
 
 interface MDXComponents {
     [key: string]: ComponentType<any>;
 }
 
-// 追蹤當前代碼標題
-let currentCodeTitle = '';
-
 // 自定義 MDX 組件
 const mdxRenderConfig: MDXComponents = {
-    div: (props) => {
-        if (props?.className === 'rehype-code-title') {
-            // 存儲代碼標題
-            currentCodeTitle = typeof props.children === 'string' ? props.children : '';
+    figure: (props) => {
+        const { children, ...rest } = props;
+        const hasTitle = Array.isArray(children);
+        const title = hasTitle ? (children?.[0]?.props?.children ?? '') : '';
+        const language = hasTitle
+            ? (children?.[1]?.props?.['data-language'] ?? '')
+            : (children?.props?.['data-language'] ?? '');
+        const copyContent = hasTitle ? (children?.[1]?.props?.rawcontent ?? '') : (children?.props?.rawcontent ?? '');
 
-            // 返回標題元素，但樣式與 CodeBlock 一致
-            return null;
-        }
-        return <div {...props} />;
+        return (
+            <figure className={cn('border border-white/30', 'overflow-hidden rounded-lg shadow-md')}>
+                <figcaption
+                    className={cn(
+                        'flex items-center justify-between gap-1',
+                        'px-4 py-2',
+                        'bg-gray-800',
+                        'border-b border-white/30',
+                        'font-mono text-sm text-gray-200',
+                    )}
+                >
+                    <span className="max-w-[180px] truncate sm:max-w-full">{title}</span>
+                    <div className="flex items-center gap-1">
+                        {language && (
+                            <Tag variant="secondary" mode="dark">
+                                {language}
+                            </Tag>
+                        )}
+                        <CopyButton copyText={copyContent} className="static bg-transparent hover:bg-gray-700" />
+                    </div>
+                </figcaption>
+                {children}
+            </figure>
+        );
     },
 
+    figcaption: () => null,
+
     pre: (props) => {
-        // 使用存儲的代碼標題
-        const title = currentCodeTitle || '';
-
-        // 渲染後重置標題
-        const result = (
-            <CodeBlock title={title} currentProps={props}>
-                <pre
-                    className={cn(props.className, 'flex flex-col justify-center', '!min-h-[50px] p-4', 'bg-gray-800')}
-                    style={{ margin: '0', borderTopRightRadius: '0px', borderTopLeftRadius: '0px' }}
-                >
-                    {props.children}
-                </pre>
-            </CodeBlock>
+        return (
+            <pre
+                className={cn(props.className, 'flex flex-col justify-center', '!min-h-[50px] p-4', 'bg-gray-800')}
+                style={{ margin: '0', borderTopRightRadius: '0px', borderTopLeftRadius: '0px' }}
+            >
+                {props.children}
+            </pre>
         );
-
-        // 重置標題
-        currentCodeTitle = '';
-
-        return result;
     },
 
     // 可以在此添加更多自定義組件
