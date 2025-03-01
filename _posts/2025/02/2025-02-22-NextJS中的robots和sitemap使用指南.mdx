@@ -27,7 +27,7 @@ date: 2025-02-22
 
 在 **src/app** 目錄下創建 **robots.ts** 文件，並添加以下：
 
-```typescript:src/app/robots.ts
+```typescript title="src/app/robots.ts"
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
@@ -52,7 +52,7 @@ export default function robots(): MetadataRoute.Robots {
 
 在 **src/app** 目錄下創建 **sitemap.ts** 文件，並添加以下：
 
-```typescript:src/app/sitemap.ts
+```typescript title="src/app/sitemap.ts"
 import { MetadataRoute } from 'next';
 import { getAllPosts } from '@/utils/posts'; // 假設有一個函數可以獲取所有文章
 

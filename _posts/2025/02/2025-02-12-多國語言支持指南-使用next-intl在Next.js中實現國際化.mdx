@@ -59,7 +59,7 @@ npm install next-intl
 
 在 **messages** 資料夾中，為每種語言創建對應的 JSON 文件。例如，**en.json** 和 **zh-TW.json**：
 
-```json:messages/en.json
+```json title="messages/en.json"
 {
     "HomePage": {
         "title": "Hello World!",
@@ -68,7 +68,7 @@ npm install next-intl
 }
 ```
 
-```json:messages/zh-TW.json
+```json title="messages/zh-TW.json"
 {
     "HomePage": {
         "title": "你好，世界！",
@@ -81,14 +81,14 @@ npm install next-intl
 
 設置 **next-intl** 插件以提供請求特定的 i18n 配置：
 
-```typescript:src/app/layout.tsx
+```typescript title="src/app/layout.tsx"
 import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // 其他 Next.js 配置
+    // 其他 Next.js 配置
 };
 
 export default withNextIntl(nextConfig);
@@ -98,31 +98,30 @@ export default withNextIntl(nextConfig);
 
 在 **src/i18n/routing.ts** 中定義支持的語言和默認語言：
 
-```typescript:src/i18n/routing.ts
+```typescript title="src/i18n/routing.ts"
 import { defineRouting } from 'next-intl/routing';
 import { createNavigation } from 'next-intl/navigation';
 
 export const routing = defineRouting({
-  locales: ['en', 'zh-TW'],
-  defaultLocale: 'en'
+    locales: ['en', 'zh-TW'],
+    defaultLocale: 'en',
 });
 
-export const { Link, redirect, usePathname, useRouter, getPathname } =
-  createNavigation(routing);
+export const { Link, redirect, usePathname, useRouter, getPathname } = createNavigation(routing);
 ```
 
 ### 6. 設置中間件
 
 在 **src/middleware.ts** 中設置中間件以處理語言協商和路由重寫：
 
-```typescript:src/middleware.ts
+```typescript title="src/middleware.ts"
 import createMiddleware from 'next-intl/middleware';
 import { routing } from './i18n/routing';
 
 export default createMiddleware(routing);
 
 export const config = {
-  matcher: ['/((?!api|_next/static|favicon.ico).*)'],
+    matcher: ['/((?!api|_next/static|favicon.ico).*)'],
 };
 ```
 
@@ -130,21 +129,21 @@ export const config = {
 
 在 **src/i18n/request.ts** 中設置請求配置，以便在服務器組件中使用本地化訊息：
 
-```typescript:src/i18n/request.ts
+```typescript title="src/i18n/request.ts"
 import { getRequestConfig } from 'next-intl/server';
 import { routing } from './routing';
 
 export default getRequestConfig(async ({ requestLocale }) => {
-  let locale = await requestLocale;
+    let locale = await requestLocale;
 
-  if (!locale || !routing.locales.includes(locale as any)) {
-    locale = routing.defaultLocale;
-  }
+    if (!locale || !routing.locales.includes(locale as any)) {
+        locale = routing.defaultLocale;
+    }
 
-  return {
-    locale,
-    messages: (await import(`../../messages/${locale}.json`)).default
-  };
+    return {
+        locale,
+        messages: (await import(`../../messages/${locale}.json`)).default,
+    };
 });
 ```
 
@@ -152,7 +151,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
 
 在 **src/app/[locale]/layout.tsx** 中配置 **NextIntlClientProvider** 以提供翻譯訊息給客戶端組件：
 
-```typescript:src/app/[locale]/layout.tsx
+```typescript title="src/app/[locale]/layout.tsx"
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -187,7 +186,7 @@ export default async function LocaleLayout({
 
 在 **src/app/[locale]/page.tsx** 中使用 **useTranslations** 來顯示翻譯內容：
 
-```typescript:src/app/[locale]/page.tsx
+```typescript title="src/app/[locale]/page.tsx"
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 
@@ -206,7 +205,7 @@ export default function HomePage() {
 
 為了支持靜態渲染，添加 **generateStaticParams** 函數：
 
-```typescript:src/app/[locale]/layout.tsx
+```typescript title="src/app/[locale]/layout.tsx"
 import { routing } from '@/i18n/routing';
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -240,15 +239,15 @@ export default async function LocaleLayout({ children, params: { locale } }) {
 
 確保每個頁面的 metadata 支持多語言：
 
-```typescript:src/app/[locale]/page.tsx
+```typescript title="src/app/[locale]/page.tsx"
 import { getTranslations } from 'next-intl/server';
 
 export async function generateMetadata({ params: { locale } }) {
-  const t = await getTranslations({ locale, namespace: 'Metadata' });
+    const t = await getTranslations({ locale, namespace: 'Metadata' });
 
-  return {
-    title: t('title')
-  };
+    return {
+        title: t('title'),
+    };
 }
 ```
 
