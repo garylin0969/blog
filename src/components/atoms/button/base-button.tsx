@@ -9,9 +9,9 @@ const BaseButton = forwardRef<HTMLButtonElement, ButtonPropsT>(({ className, chi
             className={cn(
                 'px-4 py-2',
                 'rounded-md',
-                'text-sm font-semibold text-white',
-                'bg-sky-700',
-                'hover:bg-sky-600',
+                'text-sm text-white',
+                'bg-sky-500',
+                'hover:bg-sky-600 dark:hover:bg-sky-400',
                 className,
             )}
             {...props}

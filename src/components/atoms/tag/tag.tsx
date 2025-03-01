@@ -11,7 +11,6 @@ const Tag = ({ className, variant = 'default', mode, children, ...props }: TagPr
         'px-2 py-1',
         'text-sm',
         'rounded-md',
-        'transition-colors',
         mode === 'light' && [
             variant === 'default' && 'bg-sky-100 text-sky-700 hover:bg-sky-200',
             variant === 'primary' && 'bg-purple-100 text-purple-700 hover:bg-purple-200',
