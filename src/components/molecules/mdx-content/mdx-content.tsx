@@ -19,7 +19,14 @@ interface MDXContentProps {
 
 const MDXContent = ({ content, className }: MDXContentProps) => {
     return (
-        <div className={cn('prose md:prose-lg', 'dark:prose-invert', className)}>
+        <div
+            className={cn(
+                'prose md:prose-lg',
+                'dark:prose-invert',
+                'prose-code:before:!content-none prose-code:after:!content-none',
+                className,
+            )}
+        >
             <MDXRemote
                 source={content}
                 components={mdxRenderConfig}

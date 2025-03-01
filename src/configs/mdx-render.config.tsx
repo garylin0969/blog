@@ -52,10 +52,9 @@ const mdxRenderConfig: MDXComponents = {
                 <code
                     {...props}
                     className={cn(
-                        'before:content-none after:content-none',
                         'rounded-md px-1.5 py-0.5',
-                        'bg-sky-50 dark:bg-sky-400/10',
-                        'text-sky-500 dark:text-sky-400',
+                        'text-sky-700 dark:text-sky-200',
+                        'bg-sky-100 dark:bg-sky-900/50',
                     )}
                 />
             );
