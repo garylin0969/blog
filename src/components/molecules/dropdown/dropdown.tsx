@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import cn from '@/utils/cn';
 import { DivPropsT } from '@/types/html';
 
-export interface DropdownProps extends DivPropsT {
+interface DropdownProps extends DivPropsT {
     label?: string;
     options: Array<{
         id: string | number;
@@ -62,7 +62,7 @@ const Dropdown = ({
     return (
         <div className={cn('w-full', className)} {...props}>
             {label && (
-                <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">{label}</label>
+                <label className="mb-1 block text-sm font-semibold text-gray-700 dark:text-gray-300">{label}</label>
             )}
             <div ref={dropdownRef} className="relative">
                 <button
@@ -70,11 +70,11 @@ const Dropdown = ({
                     className={cn(
                         'w-full px-4 py-2',
                         'flex items-center justify-between',
-                        'rounded-md border border-gray-300 dark:border-gray-600',
-                        'bg-white dark:bg-gray-800',
-                        'text-sm text-gray-700 dark:text-gray-200',
-                        'focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500',
-                        disabled ? 'cursor-not-allowed opacity-50' : 'hover:border-sky-500 dark:hover:border-sky-400',
+                        'rounded-md border shadow dark:border-white/30',
+                        'bg-transparent dark:bg-slate-900',
+                        'text-sm font-semibold text-gray-700 dark:text-gray-200',
+                        // 'focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500',
+                        disabled && 'cursor-not-allowed opacity-50',
                     )}
                     onClick={() => !disabled && setIsOpen(!isOpen)}
                     disabled={disabled}
@@ -103,7 +103,7 @@ const Dropdown = ({
                             'absolute z-10 mt-1 w-full',
                             'max-h-60 overflow-auto',
                             'rounded-md py-1',
-                            'bg-white dark:bg-gray-800',
+                            'bg-white dark:bg-slate-900',
                             'text-sm text-gray-700 dark:text-gray-200',
                             'shadow-lg',
                             'border border-gray-300 dark:border-gray-600',
@@ -116,6 +116,7 @@ const Dropdown = ({
                                 <li
                                     key={option.id}
                                     className={cn(
+                                        'font-semibold',
                                         'relative cursor-pointer select-none px-4 py-2',
                                         'hover:bg-sky-100 dark:hover:bg-sky-900',
                                         selectedOption?.value === option.value

@@ -1,9 +1,8 @@
 import { notFound } from 'next/navigation';
 import { getAllPosts, getPostsByCategory, isCategoryExists, POSTS_PER_PAGE } from '@/utils/posts';
-import cn from '@/utils/cn';
-import ArticleCategories from '@/components/molecules/article-categories';
 import ArticleList from '@/components/organisms/article-list';
 import Pagination from '@/components/molecules/pagination';
+import ArticleCategoriesDropdown from '@/components/molecules/article-categories-dropdown';
 
 interface BlogPageProps {
     params: Promise<{
@@ -66,7 +65,7 @@ const BlogPage = async ({ params }: BlogPageProps) => {
 
     return (
         <div className="flex flex-1 flex-col">
-            <ArticleCategories className={cn('mb-4', 'flex flex-wrap gap-4', 'font-semibold')} />
+            <ArticleCategoriesDropdown className="mb-4" currentCategory={category} />
             <div className="flex-1">
                 <ArticleList posts={posts} />
             </div>

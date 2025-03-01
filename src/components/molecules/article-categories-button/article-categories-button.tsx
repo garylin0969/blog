@@ -3,7 +3,8 @@ import { NextLink } from '@/components/atoms/link';
 import { UlPropsT } from '@/types/html';
 import { getAllCategories } from '@/utils/posts';
 
-const ArticleCategories = ({ className, ...props }: UlPropsT) => {
+// 文章分類按鈕
+const ArticleCategoriesButton = ({ className, ...props }: UlPropsT) => {
     const categories = getAllCategories() || []; // 確保不會是 undefined
 
     return (
@@ -24,4 +25,4 @@ const ArticleCategories = ({ className, ...props }: UlPropsT) => {
     );
 };
 
-export default ArticleCategories;
+export default ArticleCategoriesButton;
