@@ -27,7 +27,7 @@ const ExperienceMore = memo(({ details = [], button }: ExperienceMoreProps) => {
                     onClick={toggleExpand}
                     className={cn(
                         'flex w-full items-center justify-center gap-2',
-                        'text-sm font-medium',
+                        'font-medium',
                         'shadow-sm hover:shadow',
                     )}
                 >

@@ -17,6 +17,18 @@ interface ExperienceItemProps extends DivPropsT {
     details?: string[];
 }
 
+const CompanyLink = ({ url, name }: { url: string; name: string }) => (
+    <a
+        href={url}
+        className="transition-colors duration-200 hover:text-sky-500 dark:hover:text-sky-400"
+        target="_blank"
+        rel="noreferrer noopener"
+        aria-label={`Visit ${name}'s website`}
+    >
+        {name}
+    </a>
+);
+
 const ExperienceItem = ({
     logoSrc = '',
     title = '',
@@ -45,38 +57,27 @@ const ExperienceItem = ({
     return (
         <div className={itemClasses} {...props}>
             <div className="flex gap-4">
-                <Image
-                    className={cn('h-16 w-16 rounded-md bg-white object-contain')}
-                    src={logoSrc}
-                    width={64}
-                    height={64}
-                    alt={companyName}
-                />
-                <div>
+                <div className="flex-shrink-0">
+                    <Image
+                        className={cn('h-16 w-16 rounded-md bg-white object-contain')}
+                        src={logoSrc}
+                        width={64}
+                        height={64}
+                        alt={`${companyName} logo`}
+                    />
+                </div>
+                <div className="flex-grow">
                     <h3 className="text-lg font-semibold">{title}</h3>
                     <div className="mb-1 text-base">
-                        {companyUrl ? (
-                            <a
-                                href={companyUrl}
-                                className="hover:text-sky-500 dark:hover:text-sky-400"
-                                target="_blank"
-                                rel="noreferrer noopener"
-                                aria-label={`Visit ${companyName}'s website`}
-                            >
-                                {companyName}
-                            </a>
-                        ) : (
-                            companyName
-                        )}
+                        {companyUrl ? <CompanyLink url={companyUrl} name={companyName} /> : companyName}
                     </div>
                     <div className="text-slate-600 dark:text-slate-400">
-                        <span>{employmentStartDate}</span>
-                        <span> - </span>
-                        <span>{employmentEndDate}</span>
+                        <time dateTime={employmentStartDate}>{employmentStartDate}</time>
+                        <span className="mx-2">-</span>
+                        <time dateTime={employmentEndDate}>{employmentEndDate}</time>
                     </div>
                 </div>
             </div>
-            <div className="relative flex w-full" />
             {button?.enabled && <ExperienceMore details={details} button={button} />}
         </div>
     );
