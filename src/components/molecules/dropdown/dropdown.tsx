@@ -102,11 +102,11 @@ const Dropdown = ({
                         className={cn(
                             'absolute z-10 mt-1 w-full',
                             'max-h-60 overflow-auto',
-                            'rounded-md py-1',
-                            'bg-white dark:bg-slate-900',
-                            'text-sm text-gray-700 dark:text-gray-200',
+                            'rounded-md',
+                            'bg-white',
+                            'text-sm text-gray-700',
                             'shadow-lg',
-                            'border border-gray-300 dark:border-gray-600',
+                            'border border-gray-300',
                             'focus:outline-none',
                         )}
                         role="listbox"
@@ -118,10 +118,8 @@ const Dropdown = ({
                                     className={cn(
                                         'font-semibold',
                                         'relative cursor-pointer select-none px-4 py-2',
-                                        'hover:bg-sky-100 dark:hover:bg-sky-900',
-                                        selectedOption?.value === option.value
-                                            ? 'bg-sky-50 text-sky-600 dark:bg-sky-900/50 dark:text-sky-400'
-                                            : '',
+                                        'hover:bg-sky-100',
+                                        selectedOption?.value === option.value ? 'bg-sky-50 text-sky-600' : '',
                                     )}
                                     onClick={() => handleSelect(option)}
                                     role="option"
@@ -131,7 +129,7 @@ const Dropdown = ({
                                 </li>
                             ))
                         ) : (
-                            <li className="px-4 py-2 italic text-gray-500 dark:text-gray-400">No options available</li>
+                            <li className="px-4 py-2 italic text-gray-500">No options available</li>
                         )}
                     </ul>
                 )}
