@@ -1,5 +1,5 @@
 export default {
-    count: 2,
+    count: 1,
     button: {
         enable: true,
         text: 'View All',

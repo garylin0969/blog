@@ -5,7 +5,7 @@ import WebsiteIntroduction from '@/components/organisms/website-introduction';
 const HomePage = () => {
     return (
         <Container className="h-full">
-            <div className="mt-4 flex h-full flex-col justify-evenly space-y-6 md:mt-0">
+            <div className="mt-6 flex h-full flex-col justify-evenly space-y-6 md:mt-0">
                 <WebsiteIntroduction />
                 <LatestArticles />
             </div>
