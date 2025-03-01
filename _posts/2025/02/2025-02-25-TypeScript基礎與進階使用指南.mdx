@@ -1,5 +1,5 @@
 ---
-category: Notes
+category: Frontend
 title: TypeScript 基礎與進階使用指南
 description: 這篇主要介紹 TypeScript 的基礎概念、常用工具型別如 Pick、Record、Partial 等，以及何時使用 Type 或 Interface，幫助開發者快速掌握 TypeScript。
 tags:
@@ -16,9 +16,9 @@ date: 2025-02-25
 
 TypeScript 是 JavaScript 的超集，添加了靜態型別定義，可以在開發階段捕獲錯誤，提高程式碼質量和可維護性。
 
--   **靜態型別檢查**：在編譯時檢查型別錯誤，而不是運行時。
--   **更好的開發體驗**：提供自動完成、型別推斷和錯誤提示。
--   **更好的程式碼組織**：通過接口和型別定義，使程式碼結構更清晰。
+- **靜態型別檢查**：在編譯時檢查型別錯誤，而不是運行時。
+- **更好的開發體驗**：提供自動完成、型別推斷和錯誤提示。
+- **更好的程式碼組織**：通過接口和型別定義，使程式碼結構更清晰。
 
 ## TypeScript 基礎型別
 
@@ -73,10 +73,10 @@ anyValue.trim(); // 不會報錯
 
 **any** 的問題：
 
--   繞過了型別檢查
--   可能導致運行時錯誤
--   失去了 IDE 的自動完成和提示功能
--   錯誤可能在程式的其他部分才被發現
+- 繞過了型別檢查
+- 可能導致運行時錯誤
+- 失去了 IDE 的自動完成和提示功能
+- 錯誤可能在程式的其他部分才被發現
 
 ### unknown 型別
 
@@ -104,23 +104,23 @@ stringValue.trim(); // 可以，但如果實際不是字符串會在運行時出
 
 **unknown** 的優點：
 
--   需要先進行型別檢查或型別斷言才能使用
--   強制開發者處理型別安全問題
--   錯誤在編譯時就能被發現
--   保留了型別安全性
+- 需要先進行型別檢查或型別斷言才能使用
+- 強制開發者處理型別安全問題
+- 錯誤在編譯時就能被發現
+- 保留了型別安全性
 
 ### 何時使用 any 和 unknown
 
--   **使用 unknown 當**：
+- **使用 unknown 當**：
 
-    -   你不確定變數的型別
-    -   你想保持型別安全
-    -   你計劃在使用前進行型別檢查
+    - 你不確定變數的型別
+    - 你想保持型別安全
+    - 你計劃在使用前進行型別檢查
 
--   **使用 any 當**：
-    -   你正在快速原型開發
-    -   你正在遷移 JavaScript 程式碼到 TypeScript
-    -   你確實需要繞過型別檢查（應該盡量避免）
+- **使用 any 當**：
+    - 你正在快速原型開發
+    - 你正在遷移 JavaScript 程式碼到 TypeScript
+    - 你確實需要繞過型別檢查（應該盡量避免）
 
 ### 實際應用示例
 
@@ -205,17 +205,17 @@ type Point = {
 
 ### 何時使用 Type 或 Interface？
 
--   **使用 Interface 當**：
+- **使用 Interface 當**：
 
-    -   你需要定義一個對象的形狀
-    -   你需要擴展該型別
-    -   你需要聲明合併（同名接口會自動合併）
+    - 你需要定義一個對象的形狀
+    - 你需要擴展該型別
+    - 你需要聲明合併（同名接口會自動合併）
 
--   **使用 Type 當**：
-    -   你需要使用聯合型別或交叉型別
-    -   你需要使用條件型別
-    -   你需要使用映射型別
-    -   你需要使用元組型別
+- **使用 Type 當**：
+    - 你需要使用聯合型別或交叉型別
+    - 你需要使用條件型別
+    - 你需要使用映射型別
+    - 你需要使用元組型別
 
 ## TypeScript 泛型
 
@@ -603,15 +603,15 @@ const ToggleComponent: React.FC = () => {
 
 TypeScript 提供了強大的型別系統，可以幫助你寫出更安全、更可維護的程式碼。通過使用適當的型別定義、泛型和工具型別，你可以大大提高開發效率和程式碼質量。
 
--   **基礎型別**：為變數提供型別註解
--   **Interface vs Type**：根據需求選擇合適的型別定義方式
--   **泛型**：創建可重用的型別安全組件
--   **工具型別**：使用內置工具型別轉換和操作型別
--   **高級型別技巧**：使用條件型別和映射型別解決複雜問題
+- **基礎型別**：為變數提供型別註解
+- **Interface vs Type**：根據需求選擇合適的型別定義方式
+- **泛型**：創建可重用的型別安全組件
+- **工具型別**：使用內置工具型別轉換和操作型別
+- **高級型別技巧**：使用條件型別和映射型別解決複雜問題
 
 ## 參考來源
 
--   **[TypeScript 官方文檔](https://www.typescriptlang.org/docs/)**
--   **[TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)**
--   **[TypeScript Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html)**
--   **[React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/)**
+- **[TypeScript 官方文檔](https://www.typescriptlang.org/docs/)**
+- **[TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)**
+- **[TypeScript Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html)**
+- **[React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/)**
