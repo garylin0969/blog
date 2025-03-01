@@ -7,20 +7,15 @@ import { BsFillMoonFill } from 'react-icons/bs';
 import themeConfig from '@/configs/theme.config';
 
 const ThemeSwitch = () => {
-    const { systemTheme, theme, setTheme } = useTheme();
+    const { theme, setTheme } = useTheme();
     const [mounted, setMounted] = useState<boolean>(false);
 
     useEffect(() => {
         setMounted(true);
-
-        if (['dark', 'light'].includes(themeConfig.mode)) {
-            setTheme(themeConfig.mode);
-        } else {
-            setTheme(systemTheme || 'system');
-        }
     }, []);
 
-    const currentTheme: string | undefined = theme === 'system' ? systemTheme : theme;
+    const currentTheme: string | undefined =
+        theme === 'system' && ['dark', 'light'].includes(themeConfig.mode) ? themeConfig.mode : theme;
 
     // If theme switch is disabled in config, don't render anything
     if (!themeConfig.enabled) {
