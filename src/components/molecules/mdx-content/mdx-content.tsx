@@ -22,7 +22,7 @@ const MDXContent = ({ content, className }: MDXContentProps) => {
             className={cn(
                 'prose md:prose-lg',
                 'dark:prose-invert',
-                'prose-figcaption:m-0',
+                'prose-figure:!font-mono',
                 'prose-code:before:!content-none prose-code:after:!content-none',
                 className,
             )}

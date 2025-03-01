@@ -19,17 +19,20 @@ const mdxRenderConfig: MDXComponents = {
         const copyContent = hasTitle ? (children?.[1]?.props?.rawcontent ?? '') : (children?.props?.rawcontent ?? '');
 
         return (
-            <figure className={cn('border border-white/30', 'overflow-hidden rounded-lg shadow-md')}>
-                <figcaption
+            <figure
+                className={cn('overflow-hidden rounded-lg shadow-md')}
+                style={{ margin: '0', border: '1px solid rgb(255 255 255/.3)' }}
+            >
+                <div
                     className={cn(
                         'flex items-center justify-between gap-1',
                         'px-4 py-2',
                         'bg-gray-800',
-                        'border-b border-white/30',
-                        'font-mono text-sm text-gray-200',
+                        'text-sm text-gray-200',
                     )}
+                    style={{ borderBottom: '1px solid rgb(255 255 255/.3)' }}
                 >
-                    <span className="max-w-[180px] truncate sm:max-w-full">{title}</span>
+                    <figcaption className="not-prose max-w-[180px] !truncate sm:max-w-full">{title}</figcaption>
                     <div className="flex items-center gap-1">
                         {language && (
                             <Tag variant="secondary" mode="dark">
@@ -38,7 +41,7 @@ const mdxRenderConfig: MDXComponents = {
                         )}
                         <CopyButton copyText={copyContent} className="static bg-transparent hover:bg-gray-700" />
                     </div>
-                </figcaption>
+                </div>
                 {children}
             </figure>
         );
