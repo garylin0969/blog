@@ -1,18 +1,12 @@
-import { ComponentType } from 'react';
 import cn from '@/utils/cn';
 import Tag from '@/components/atoms/tag';
 import CopyButton from '@/components/atoms/button/copy-button';
-
-interface MDXComponents {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    [key: string]: ComponentType<any>;
-}
+import type { MDXRemoteProps } from 'next-mdx-remote/rsc';
 
 // 自定義 MDX 組件
-const mdxRenderConfig: MDXComponents = {
+const mdxRenderConfig: MDXRemoteProps['components'] = {
     figure: (props) => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { children, ...rest } = props;
+        const { children } = props;
         const hasTitle = Array.isArray(children);
         const title = hasTitle ? (children?.[0]?.props?.children ?? '') : '';
         const language = hasTitle
