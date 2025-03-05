@@ -7,6 +7,7 @@ const BaseButton = forwardRef<HTMLButtonElement, ButtonPropsT>(({ className, chi
         <button
             ref={ref}
             className={cn(
+                'cursor-pointer',
                 'px-4 py-2',
                 'rounded-md',
                 'text-sm font-semibold text-white',

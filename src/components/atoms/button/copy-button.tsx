@@ -78,6 +78,7 @@ const CopyButton = ({ copyText, className }: CopyButtonProps) => {
         <button
             onClick={handleCopy}
             className={cn(
+                'cursor-pointer',
                 'group flex h-7 w-7 items-center justify-center',
                 'rounded-md bg-gray-700/80 text-gray-300',
                 'hover:bg-gray-600 hover:text-white',

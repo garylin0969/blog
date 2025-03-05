@@ -12,7 +12,7 @@ const ScrollToTopButton = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     const handleScroll = () => {
-        window.scrollY > 0 ? setIsVisible(true) : setIsVisible(false);
+        setIsVisible(window.scrollY > 0);
     };
 
     useEffect(() => {
@@ -27,8 +27,8 @@ const ScrollToTopButton = () => {
             onClick={handleScrollToTop}
             aria-label="Scroll to top"
             className={cn(
-                'z-10',
-                'fixed bottom-6 right-6 md:bottom-12 md:right-12',
+                'z-10 cursor-pointer',
+                'fixed right-6 bottom-6 md:right-12 md:bottom-12',
                 'h-10 w-10 rounded-full md:h-12 md:w-12',
                 'bg-white text-slate-800',
                 'flex items-center justify-center',

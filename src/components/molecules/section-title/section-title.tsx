@@ -13,7 +13,7 @@ interface SectionTitleProps extends SpanPropsT {
 
 const SectionTitle = ({ align = 'center', title = '', showDivider = true, className, ...props }: SectionTitleProps) => {
     return (
-        <span
+        <div
             className={cn(
                 showDivider && 'flex items-center',
                 'font-serif text-xl font-bold tracking-wider dark:text-slate-200',
@@ -38,7 +38,7 @@ const SectionTitle = ({ align = 'center', title = '', showDivider = true, classN
                 </h2>
             )}
             {showDivider && align !== 'right' && <DividerLine />}
-        </span>
+        </div>
     );
 };
 
