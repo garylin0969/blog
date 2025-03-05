@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -9,7 +9,7 @@
 }
 
 /* MarkDown 代碼塊樣式 */
-html code[data-theme*=' '],
+/* html code[data-theme*=' '],
 html code[data-theme*=' '] span {
     color: var(--shiki-light);
     background-color: var(--shiki-light-bg);
@@ -20,4 +20,4 @@ html.dark code[data-theme*=' '],
 html.dark code[data-theme*=' '] span {
     color: var(--shiki-dark);
     background-color: var(--shiki-dark-bg);
-}
+} */
