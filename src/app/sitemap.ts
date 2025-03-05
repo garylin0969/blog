@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { DOMAIN } from '@/configs/env';
 import { getAllCategories, getAllPosts, POSTS_PER_PAGE } from '@/utils/posts';
+import { PostT } from '@/types/post';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // 獲取所有文章
@@ -39,7 +40,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // 處理其他分類的分頁
     categories.forEach((category) => {
-        const categoryPosts = posts.filter((post) => post.category.toLowerCase() === category.toLowerCase());
+        const categoryPosts = posts.filter((post: PostT) => post?.category?.toLowerCase() === category.toLowerCase());
         const totalPages = Math.ceil(categoryPosts.length / POSTS_PER_PAGE);
 
         for (let page = 1; page <= totalPages; page++) {
@@ -53,9 +54,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
 
     // 文章頁面
-    const postRoutes = posts?.map((post) => ({
+    const postRoutes = posts?.map((post: PostT) => ({
         url: `${DOMAIN}/blog/posts${post?.url}`,
-        lastModified: new Date(post.date),
+        lastModified: new Date(post.date || ''),
         changeFrequency: 'weekly' as const,
         priority: 0.7, // 降低單篇文章的優先級，因為分類頁面更重要
     }));
