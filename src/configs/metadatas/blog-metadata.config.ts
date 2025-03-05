@@ -12,7 +12,7 @@ const blogMetadata: Partial<Metadata> = {
         siteName: 'Gary Lin Blog',
         images: [
             {
-                url: '/assets/logo.jpg',
+                url: '/assets/favicons/favicon-512x512.png',
                 width: 1200,
                 height: 630,
                 alt: 'Gary Lin Blog - Frontend Development Insights',
@@ -27,7 +27,7 @@ const blogMetadata: Partial<Metadata> = {
         description: '歡迎來到 Gary Lin 的Blog。在這裡我分享關於前端開發、React.js、Next.js 等方面的想法和經驗。',
         images: [
             {
-                url: '/assets/logo.jpg',
+                url: '/assets/favicons/favicon-512x512.png',
                 width: 1200,
                 height: 630,
                 alt: 'Gary Lin Blog - Frontend Development Insights',

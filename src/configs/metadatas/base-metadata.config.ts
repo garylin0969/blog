@@ -14,13 +14,33 @@ const baseMetadata: Partial<Metadata> = {
         telephone: false,
     },
     icons: {
-        icon: { url: '/assets/logo.jpg' },
-        shortcut: { url: '/assets/logo.jpg' },
-        apple: { url: '/assets/logo.jpg' },
-        other: {
-            rel: 'apple-touch-icon-precomposed',
-            url: '/assets/logo.jpg',
-        },
+        icon: [
+            { url: '/assets/favicon.ico', type: 'image/x-icon' },
+            { url: '/assets/favicons/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+            { url: '/assets/favicons/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+            { url: '/assets/favicons/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+        ],
+        shortcut: [{ url: '/assets/favicon.ico', type: 'image/x-icon' }],
+        // Apple 設備專用
+        apple: [
+            { url: '/assets/favicons/favicon-57x57.png', sizes: '57x57', type: 'image/png' },
+            { url: '/assets/favicons/favicon-60x60.png', sizes: '60x60', type: 'image/png' },
+            { url: '/assets/favicons/favicon-72x72.png', sizes: '72x72', type: 'image/png' },
+            { url: '/assets/favicons/favicon-76x76.png', sizes: '76x76', type: 'image/png' },
+            { url: '/assets/favicons/favicon-114x114.png', sizes: '114x114', type: 'image/png' },
+            { url: '/assets/favicons/favicon-120x120.png', sizes: '120x120', type: 'image/png' },
+            { url: '/assets/favicons/favicon-144x144.png', sizes: '144x144', type: 'image/png' },
+            { url: '/assets/favicons/favicon-152x152.png', sizes: '152x152', type: 'image/png' },
+            { url: '/assets/favicons/favicon-180x180.png', sizes: '180x180', type: 'image/png' },
+        ],
+        // Android/PWA 用
+        other: [
+            { url: '/assets/favicons/favicon-192x192.png', sizes: '192x192', type: 'image/png' },
+            { url: '/assets/favicons/favicon-512x512.png', sizes: '512x512', type: 'image/png' },
+            // PWA maskable icon
+            { url: '/assets/favicons/favicon-192x192.png', sizes: '192x192', type: 'image/png', rel: 'maskable' },
+            { url: '/assets/favicons/favicon-512x512.png', sizes: '512x512', type: 'image/png', rel: 'maskable' },
+        ],
     },
     verification: {
         google: 'CtxomoS71tuDi5qlZJbJpoLQ7dcgEOXcW_oCY8zyLUw',

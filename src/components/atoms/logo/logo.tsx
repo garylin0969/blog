@@ -8,7 +8,7 @@ const Logo = () => {
         <Link href="/">
             <div className={cn('flex items-center gap-2')}>
                 <Image
-                    className="h-9 w-9 rounded-md object-contain"
+                    // className="h-9 w-9 rounded-md object-contain"
                     src={headerConfig.logoImageUrl}
                     width={36}
                     height={36}

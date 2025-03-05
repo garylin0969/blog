@@ -26,7 +26,7 @@ const postsMetadataConfig = async ({ params }: { params: Promise<{ slug: string[
             siteName: 'Gary Lin Blog',
             images: [
                 {
-                    url: post.coverImage || '/assets/logo.jpg',
+                    url: post.coverImage || '/assets/favicons/favicon-512x512.png',
                     width: 1200,
                     height: 630,
                     alt: `${post.title} - Gary Lin Blog`,
@@ -42,7 +42,7 @@ const postsMetadataConfig = async ({ params }: { params: Promise<{ slug: string[
             description: post.description,
             images: [
                 {
-                    url: post.coverImage || '/assets/logo.jpg',
+                    url: post.coverImage || '/assets/favicons/favicon-512x512.png',
                     width: 1200,
                     height: 630,
                     alt: `${post.title} - Gary Lin Blog`,

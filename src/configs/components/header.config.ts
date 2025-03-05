@@ -1,6 +1,6 @@
 const headerConfig = {
     title: 'GaryLin.dev',
-    logoImageUrl: '/assets/logo.jpg',
+    logoImageUrl: '/assets/favicons/favicon-96x96.png',
     navMenuLinks: [
         {
             label: 'Home',
