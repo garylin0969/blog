@@ -29,17 +29,17 @@ const ExpandableContainer = ({ isOpen, direction = 'down', className, children }
             }
             setSize(`100%`);
         }
-    }, [isOpen, direction]);
+    }, [isOpen, direction, isVertical]);
 
     return (
         <div
             ref={containerRef}
             className={cn(
                 'fixed',
-                direction === 'down' ? 'left-0 top-0 w-full' : '',
-                direction === 'up' ? 'bottom-0 left-0 w-full' : '',
-                direction === 'left' ? 'right-0 top-0' : '',
-                direction === 'right' ? 'left-0 top-0' : '',
+                direction === 'down' && 'top-0 left-0 w-full',
+                direction === 'up' && 'bottom-0 left-0 w-full',
+                direction === 'left' && 'top-0 right-0',
+                direction === 'right' && 'top-0 left-0',
                 transitionClass,
                 'duration-300',
                 'overflow-hidden',
