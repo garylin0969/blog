@@ -3,11 +3,6 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-:root {
-    --shadow-sm: '0 5px 10px rgba(0, 0, 0, 0.12)';
-    --shadow-md: '0 8px 30px rgba(0, 0, 0, 0.12)';
-}
-
 /* MarkDown 代碼塊樣式 */
 /* html code[data-theme*=' '],
 html code[data-theme*=' '] span {
