@@ -4,12 +4,14 @@ import Tag from '@/components/atoms/tag';
 import CopyButton from '@/components/atoms/button/copy-button';
 
 interface MDXComponents {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: ComponentType<any>;
 }
 
 // 自定義 MDX 組件
 const mdxRenderConfig: MDXComponents = {
     figure: (props) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { children, ...rest } = props;
         const hasTitle = Array.isArray(children);
         const title = hasTitle ? (children?.[0]?.props?.children ?? '') : '';

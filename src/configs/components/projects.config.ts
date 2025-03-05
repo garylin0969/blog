@@ -1,4 +1,4 @@
-export default [
+const projectsConfig = [
     {
         id: 'life-restart',
         imageUrl: '/assets/projects/life-restart.jpg',
@@ -80,3 +80,5 @@ export default [
         projectTags: ['2022', 'React', 'JavaScript', 'Socket.IO', 'Bootstrap', 'GSAP'],
     },
 ];
+
+export default projectsConfig;

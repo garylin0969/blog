@@ -1,6 +1,6 @@
 import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
-export default [
+const socialIconLinksConfig = [
     {
         enabled: true,
         id: 'github',
@@ -26,3 +26,5 @@ export default [
         link: 'https://www.instagram.com/gary_1226_/',
     },
 ];
+
+export default socialIconLinksConfig;

@@ -55,4 +55,6 @@ const aboutMetadata: Partial<Metadata> = {
     alternates: { canonical: `${DOMAIN}/about` },
 };
 
-export default { ...baseMetadata, ...aboutMetadata };
+const aboutMetadataConfig = { ...baseMetadata, ...aboutMetadata };
+
+export default aboutMetadataConfig;

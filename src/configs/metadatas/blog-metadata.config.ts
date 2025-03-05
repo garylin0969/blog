@@ -55,4 +55,6 @@ const blogMetadata: Partial<Metadata> = {
     alternates: { canonical: `${DOMAIN}/blog/all/1` },
 };
 
-export default { ...baseMetadata, ...blogMetadata };
+const blogMetadataConfig = { ...baseMetadata, ...blogMetadata };
+
+export default blogMetadataConfig;

@@ -1,4 +1,4 @@
-export default [
+const experienceConfig = [
     {
         id: 'anue',
         logoSrc: '/assets/company-logo/anue.png',
@@ -75,3 +75,5 @@ export default [
         ],
     },
 ];
+
+export default experienceConfig;

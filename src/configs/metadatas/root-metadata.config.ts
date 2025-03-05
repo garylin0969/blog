@@ -53,4 +53,6 @@ const rootMetadata: Partial<Metadata> = {
     alternates: { canonical: DOMAIN },
 };
 
-export default { ...baseMetadata, ...rootMetadata };
+const rootMetadataConfig = { ...baseMetadata, ...rootMetadata };
+
+export default rootMetadataConfig;

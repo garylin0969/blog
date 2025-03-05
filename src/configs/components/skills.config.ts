@@ -1,4 +1,4 @@
-export default [
+const skillsConfig = [
     {
         id: 'html-css',
         title: 'HTML/CSS',
@@ -15,3 +15,5 @@ export default [
         skills: ['Scrum', 'Git', 'GitLab', 'Git Flow', 'Jira', 'Confluence', 'Google Analytics'],
     },
 ];
+
+export default skillsConfig;

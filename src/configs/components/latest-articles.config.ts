@@ -1,4 +1,4 @@
-export default {
+const latestArticlesConfig = {
     count: 1,
     button: {
         enable: true,
@@ -6,3 +6,5 @@ export default {
         href: '/blog',
     },
 };
+
+export default latestArticlesConfig;

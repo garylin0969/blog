@@ -1,4 +1,4 @@
-export default {
+const headerConfig = {
     title: 'GaryLin.dev',
     logoImageUrl: '/assets/logo.jpg',
     navMenuLinks: [
@@ -16,3 +16,5 @@ export default {
         },
     ],
 };
+
+export default headerConfig;
