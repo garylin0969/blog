@@ -10,7 +10,7 @@ const avatarInitProps = {
 };
 
 const Avatar = ({ ...props }: Partial<ImageProps>) => {
-    return <Image {...avatarInitProps} {...props} />;
+    return <Image {...avatarInitProps} alt={props.alt || infoImage.alt} {...props} />;
 };
 
 export default Avatar;

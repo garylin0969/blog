@@ -15,7 +15,7 @@ const Pagination = ({ currentPage, totalPages, className, createPageUrl }: Pagin
         const pages: number[] = [];
         const maxPages = 5;
         let start = Math.max(1, currentPage - Math.floor(maxPages / 2));
-        let end = Math.min(start + maxPages - 1, totalPages);
+        const end = Math.min(start + maxPages - 1, totalPages);
 
         // 調整起始位置，確保總是顯示5個頁碼（如果有足夠的頁數）
         if (end - start + 1 < maxPages && end === totalPages) {

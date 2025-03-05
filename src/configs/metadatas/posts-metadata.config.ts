@@ -3,7 +3,7 @@ import { getPostBySlug } from '@/utils/posts';
 import { baseMetadata } from './base-metadata.config';
 import { DOMAIN } from '@/configs/env';
 
-export default async ({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> => {
+const postsMetadataConfig = async ({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> => {
     const { slug } = await params;
     const decodedSlug = slug?.map(decodeURIComponent).join('/');
     const post = getPostBySlug(`/${decodedSlug}`);
@@ -74,3 +74,5 @@ export default async ({ params }: { params: Promise<{ slug: string[] }> }): Prom
 
     return { ...baseMetadata, ...postMetadata };
 };
+
+export default postsMetadataConfig;

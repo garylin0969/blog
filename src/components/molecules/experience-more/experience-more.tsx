@@ -55,4 +55,6 @@ const ExperienceMore = memo(({ details = [], button }: ExperienceMoreProps) => {
     );
 });
 
+ExperienceMore.displayName = 'ExperienceMore';
+
 export default ExperienceMore;
