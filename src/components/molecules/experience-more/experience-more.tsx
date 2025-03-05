@@ -25,11 +25,7 @@ const ExperienceMore = memo(({ details = [], button }: ExperienceMoreProps) => {
             <div className="mt-2">
                 <BaseButton
                     onClick={toggleExpand}
-                    className={cn(
-                        'flex w-full items-center justify-center gap-2',
-                        'font-medium',
-                        'shadow-sm hover:shadow',
-                    )}
+                    className={cn('flex w-full items-center justify-center gap-2', 'font-medium')}
                 >
                     <span className={cn('transition-transform duration-200', isOpend ? 'rotate-180' : '')}>
                         <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

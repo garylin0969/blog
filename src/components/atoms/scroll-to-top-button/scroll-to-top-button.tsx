@@ -32,7 +32,7 @@ const ScrollToTopButton = () => {
                 'h-10 w-10 rounded-full md:h-12 md:w-12',
                 'bg-white text-slate-800',
                 'flex items-center justify-center',
-                'shadow-sm dark:shadow-slate-400',
+                'shadow-md dark:shadow-slate-400',
                 'transition-[opacity] duration-200',
                 isVisible ? 'opacity-100' : 'pointer-events-none opacity-0',
             )}

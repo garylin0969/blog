@@ -23,7 +23,7 @@ const BurgerMenu = () => {
             <ExpandableContainer
                 isOpen={isOpen}
                 direction="down"
-                className={cn('top-16 z-50 bg-white dark:bg-slate-900 md:hidden', isOpen && 'shadow')}
+                className={cn('top-16 z-50 bg-white md:hidden dark:bg-slate-900', isOpen && 'shadow-md')}
             >
                 <MobileNavMenu onItemClick={toggleMenu} />
             </ExpandableContainer>

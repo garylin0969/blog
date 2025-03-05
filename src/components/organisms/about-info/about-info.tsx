@@ -15,7 +15,7 @@ const AboutInfo = ({ infoList = infoDescriptions, className, ...props }: AboutIn
         'bg-white/50 dark:bg-slate-800/50',
         'backdrop-blur-sm',
         'border border-slate-200 dark:border-slate-700',
-        'shadow-sm',
+        'shadow-md',
         className,
     );
 
