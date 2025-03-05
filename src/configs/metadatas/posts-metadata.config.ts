@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { getPostBySlug } from '@/utils/posts';
-import { baseMetadata } from './base-metadata.config';
+import baseMetadata from '@/configs/metadatas/base-metadata.config';
 import { DOMAIN } from '@/configs/env';
 
 const postsMetadataConfig = async ({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> => {

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { baseMetadata } from './base-metadata.config';
+import baseMetadata from '@/configs/metadatas/base-metadata.config';
 import { DOMAIN } from '@/configs/env';
 
 const blogMetadata: Partial<Metadata> = {

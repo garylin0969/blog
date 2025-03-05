@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { DOMAIN } from '@/configs/env';
 
-export const baseMetadata: Partial<Metadata> = {
+const baseMetadata: Partial<Metadata> = {
     metadataBase: new URL(DOMAIN),
     generator: 'Next.js',
     applicationName: 'Gary Lin Portfolio',
@@ -37,3 +37,5 @@ export const baseMetadata: Partial<Metadata> = {
         },
     },
 };
+
+export default baseMetadata;
