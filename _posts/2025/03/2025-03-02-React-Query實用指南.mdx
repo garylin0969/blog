@@ -127,7 +127,7 @@ const queryClient = new QueryClient({
             retry: 3, // 失敗時重試次數
             retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000), // 重試延遲
             refetchOnWindowFocus: true, // 窗口獲得焦點時重新獲取
-            refetchOnMount: true, // 組件掛載時重新獲取
+            refetchOnMount: true, // 元件掛載時重新獲取
             refetchOnReconnect: true, // 網絡重新連接時重新獲取
             suspense: false, // 是否使用 React Suspense
         },
@@ -149,7 +149,7 @@ React Query 中兩個最重要的時間配置是 `staleTime` 和 `gcTime`，理�
 - **默認值**：0（數據立即被視為過時）
 - **行為**：
     - 當數據未過時時，不會在背景重新獲取
-    - 當組件重新掛載或窗口重新獲得焦點時，不會重新獲取未過時的數據
+    - 當元件重新掛載或窗口重新獲得焦點時，不會重新獲取未過時的數據
 
 #### gcTime（垃圾回收時間）
 
@@ -157,7 +157,7 @@ React Query 中兩個最重要的時間配置是 `staleTime` 和 `gcTime`，理�
 - **作用**：控制未使用的查詢數據何時從緩存中移除
 - **默認值**：5分鐘（300000毫秒）
 - **行為**：
-    - 當查詢不再被任何組件使用時，計時開始
+    - 當查詢不再被任何元件使用時，計時開始
     - 計時結束後，查詢數據從緩存中移除
     - 之前稱為 `cacheTime`
 
@@ -183,7 +183,7 @@ const { data: userProfile } = useQuery({
 
 #### 數據流程
 
-- 當新組件請求相同查詢時，TanStack Query 會：
+- 當新元件請求相同查詢時，TanStack Query 會：
 
     - 先立即返回緩存中的數據（即使是過時的）
     - 然後在背景中重新獲取新數據
