@@ -55,7 +55,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // 文章頁面
     const postRoutes = posts?.map((post: PostT) => ({
-        url: `${DOMAIN}/blog/posts${post?.url}`,
+        url: `${DOMAIN}/blog/posts${encodeURI(post?.url || '')}`,
         lastModified: new Date(post.date || ''),
         changeFrequency: 'weekly' as const,
         priority: 0.7, // 降低單篇文章的優先級，因為分類頁面更重要
