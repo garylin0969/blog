@@ -1,5 +1,25 @@
 const projectsConfig = [
     {
+        id: 'hot-now',
+        imageUrl: '/assets/projects/hot-now.jpg',
+        projectUrl: 'https://hotnow.garylin.dev/',
+        projectName: 'Hot Now',
+        projectTags: [
+            '2025',
+            'Next',
+            'TypeScript',
+            'Tailwind CSS',
+            'Shadcn UI',
+            'Zustand',
+            'TanStack Query',
+            'React Hook Form',
+            'Zod',
+            'Google Analytics',
+            'Puppeteer',
+            'next-themes',
+        ],
+    },
+    {
         id: 'life-restart',
         imageUrl: '/assets/projects/life-restart.jpg',
         projectUrl: 'https://garylin0969-life-restart.vercel.app/',
