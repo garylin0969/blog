@@ -15,6 +15,21 @@ const nextConfig: NextConfig = {
     },
     transpilePackages: ['next-mdx-remote'],
     pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+
+    // 添加 headers 配置
+    async headers() {
+        return [
+            {
+                source: '/:path*',
+                headers: [
+                    {
+                        key: 'X-Robots-Tag',
+                        value: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+                    },
+                ],
+            },
+        ];
+    },
 };
 
 export default withContentlayer(nextConfig);
