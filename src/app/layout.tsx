@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import cn from '@/utils/cn';
 import ThemeProvider from '@/providers/theme-provider';
-import RootTemplateProps from '@/components/templates/root-template';
+import RootTemplate from '@/components/templates/root-template';
 import rootMetadataConfig from '@/configs/metadatas/root-metadata.config';
 import { GA_ID } from '@/configs/env';
 
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             </head>
             <body className={cn(inter.className, 'min-h-screen antialiased')}>
                 <ThemeProvider>
-                    <RootTemplateProps>{children}</RootTemplateProps>
+                    <RootTemplate>{children}</RootTemplate>
                 </ThemeProvider>
                 <GoogleAnalytics gaId={GA_ID} />
             </body>

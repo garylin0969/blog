@@ -8,7 +8,7 @@ interface RootTemplateProps {
     children: ReactNode;
 }
 
-const RootTemplateProps = ({ children }: RootTemplateProps) => {
+const RootTemplate = ({ children }: RootTemplateProps) => {
     return (
         <div className={cn('relative', 'text-slate-700 dark:text-slate-300')}>
             <div
@@ -39,4 +39,4 @@ const RootTemplateProps = ({ children }: RootTemplateProps) => {
     );
 };
 
-export default RootTemplateProps;
+export default RootTemplate;
