@@ -29,7 +29,7 @@ const ProjectCard = ({ className, badge, maxVisible, project }: ProjectCardProps
             <Card className="flex h-full flex-col gap-0 overflow-hidden p-0">
                 <AspectRatio ratio={16 / 9} className="overflow-hidden">
                     <NextImage
-                        className="object-cover duration-300 group-hover:scale-110"
+                        className="object-cover transition-transform duration-300 group-hover:scale-110"
                         src={project.image}
                         alt={project.name}
                         fill

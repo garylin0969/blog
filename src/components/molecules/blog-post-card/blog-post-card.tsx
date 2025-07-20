@@ -40,9 +40,8 @@ const BlogPostCard = ({ className, post }: BlogPostCardProps) => {
                             <NextImage
                                 src={post?.image}
                                 alt={post?.title}
-                                height={112}
-                                width={112}
-                                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                                fill
+                                className="object-contain transition-transform duration-300 group-hover:scale-110"
                             />
                         </div>
                     )}
