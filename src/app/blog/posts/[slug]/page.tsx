@@ -3,6 +3,7 @@ import { PostMeta } from '@/components/atoms/post-meta/post-meta';
 import { TagList } from '@/components/atoms/tag-list';
 import MDXContent from '@/components/molecules/mdx-content';
 import { getPostBySlug, getPublishedPosts } from '@/utils/post';
+import { DOMAIN } from '@/constants/site';
 
 interface PostPageProps {
     params: Promise<{
@@ -46,9 +47,14 @@ export async function generateMetadata({ params }: PostPageProps) {
     return {
         title: post.title,
         description: post.description || post.title,
+        alternates: {
+            canonical: `${DOMAIN}/blog/posts/${slug}`,
+        },
         openGraph: {
             title: `${post.title} | GaryLin Dev`,
             description: post.description || post.title,
+            url: `${DOMAIN}/blog/posts/${slug}`,
+            locale: 'zh_TW',
             type: 'article',
             publishedTime: post.date,
             authors: ['Gary Lin'],

@@ -10,13 +10,20 @@ import { DEFAULT_TOP_LANGS_CONFIG } from '@/constants/github-stats';
 import { ABOUT_INTRO_LIST } from '@/constants/intro';
 import { PROJECT_LIST } from '@/constants/project';
 import { SKILL_LIST } from '@/constants/skill';
+import { DOMAIN } from '@/constants/site';
 
 export const metadata: Metadata = {
     title: 'About',
     description: '了解更多關於 Gary Lin 的背景、工作經驗、技能和專案',
+    alternates: {
+        canonical: `${DOMAIN}/about`,
+    },
     openGraph: {
         title: 'About | GaryLin Dev',
         description: '了解更多關於 Gary Lin 的背景、工作經驗、技能和專案',
+        url: `${DOMAIN}/about`,
+        locale: 'zh_TW',
+        type: 'website',
         images: [
             {
                 url: '/favicons/android-chrome-512x512.png',
