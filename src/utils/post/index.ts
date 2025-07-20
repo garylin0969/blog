@@ -38,7 +38,9 @@ export const getPostBySlug = (slug: string) => {
 
 // 根據分類獲取文章
 export const getPostByCategory = (category: string, options: Options = { sort: 'desc', draft: false }) => {
-    const filteredPosts = posts.filter((post) => post?.category === category && !!post?.draft === options.draft);
+    const filteredPosts = posts.filter(
+        (post) => post?.category?.toLowerCase() === category?.toLowerCase() && !!post?.draft === options.draft
+    );
     return sortPosts(filteredPosts, options.sort);
 };
 
