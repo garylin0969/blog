@@ -86,7 +86,7 @@ const GithubStatsCard = ({
     loading = 'lazy',
     alt = 'github stats',
 }: GithubStatsCardProps) => {
-    const { theme } = useTheme();
+    const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
     // 確保元件已掛載
@@ -96,12 +96,12 @@ const GithubStatsCard = ({
 
     // 計算當前 URL
     const currentUrl = useMemo(() => {
-        const isDark = theme !== 'light';
+        const isDark = resolvedTheme !== 'light';
         const themeParam = getThemeParam(params, isDark);
         const currentUrl = buildStatsUrl(type, username, params, themeParam);
 
         return currentUrl;
-    }, [type, username, params, theme]);
+    }, [type, username, params, resolvedTheme]);
 
     // 圖片元件
     const ImageComponent = useMemo(
