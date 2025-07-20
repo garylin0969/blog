@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { PostMeta } from '@/components/atoms/post-meta/post-meta';
 import { TagList } from '@/components/atoms/tag-list';
+import Comments from '@/components/molecules/comments';
 import MDXContent from '@/components/molecules/mdx-content';
 import { generatePostMetadata, generatePostNotFoundMetadata } from '@/constants/metadatas';
 import { getPostBySlug, getPublishedPosts } from '@/utils/post';
@@ -49,6 +50,9 @@ const PostPage = async ({ params }: PostPageProps) => {
                 </header>
                 <div className="prose prose-figcaption:mt-0 prose-figure:m-0 dark:prose-invert md:prose-lg">
                     <MDXContent code={post?.code} />
+                </div>
+                <div className="mt-10">
+                    <Comments />
                 </div>
             </article>
         </div>
