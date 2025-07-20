@@ -8,37 +8,11 @@ import SkillCard from '@/components/molecules/skill-card';
 import ExperienceTimeline from '@/components/organisms/experience-timeline';
 import { DEFAULT_TOP_LANGS_CONFIG } from '@/constants/github-stats';
 import { ABOUT_INTRO_LIST } from '@/constants/intro';
+import { generateAboutMetadata } from '@/constants/metadatas';
 import { PROJECT_LIST } from '@/constants/project';
 import { SKILL_LIST } from '@/constants/skill';
-import { DOMAIN } from '@/constants/site';
 
-export const metadata: Metadata = {
-    title: 'About',
-    description: '了解更多關於 Gary Lin 的背景、工作經驗、技能和專案',
-    alternates: {
-        canonical: `${DOMAIN}/about`,
-    },
-    openGraph: {
-        title: 'About | GaryLin Dev',
-        description: '了解更多關於 Gary Lin 的背景、工作經驗、技能和專案',
-        url: `${DOMAIN}/about`,
-        locale: 'zh_TW',
-        type: 'website',
-        images: [
-            {
-                url: '/favicons/android-chrome-512x512.png',
-                width: 512,
-                height: 512,
-                alt: 'GaryLin Dev',
-            },
-        ],
-    },
-    twitter: {
-        title: 'About | GaryLin Dev',
-        description: '了解更多關於 Gary Lin 的背景、工作經驗、技能和專案',
-        images: ['/favicons/android-chrome-512x512.png'],
-    },
-};
+export const metadata: Metadata = generateAboutMetadata();
 
 const AboutPage = () => {
     return (
