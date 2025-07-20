@@ -1,20 +1,12 @@
 'use client';
 
-import { ReactNode } from 'react';
-import { ThemeProvider as Provider } from 'next-themes';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import React, { ComponentProps } from 'react';
 
-interface ThemeProviderProps {
-    children: ReactNode;
-}
+type ThemeProviderProps = ComponentProps<typeof NextThemesProvider>;
 
-const ThemeProvider = ({ children }: ThemeProviderProps) => {
-    return (
-        <>
-            <Provider enableSystem={true} attribute="class">
-                {children}
-            </Provider>
-        </>
-    );
+const ThemeProvider = ({ children, ...props }: ThemeProviderProps) => {
+    return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
 };
 
 export default ThemeProvider;
