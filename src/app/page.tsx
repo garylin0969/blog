@@ -22,6 +22,7 @@ const HomePage = () => {
                             <AuthorCard />
                         </div>
                         <div className="hidden md:flex md:justify-center">
+                            {/* 最新專案卡片 */}
                             <ProjectCard
                                 className="w-74"
                                 badge="New Project"
@@ -31,7 +32,11 @@ const HomePage = () => {
                         </div>
                     </div>
                     {/* 簡短介紹卡片 */}
-                    <IntroCard className="mx-auto max-w-3xl" list={HOME_INTRO_LIST} />
+                    <IntroCard
+                        className="mx-auto max-w-3xl"
+                        list={HOME_INTRO_LIST}
+                        listClassName="text-center text-xl"
+                    />
                 </section>
                 {/* 最新文章 */}
                 <section className="flex flex-1 flex-col items-center justify-center gap-y-2">

@@ -1,7 +1,4 @@
-export const HOME_INTRO_LIST = [
-    "Hi, I'm Gary Lin",
-    'A Frontend Developer passionate about JavaScript, TypeScript, React.js, Next.js and Tailwind CSS.',
-];
+export const HOME_INTRO_LIST = ["Hi, I'm Gary Lin, A Frontend Developer."];
 
 export const ABOUT_INTRO_LIST = [
     'Hi there',
