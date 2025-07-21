@@ -1,4 +1,4 @@
-export const HOME_INTRO_LIST = ["Hi, I'm Gary Lin, A Frontend Developer."];
+export const HOME_INTRO_LIST = ['A Frontend Developer'];
 
 export const ABOUT_INTRO_LIST = [
     'Hi there',
