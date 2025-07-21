@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import NextImage from '@/components/atoms/next-image';
 import { LOGO_IMAGE_PATH, WEBSITE_TITLE } from '@/constants/site';
+import { cn } from '@/utils/shadcn';
 
 interface LogoProps {
     href?: string;
@@ -15,16 +16,16 @@ interface LogoProps {
 
 const Logo = ({
     href = '/',
-    className = 'flex items-center gap-x-2',
+    className,
     imageClassName,
     imageWidth = 32,
     imageHeight = 32,
     imageLoading = 'eager',
     imageAlt = 'website logo',
-    titleClassName = 'font-bold',
+    titleClassName,
 }: LogoProps) => {
     return (
-        <Link href={href} className={className}>
+        <Link href={href} className={cn('flex items-center gap-x-2', className)}>
             <NextImage
                 src={LOGO_IMAGE_PATH}
                 className={imageClassName}
@@ -33,7 +34,7 @@ const Logo = ({
                 loading={imageLoading}
                 alt={imageAlt}
             />
-            <span className={titleClassName}>{WEBSITE_TITLE}</span>
+            <span className={cn('font-bold', titleClassName)}>{WEBSITE_TITLE}</span>
         </Link>
     );
 };
