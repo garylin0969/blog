@@ -23,7 +23,7 @@ const BlogPostCard = ({ className, post }: BlogPostCardProps) => {
                             <PostMeta useLink={false} date={post.date} category={post?.category} />
                         </div>
 
-                        <h2 className="group-hover:text-primary mb-2 line-clamp-1 text-2xl leading-tight font-bold">
+                        <h2 className="group-hover:text-primary mb-2 line-clamp-1 text-xl leading-tight font-bold md:text-2xl">
                             {post?.title}
                         </h2>
 
