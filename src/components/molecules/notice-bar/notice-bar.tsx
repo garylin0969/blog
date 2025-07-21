@@ -8,7 +8,7 @@ const LINK_PROPS = {
 
 interface NoticeBarProps {
     className?: string;
-    message: string;
+    message?: string;
     link?: string;
 }
 
