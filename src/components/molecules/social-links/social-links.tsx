@@ -1,14 +1,15 @@
 import SocialLink from '@/components/atoms/social-link';
 import { SOCIAL_LINKS } from '@/constants/social-links';
+import { cn } from '@/utils/shadcn';
 
 interface SocialLinksProps {
     className?: string;
     iconClassName?: string;
 }
 
-const SocialLinks = ({ className = 'flex items-center gap-x-2', iconClassName = 'size-4' }: SocialLinksProps) => {
+const SocialLinks = ({ className, iconClassName }: SocialLinksProps) => {
     return (
-        <div className={className}>
+        <div className={cn('flex items-center gap-x-2', className)}>
             {SOCIAL_LINKS.map((link) => (
                 <SocialLink
                     key={link.label}

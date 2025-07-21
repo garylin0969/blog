@@ -1,4 +1,5 @@
 import { IconType } from 'react-icons';
+import { cn } from '@/utils/shadcn';
 
 interface SocialLinkProps {
     href: string;
@@ -8,10 +9,10 @@ interface SocialLinkProps {
     className?: string;
 }
 
-const SocialLink = ({ href, target, icon: IconComponent, label, className = 'size-4' }: SocialLinkProps) => {
+const SocialLink = ({ href, target, icon: IconComponent, label, className }: SocialLinkProps) => {
     return (
         <a href={href} target={target} rel="noopener noreferrer" aria-label={label}>
-            <IconComponent className={className} />
+            <IconComponent className={cn('size-4', className)} />
         </a>
     );
 };
