@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import Link from 'next/link';
 import * as runtime from 'react/jsx-runtime';
 import React, { ComponentType } from 'react';
 import CodeBlock from '@/components/molecules/code-block';
@@ -63,7 +64,7 @@ interface MDXProps {
 // MDXContent元件
 const MDXContent = ({ code, components }: MDXProps) => {
     const Component = useMDXComponent(code);
-    return <Component components={{ ...sharedComponents, ...components }} />;
+    return <Component components={{ ...sharedComponents, Link, ...components }} />;
 };
 
 export default MDXContent;
