@@ -1,8 +1,4 @@
-'use client';
-
-import { FaInfoCircle, FaTimes } from 'react-icons/fa';
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
+import { FaInfoCircle } from 'react-icons/fa';
 import { cn } from '@/utils/shadcn';
 
 const LINK_PROPS = {
@@ -12,32 +8,13 @@ const LINK_PROPS = {
 
 interface NoticeBarProps {
     className?: string;
-    initialOpen?: boolean;
     message?: string;
     link?: string;
-    cookieName?: string;
 }
 
-// Cookie 操作函數
-const setCookie = (name: string, value: string): void => {
-    if (typeof document === 'undefined') return;
-    document.cookie = `${name}=${value};path=/`;
-};
-
 // 公告
-const NoticeBar = ({ className, message, link, initialOpen = true, cookieName }: NoticeBarProps) => {
-    // 使用服務端傳遞的初始狀態，避免 hydration mismatch
-    const [isOpen, setIsOpen] = useState(initialOpen);
-
-    if (!message || !isOpen) return null;
-
-    // 關閉公告
-    const handleClose = () => {
-        if (cookieName) {
-            setCookie(cookieName, 'false');
-        }
-        setIsOpen(false);
-    };
+const NoticeBar = ({ className, message, link }: NoticeBarProps) => {
+    if (!message) return null;
 
     const Component = link ? 'a' : 'span';
 
@@ -49,9 +26,6 @@ const NoticeBar = ({ className, message, link, initialOpen = true, cookieName }:
                     <Component href={link} {...(link && LINK_PROPS)}>
                         {message}
                     </Component>
-                    <Button variant="ghost" size="icon" onClick={handleClose}>
-                        <FaTimes className="size-4" />
-                    </Button>
                 </div>
             </div>
         </div>
