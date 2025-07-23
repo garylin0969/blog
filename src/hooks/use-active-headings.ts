@@ -9,16 +9,15 @@ import { HEADER_HIGHT } from '@/constants/site';
  */
 const useActiveHeadings = (headings: { level: number; text: string }[]) => {
     const [activeHeadings, setActiveHeadings] = useState<string[]>([]);
-    let timer: NodeJS.Timeout;
 
     useEffect(() => {
-        if (!headings || headings.length === 0) return;
+        if (!headings?.length) return;
 
         // 獲取所有標題元素
         const headingElements = headings
             .map((heading) => {
                 const element = document.getElementById(heading?.text);
-                return element ? { element, text: heading?.text, level: heading?.level } : null;
+                return element ? { element, text: heading.text, level: heading.level } : null;
             })
             .filter(Boolean) as { element: HTMLElement; text: string; level: number }[];
 
@@ -26,6 +25,29 @@ const useActiveHeadings = (headings: { level: number; text: string }[]) => {
 
         // 用於追蹤哪些標題目前可見
         const visibleHeadings = new Set<string>();
+
+        // 找到最接近視窗頂部的標題
+        const findNearestHeading = (elements: { element: HTMLElement; text: string; level: number }[]) => {
+            let closestHeading = '';
+            let minDistance = Infinity;
+
+            elements.forEach(({ element, text }) => {
+                const rect = element.getBoundingClientRect();
+                const distance = Math.abs(rect.top - HEADER_HIGHT);
+
+                if (rect.top <= HEADER_HIGHT && distance < minDistance) {
+                    minDistance = distance;
+                    closestHeading = text;
+                }
+            });
+
+            if (closestHeading) {
+                setActiveHeadings([closestHeading]);
+            } else if (elements.length > 0) {
+                // 如果都在視窗下方，選擇第一個標題
+                setActiveHeadings([elements[0].text]);
+            }
+        };
 
         // 創建 Intersection Observer
         const observer = new IntersectionObserver(
@@ -71,36 +93,13 @@ const useActiveHeadings = (headings: { level: number; text: string }[]) => {
             }
         );
 
-        // 找到最接近視窗頂部的標題
-        const findNearestHeading = (elements: { element: HTMLElement; text: string; level: number }[]) => {
-            let closestHeading = '';
-            let minDistance = Infinity;
-
-            elements.forEach(({ element, text }) => {
-                const rect = element.getBoundingClientRect();
-                const distance = Math.abs(rect.top - HEADER_HIGHT);
-
-                if (rect.top <= HEADER_HIGHT && distance < minDistance) {
-                    minDistance = distance;
-                    closestHeading = text;
-                }
-            });
-
-            if (closestHeading) {
-                setActiveHeadings([closestHeading]);
-            } else if (elements.length > 0) {
-                // 如果都在視窗下方，選擇第一個標題
-                setActiveHeadings([elements[0].text]);
-            }
-        };
-
         // 開始觀察所有標題元素
         headingElements.forEach(({ element }) => {
             observer.observe(element);
         });
 
         // 初始檢查，以防頁面已經滾動到某個位置
-        timer = setTimeout(() => {
+        const timer = setTimeout(() => {
             if (visibleHeadings.size === 0) {
                 findNearestHeading(headingElements);
             }
