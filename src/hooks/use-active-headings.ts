@@ -5,7 +5,7 @@ import { HEADER_HIGHT } from '@/constants/site';
  * Hook 用於監聽滾動位置並檢測當前可見的標題
  * 使用 Intersection Observer API 提升效能
  * @param headings 標題列表
- * @returns 當前激活的標題文字數組
+ * @returns 當前範圍內的標題文字陣列
  */
 const useActiveHeadings = (headings: { level: number; text: string }[]) => {
     const [activeHeadings, setActiveHeadings] = useState<string[]>([]);
