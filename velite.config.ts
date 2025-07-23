@@ -42,17 +42,19 @@ export default defineConfig({
         posts: {
             name: 'Post',
             pattern: 'posts/**/*.{md,mdx}',
-            schema: s.object({
-                title: s.string(),
-                date: s.isodate(),
-                description: s.string().optional(),
-                category: s.string().optional(),
-                tags: s.array(s.string()).optional(),
-                image: s.string().optional(),
-                slug: s.slug('title'),
-                draft: s.boolean().optional(),
-                code: s.mdx(),
-            }),
+            schema: s
+                .object({
+                    title: s.string(),
+                    date: s.isodate(),
+                    description: s.string().optional(),
+                    category: s.string().optional(),
+                    tags: s.array(s.string()).optional(),
+                    image: s.string().optional(),
+                    slug: s.slug('title'),
+                    draft: s.boolean().optional(),
+                    code: s.mdx(),
+                })
+                .transform((data) => ({ ...data, permalink: `/blog/posts/${data.slug}` })),
         },
     },
 });
