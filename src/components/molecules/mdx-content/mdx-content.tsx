@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Link from 'next/link';
 import * as runtime from 'react/jsx-runtime';
 import React, { ComponentType } from 'react';
+import DocsHeading from '@/components/atoms/docs-heading';
 import CodeBlock from '@/components/molecules/code-block';
 import { Badge } from '@/components/ui/badge';
 
@@ -22,6 +22,25 @@ const extractCodeBlockProps = (children: any) => {
 
 // 客製化blog的元件
 const sharedComponents: Record<string, ComponentType<any>> = {
+    h1: ({ children, ...props }) => {
+        return <DocsHeading as="h1" title={children} {...props} />;
+    },
+    h2: ({ children, ...props }) => {
+        return <DocsHeading as="h2" title={children} {...props} />;
+    },
+    h3: ({ children, ...props }) => {
+        return <DocsHeading as="h3" title={children} {...props} />;
+    },
+    h4: ({ children, ...props }) => {
+        return <DocsHeading as="h4" title={children} {...props} />;
+    },
+    h5: ({ children, ...props }) => {
+        return <DocsHeading as="h5" title={children} {...props} />;
+    },
+    h6: ({ children, ...props }) => {
+        return <DocsHeading as="h6" title={children} {...props} />;
+    },
+
     figure: ({ children, ...props }) => {
         const { title, language, copyContent } = extractCodeBlockProps(children);
 
@@ -64,7 +83,7 @@ interface MDXProps {
 // MDXContent元件
 const MDXContent = ({ code, components }: MDXProps) => {
     const Component = useMDXComponent(code);
-    return <Component components={{ ...sharedComponents, Link, ...components }} />;
+    return <Component components={{ ...sharedComponents, ...components }} />;
 };
 
 export default MDXContent;
