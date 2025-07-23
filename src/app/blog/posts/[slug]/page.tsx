@@ -44,7 +44,7 @@ const PostPage = async ({ params }: PostPageProps) => {
     }
 
     return (
-        <div className="lg:flex lg:justify-between">
+        <div className="xl:flex xl:justify-between">
             {/* 文章 */}
             <article className="lg:px-8">
                 <header className="mb-4 space-y-3 border-b pb-4">
@@ -62,7 +62,7 @@ const PostPage = async ({ params }: PostPageProps) => {
             {/* 目錄 */}
             <aside
                 className={cn(
-                    'sticky hidden shrink-0 self-start lg:block',
+                    'sticky hidden shrink-0 self-start xl:block',
                     NOTICE_BAR_MESSAGE ? 'top-30.5' : 'top-22.5'
                 )}
             >
