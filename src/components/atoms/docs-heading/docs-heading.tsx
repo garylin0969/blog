@@ -13,7 +13,7 @@ const DocsHeading = ({ className, iconClassName, as, title }: DocsHeadingProps) 
     const Component = as;
     return (
         <Component className={cn('scroll-mt-24', className)} id={title}>
-            <Link href={`#${title}`} title={title} className="group flex items-center gap-x-1 no-underline">
+            <Link href={`#${title}`} title={title} className="group inline-flex items-center gap-x-1 no-underline">
                 {title}
                 <LinkIcon
                     className={cn(
