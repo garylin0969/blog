@@ -85,7 +85,7 @@ const CommandSearch = ({ open, onOpenChange }: CommandSearchProps) => {
                 <CommandEmpty>
                     <div className="flex flex-wrap items-center justify-center gap-1">
                         <span>無法找到相關結果</span>
-                        <span className="text-primary font-bold">"{searchValue}"</span>
+                        <span className="text-primary font-bold">&ldquo;{searchValue}&rdquo;</span>
                     </div>
                 </CommandEmpty>
 
