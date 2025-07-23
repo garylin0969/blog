@@ -44,9 +44,9 @@ const PostPage = async ({ params }: PostPageProps) => {
     }
 
     return (
-        <div className="flex justify-between">
+        <div className="md:flex md:justify-between">
             {/* 文章 */}
-            <article className="px-8">
+            <article className="md:px-8">
                 <header className="mb-4 space-y-3 border-b pb-4">
                     <h1 className="text-[42px] font-bold">{post?.title}</h1>
                     <PostMeta date={post?.date} category={post?.category} />
@@ -60,7 +60,12 @@ const PostPage = async ({ params }: PostPageProps) => {
                 </div>
             </article>
             {/* 目錄 */}
-            <aside className={cn('sticky shrink-0 self-start', NOTICE_BAR_MESSAGE ? 'top-30.5' : 'top-22.5')}>
+            <aside
+                className={cn(
+                    'sticky hidden shrink-0 self-start md:block',
+                    NOTICE_BAR_MESSAGE ? 'top-30.5' : 'top-22.5'
+                )}
+            >
                 <TableOfContents headings={post?.headings ?? []} />
             </aside>
         </div>
