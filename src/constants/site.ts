@@ -19,3 +19,6 @@ export const POSTS_PER_PAGE = 10;
 // 公告訊息
 export const NOTICE_BAR_MESSAGE = '點我至 Hot Now｜熱門話題一把抓';
 export const NOTICE_BAR_LINK = 'https://hotnow.garylin.dev/';
+
+// 頁首高度，有公告訊息時為 90px，沒有公告訊息時為 58px
+export const HEADER_HIGHT = NOTICE_BAR_MESSAGE ? 90 : 58;
