@@ -12,7 +12,6 @@ interface BlogLayoutProps {
 const BlogLayout = ({ children }: BlogLayoutProps) => {
     return (
         <div className="flex flex-col md:flex-row">
-            <div className="flex-1 md:mr-4">{children}</div>
             <aside className="hidden w-74 space-y-4 md:block">
                 {/* 作者 */}
                 <AuthorCard />
@@ -39,6 +38,7 @@ const BlogLayout = ({ children }: BlogLayoutProps) => {
                     alt="github stats"
                 />
             </aside>
+            <div className="flex-1">{children}</div>
         </div>
     );
 };
