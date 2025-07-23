@@ -47,30 +47,33 @@ export default defineConfig({
                     title: s.string(),
                     date: s.isodate(),
                     description: s.string().optional(),
+                    rawContent: s.raw(),
                     category: s.string().optional(),
                     tags: s.array(s.string()).optional(),
                     image: s.string().optional(),
+                    headings: s.raw().transform((rawContent) => {
+                        // 從 rawContent 提取 headings
+                        const headings: { level: number; text: string }[] = [];
+                        // 正規表達式
+                        const headingRegex = /^(#{2,6})\s+(.+)/gm;
+                        // 匹配結果
+                        let match;
+                        // 如果 rawContent 是字串，則提取 headings
+                        if (typeof rawContent === 'string') {
+                            while ((match = headingRegex.exec(rawContent)) !== null) {
+                                headings.push({ level: match[1]?.length, text: match[2]?.trim() });
+                            }
+                        }
+                        return headings;
+                    }),
                     slug: s.slug('title'),
                     draft: s.boolean().optional(),
                     code: s.mdx(),
                 })
-                .transform((data, { meta }) => {
-                    // 從 meta.content 提取 headings
-                    let match;
-                    const headings: { level: number; text: string }[] = [];
-                    // 正規表達式
-                    const headingRegex = /^(#{2,6})\s+(.+)/gm;
-
-                    if (typeof meta?.content === 'string') {
-                        while ((match = headingRegex.exec(meta?.content)) !== null) {
-                            headings.push({ level: match[1]?.length, text: match[2]?.trim() });
-                        }
-                    }
-
+                .transform((data) => {
                     return {
                         ...data,
                         permalink: `/blog/posts/${data.slug}`,
-                        headings,
                     };
                 }),
         },
