@@ -54,7 +54,34 @@ export default defineConfig({
                     draft: s.boolean().optional(),
                     code: s.mdx(),
                 })
-                .transform((data) => ({ ...data, permalink: `/blog/posts/${data.slug}` })),
+                .transform((data, { meta }) => {
+                    // 從 meta.content 提取 headings
+                    const headings: { level: number; text: string }[] = [];
+
+                    if (meta.content && typeof meta.content === 'string') {
+                        const lines = meta.content.split('\n');
+
+                        lines.forEach((line: string) => {
+                            // 匹配 markdown 標題格式：## 標題內容
+                            const match = line.match(/^(#{1,6})\s+(.+)$/);
+                            if (match) {
+                                const level = match[1].length; // # 的數量就是層級
+                                const text = match[2].trim(); // 標題文字
+
+                                headings.push({
+                                    level,
+                                    text,
+                                });
+                            }
+                        });
+                    }
+
+                    return {
+                        ...data,
+                        permalink: `/blog/posts/${data.slug}`,
+                        headings,
+                    };
+                }),
         },
     },
 });
