@@ -1,71 +1,115 @@
 import { useEffect, useState } from 'react';
+import { HEADER_HIGHT } from '@/constants/site';
 
 /**
  * Hook 用於監聽滾動位置並檢測當前可見的標題
+ * 使用 Intersection Observer API 提升效能
  * @param headings 標題列表
  * @returns 當前激活的標題文字數組
  */
 const useActiveHeadings = (headings: { level: number; text: string }[]) => {
     const [activeHeadings, setActiveHeadings] = useState<string[]>([]);
+    let timer: NodeJS.Timeout;
 
     useEffect(() => {
         if (!headings || headings.length === 0) return;
 
-        const handleScroll = () => {
-            // 獲取所有標題元素
-            const headingElements = headings
-                .map((heading) => {
-                    const element = document.getElementById(heading.text);
-                    return element ? { element, text: heading.text } : null;
-                })
-                .filter(Boolean) as { element: HTMLElement; text: string }[];
+        // 獲取所有標題元素
+        const headingElements = headings
+            .map((heading) => {
+                const element = document.getElementById(heading?.text);
+                return element ? { element, text: heading?.text, level: heading?.level } : null;
+            })
+            .filter(Boolean) as { element: HTMLElement; text: string; level: number }[];
 
-            if (headingElements.length === 0) return;
+        if (headingElements.length === 0) return;
 
-            const visibleHeadings: string[] = [];
-            const viewportTop = 120; // 考慮 header 高度
-            const viewportBottom = window.innerHeight - 50; // 視窗底部留一些空間
+        // 用於追蹤哪些標題目前可見
+        const visibleHeadings = new Set<string>();
 
-            // 檢查所有在視窗範圍內可見的標題
-            for (const { element, text } of headingElements) {
-                const rect = element.getBoundingClientRect();
+        // 創建 Intersection Observer
+        const observer = new IntersectionObserver(
+            (entries) => {
+                let hasChanges = false;
 
-                // 標題在視窗範圍內可見（包括部分可見）
-                if (
-                    (rect.top >= viewportTop && rect.top <= viewportBottom) || // 標題頂部在視窗內
-                    (rect.bottom >= viewportTop && rect.bottom <= viewportBottom) || // 標題底部在視窗內
-                    (rect.top <= viewportTop && rect.bottom >= viewportBottom) // 標題跨越整個視窗
-                ) {
-                    visibleHeadings.push(text);
-                }
-            }
+                entries.forEach((entry) => {
+                    const headingText = entry.target.id;
 
-            // 如果沒有標題在視窗內，找到最近的一個標題
-            if (visibleHeadings.length === 0) {
-                for (let i = headingElements.length - 1; i >= 0; i--) {
-                    const { element, text } = headingElements[i];
-                    const rect = element.getBoundingClientRect();
+                    if (entry.isIntersecting) {
+                        if (!visibleHeadings.has(headingText)) {
+                            visibleHeadings.add(headingText);
+                            hasChanges = true;
+                        }
+                    } else {
+                        if (visibleHeadings.has(headingText)) {
+                            visibleHeadings.delete(headingText);
+                            hasChanges = true;
+                        }
+                    }
+                });
 
-                    if (rect.top <= viewportTop) {
-                        visibleHeadings.push(text);
-                        break;
+                // 只有在可見性有變化時才更新狀態
+                if (hasChanges) {
+                    if (visibleHeadings.size === 0) {
+                        // 如果沒有標題可見，找到最接近的標題
+                        findNearestHeading(headingElements);
+                    } else {
+                        // 按照文檔順序排序可見的標題
+                        const sortedVisibleHeadings = headingElements
+                            .filter(({ text }) => visibleHeadings.has(text))
+                            .map(({ text }) => text);
+
+                        setActiveHeadings(sortedVisibleHeadings);
                     }
                 }
+            },
+            {
+                // 設定根邊界，考慮 header 高度
+                rootMargin: `-${HEADER_HIGHT}px 0px -50% 0px`,
+                // 設定閾值，當標題完全進入或離開時觸發
+                threshold: [0, 1],
             }
+        );
 
-            setActiveHeadings(visibleHeadings);
+        // 找到最接近視窗頂部的標題
+        const findNearestHeading = (elements: { element: HTMLElement; text: string; level: number }[]) => {
+            let closestHeading = '';
+            let minDistance = Infinity;
+
+            elements.forEach(({ element, text }) => {
+                const rect = element.getBoundingClientRect();
+                const distance = Math.abs(rect.top - HEADER_HIGHT);
+
+                if (rect.top <= HEADER_HIGHT && distance < minDistance) {
+                    minDistance = distance;
+                    closestHeading = text;
+                }
+            });
+
+            if (closestHeading) {
+                setActiveHeadings([closestHeading]);
+            } else if (elements.length > 0) {
+                // 如果都在視窗下方，選擇第一個標題
+                setActiveHeadings([elements[0].text]);
+            }
         };
 
-        // 初始檢查
-        setTimeout(handleScroll, 100);
+        // 開始觀察所有標題元素
+        headingElements.forEach(({ element }) => {
+            observer.observe(element);
+        });
 
-        // 監聽滾動事件
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        window.addEventListener('resize', handleScroll, { passive: true });
+        // 初始檢查，以防頁面已經滾動到某個位置
+        timer = setTimeout(() => {
+            if (visibleHeadings.size === 0) {
+                findNearestHeading(headingElements);
+            }
+        }, 100);
 
+        // 清理函數
         return () => {
-            window.removeEventListener('scroll', handleScroll);
-            window.removeEventListener('resize', handleScroll);
+            observer.disconnect();
+            clearTimeout(timer);
         };
     }, [headings]);
 
