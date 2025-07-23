@@ -11,16 +11,14 @@ interface BlogPostCardProps {
 }
 
 const BlogPostCard = ({ className, post }: BlogPostCardProps) => {
-    const link = `/blog/posts/${post.slug}`;
-
     return (
-        <Link href={link} className="group">
+        <Link href={post?.permalink} className="group">
             <article className={cn('p-4', className)}>
                 <div className="flex items-center gap-x-8">
                     {/* 內容區域 */}
                     <div className="flex-1">
                         <div className="mb-3">
-                            <PostMeta useLink={false} date={post.date} category={post?.category} />
+                            <PostMeta useLink={false} date={post?.date} category={post?.category} />
                         </div>
 
                         <h2 className="group-hover:text-primary mb-2 line-clamp-1 text-xl leading-tight font-bold md:text-2xl">

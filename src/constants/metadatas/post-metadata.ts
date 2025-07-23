@@ -8,6 +8,7 @@ interface Post {
     slug: string;
     image?: string;
     tags?: string[];
+    permalink?: string;
 }
 
 export const generatePostMetadata = (post: Post): Metadata => {
@@ -30,12 +31,12 @@ export const generatePostMetadata = (post: Post): Metadata => {
         title: post.title,
         description: post.description || post.title,
         alternates: {
-            canonical: `${DOMAIN}/blog/posts/${post.slug}`,
+            canonical: `${DOMAIN}${post.permalink}`,
         },
         openGraph: {
             title: `${post.title} | GaryLin Dev`,
             description: post.description || post.title,
-            url: `${DOMAIN}/blog/posts/${post.slug}`,
+            url: `${DOMAIN}${post.permalink}`,
             locale: 'zh_TW',
             type: 'article',
             publishedTime: post.date,

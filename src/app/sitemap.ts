@@ -53,7 +53,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // 文章頁面路由
     const postRoutes: SitemapEntry[] = posts.map(
         (post): SitemapEntry => ({
-            url: `${DOMAIN}/blog/posts/${post?.slug}`,
+            url: `${DOMAIN}${post?.permalink}`,
             lastModified: new Date(post.date || ''),
             changeFrequency: 'weekly',
             priority: 0.7,
