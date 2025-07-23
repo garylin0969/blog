@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
     CommandDialog,
     CommandEmpty,
@@ -20,41 +20,50 @@ interface CommandSearchProps {
 const CommandSearch = ({ open, onOpenChange }: CommandSearchProps) => {
     const router = useRouter();
     const [searchValue, setSearchValue] = useState('');
-    const [posts] = useState(() => getPublishedPosts());
 
-    // 搜尋邏輯
-    const filteredPosts = posts.filter((post) => {
-        if (!searchValue) return true; // 預設顯示所有文章
+    // 使用 useMemo 緩存文章數據，避免每次渲染時重新獲取
+    const posts = useMemo(() => getPublishedPosts(), []);
+
+    // 使用 useMemo 緩存搜尋結果
+    const filteredPosts = useMemo(() => {
+        if (!searchValue) return posts; // 預設顯示所有文章
 
         const searchLower = searchValue.toLowerCase();
-        const titleMatch = post.title?.toLowerCase().includes(searchLower);
-        const descriptionMatch = post.description?.toLowerCase().includes(searchLower);
-        const categoryMatch = post.category?.toLowerCase().includes(searchLower);
-        const tagsMatch = post.tags?.some((tag) => tag.toLowerCase().includes(searchLower));
-        const headingMatch = post.headings?.some((heading) => heading.text.toLowerCase().includes(searchLower));
+        return posts.filter((post) => {
+            const titleMatch = post.title?.toLowerCase().includes(searchLower);
+            const descriptionMatch = post.description?.toLowerCase().includes(searchLower);
+            const categoryMatch = post.category?.toLowerCase().includes(searchLower);
+            const tagsMatch = post.tags?.some((tag) => tag.toLowerCase().includes(searchLower));
+            const headingMatch = post.headings?.some((heading) => heading.text.toLowerCase().includes(searchLower));
 
-        return titleMatch || descriptionMatch || categoryMatch || tagsMatch || headingMatch;
-    });
+            return titleMatch || descriptionMatch || categoryMatch || tagsMatch || headingMatch;
+        });
+    }, [posts, searchValue]);
 
-    // 依分類分組文章
-    const groupedPosts = filteredPosts.reduce(
-        (acc, post) => {
-            const category = post.category || '其他';
-            if (!acc[category]) {
-                acc[category] = [];
-            }
-            acc[category].push(post);
-            return acc;
+    // 使用 useMemo 緩存分組結果
+    const groupedPosts = useMemo(() => {
+        return filteredPosts.reduce(
+            (acc, post) => {
+                const category = post.category || '其他';
+                if (!acc[category]) {
+                    acc[category] = [];
+                }
+                acc[category].push(post);
+                return acc;
+            },
+            {} as Record<string, typeof posts>
+        );
+    }, [filteredPosts]);
+
+    // 使用 useCallback 優化事件處理函數
+    const handleSelectPost = useCallback(
+        (permalink: string) => {
+            router.push(permalink);
+            onOpenChange(false);
+            setSearchValue('');
         },
-        {} as Record<string, typeof posts>
+        [router, onOpenChange]
     );
-
-    // 處理文章選擇
-    const handleSelectPost = (permalink: string) => {
-        router.push(permalink);
-        onOpenChange(false);
-        setSearchValue('');
-    };
 
     // 重置搜尋值當對話框關閉時
     useEffect(() => {

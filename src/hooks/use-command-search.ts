@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 /**
  * 用於監聽 ⌘K 或 Ctrl+K 開啟搜尋
@@ -7,23 +7,23 @@ import { useEffect, useState } from 'react';
 const useCommandSearch = () => {
     const [open, setOpen] = useState(false);
 
+    const handleKeyDown = useCallback((e: KeyboardEvent) => {
+        // ⌘K 或 Ctrl+K 開啟搜尋
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+            e.preventDefault();
+            setOpen(true);
+        }
+
+        // ESC 鍵關閉搜尋
+        if (e.key === 'Escape') {
+            setOpen(false);
+        }
+    }, []);
+
     useEffect(() => {
-        const handleKeyDown = (e: KeyboardEvent) => {
-            // ⌘K 或 Ctrl+K 開啟搜尋
-            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-                e.preventDefault();
-                setOpen(true);
-            }
-
-            // ESC 鍵關閉搜尋
-            if (e.key === 'Escape') {
-                setOpen(false);
-            }
-        };
-
         document.addEventListener('keydown', handleKeyDown);
         return () => document.removeEventListener('keydown', handleKeyDown);
-    }, []);
+    }, [handleKeyDown]);
 
     return {
         open,
