@@ -1,5 +1,6 @@
 import Logo from '@/components/atoms/logo';
 import ThemeToggle from '@/components/atoms/theme-toggle';
+import CommandSearchButton from '@/components/molecules/command-search-button';
 import MobileNavigation from '@/components/molecules/mobile-navigation';
 import Navigation from '@/components/molecules/navigation';
 import NoticeBar from '@/components/molecules/notice-bar';
@@ -19,11 +20,15 @@ const Header = () => {
             <div className={HEADER_STYLES.innerContainer}>
                 {/* 網站標題 */}
                 <Logo />
-
                 {/* 桌面版導航 */}
                 <div className={HEADER_STYLES.desktopNav}>
+                    {/* 搜尋按鈕 */}
+                    <CommandSearchButton />
+                    {/* 導航 */}
                     <Navigation />
+                    {/* 社交連結 */}
                     <SocialLinks />
+                    {/* 主題切換 */}
                     <ThemeToggle />
                 </div>
 
