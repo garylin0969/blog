@@ -19,7 +19,7 @@ const NoticeBar = ({ className, message, link }: NoticeBarProps) => {
     const Component = link ? 'a' : 'span';
 
     return (
-        <div className={cn('bg-primary/10 text-primary py-1', className)}>
+        <div className={cn('bg-primary/10 text-primary h-8 py-1', className)}>
             <div className="container mx-auto">
                 <div className="flex items-center justify-center gap-x-2">
                     <FaInfoCircle />
