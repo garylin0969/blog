@@ -35,7 +35,7 @@ useEffect(() => {
 }, []);
 ```
 
-每個組件都要寫一遍，cache 要自己管理，重複請求也沒辦法避免。後來同事推薦我用 React Query，我才發現原來資料抓取可以這麼簡單！
+每個元件都要寫一遍，cache 要自己管理，重複請求也沒辦法避免。後來同事推薦我用 React Query，我才發現原來資料抓取可以這麼簡單！
 
 ## 什麼是 React Query？
 
@@ -144,7 +144,7 @@ export function useUsers() {
 }
 ```
 
-在組件中使用：
+在元件中使用：
 
 ```typescript title="src/components/UserList.tsx"
 import { useUsers } from '@/hooks/useUsers';
@@ -244,7 +244,7 @@ export function useCreateUser() {
 }
 ```
 
-在組件中使用：
+在元件中使用：
 
 ```typescript title="src/components/CreateUserForm.tsx"
 import { useState } from 'react';

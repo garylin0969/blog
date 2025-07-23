@@ -40,7 +40,7 @@ const useStore = create((set) => ({
 }));
 ```
 
-### 在組件中使用
+### 在元件中使用
 
 不需要 Provider，直接用就對了：
 
@@ -103,7 +103,7 @@ const count = useStore((state) => state.count);
 const increase = useStore((state) => state.increase);
 ```
 
-我之前不知道這個功能，結果組件一直重渲染，效能很差。學會這招後效能明顯提升。
+我之前不知道這個功能，結果元件一直重渲染，效能很差。學會這招後效能明顯提升。
 
 ## 我踩過的坑
 
@@ -129,7 +129,7 @@ const goodStore = create((set) => ({
 
 ### 選擇器使用不當
 
-一開始我都這樣寫，結果組件一直重渲染：
+一開始我都這樣寫，結果元件一直重渲染：
 
 ```typescript
 // ❌ 會造成不必要的重渲染
