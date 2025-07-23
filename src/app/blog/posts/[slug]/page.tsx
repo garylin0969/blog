@@ -3,8 +3,11 @@ import { PostMeta } from '@/components/atoms/post-meta/post-meta';
 import { TagList } from '@/components/atoms/tag-list';
 import Comments from '@/components/molecules/comments';
 import MDXContent from '@/components/molecules/mdx-content';
+import TableOfContents from '@/components/molecules/table-of-contents';
 import { generatePostMetadata, generatePostNotFoundMetadata } from '@/constants/metadatas';
+import { NOTICE_BAR_MESSAGE } from '@/constants/site';
 import { getPostBySlug, getPublishedPosts } from '@/utils/post';
+import { cn } from '@/utils/shadcn';
 
 interface PostPageProps {
     params: Promise<{
@@ -41,8 +44,9 @@ const PostPage = async ({ params }: PostPageProps) => {
     }
 
     return (
-        <div className="mx-auto max-w-4xl">
-            <article className="max-w-none">
+        <div className="flex justify-between">
+            {/* 文章 */}
+            <article className="px-8">
                 <header className="mb-4 space-y-3 border-b pb-4">
                     <h1 className="text-[42px] font-bold">{post?.title}</h1>
                     <PostMeta date={post?.date} category={post?.category} />
@@ -55,6 +59,10 @@ const PostPage = async ({ params }: PostPageProps) => {
                     <Comments />
                 </div>
             </article>
+            {/* 目錄 */}
+            <aside className={cn('sticky shrink-0 self-start', NOTICE_BAR_MESSAGE ? 'top-30.5' : 'top-22.5')}>
+                <TableOfContents headings={post?.headings ?? []} />
+            </aside>
         </div>
     );
 };
