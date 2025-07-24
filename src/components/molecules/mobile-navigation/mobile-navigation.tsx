@@ -39,7 +39,7 @@ const MobileNavigation = () => {
                         listClassName="block mx-auto"
                     />
                     {/* 社交連結 */}
-                    <SocialLinks className="flex items-center justify-center" iconClassName="size-6" />
+                    <SocialLinks className="flex items-center justify-center gap-x-3.5" iconClassName="size-6" />
                 </SheetContent>
             </Sheet>
         </div>
