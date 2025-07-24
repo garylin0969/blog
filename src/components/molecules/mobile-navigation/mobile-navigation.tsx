@@ -34,11 +34,12 @@ const MobileNavigation = () => {
                     </SheetHeader>
                     {/* 導航 */}
                     <Navigation
-                        menuClassName="flex min-w-full flex-none flex-col items-start justify-start gap-y-2"
-                        listClassName="flex flex-col items-start gap-y-2"
+                        menuClassName="block flex-none max-w-full"
+                        linkClassName="w-full"
+                        listClassName="block mx-auto"
                     />
                     {/* 社交連結 */}
-                    <SocialLinks className="flex items-center gap-x-2 px-4" iconClassName="size-5" />
+                    <SocialLinks className="flex items-center justify-center" iconClassName="size-6" />
                 </SheetContent>
             </Sheet>
         </div>
