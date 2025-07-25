@@ -2,13 +2,13 @@
 category: Code
 title: Git Commit Message 規範
 date: 2024-11-22
-description: 剛開始寫程式的時候，我的 commit 訊息都很隨便，直到被同事念了幾次才知道原來有規範。這篇整理了我學到的 Git Commit Message 寫法，分享給跟我一樣剛入門的朋友。
+description: 剛開始寫程式的時候，我的 commit 訊息都很隨便，直到工作才知道原來有規範。這篇整理了 Git Commit Message 寫法。
 tags: ['Git']
 image: /blog/posts/2024/11/git-commit-message.png
 slug: git-commit-message
 ---
 
-說實話，剛開始寫程式的時候，我的 commit 訊息都很隨便，什麼 "fix bug"、"update"、"test" 這種毫無意義的訊息滿天飛。直到被資深同事念了幾次，我才知道原來寫 commit 訊息也有學問。
+說實話，剛開始寫程式的時候，我的 commit 訊息都很隨便，什麼 "fix bug"、"update"、"test" 這種毫無意義的訊息滿天飛。
 
 經過幾個月的實際使用，我整理了這套規範，現在團隊合作時大家都能清楚知道每次 commit 到底改了什麼。
 
@@ -24,7 +24,7 @@ slug: git-commit-message
 
 ## 為什麼要這樣寫？
 
-以前我都覺得這樣寫很麻煩，直到有一次要找三個月前的某個功能修改，翻了半天 commit 歷史都不知道是哪一個。那時候我就體會到好的 commit 訊息有多重要了。
+讓人清楚得知道該次改動針對了什麼樣的特點做了變化，統一的格式也方便多人協作時閱讀。
 
 Commit message 其實就三個部分：
 
@@ -70,8 +70,6 @@ feat(search): add fuzzy search to the search bar
 Closes #1234
 ```
 
-## 我的實戰經驗
-
 ### 標題寫法
 
 - **type**: 一定要準確，別偷懶都寫 feat
@@ -85,24 +83,3 @@ Closes #1234
 ### 尾注的用途
 
 主要是關聯 issue，像是 `Closes #123` 或 `Fixes #456`。這樣 GitHub 會自動關閉對應的 issue，很方便。
-
-## 常見的坑
-
-### 標題太模糊
-
-❌ 壞例子：`fix stuff`、`update code`
-✅ 好例子：`fix: resolve memory leak in user cache`
-
-### 忘記寫正文
-
-如果這次修改很重要或是邏輯比較複雜，一定要在正文說明。別讓未來的自己（或同事）猜謎。
-
-### 格式不一致
-
-我們團隊曾經因為每個人都有自己的寫法，結果 commit 歷史看起來亂七八糟。統一格式真的很重要。
-
-## 實用工具推薦
-
-我現在都用 VS Code 的 Git 介面寫 commit，有些團隊會用 Commitizen 這類工具來強制格式。如果你們團隊還沒有統一的工具，建議可以試試看。
-
-寫好的 commit 訊息不只是為了別人，更是為了未來的自己。相信我，三個月後回來看，你會感謝現在多花的這點時間。

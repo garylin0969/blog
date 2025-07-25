@@ -8,7 +8,7 @@ image: /blog/posts/2025/03/tanstack-query.png
 slug: react-query-practical-guide-nextjs-reactjs
 ---
 
-## 為什麼我愛上了 React Query？
+## 為什麼要用 React Query？
 
 還記得以前每次要抓 API 資料，都要寫一堆 useState 和 useEffect：
 
@@ -35,11 +35,11 @@ useEffect(() => {
 }, []);
 ```
 
-每個元件都要寫一遍，cache 要自己管理，重複請求也沒辦法避免。後來同事推薦我用 React Query，我才發現原來資料抓取可以這麼簡單！
+範例是用原生 fetch 啦，當然我知道現在 Client 端主流是用 axios ，但這不是重點，重點是每次都要自己處理 Loading、error 等，同時有 cache 需求時也還要寫的比較麻煩，直到我在看 Next.js 13 的官網文件時，才發現它們推薦在 Client 呼叫 API 使用 SWR 或 React Query，我才知道原來還有這麼好用的東西，一開始是先試試 SWR，但當我用過 React Query 後就回不去了XDD
 
 ## 什麼是 React Query？
 
-React Query（現在叫 TanStack Query）是專門處理伺服器狀態的函式庫。它幫你處理：
+React Query（現在叫 TanStack Query）是專門處理 API 狀態的函式庫。它幫你處理：
 
 - **Cache 管理**：自動快取資料，避免重複請求
 - **背景更新**：當頁面重新聚焦時自動更新資料
@@ -47,14 +47,14 @@ React Query（現在叫 TanStack Query）是專門處理伺服器狀態的函式
 - **Loading 狀態**：自動管理載入狀態
 - **樂觀更新**：先更新 UI，失敗再回復
 
-最重要的是，程式碼變得超級簡潔！
+最重要的是，程式碼變得超級簡潔，然後 cache 設定變得超簡單，還有 devtools 在測試時超級好用！
 
 ## 安裝和基本設定
 
 ### 安裝套件
 
 ```bash
-npm install @tanstack/react-query
+pnpm add @tanstack/react-query
 ```
 
 ### 在 Next.js 中設定
@@ -87,7 +87,7 @@ export default function QueryProvider({ children }: { children: React.ReactNode 
     return (
         <QueryClientProvider client={queryClient}>
             {children}
-            {/* 開發時很好用的除錯工具 */}
+            {/* 開發時很好用的測試工具 */}
             <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
     );
@@ -125,7 +125,7 @@ interface User {
     email: string;
 }
 
-// 抓取用戶資料的函數
+// 抓取用戶資料的函數，可以另外寫在關於 api 的檔案裡
 async function fetchUsers(): Promise<User[]> {
     const response = await fetch('/api/users');
     if (!response.ok) {
@@ -169,9 +169,9 @@ export default function UserList() {
 
 就這麼簡單！不用自己管理 loading、error、data 狀態。
 
-## 在 Next.js 中的伺服器端預取
+## 在 Next.js 中的 Server 端預取
 
-Next.js 的好處是可以在伺服器端先抓資料，用戶看到頁面時資料已經準備好了：
+Next.js 的好處是可以在 Server 端先抓資料，用戶看到頁面時資料已經準備好了：
 
 ```typescript title="src/app/users/page.tsx"
 import { QueryClient, HydrationBoundary, dehydrate } from '@tanstack/react-query';
@@ -371,24 +371,6 @@ const updateUserMutation = useMutation({
 });
 ```
 
-## 我踩過的坑
-
-### 1. queryKey 不一致
-
-我曾經在不同地方用不同的 queryKey，結果快取沒有共享。記住要保持一致！
-
-### 2. 忘記處理錯誤
-
-一開始我都專注在成功的情況，忘了處理 API 錯誤，用戶體驗很差。
-
-### 3. 過度使用 invalidateQueries
-
-每次更新都讓所有相關查詢失效，結果網路請求變很多。要精準一點。
-
-### 4. 在 Next.js 中的 hydration 問題
-
-伺服器端和客戶端的資料不一致會出現 hydration 錯誤，要用 HydrationBoundary 包裝。
-
 ## 效能優化建議
 
 ### 1. 適當設定 staleTime
@@ -422,16 +404,3 @@ const { data: userNames } = useQuery({
 ### 3. 分割大查詢
 
 不要一次抓太多資料，可以分成多個小查詢。
-
-## 總結
-
-React Query 真的改變了我處理資料的方式。雖然一開始會覺得概念有點複雜，但一旦熟悉後就會發現它解決了很多痛點：
-
-- 不用再手動管理 loading 狀態
-- 自動的快取和背景更新
-- 統一的錯誤處理
-- 更好的用戶體驗
-
-特別推薦給那些厭倦了手動管理 API 狀態的開發者。一旦用了 React Query，真的很難回到以前的寫法！
-
-有任何問題歡迎討論，我也還在持續學習更多進階用法中！

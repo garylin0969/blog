@@ -2,17 +2,15 @@
 category: Code
 title: AI 串接指南 - 以 Perplexity 為例
 date: 2025-02-06
-description: 最近 AI 工具越來越火，我也想在專案裡串接看看。試了幾個 API 後發現 Perplexity 挺不錯的，不只回答準確，還會自動引用來源。分享一下我的串接經驗和踩過的坑。
-tags: ['AI', 'Perplexity', 'API Integration', 'NLP', 'ChatBot']
+description: 最近 AI 工具越來越火，我也想在專案裡串接看看。試了幾個 API 後發現 Perplexity 在串接體驗上蠻不錯的，還可以設定要從哪些網站抓取資料為主。分享一下我的串接經驗。
+tags: ['AI', 'Perplexity', 'ChatBot']
 image: /blog/posts/2025/02/perplexity.jpeg
 slug: ai-integration-guide-perplexity-api
 ---
 
 ## 為什麼我選擇 Perplexity？
 
-最近 AI 工具真的很火，ChatGPT、Claude、Gemini 各種選擇。我原本想用 OpenAI API，但發現 Perplexity 有個很棒的特點：它會自動引用網路來源，回答比較有憑據。
-
-特別是做資訊查詢功能的時候，用戶能看到資料來源會更有信任感。而且 Perplexity 的搜尋能力真的很強，常常能找到最新的資訊。
+最近 AI 工具真的很火，就試試了幾個當下最熱門的，其中 Perplexity 在官網上就有 JavaScript 的串接範例，尤其我當時有個需求是希望回答的資料來源以我指定得網站為主。
 
 ## 什麼是 Perplexity？
 
@@ -23,7 +21,7 @@ slug: ai-integration-guide-perplexity-api
 - **對話式**：可以連續對話，有上下文理解
 - **多語言**：支援中文等多種語言
 
-對開發者來說，最吸引我的是它的 API 很好用，而且回應品質穩定。
+對開發者來說，最吸引我的是它的 API 設定很好用跟方便。
 
 ## 開始前的準備工作
 
@@ -33,7 +31,7 @@ slug: ai-integration-guide-perplexity-api
 
 ### 2. 綁定信用卡
 
-這步驟不會馬上扣款，只是為了之後使用 API。我用了幾個月，花費其實不多。
+這步驟不會馬上扣款，只是為了之後使用 API。我試用了一陣子，花費其實不多。
 
 ### 3. 生成 API Key
 
@@ -187,103 +185,6 @@ export default async function handler(req, res) {
 - `week`: 一週內
 - `month`: 一個月內
 
-## 我踩過的坑
-
-### 1. API Key 洩漏
-
-一開始我把 API Key 寫在前端，結果很快就被濫用了。記住一定要放在後端！
-
-### 2. 回應格式不穩定
-
-Perplexity 的回答格式有時會變，要做好錯誤處理：
-
-```javascript
-try {
-    const data = await response.json();
-    const answer = data.choices?.[0]?.message?.content || '無法取得回應';
-    return answer;
-} catch (error) {
-    return '服務暫時無法使用，請稍後再試';
-}
-```
-
-### 3. 中文回應品質
-
-一開始回答都是英文，後來在 system message 裡明確要求用繁體中文，效果好很多。
-
-### 4. 費用控制
-
-沒注意到 token 消耗，一個月下來花了不少錢。建議設定使用上限。
-
-## 實用技巧分享
-
-### 1. 快取常見問題
-
-```javascript
-const cache = new Map();
-
-const searchWithCache = async (question) => {
-    // 檢查快取
-    if (cache.has(question)) {
-        return cache.get(question);
-    }
-
-    // 呼叫 API
-    const result = await callPerplexityAPI(question);
-
-    // 存入快取（限制快取大小）
-    if (cache.size >= 100) {
-        const firstKey = cache.keys().next().value;
-        cache.delete(firstKey);
-    }
-    cache.set(question, result);
-
-    return result;
-};
-```
-
-### 2. 結合搜尋關鍵字優化
-
-```javascript
-const optimizeQuery = (userQuery) => {
-    // 加上時間限定詞
-    if (userQuery.includes('最新') || userQuery.includes('現在')) {
-        return `${userQuery} 2024 2025`;
-    }
-
-    // 加上地區限定詞
-    if (userQuery.includes('台灣') || userQuery.includes('臺灣')) {
-        return `${userQuery} Taiwan 繁體中文`;
-    }
-
-    return userQuery;
-};
-```
-
-### 3. 多語言支援
-
-```javascript
-const getSystemPrompt = (language) => {
-    const prompts = {
-        'zh-TW': '請用繁體中文回答，並提供相關來源',
-        'zh-CN': '請用简体中文回答，并提供相关来源',
-        en: 'Please answer in English and provide relevant sources',
-        ja: '日本語で回答し、関連する情報源を提供してください',
-    };
-
-    return prompts[language] || prompts['en'];
-};
-```
-
-## 成本估算
-
-我用了幾個月的經驗：
-
-- **輕度使用** (每天 10-20 次查詢): 約 $5-10/月
-- **中度使用** (每天 50-100 次查詢): 約 $20-30/月
-- **重度使用** (每天 200+ 次查詢): $50+/月
-
-比 OpenAI 稍微便宜一點，而且搜尋功能很實用。
 
 ## 我做的測試工具
 
@@ -291,11 +192,3 @@ const getSystemPrompt = (language) => {
 [Perplexity API 參數測試工具](https://garylin0969-perplexity-concat.vercel.app/)
 
 可以即時調整參數看效果，對新手很有幫助。
-
-## 總結
-
-Perplexity API 真的很適合需要即時資訊的應用。雖然一開始會踩一些坑，但整體使用體驗很不錯。特別是它的搜尋能力和來源引用功能，讓 AI 回答更有可信度。
-
-如果你也在考慮串接 AI 服務，Perplexity 是個不錯的選擇。記得做好錯誤處理和成本控制就好！
-
-有任何問題歡迎討論！
