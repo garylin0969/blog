@@ -52,7 +52,7 @@ const PostPage = async ({ params }: PostPageProps) => {
                     <PostMeta date={post?.date} category={post?.category} />
                     <TagList tags={post?.tags ?? []} />
                 </header>
-                <div className="prose prose-figcaption:mt-0 prose-figure:m-0 dark:prose-invert md:prose-lg">
+                <div className="prose prose-figcaption:mt-0 prose-figure:m-0 dark:prose-invert md:prose-lg max-w-none">
                     <MDXContent code={post?.code} />
                 </div>
                 <div className="mt-10">
