@@ -46,7 +46,7 @@ const PostPage = async ({ params }: PostPageProps) => {
     return (
         <div className="xl:flex xl:justify-between">
             {/* 文章 */}
-            <article className="lg:px-8">
+            <article className="lg:px-8 xl:flex-1">
                 <header className="mb-4 space-y-3 border-b pb-4">
                     <h1 className="text-[42px] font-bold">{post?.title}</h1>
                     <PostMeta date={post?.date} category={post?.category} />
