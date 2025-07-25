@@ -77,13 +77,14 @@ const useMDXComponent = (code: string) => {
 
 interface MDXProps {
     code: string;
-    components?: Record<string, ComponentType<any>>;
+    components?: Record<string, ComponentType>;
+    [key: string]: any;
 }
 
 // MDXContent元件
-const MDXContent = ({ code, components }: MDXProps) => {
+const MDXContent = ({ code, components, ...props }: MDXProps) => {
     const Component = useMDXComponent(code);
-    return <Component components={{ ...sharedComponents, ...components }} />;
+    return <Component components={{ ...sharedComponents, ...components }} {...props} />;
 };
 
 export default MDXContent;
