@@ -1,21 +1,20 @@
-# garylin.dev
+# GaryLin.dev
 
 https://www.garylin.dev
 
 ## Tech Stack
 
-- Next.js
-- TypeScript
-- Tailwind CSS
-- Shadcn UI
-- Google Analytics
-- Velite
-- GitHub Actions for CI/CD
+-   Next.js
+-   TypeScript
+-   TailwindCSS
+-   GoogleAnalytics
+-   Contentlayer
+-   GitHub Actions for CI/CD
 
 ## Deployment
 
-- Vercel
+-   Vercel
 
 ## Domain
 
-- GoDaddy
+-   GoDaddy

@@ -1,42 +1,28 @@
+import cn from '@/utils/cn';
 import Logo from '@/components/atoms/logo';
-import ThemeToggle from '@/components/atoms/theme-toggle';
-import CommandSearchButton from '@/components/molecules/command-search-button';
-import MobileNavigation from '@/components/molecules/mobile-navigation';
-import Navigation from '@/components/molecules/navigation';
-import NoticeBar from '@/components/molecules/notice-bar';
-import SocialLinks from '@/components/molecules/social-links';
-import { NOTICE_BAR_MESSAGE, NOTICE_BAR_LINK } from '@/constants/site';
-
-// 通用樣式類別
-const HEADER_STYLES = {
-    container: 'border-border/40 bg-background/60 sticky top-0 left-0 z-50 border-b shadow-md backdrop-blur-md',
-    innerContainer: 'container mx-auto flex h-14.5 items-center justify-between px-4',
-    desktopNav: 'hidden items-center gap-x-2 md:flex',
-} as const;
+import ThemeSwitch from '@/components/molecules/theme-switch';
+import NavMenu from '@/components/molecules/nav-menu';
+import SocialIconLinks from '@/components/molecules/social-icon-links';
+import BurgerMenu from '@/components/molecules/burger-menu';
 
 const Header = () => {
     return (
-        <header className={HEADER_STYLES.container}>
-            <div className={HEADER_STYLES.innerContainer}>
-                {/* 網站標題 */}
+        <header
+            className={cn(
+                'fixed top-0 z-50 flex h-16 w-full items-center bg-white/70 px-4 font-serif shadow backdrop-blur-md dark:bg-slate-900/70 md:px-6 lg:px-8',
+            )}
+        >
+            <div className={cn('mx-auto flex w-full max-w-6xl items-center justify-between')}>
                 <Logo />
-                {/* 桌面版導航 */}
-                <div className={HEADER_STYLES.desktopNav}>
-                    {/* 搜尋按鈕 */}
-                    <CommandSearchButton />
-                    {/* 導航 */}
-                    <Navigation />
-                    {/* 社交連結 */}
-                    <SocialLinks />
-                    {/* 主題切換 */}
-                    <ThemeToggle />
+                <div className={cn('flex items-center gap-4')}>
+                    <div className={cn('hidden items-center gap-2 md:flex')}>
+                        <NavMenu />
+                        <SocialIconLinks className="border-x border-slate-200 px-2 dark:border-slate-800" />
+                    </div>
+                    <ThemeSwitch />
+                    <BurgerMenu />
                 </div>
-
-                {/* 手機版導航 */}
-                <MobileNavigation />
             </div>
-            {/* 公告 */}
-            <NoticeBar message={NOTICE_BAR_MESSAGE} link={NOTICE_BAR_LINK} />
         </header>
     );
 };

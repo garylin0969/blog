@@ -1,7 +1,7 @@
 'use client';
 
-import { useTheme } from 'next-themes';
 import dynamic from 'next/dynamic';
+import { useTheme } from 'next-themes';
 
 // 動態導入 Giscus
 const Giscus = dynamic(() => import('@giscus/react'), {
@@ -9,7 +9,7 @@ const Giscus = dynamic(() => import('@giscus/react'), {
 });
 
 export default function Comments() {
-    const { resolvedTheme } = useTheme();
+    const { theme } = useTheme();
 
     return (
         <Giscus
@@ -22,7 +22,7 @@ export default function Comments() {
             reactionsEnabled="1"
             emitMetadata="0"
             inputPosition="bottom"
-            theme={resolvedTheme === 'dark' ? 'dark_tritanopia' : 'light_tritanopia'}
+            theme={theme === 'dark' ? 'dark_tritanopia' : 'light_tritanopia'}
             lang="zh-TW"
             loading="lazy"
         />
