@@ -20,6 +20,13 @@ export const PROJECT_LIST = [
         ],
     },
     {
+        id: 'gary-line-bot',
+        image: '/projects/gary-line-bot.jpg',
+        url: 'https://github.com/garylin0969/gary-line-bot',
+        name: 'LINE機器人 - 蓋瑞爸爸大俠',
+        tags: ['2025', 'TypeScript', 'LINE', 'Wrangler', 'OpenCC'],
+    },
+    {
         id: 'life-restart',
         image: '/projects/life-restart.jpg',
         url: 'https://garylin0969-life-restart.vercel.app/',
