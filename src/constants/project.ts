@@ -1,5 +1,20 @@
 export const PROJECT_LIST = [
     {
+        id: 'taipei-beef-noodles-rank',
+        image: '/projects/taipei-beef-noodles-rank.jpg',
+        url: 'https://garylin0969.github.io/taipei-beef-noodles-rank/',
+        name: '北市牛肉麵排行榜',
+        tags: [
+            '2025',
+            'Google Places API(New)',
+            'React.js',
+            'TypeScript',
+            'Tailwind CSS',
+            'Shadcn UI',
+            'TanStack Query',
+        ],
+    },
+    {
         id: 'hot-now',
         image: '/projects/hot-now.jpg',
         url: 'https://hotnow.garylin.dev/',
