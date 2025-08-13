@@ -4,6 +4,7 @@ import { TagList } from '@/components/atoms/tag-list';
 import Comments from '@/components/molecules/comments';
 import MDXContent from '@/components/molecules/mdx-content';
 import TableOfContents from '@/components/molecules/table-of-contents';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { generatePostMetadata, generatePostNotFoundMetadata } from '@/constants/metadatas';
 import { NOTICE_BAR_MESSAGE } from '@/constants/site';
 import { getPostBySlug, getPublishedPosts } from '@/utils/post';
@@ -52,6 +53,16 @@ const PostPage = async ({ params }: PostPageProps) => {
                     <PostMeta date={post?.date} category={post?.category} />
                     <TagList tags={post?.tags ?? []} />
                 </header>
+                <Accordion type="single" collapsible className="mb-4 xl:hidden">
+                    <AccordionItem value="table-of-contents">
+                        <AccordionTrigger className="bg-primary/10 text-primary items-center rounded-xs p-1 text-lg font-semibold">
+                            目錄
+                        </AccordionTrigger>
+                        <AccordionContent className="p-4">
+                            <TableOfContents headings={post?.headings ?? []} />
+                        </AccordionContent>
+                    </AccordionItem>
+                </Accordion>
                 <div className="prose prose-figcaption:mt-0 prose-figure:m-0 dark:prose-invert md:prose-lg max-w-none">
                     <MDXContent code={post?.code} />
                 </div>
