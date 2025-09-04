@@ -11,7 +11,7 @@ interface BlogLayoutProps {
 
 const BlogLayout = ({ children }: BlogLayoutProps) => {
     return (
-        <div className="flex flex-col lg:flex-row">
+        <div className="container flex flex-col lg:flex-row">
             <aside className="hidden w-74 space-y-4 lg:block">
                 {/* 作者 */}
                 <AuthorCard />
