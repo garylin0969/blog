@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import SectionTitle from '@/components/atoms/section-title';
 import AuthorCard from '@/components/molecules/author-card';
-import GithubStatsCard from '@/components/molecules/github-stats-card/github-stats-card';
+// import GithubStatsCard from '@/components/molecules/github-stats-card/github-stats-card';
 import IntroCard from '@/components/molecules/intro-card';
 import ProjectCard from '@/components/molecules/project-card';
 import SkillCard from '@/components/molecules/skill-card';
 import ExperienceTimeline from '@/components/organisms/experience-timeline';
-import { DEFAULT_TOP_LANGS_CONFIG } from '@/constants/github-stats';
+// import { DEFAULT_TOP_LANGS_CONFIG } from '@/constants/github-stats';
 import { ABOUT_INTRO_LIST } from '@/constants/intro';
 import { generateAboutMetadata } from '@/constants/metadatas';
 import { PROJECT_LIST } from '@/constants/project';
@@ -22,7 +22,7 @@ const AboutPage = () => {
                     {/* 作者卡片 */}
                     <AuthorCard />
                     {/* Github Stats Card - Top Languages */}
-                    <GithubStatsCard
+                    {/* <GithubStatsCard
                         useCard={false}
                         type="top-langs"
                         params={DEFAULT_TOP_LANGS_CONFIG}
@@ -30,7 +30,7 @@ const AboutPage = () => {
                         height={300}
                         loading="eager"
                         alt="top languages"
-                    />
+                    /> */}
                 </div>
                 {/* 簡短介紹卡片 */}
                 <IntroCard className="mx-auto max-w-3xl" list={ABOUT_INTRO_LIST} />
