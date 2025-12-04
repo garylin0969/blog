@@ -2,8 +2,9 @@ import { ReactNode } from 'react';
 import AuthorCard from '@/components/molecules/author-card';
 import BlogCategoriesCard from '@/components/molecules/blog-categories-card';
 import BlogStatsCard from '@/components/molecules/blog-stats-card';
-import GithubStatsCard from '@/components/molecules/github-stats-card';
-import { DEFAULT_TOP_LANGS_CONFIG, DEFAULT_GITHUB_STATS_PARAMS } from '@/constants/github-stats';
+
+// import GithubStatsCard from '@/components/molecules/github-stats-card';
+// import { DEFAULT_TOP_LANGS_CONFIG, DEFAULT_GITHUB_STATS_PARAMS } from '@/constants/github-stats';
 
 interface BlogLayoutProps {
     children: ReactNode;
@@ -20,23 +21,23 @@ const BlogLayout = ({ children }: BlogLayoutProps) => {
                 {/* 文章分類 */}
                 <BlogCategoriesCard />
                 {/* GitHub 使用最多的程式語言 */}
-                <GithubStatsCard
+                {/* <GithubStatsCard
                     type="top-langs"
                     params={DEFAULT_TOP_LANGS_CONFIG}
                     width={296}
                     height={282}
                     loading="eager"
                     alt="top languages"
-                />
+                /> */}
                 {/* GitHub 統計 */}
-                <GithubStatsCard
+                {/* <GithubStatsCard
                     type="stats"
                     params={DEFAULT_GITHUB_STATS_PARAMS}
                     width={296}
                     height={190}
                     loading="eager"
                     alt="github stats"
-                />
+                /> */}
             </aside>
             <div className="flex-1">{children}</div>
         </div>
