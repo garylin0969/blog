@@ -1,6 +1,11 @@
 import type { Metadata } from 'next';
 import { DOMAIN } from '@/constants/site';
 
+/**
+ * 生成關於頁面的元數據。
+ *
+ * @returns 關於頁面元數據物件。
+ */
 export const generateAboutMetadata = (): Metadata => {
     return {
         title: 'About',

@@ -11,6 +11,11 @@ import { cn } from '@/utils/shadcn';
 
 const latestPosts = getLatestPosts(1);
 
+/**
+ * 首頁元件。
+ *
+ * 顯示網站的首頁內容，包含作者介紹、最新專案和最新文章。
+ */
 const HomePage = () => {
     return (
         <div className="grid flex-1 place-content-center">

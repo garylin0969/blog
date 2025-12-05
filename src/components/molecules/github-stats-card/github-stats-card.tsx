@@ -21,22 +21,42 @@ interface GithubStatsParams {
     dark_theme?: string;
 }
 
+/**
+ * GitHub 統計卡片元件的屬性介面。
+ */
 interface GithubStatsCardProps {
+    /** 是否使用 Card 容器包裹。 */
     useCard?: boolean;
+    /** Card 容器的 CSS 類名。 */
     cardClassName?: string;
+    /** Card 內容區域的 CSS 類名。 */
     cardContentClassName?: string;
+    /** 圖片容器的 CSS 類名。 */
     imageContainerClassName?: string;
+    /** 骨架屏的 CSS 類名。 */
     skeletonClassName?: string;
+    /** GitHub 使用者名稱。 */
     username?: string;
+    /** 統計圖表類型：'stats' (一般統計) 或 'top-langs' (常用語言)。 */
     type: StatsType;
+    /** 額外的 API 參數。 */
     params?: GithubStatsParams;
+    /** 圖片寬度。 */
     width?: number;
+    /** 圖片高度。 */
     height?: number;
+    /** 圖片載入策略。 */
     loading?: 'lazy' | 'eager';
+    /** 圖片替代文字。 */
     alt?: string;
 }
 
-// 將參數物件轉換成查詢字串
+/**
+ * 將參數物件轉換成查詢字串。
+ *
+ * @param params - 參數物件。
+ * @returns 查詢字串。
+ */
 const buildQueryString = (params: GithubStatsParams): string => {
     const queryParams = new URLSearchParams();
 
@@ -49,7 +69,15 @@ const buildQueryString = (params: GithubStatsParams): string => {
     return queryParams.toString();
 };
 
-// 構建完整的 GitHub Stats API URL
+/**
+ * 構建完整的 GitHub Stats API URL。
+ *
+ * @param type - 統計圖表類型。
+ * @param username - GitHub 使用者名稱。
+ * @param params - API 參數。
+ * @param theme - 主題名稱。
+ * @returns 完整的 API URL。
+ */
 const buildStatsUrl = (type: StatsType, username: string, params: GithubStatsParams, theme: string): string => {
     const endpoint = type === 'top-langs' ? TOP_LANGS_ENDPOINT : '';
     const baseUrl = `${GITHUB_STATS_URL}${endpoint ? `/${endpoint}` : ''}`;
@@ -67,11 +95,25 @@ const buildStatsUrl = (type: StatsType, username: string, params: GithubStatsPar
     return `${baseUrl}?${queryString}`;
 };
 
-// 根據主題模式獲取對應的主題參數
+/**
+ * 根據主題模式獲取對應的主題參數。
+ *
+ * @param params - API 參數，可能包含 light_theme 和 dark_theme。
+ * @param isDark - 是否為深色模式。
+ * @returns 主題名稱。
+ */
 const getThemeParam = (params: GithubStatsParams, isDark: boolean): string => {
     return isDark ? params.dark_theme || 'dark' : params.light_theme || 'default';
 };
 
+/**
+ * GitHub 統計卡片元件。
+ *
+ * 顯示 GitHub 統計資訊或常用語言圖表。
+ * 支援深色/淺色模式自動切換，並提供載入中的骨架屏效果。
+ *
+ * @param props - 元件屬性 {@link GithubStatsCardProps}。
+ */
 const GithubStatsCard = ({
     useCard = true,
     cardClassName,
@@ -91,7 +133,8 @@ const GithubStatsCard = ({
 
     // 確保元件已掛載
     useEffect(() => {
-        setMounted(true);
+        const mounted = () => setMounted(true);
+        mounted();
     }, []);
 
     // 計算當前 URL

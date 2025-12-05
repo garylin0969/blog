@@ -4,15 +4,28 @@ import Link from 'next/link';
 import { useActiveHeadings } from '@/hooks';
 import { cn } from '@/utils/shadcn';
 
+/**
+ * 目錄元件的屬性介面。
+ */
 interface TableOfContentsProps {
+    /** 額外的 CSS 類名。 */
     className?: string;
+    /** 標題列表。 */
     headings?: {
         level: number;
         text: string;
     }[];
 }
 
-// 目錄
+/**
+ * 目錄元件。
+ *
+ * 顯示文章的目錄結構，並根據滾動位置高亮當前標題。
+ * 支援多層級縮排顯示。
+ *
+ * @param className - 額外的 CSS 類名 {@link TableOfContentsProps.className}。
+ * @param headings - 標題列表 {@link TableOfContentsProps.headings}。
+ */
 const TableOfContents = ({ headings, className }: TableOfContentsProps) => {
     const activeHeadings = useActiveHeadings(headings ?? []);
 

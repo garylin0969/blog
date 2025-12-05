@@ -3,6 +3,12 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { getCategoryStats } from '@/utils/post';
 
+/**
+ * 部落格分類卡片元件。
+ *
+ * 顯示所有文章分類及其文章數量。
+ * 點擊分類標籤可跳轉至該分類的文章列表頁面。
+ */
 const BlogCategoriesCard = () => {
     const categories = getCategoryStats();
 

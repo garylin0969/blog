@@ -8,6 +8,12 @@ const Giscus = dynamic(() => import('@giscus/react'), {
     ssr: false, // 禁用 SSR
 });
 
+/**
+ * 評論區元件。
+ *
+ * 使用 Giscus 載入 GitHub Discussions 作為評論系統。
+ * 會根據當前主題自動切換 Giscus 的主題。
+ */
 export default function Comments() {
     const { resolvedTheme } = useTheme();
 

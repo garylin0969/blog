@@ -2,6 +2,12 @@ import ExperienceCard from '@/components/molecules/experience-card';
 import { EXPERIENCE_LIST } from '@/constants/experience';
 import { cn } from '@/utils/shadcn';
 
+/**
+ * 經歷時間軸元件。
+ *
+ * 以時間軸形式展示工作經歷或學歷。
+ * 在桌面版顯示為左右交錯的時間軸，在移動版則顯示為垂直列表。
+ */
 const ExperienceTimeline = () => {
     return (
         <div className="relative">

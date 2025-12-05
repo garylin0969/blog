@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 import { HEADER_HIGHT } from '@/constants/site';
 
 /**
- * Hook 用於監聽滾動位置並檢測當前可見的標題
- * 使用 Intersection Observer API 提升效能
- * @param headings 標題列表
- * @returns 當前範圍內的標題文字陣列
+ * 用於監聽滾動位置並檢測當前可見標題的 Hook。
+ *
+ * 使用 Intersection Observer API 來提升效能，避免頻繁的 scroll 事件監聽。
+ *
+ * @param headings - 標題列表，包含層級和文字內容。
+ * @returns 當前在視窗可見範圍內的標題文字陣列。
  */
 const useActiveHeadings = (headings: { level: number; text: string }[]) => {
     const [activeHeadings, setActiveHeadings] = useState<string[]>([]);
