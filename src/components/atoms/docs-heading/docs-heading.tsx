@@ -2,13 +2,31 @@ import { LinkIcon } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/utils/shadcn';
 
+/**
+ * 文件標題元件的屬性介面。
+ */
 interface DocsHeadingProps {
+    /** 額外的 CSS 類名。 */
     className?: string;
+    /** 連結圖示的 CSS 類名。 */
     iconClassName?: string;
+    /** 標題層級 (h1-h6)。 */
     as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+    /** 標題文字。 */
     title: string;
 }
 
+/**
+ * 文件標題元件。
+ *
+ * 用於渲染文件中的標題，自動生成錨點連結。
+ * 滑鼠懸停時會顯示連結圖示。
+ *
+ * @param className - 額外的 CSS 類名 {@link DocsHeadingProps.className}。
+ * @param iconClassName - 圖示樣式 {@link DocsHeadingProps.iconClassName}。
+ * @param as - 標題層級 {@link DocsHeadingProps.as}。
+ * @param title - 標題文字 {@link DocsHeadingProps.title}。
+ */
 const DocsHeading = ({ className, iconClassName, as, title }: DocsHeadingProps) => {
     const Component = as;
     return (

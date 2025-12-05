@@ -5,7 +5,12 @@ import DocsHeading from '@/components/atoms/docs-heading';
 import CodeBlock from '@/components/molecules/code-block';
 import { Badge } from '@/components/ui/badge';
 
-// 提取程式碼片段的屬性
+/**
+ * 從 MDX 子元素中提取程式碼區塊的屬性。
+ *
+ * @param children - MDX 子元素。
+ * @returns 包含標題、語言和複製內容的物件。
+ */
 const extractCodeBlockProps = (children: any) => {
     const hasTitle = Array.isArray(children); // 判斷是否有標題
     const title = hasTitle ? (children?.[0]?.props?.children ?? '') : ''; // 如果有標題，則取標題
@@ -20,7 +25,11 @@ const extractCodeBlockProps = (children: any) => {
     return { title, language, copyContent };
 };
 
-// 客製化blog的元件
+/**
+ * 自定義的 MDX 元件映射表。
+ *
+ * 定義了如何在 MDX 中渲染各種 HTML 元素，例如標題、程式碼區塊等。
+ */
 const sharedComponents: Record<string, ComponentType<any>> = {
     h1: ({ children, ...props }) => {
         return <DocsHeading as="h1" title={children} {...props} />;
@@ -69,8 +78,19 @@ const sharedComponents: Record<string, ComponentType<any>> = {
     },
 };
 
-// 將Velite生成的MDX代碼解析為React元件函數
-const useMDXComponent = (code: string) => {
+/**
+ * 將 Velite 生成的 MDX 代碼解析為 React 元件。
+ *
+ * @param code - MDX 代碼字串。
+ * @returns React 元件。
+ */
+/**
+ * 將 Velite 生成的 MDX 代碼解析為 React 元件。
+ *
+ * @param code - MDX 代碼字串。
+ * @returns React 元件。
+ */
+const getMDXComponent = (code: string) => {
     const fn = new Function(code);
     return fn({ ...runtime }).default;
 };
@@ -81,9 +101,17 @@ interface MDXProps {
     [key: string]: any;
 }
 
-// MDXContent元件
+/**
+ * MDX 內容渲染元件。
+ *
+ * 用於渲染由 Velite 處理後的 MDX 內容，並注入自定義元件。
+ *
+ * @param code - MDX 代碼字串 {@link MDXProps.code}。
+ * @param components - 自定義元件映射表 {@link MDXProps.components}。
+ */
 const MDXContent = ({ code, components, ...props }: MDXProps) => {
-    const Component = useMDXComponent(code);
+    const Component = React.useMemo(() => getMDXComponent(code), [code]);
+    // eslint-disable-next-line
     return <Component components={{ ...sharedComponents, ...components }} {...props} />;
 };
 

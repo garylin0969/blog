@@ -10,20 +10,39 @@ import { NOTICE_BAR_MESSAGE } from '@/constants/site';
 import { getPostBySlug, getPublishedPosts } from '@/utils/post';
 import { cn } from '@/utils/shadcn';
 
+/**
+ * 文章詳情頁面的屬性介面。
+ */
 interface PostPageProps {
+    /** 路由參數。 */
     params: Promise<{
+        /** 文章 Slug。 */
         slug: string;
     }>;
 }
 
-// 生成靜態參數
+/**
+ * 生成靜態路由參數。
+ *
+ * 預先獲取所有已發布文章的 Slug，用於靜態生成 (SSG)。
+ *
+ * @returns 靜態參數陣列。
+ */
 export async function generateStaticParams() {
     return getPublishedPosts()?.map((post) => ({
         slug: post?.slug,
     }));
 }
 
-// 生成metadata
+/**
+ * 生成頁面元數據。
+ *
+ * 根據文章內容動態生成標題、描述等元數據。
+ * 如果文章不存在，則返回 404 元數據。
+ *
+ * @param props - 頁面屬性 {@link PostPageProps}。
+ * @returns 頁面元數據物件。
+ */
 export async function generateMetadata({ params }: PostPageProps) {
     const { slug } = await params;
     const post = getPostBySlug(slug);
@@ -35,6 +54,13 @@ export async function generateMetadata({ params }: PostPageProps) {
     return generatePostMetadata(post);
 }
 
+/**
+ * 文章詳情頁面。
+ *
+ * 顯示文章的完整內容，包含標題、元數據、標籤、目錄、MDX 內容和評論區。
+ *
+ * @param params - 路由參數 {@link PostPageProps.params}。
+ */
 const PostPage = async ({ params }: PostPageProps) => {
     const { slug } = await params;
 

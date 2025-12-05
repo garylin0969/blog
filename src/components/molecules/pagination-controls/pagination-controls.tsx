@@ -9,15 +9,27 @@ import {
 } from '@/components/ui/pagination';
 import { PaginationState } from '@/utils/pagination';
 
+/**
+ * 分頁控制器元件的屬性介面。
+ */
 interface PaginationControlsProps {
+    /** 分頁狀態物件。 */
     paginationState: PaginationState;
+    /** 獲取頁碼連結的函數。 */
     getPageUrl: (pageNumber: number) => string;
+    /** 額外的 CSS 類名。 */
     className?: string;
 }
 
 /**
- * 分頁控制器元件
- * 負責渲染分頁導航元素
+ * 分頁控制器元件。
+ *
+ * 負責渲染分頁導航元素，包括上一頁、下一頁、頁碼和省略號。
+ * 如果總頁數小於等於 1，則不顯示任何內容。
+ *
+ * @param paginationState - 分頁狀態 {@link PaginationControlsProps.paginationState}。
+ * @param getPageUrl - 獲取頁碼連結的函數 {@link PaginationControlsProps.getPageUrl}。
+ * @param className - 額外的 CSS 類名 {@link PaginationControlsProps.className}。
  */
 export const PaginationControls = ({ paginationState, getPageUrl, className }: PaginationControlsProps) => {
     const {

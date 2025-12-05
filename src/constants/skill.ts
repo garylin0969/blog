@@ -1,3 +1,8 @@
+/**
+ * 技能列表。
+ *
+ * 包含各個類別的技能項目。
+ */
 export const SKILL_LIST = [
     {
         id: 'html-css',

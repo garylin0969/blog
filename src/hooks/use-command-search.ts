@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 
 /**
- * 用於監聽 ⌘K 或 Ctrl+K 開啟搜尋
- * @returns 搜尋狀態和開關搜尋的函數
+ * 用於監聽鍵盤快捷鍵 (⌘K 或 Ctrl+K) 以開啟搜尋功能的 Hook。
+ *
+ * @returns 包含搜尋對話框開啟狀態和狀態設定函數的物件。
  */
 const useCommandSearch = () => {
     const [open, setOpen] = useState(false);

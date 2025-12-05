@@ -3,13 +3,30 @@ import { Badge } from '@/components/ui/badge';
 import { formatDate } from '@/utils/date';
 import { cn } from '@/utils/shadcn';
 
+/**
+ * 文章元數據元件的屬性介面。
+ */
 interface PostMetaProps {
+    /** 額外的 CSS 類名。 */
     className?: string;
+    /** 文章日期 (ISO 格式或 Date 物件)。 */
     date: string;
+    /** 文章分類 (可選)。 */
     category?: string;
+    /** 是否為分類添加連結 (預設為 true)。 */
     useLink?: boolean;
 }
 
+/**
+ * 文章元數據元件。
+ *
+ * 顯示文章的發布日期和分類。
+ *
+ * @param className - 額外的 CSS 類名 {@link PostMetaProps.className}。
+ * @param date - 文章日期 {@link PostMetaProps.date}。
+ * @param category - 文章分類 {@link PostMetaProps.category}。
+ * @param useLink - 是否使用連結 {@link PostMetaProps.useLink}。
+ */
 export const PostMeta = ({ className, date, category, useLink = true }: PostMetaProps) => {
     const formattedDate = formatDate(date, 'YYYY/MM/DD');
 

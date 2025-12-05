@@ -1,6 +1,10 @@
 import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
 
-// 社交媒體連結配置
+/**
+ * 社交媒體連結配置。
+ *
+ * 定義頁尾或側邊欄顯示的社交媒體圖示和連結。
+ */
 export const SOCIAL_LINKS = [
     {
         href: 'https://www.linkedin.com/in/garylin0969',

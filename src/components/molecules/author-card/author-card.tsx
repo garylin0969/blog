@@ -5,10 +5,21 @@ import { Card, CardContent } from '@/components/ui/card';
 import { AUTHOR_INFO } from '@/constants/author-info';
 import { cn } from '@/utils/shadcn';
 
+/**
+ * 作者卡片元件的屬性介面。
+ */
 interface AuthorCardProps {
+    /** 額外的 CSS 類名。 */
     className?: string;
 }
 
+/**
+ * 作者卡片元件。
+ *
+ * 顯示作者的頭像、名稱、位置、電子郵件和社交連結。
+ *
+ * @param className - 額外的 CSS 類名 {@link AuthorCardProps.className}。
+ */
 const AuthorCard = ({ className }: AuthorCardProps) => {
     return (
         <Card className={cn('w-74', className)}>

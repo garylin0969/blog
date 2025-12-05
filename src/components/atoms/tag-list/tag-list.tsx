@@ -1,10 +1,23 @@
 import { Badge } from '@/components/ui/badge';
 
+/**
+ * 標籤列表元件的屬性介面。
+ */
 interface TagListProps {
+    /** 標籤陣列。 */
     tags: string[];
+    /** 最多顯示的標籤數量 (預設為 3)。 */
     maxVisible?: number;
 }
 
+/**
+ * 標籤列表元件。
+ *
+ * 顯示一組標籤，支援限制顯示數量。
+ *
+ * @param tags - 標籤陣列 {@link TagListProps.tags}。
+ * @param maxVisible - 最多顯示數量 {@link TagListProps.maxVisible}。
+ */
 export const TagList = ({ tags, maxVisible = 3 }: TagListProps) => {
     if (!tags || tags.length === 0) {
         return null;

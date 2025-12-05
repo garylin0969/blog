@@ -5,13 +5,31 @@ import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import { PROJECT_LIST } from '@/constants/project';
 import { cn } from '@/utils/shadcn';
 
+/**
+ * 專案卡片元件的屬性介面。
+ */
 interface ProjectCardProps {
+    /** 額外的 CSS 類名。 */
     className?: string;
+    /** 右上角顯示的徽章文字 (可選)。 */
     badge?: string;
+    /** 最多顯示的標籤數量 (可選)。 */
     maxVisible?: number;
+    /** 專案資料物件。 */
     project: (typeof PROJECT_LIST)[number];
 }
 
+/**
+ * 專案卡片元件。
+ *
+ * 顯示專案的縮圖、名稱、標籤和連結。
+ * 支援限制顯示的標籤數量，超過部分會顯示 "+N more"。
+ *
+ * @param className - 額外的 CSS 類名 {@link ProjectCardProps.className}。
+ * @param badge - 徽章文字 {@link ProjectCardProps.badge}。
+ * @param maxVisible - 最多顯示標籤數 {@link ProjectCardProps.maxVisible}。
+ * @param project - 專案資料 {@link ProjectCardProps.project}。
+ */
 const ProjectCard = ({ className, badge, maxVisible, project }: ProjectCardProps) => {
     // 限制顯示的標籤數量
     const visibleTags = project?.tags?.slice(0, maxVisible ?? project.tags.length);

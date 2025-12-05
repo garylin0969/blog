@@ -1,3 +1,8 @@
+/**
+ * 專案列表。
+ *
+ * 包含各個專案的詳細資訊，如圖片、連結、名稱和技術標籤。
+ */
 export const PROJECT_LIST = [
     {
         id: 'taipei-beef-noodles-rank',

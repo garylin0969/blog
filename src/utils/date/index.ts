@@ -3,27 +3,33 @@
  * 提供多種日期格式轉換功能
  */
 
+/**
+ * 日期格式化選項介面。
+ */
 export interface DateFormatOptions {
-    /** 是否包含時間 */
+    /** 是否包含時間。 */
     includeTime?: boolean;
-    /** 是否使用24小時制 */
+    /** 是否使用 24 小時制。 */
     use24Hour?: boolean;
-    /** 是否顯示秒 */
+    /** 是否顯示秒數。 */
     showSeconds?: boolean;
-    /** 是否顯示毫秒 */
+    /** 是否顯示毫秒數。 */
     showMilliseconds?: boolean;
-    /** 語言環境 */
+    /** 語言環境代碼 (例如：'zh-TW', 'en-US')。 */
     locale?: string;
-    /** 時區 */
+    /** 時區 (例如：'Asia/Taipei')。 */
     timeZone?: string;
 }
 
 /**
- * 將 Date 物件轉換為各種格式
- * @param date - 要格式化的日期
- * @param format - 格式類型或自定義格式
- * @param options - 格式化選項
- * @returns 格式化後的日期字串
+ * 將 Date 物件轉換為各種格式的字串。
+ *
+ * @param date - 要格式化的日期，可以是 Date 物件、時間戳記或日期字串。
+ * @param format - 輸出的格式類型或自定義格式字串。預設為 'local'。
+ *                 支援的格式：'iso', 'local', 'relative', 'short', 'long', 'time', 'date', 'datetime', 'custom'。
+ * @param options - 格式化選項 {@link DateFormatOptions}。
+ * @returns 格式化後的日期字串。
+ * @throws {Error} 如果提供的日期無效。
  */
 export const formatDate = (
     date: Date | string | number,
@@ -129,7 +135,10 @@ export const formatDate = (
 };
 
 /**
- * 獲取相對時間（例如：2小時前、3天前）
+ * 獲取相對時間描述（例如：2 小時前、3 天前）。
+ *
+ * @param date - 要計算相對時間的日期物件。
+ * @returns 相對時間的描述字串。
  */
 const getRelativeTime = (date: Date): string => {
     const now = new Date();
@@ -160,7 +169,11 @@ const getRelativeTime = (date: Date): string => {
 };
 
 /**
- * 自定義日期格式化
+ * 使用自定義選項格式化日期。
+ *
+ * @param date - 要格式化的日期物件。
+ * @param options - 格式化選項。
+ * @returns 格式化後的日期字串。
  */
 const formatCustomDate = (date: Date, options: DateFormatOptions): string => {
     const { locale = 'zh-TW', timeZone = 'Asia/Taipei' } = options;
@@ -179,7 +192,11 @@ const formatCustomDate = (date: Date, options: DateFormatOptions): string => {
 };
 
 /**
- * 使用模式字串格式化日期
+ * 使用模式字串格式化日期。
+ *
+ * @param date - 要格式化的日期物件。
+ * @param pattern - 格式化模式字串 (例如：'YYYY-MM-DD HH:mm:ss')。
+ * @returns 格式化後的日期字串。
  */
 const formatWithPattern = (date: Date, pattern: string): string => {
     const year = date.getFullYear();

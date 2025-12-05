@@ -7,6 +7,14 @@ import { POSTS_PER_PAGE } from '@/constants/site';
 import { calculatePaginationState, validatePageNumber } from '@/utils/pagination';
 import { getAllCategories, getPaginatedPosts, getPublishedPosts, isCategoryExists } from '@/utils/post';
 
+/**
+ * 生成靜態路由參數。
+ *
+ * 預先計算所有分類的分頁路徑，用於靜態生成 (SSG)。
+ * 包含 'all' 分類和各個具體分類的分頁。
+ *
+ * @returns 靜態參數陣列。
+ */
 export async function generateStaticParams() {
     const allPosts = getPublishedPosts();
     const allCategories = getAllCategories();
@@ -30,17 +38,36 @@ export async function generateStaticParams() {
     });
 }
 
+/**
+ * 生成頁面元數據。
+ *
+ * @returns 頁面元數據物件。
+ */
 export async function generateMetadata(): Promise<Metadata> {
     return generateBlogMetadata();
 }
 
+/**
+ * 部落格列表頁面的屬性介面。
+ */
 interface BlogPageProps {
+    /** 路由參數。 */
     params: Promise<{
+        /** 分類名稱。 */
         category: string;
+        /** 頁碼。 */
         page: string;
     }>;
 }
 
+/**
+ * 部落格列表頁面。
+ *
+ * 顯示指定分類和頁碼的文章列表。
+ * 包含分頁控制器和文章卡片。
+ *
+ * @param params - 路由參數 {@link BlogPageProps.params}。
+ */
 const BlogPage = async ({ params }: BlogPageProps) => {
     const { category, page } = await params;
 
