@@ -1,6 +1,11 @@
 import type { Metadata, Viewport } from 'next';
 import { DOMAIN } from '@/constants/site';
 
+/**
+ * 基礎元數據配置。
+ *
+ * 定義網站的全域預設元數據，包含標題模板、描述、關鍵字、作者、OpenGraph 和 Twitter 卡片設定。
+ */
 export const baseMetadata: Metadata = {
     title: {
         default: 'GaryLin Dev',
@@ -98,6 +103,11 @@ export const baseMetadata: Metadata = {
     },
 };
 
+/**
+ * 視口配置。
+ *
+ * 定義網站的視口設定，包含寬度、縮放比例和主題顏色。
+ */
 export const viewport: Viewport = {
     width: 'device-width',
     initialScale: 1,

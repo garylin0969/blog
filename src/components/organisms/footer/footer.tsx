@@ -2,6 +2,12 @@ import { FOOTER_CONFIG } from '@/constants/footer';
 
 const currentYear = new Date().getFullYear();
 
+/**
+ * 網站頁尾元件。
+ *
+ * 顯示版權資訊、作者連結和相關年份。
+ * 年份會根據當前時間自動更新。
+ */
 const Footer = () => {
     return (
         <footer className="border-t py-4 text-center text-sm tracking-wide">

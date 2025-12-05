@@ -1,3 +1,8 @@
+/**
+ * 工作經歷列表。
+ *
+ * 包含各個工作經歷的公司、職稱、時間和詳細內容。
+ */
 export const EXPERIENCE_LIST = [
     {
         id: 'anue',
@@ -61,4 +66,7 @@ export const EXPERIENCE_LIST = [
     },
 ];
 
+/**
+ * 工作經歷項目類型定義。
+ */
 export type ExperienceItem = (typeof EXPERIENCE_LIST)[0];

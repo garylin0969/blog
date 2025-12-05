@@ -4,11 +4,25 @@ import { Copy, Check } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { cn } from '@/utils/shadcn';
 
+/**
+ * 複製按鈕元件的屬性介面。
+ */
 interface CopyButtonProps {
+    /** 額外的 CSS 類名。 */
     className?: string;
+    /** 要複製的內容。 */
     content?: string;
 }
 
+/**
+ * 複製按鈕元件。
+ *
+ * 點擊後將指定內容複製到剪貼簿，並顯示複製成功的狀態圖示。
+ * 狀態圖示會在 1.5 秒後自動恢復。
+ *
+ * @param className - 額外的 CSS 類名 {@link CopyButtonProps.className}。
+ * @param content - 要複製的內容 {@link CopyButtonProps.content}。
+ */
 const CopyButton = ({ className, content }: CopyButtonProps) => {
     const [copied, setCopied] = useState(false);
     let timeout: NodeJS.Timeout;

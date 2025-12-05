@@ -1,6 +1,11 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
+/**
+ * 404 頁面元件。
+ *
+ * 當使用者訪問不存在的頁面時顯示。
+ */
 const NotFound = () => {
     return (
         <div className="flex flex-1 items-center justify-center">

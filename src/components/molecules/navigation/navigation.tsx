@@ -12,13 +12,28 @@ import {
 import { NAVIGATION_ROUTES } from '@/constants/navigation';
 import { cn } from '@/utils/shadcn';
 
+/**
+ * 導航元件的屬性介面。
+ */
 interface NavigationProps {
+    /** 導航選單容器的 CSS 類名。 */
     menuClassName?: string;
+    /** 導航列表的 CSS 類名。 */
     listClassName?: string;
+    /** 導航項目的 CSS 類名。 */
     itemClassName?: string;
+    /** 導航連結的 CSS 類名。 */
     linkClassName?: string;
 }
 
+/**
+ * 導航元件。
+ *
+ * 顯示網站的主要導航連結。
+ * 支援自定義樣式，並會自動標記當前頁面為活動狀態。
+ *
+ * @param props - 元件屬性 {@link NavigationProps}。
+ */
 const Navigation = ({ menuClassName, listClassName, itemClassName, linkClassName }: NavigationProps) => {
     const pathname = usePathname();
 

@@ -6,13 +6,28 @@ const LINK_PROPS = {
     rel: 'noopener noreferrer',
 } as const;
 
+/**
+ * 公告欄元件的屬性介面。
+ */
 interface NoticeBarProps {
+    /** 額外的 CSS 類名。 */
     className?: string;
+    /** 公告訊息內容。 */
     message?: string;
+    /** 公告連結 (可選)。 */
     link?: string;
 }
 
-// 公告
+/**
+ * 公告欄元件。
+ *
+ * 顯示一條公告訊息，可選擇性地包含連結。
+ * 若未提供訊息，則不渲染任何內容。
+ *
+ * @param className - 額外的 CSS 類名 {@link NoticeBarProps.className}。
+ * @param message - 公告訊息 {@link NoticeBarProps.message}。
+ * @param link - 公告連結 {@link NoticeBarProps.link}。
+ */
 const NoticeBar = ({ className, message, link }: NoticeBarProps) => {
     if (!message) return null;
 

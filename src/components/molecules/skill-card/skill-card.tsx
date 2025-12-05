@@ -1,12 +1,27 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { cn } from '@/utils/shadcn';
 
+/**
+ * 技能卡片元件的屬性介面。
+ */
 interface SkillCardProps {
+    /** 額外的 CSS 類名。 */
     className?: string;
+    /** 技能類別標題。 */
     title: string;
+    /** 技能列表。 */
     skills: string[];
 }
 
+/**
+ * 技能卡片元件。
+ *
+ * 顯示特定類別的技能列表。
+ *
+ * @param className - 額外的 CSS 類名 {@link SkillCardProps.className}。
+ * @param title - 標題 {@link SkillCardProps.title}。
+ * @param skills - 技能列表 {@link SkillCardProps.skills}。
+ */
 const SkillCard = ({ title, skills, className }: SkillCardProps) => {
     return (
         <Card className={cn('gap-0 bg-transparent p-5', className)}>

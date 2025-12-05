@@ -12,11 +12,25 @@ import {
 } from '@/components/ui/command';
 import { getPublishedPosts } from '@/utils/post';
 
+/**
+ * 搜尋對話框元件的屬性介面。
+ */
 interface CommandSearchProps {
+    /** 對話框是否開啟。 */
     open: boolean;
+    /** 對話框開啟狀態改變時的回調函數。 */
     onOpenChange: (open: boolean) => void;
 }
 
+/**
+ * 搜尋對話框元件。
+ *
+ * 提供全站文章搜尋功能，支援標題、描述、分類、標籤和標題內容的搜尋。
+ * 搜尋結果會根據分類進行分組顯示。
+ *
+ * @param open - 對話框是否開啟 {@link CommandSearchProps.open}。
+ * @param onOpenChange - 狀態改變回調 {@link CommandSearchProps.onOpenChange}。
+ */
 const CommandSearch = ({ open, onOpenChange }: CommandSearchProps) => {
     const router = useRouter();
     const [searchValue, setSearchValue] = useState('');
@@ -67,8 +81,9 @@ const CommandSearch = ({ open, onOpenChange }: CommandSearchProps) => {
 
     // 重置搜尋值當對話框關閉時
     useEffect(() => {
+        const reset = () => setSearchValue('');
         if (!open) {
-            setSearchValue('');
+            reset();
         }
     }, [open]);
 

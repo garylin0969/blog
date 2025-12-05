@@ -14,6 +14,11 @@ import { SKILL_LIST } from '@/constants/skill';
 
 export const metadata: Metadata = generateAboutMetadata();
 
+/**
+ * 關於頁面元件。
+ *
+ * 顯示作者的詳細介紹、經歷、技能和專案列表。
+ */
 const AboutPage = () => {
     return (
         <div className="mx-auto max-w-6xl space-y-4 md:space-y-8">

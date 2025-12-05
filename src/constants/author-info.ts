@@ -1,3 +1,8 @@
+/**
+ * 作者資訊配置。
+ *
+ * 包含作者姓名、頭像、地點和電子郵件。
+ */
 export const AUTHOR_INFO = {
     name: 'Gary Lin',
     avatar: '/avatar/author.jpg',

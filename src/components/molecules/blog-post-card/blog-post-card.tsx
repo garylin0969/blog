@@ -5,11 +5,25 @@ import { PostMeta } from '@/components/atoms/post-meta';
 import { TagList } from '@/components/atoms/tag-list';
 import { cn } from '@/utils/shadcn';
 
+/**
+ * 部落格文章卡片元件的屬性介面。
+ */
 interface BlogPostCardProps {
+    /** 額外的 CSS 類名。 */
     className?: string;
+    /** 文章資料物件。 */
     post: Post;
 }
 
+/**
+ * 部落格文章卡片元件。
+ *
+ * 顯示文章的標題、描述、日期、分類、標籤和縮圖。
+ * 點擊卡片可跳轉至文章詳情頁面。
+ *
+ * @param className - 額外的 CSS 類名 {@link BlogPostCardProps.className}。
+ * @param post - 文章資料 {@link BlogPostCardProps.post}。
+ */
 const BlogPostCard = ({ className, post }: BlogPostCardProps) => {
     return (
         <Link href={post?.permalink} className="group">

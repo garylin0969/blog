@@ -4,6 +4,14 @@ import { getAllCategories, getAllPosts } from '@/utils/post';
 
 type SitemapEntry = MetadataRoute.Sitemap[0];
 
+/**
+ * 生成網站地圖 (sitemap.xml)。
+ *
+ * 包含靜態頁面、分類頁面和文章頁面的路由資訊。
+ * 用於幫助搜尋引擎索引網站內容。
+ *
+ * @returns Sitemap 配置陣列。
+ */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const posts = getAllPosts();
     const categories = getAllCategories();
