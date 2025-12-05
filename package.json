@@ -1,13 +1,13 @@
 {
     "name": "blog",
-    "version": "2.1.0",
+    "version": "3.0.1",
     "private": true,
     "scripts": {
-        "dev": "next dev --turbopack",
+        "dev": "next dev",
         "build": "velite build && next build",
         "velite": "velite build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "eslint"
     },
     "dependencies": {
         "@giscus/react": "^3.1.0",
