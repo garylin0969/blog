@@ -1,9 +1,10 @@
 'use client';
 
 import { SearchIcon } from 'lucide-react';
-import { useCallback } from 'react';
+import { useCallback, Suspense } from 'react';
 import CommandSearch from '@/components/molecules/command-search';
 import { Button } from '@/components/ui/button';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useCommandSearch } from '@/hooks';
 import { cn } from '@/utils/shadcn';
 
@@ -37,8 +38,10 @@ const CommandSearchButton = ({ className }: CommandSearchButtonProps) => {
             >
                 <SearchIcon className="size-4" />
             </Button>
-
-            <CommandSearch open={open} onOpenChange={setOpen} />
+            {/* 搜尋對話框使用 Suspense 包裝以避免 Command 元件導致的 hydration 錯誤*/}
+            <Suspense fallback={<Skeleton className="size-4" />}>
+                <CommandSearch open={open} onOpenChange={setOpen} />
+            </Suspense>
         </div>
     );
 };

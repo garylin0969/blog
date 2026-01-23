@@ -200,3 +200,12 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 .dark code > [data-line]::before {
     color: rgba(148, 163, 184, 0.4);
 }
+
+/* 滾動邊距 */
+/* Header 高度為 58px */
+/* 當有公告欄時，公告欄高度為 32px，否則為 0 */
+/* 邊界高度為 16px */
+/* 故高度設定應為 Header高度 + 公告欄高度 + 邊界高度 */
+.scroll-margin-top {
+    scroll-margin-top: calc(58px + 32px + 16px);
+}

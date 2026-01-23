@@ -2,9 +2,9 @@
 
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useIsMounted } from '@/hooks';
 
 /**
  * 主題切換元件。
@@ -16,15 +16,9 @@ import { Skeleton } from '@/components/ui/skeleton';
  */
 const ThemeToggle = () => {
     const { resolvedTheme, setTheme } = useTheme();
-    const [mounted, setMounted] = useState(false);
+    const isMounted = useIsMounted();
 
-    // 避免水合錯誤
-    useEffect(() => {
-        const mounted = () => setMounted(true);
-        mounted();
-    }, []);
-
-    if (!mounted) {
+    if (!isMounted) {
         return (
             <Button variant="ghost" size="sm" className="h-9 w-9 p-0">
                 <Skeleton className="h-4 w-4 rounded-full" />

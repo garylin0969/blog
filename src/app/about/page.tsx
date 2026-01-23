@@ -41,12 +41,16 @@ const AboutPage = () => {
                 <IntroCard className="mx-auto max-w-3xl" list={ABOUT_INTRO_LIST} />
             </section>
             <section className="space-y-4 md:space-y-8">
-                <SectionTitle className="text-center">Experience</SectionTitle>
+                <SectionTitle id="experience" className="text-center">
+                    Experience
+                </SectionTitle>
                 {/* 經歷時間軸 */}
                 <ExperienceTimeline />
             </section>
             <section className="space-y-4 md:space-y-8">
-                <SectionTitle className="text-center">Skills</SectionTitle>
+                <SectionTitle id="skills" className="text-center">
+                    Skills
+                </SectionTitle>
                 {/* 技能卡片 */}
                 <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
                     {SKILL_LIST.map((skill) => (
@@ -55,7 +59,9 @@ const AboutPage = () => {
                 </div>
             </section>
             <section className="space-y-4 md:space-y-8">
-                <SectionTitle className="text-center">Projects</SectionTitle>
+                <SectionTitle id="projects" className="text-center">
+                    Projects
+                </SectionTitle>
                 {/* 專案卡片 */}
                 <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
                     {PROJECT_LIST.map((project) => (

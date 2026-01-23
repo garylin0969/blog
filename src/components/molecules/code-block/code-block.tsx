@@ -28,7 +28,7 @@ interface CodeBlockProps {
 const CodeBlock = ({ title = '', language = '', copyContent = '', children }: CodeBlockProps) => {
     return (
         <div className="my-4 overflow-hidden rounded-xs border border-[#ffffff4d] bg-[#282c34]">
-            <figcaption className="flex h-[45px] items-center justify-between border-b border-[#ffffff4d] px-3 py-1">
+            <figcaption className="flex h-11.25 items-center justify-between border-b border-[#ffffff4d] px-3 py-1">
                 <span className="text-sm text-[#a1a1a1]">{title}</span>
                 <div className="flex items-center gap-x-2">
                     <span className="text-sm text-[#a1a1a1]">{language}</span>

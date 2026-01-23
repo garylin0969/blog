@@ -1,4 +1,4 @@
-import NextImage from '@/components/atoms/next-image';
+import BaseImage from '@/components/atoms/base-image';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
@@ -46,7 +46,7 @@ const ProjectCard = ({ className, badge, maxVisible, project }: ProjectCardProps
             {badge && <Badge className="absolute -top-2 -right-2 z-10 px-2 py-1">{badge}</Badge>}
             <Card className="flex h-full flex-col gap-0 overflow-hidden p-0">
                 <AspectRatio ratio={16 / 9} className="overflow-hidden">
-                    <NextImage
+                    <BaseImage
                         className="object-cover transition-transform duration-300 group-hover:scale-110"
                         src={project.image}
                         alt={project.name}

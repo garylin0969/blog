@@ -1,6 +1,6 @@
 import { type Post } from '@velite';
 import Link from 'next/link';
-import NextImage from '@/components/atoms/next-image';
+import BaseImage from '@/components/atoms/base-image';
 import { PostMeta } from '@/components/atoms/post-meta';
 import { TagList } from '@/components/atoms/tag-list';
 import { cn } from '@/utils/shadcn';
@@ -32,7 +32,7 @@ const BlogPostCard = ({ className, post }: BlogPostCardProps) => {
                     {/* 內容區域 */}
                     <div className="flex-1">
                         <div className="mb-3">
-                            <PostMeta useLink={false} date={post?.date} category={post?.category} />
+                            <PostMeta date={post?.date} category={post?.category} />
                         </div>
 
                         <h2 className="group-hover:text-primary mb-2 line-clamp-1 text-xl leading-tight font-bold md:text-2xl">
@@ -48,8 +48,8 @@ const BlogPostCard = ({ className, post }: BlogPostCardProps) => {
 
                     {/* 圖片區域 */}
                     {post?.image && (
-                        <div className="relative hidden h-28 w-28 flex-shrink-0 overflow-hidden sm:block">
-                            <NextImage
+                        <div className="relative hidden h-28 w-28 shrink-0 overflow-hidden sm:block">
+                            <BaseImage
                                 src={post?.image}
                                 alt={post?.title}
                                 fill

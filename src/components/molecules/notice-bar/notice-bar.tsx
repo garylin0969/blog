@@ -38,7 +38,7 @@ const NoticeBar = ({ className, message, link }: NoticeBarProps) => {
             <div className="container mx-auto">
                 <div className="flex items-center justify-center gap-x-2">
                     <FaInfoCircle />
-                    <Component href={link} {...(link && LINK_PROPS)}>
+                    <Component href={link} {...(link ? LINK_PROPS : {})}>
                         {message}
                     </Component>
                 </div>

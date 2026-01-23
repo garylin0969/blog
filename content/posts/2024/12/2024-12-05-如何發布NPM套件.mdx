@@ -1,0 +1,330 @@
+---
+category: Code
+title: 如何發布 NPM 套件？
+date: 2024-12-05
+updateDate: 2026-01-23
+description: 第一次發布 NPM 套件的時候超緊張，深怕有什麼問題。結果其實也沒那麼難！這篇分享我從零開始發布套件的完整流程。
+tags: ['NPM', 'Node.js', 'JavaScript', 'Package Management']
+image: /blog/posts/2024/12/npm.webp
+slug: publish-npm-package-guide
+---
+
+## 為什麼要發布自己的 NPM 套件？
+
+其實也沒什麼，以前都覺得發布 NPM 套件是大神才做的事，但我自己也想裝逼寫一個，所以就嘗試看看了哈哈哈，萬一不小心成為知名套件的開發者不就超厲害的，履歷會超加分耶應該啦。
+
+實際試過之後發現其實沒那麼難！而且有幾個好處：
+
+- **重複使用**：一次開發，到處使用
+- **版本管理**：不用每次都複製程式碼
+- **分享給社群**：說不定能幫到其他人
+- **履歷加分**：開源貢獻總是好事
+
+## 初始化專案
+
+首先建立一個新資料夾，然後初始化。你可以選擇使用 `npm` 或 `pnpm`：
+
+```bash
+mkdir my-awesome-package
+cd my-awesome-package
+
+# 使用 npm (會一步步詢問設定)
+npm init
+# 或者快速建立 (跳過詢問，使用預設值)
+npm init -y
+
+# 使用 pnpm (預設就是快速建立，不需要加 -y)
+pnpm init
+```
+
+## package.json 的關鍵設定
+
+這是我發布套件時的 `package.json` 範例（這是目前 v2.0.3 的版本，支援了 ESM/CJS 雙格式）：
+
+```json title="package.json"
+{
+    "name": "chinese-number-format",
+    "version": "2.0.3",
+    "description": "Powerful Chinese numeral conversion library (Normal, Financial, Currency, Date, Fraction)",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "types": "dist/cjs/index.d.ts",
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./dist/esm/index.d.ts",
+                "default": "./dist/esm/index.js"
+            },
+            "require": {
+                "types": "./dist/cjs/index.d.ts",
+                "default": "./dist/cjs/index.js"
+            }
+        }
+    },
+    "scripts": {
+        "build:cjs": "tsc -p tsconfig.json",
+        "build:esm": "tsc -p tsconfig.esm.json",
+        "build": "pnpm run build:cjs && pnpm run build:esm",
+        "test": "jest",
+        "prepublishOnly": "pnpm run test && pnpm run build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/garylin0969/chinese-number-format.git"
+    },
+    "keywords": ["chinese", "number", "format", "currency", "finance", "typescript", "數字轉中文", "大寫金額"],
+    "author": {
+        "name": "GaryLin",
+        "email": "garylin0969@gmail.com"
+    },
+    "license": "MIT"
+}
+```
+
+### 重要欄位說明
+
+- **name**: 套件名稱，要是唯一的（去 npmjs.com 確認沒被用過）
+- **version**: 版本號，遵循 semantic versioning
+- **exports**: 這是現代套件最重要的設定，讓 Node.js 知道如何處理 `import` (ESM) 和 `require` (CJS)
+- **main/module**: 為了相容舊版工具的設定
+- **prepublishOnly**: 在發布前自動執行測試和建置，避免發布壞掉的程式碼
+
+## 使用 TypeScript 開發
+
+我建議用 TypeScript 開發，提供型別定義會讓用戶體驗更好。
+
+```bash
+# 使用 npm
+npm install typescript --save-dev
+
+# 或使用 pnpm
+pnpm add -D typescript
+```
+
+接著初始化 TypeScript 設定：
+
+```bash
+npx tsc --init
+```
+
+在這個版本中，為了同時支援 CommonJS 和 ES Modules，我準備了兩份 tsconfig：
+
+**tsconfig.json (CommonJS)**
+
+```json
+{
+    "compilerOptions": {
+        "target": "es2016",
+        "module": "commonjs",
+        "outDir": "./dist/cjs",
+        "declaration": true
+    }
+    // ...
+}
+```
+
+**tsconfig.esm.json (ES Modules)**
+
+```json
+{
+    "compilerOptions": {
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "outDir": "./dist/esm",
+        "declaration": true
+    }
+    // ...
+}
+```
+
+## 實際開發套件
+
+在 v2.0 版本中，我將架構改為模組化設計，並提供了一個 `ChineseNumberFormat` 類別來處理更複雜的狀態（如語系設定）：
+
+```typescript title="src/index.ts"
+export * from './modules/ChineseNumberFormat';
+export * from './modules/numberToChinese';
+export * from './modules/numberToCurrency';
+// ... 其他模組導出
+```
+
+```typescript title="src/modules/ChineseNumberFormat.ts"
+export class ChineseNumberFormat {
+    private options: ChineseNumberFormatOptions;
+
+    constructor(options: ChineseNumberFormatOptions = {}) {
+        this.options = { locale: 'zh-TW', ...options };
+    }
+
+    public toChinese(num: number): string {
+        // 核心邏輯實作...
+        return '...';
+    }
+
+    public toCurrency(num: number): string {
+        // 貨幣轉換邏輯...
+        return '...';
+    }
+}
+```
+
+## 測試很重要
+
+現在我使用 `jest` 搭配 `ts-jest` 進行測試，確保每個模組都正確運作：
+
+```bash
+# 使用 npm
+npm install jest @types/jest ts-jest --save-dev
+
+# 或使用 pnpm
+pnpm add -D jest @types/jest ts-jest
+```
+
+測試程式範例：
+
+```typescript title="test/class.test.ts"
+import { ChineseNumberFormat } from '../src';
+
+describe('ChineseNumberFormat Class', () => {
+    test('應該正確轉換繁體中文數字', () => {
+        const formatter = new ChineseNumberFormat({ locale: 'zh-TW' });
+        expect(formatter.toChinese(12345)).toBe('一萬二千三百四十五');
+    });
+
+    test('應該正確轉換金融大寫', () => {
+        const formatter = new ChineseNumberFormat({ finance: true });
+        expect(formatter.toChinese(123)).toBe('壹佰貳拾參');
+    });
+});
+```
+
+## 建置套件
+
+因為要同時產生 CJS 和 ESM，現在的建置指令比較複雜一點：
+
+```bash
+pnpm run build
+```
+
+這會同時執行：
+
+1. `tsc -p tsconfig.json` -> 產出 `dist/cjs`
+2. `tsc -p tsconfig.esm.json` -> 產出 `dist/esm`
+
+## 發布前的檢查
+
+### 1. 測試本地安裝
+
+```bash
+# 使用 npm
+npm pack
+
+# 或使用 pnpm
+pnpm pack
+```
+
+這會產生一個 `.tgz` 檔案，你可以在其他專案裡測試：
+
+```bash
+# 使用 npm
+npm install ../my-package/my-package-2.0.3.tgz
+
+# 或使用 pnpm
+pnpm add ../my-package/my-package-2.0.3.tgz
+```
+
+### 2. 確認檔案內容
+
+```bash
+# 使用 npm
+npm publish --dry-run
+
+# 或使用 pnpm
+pnpm publish --dry-run
+```
+
+這會顯示將要發布的檔案清單，確認沒有包含不該包含的檔案。
+
+## 註冊 NPM 帳號並發布
+
+### 1. 註冊帳號
+
+去 [npmjs.com](https://www.npmjs.com) 註冊帳號。
+
+### 2. 本地登入
+
+```bash
+# 使用 npm
+npm login
+
+# 或使用 pnpm
+pnpm login
+```
+
+### 3. 發布套件
+
+```bash
+# 使用 npm
+npm publish
+
+# 或使用 pnpm
+pnpm publish
+```
+
+第一次發布可能會很緊張，但其實就這麼簡單！
+
+## 我踩過的坑 (v2.0 更新版)
+
+### 1. CJS 與 ESM 的地獄
+
+這次改版最大的挑戰就是同時支援 CommonJS 和 ES Modules。這需要精確設定 `package.json` 的 `exports` 欄位，以及兩份 `tsconfig` 設定。如果設定錯了，使用者在使用 `import` 或 `require` 時就會報錯。
+
+### 2. 型別定義檔的路徑
+
+在 `exports` 裡面的 `types` 必須指向正確的 `.d.ts` 檔案，否則 TypeScript 使用者會抓不到型別。
+
+### 3. .gitignore 和 .npmignore 搞混
+
+記住：
+
+- `.gitignore` 控制什麼不要上傳到 Git
+- `.npmignore` 控制什麼不要發布到 NPM (如果沒有 `.npmignore`，npm 會使用 `.gitignore`)
+
+### 4. 版本號忘記更新
+
+每次發布前記得更新版本號，或使用：
+
+```bash
+# 使用 npm
+npm version patch  # 2.0.3 → 2.0.4
+
+# 或使用 pnpm
+pnpm version patch
+```
+
+## 維護和更新
+
+### 發布新版本
+
+```bash
+# 更新版本號
+pnpm version patch
+
+# 發布 (prepublishOnly 會自動跑測試和建置)
+pnpm publish
+```
+
+## 最佳實踐
+
+1. **寫好 README**：這是用戶看到的第一印象，要清楚列出所有 API。
+2. **提供型別定義**：TypeScript 用戶會感謝你，現在這是標配了。
+3. **自動化測試**：確保每次改動不會壞掉舊功能。
+4. **遵循語義化版本**：破壞性變更要升 major 版本。
+5. **Dual Package Hazard**：小心處理 CJS/ESM 雙重包的問題，確保 instance 檢查等邏輯正常。
+
+## 推廣你的套件
+
+- 在 GitHub README 加上安裝說明
+- 寫部落格文章介紹
+- 在相關社群分享
+- 收集用戶反饋持續改進

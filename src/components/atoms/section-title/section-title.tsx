@@ -1,10 +1,12 @@
-import { ElementType, ReactNode } from 'react';
+import { ElementType, ReactNode, Fragment } from 'react';
 import { cn } from '@/utils/shadcn';
 
 /**
  * 章節標題元件的屬性介面。
  */
 interface SectionTitleProps {
+    /** 標題 ID。 */
+    id?: string;
     /** 額外的 CSS 類名。 */
     className?: string;
     /** 渲染的 HTML 標籤 (預設為 'h2')。 */
@@ -25,12 +27,22 @@ interface SectionTitleProps {
  * @param isHash - 是否顯示井號 {@link SectionTitleProps.isHash}。
  * @param children - 標題內容 {@link SectionTitleProps.children}。
  */
-const SectionTitle = ({ className, as: Component = 'h2', isHash = true, children }: SectionTitleProps) => {
+const SectionTitle = ({ id, className, as: Component = 'h2', isHash = true, children }: SectionTitleProps) => {
+    const LinkComponent = id ? 'a' : Fragment;
+    const linkProps = {
+        href: `#${id}`,
+        target: '_self',
+        rel: 'noreferrer',
+        className: 'block scroll-margin-top border-none outline-none',
+    };
+
     return (
-        <Component className={cn('text-primary text-3xl font-bold tracking-tight lg:text-4xl', className)}>
-            {isHash && <span className="mr-1">#</span>}
-            {children}
-        </Component>
+        <LinkComponent {...(id ? linkProps : {})}>
+            <Component id={id} className={cn('text-primary text-3xl font-bold tracking-tight lg:text-4xl', className)}>
+                {isHash && <span className="mr-1">#</span>}
+                {children}
+            </Component>
+        </LinkComponent>
     );
 };
 

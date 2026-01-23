@@ -76,7 +76,7 @@ const PostPage = async ({ params }: PostPageProps) => {
             <article className="col-span-4 min-w-0 lg:px-8 xl:col-span-3">
                 <header className="mb-4 space-y-3 border-b pb-4">
                     <h1 className="text-[42px] font-bold">{post?.title}</h1>
-                    <PostMeta date={post?.date} category={post?.category} />
+                    <PostMeta date={post?.date} updateDate={post?.updateDate} category={post?.category} />
                     <TagList tags={post?.tags ?? []} />
                 </header>
                 <Accordion type="single" collapsible className="mb-4 xl:hidden">

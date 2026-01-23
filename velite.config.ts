@@ -46,6 +46,7 @@ export default defineConfig({
                 .object({
                     title: s.string(),
                     date: s.isodate(),
+                    updateDate: s.isodate().optional(),
                     description: s.string().optional(),
                     rawContent: s.raw(),
                     category: s.string().optional(),

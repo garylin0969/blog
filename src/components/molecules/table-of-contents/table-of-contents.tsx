@@ -40,10 +40,7 @@ const TableOfContents = ({ headings, className }: TableOfContentsProps) => {
                     const isActive = activeHeadings?.includes(heading?.text);
 
                     return (
-                        <li
-                            key={index}
-                            className={cn('border-l pl-[1px]', isActive && 'border-primary border-l-2 pl-0')}
-                        >
+                        <li key={index} className={cn('border-l pl-px', isActive && 'border-primary border-l-2 pl-0')}>
                             <Link
                                 title={heading?.text}
                                 href={`#${heading?.text}`}

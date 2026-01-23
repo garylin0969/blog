@@ -32,7 +32,7 @@ const ExperienceTimeline = () => {
                             <div
                                 className={cn(
                                     'w-full pl-0 md:w-1/2 md:pl-8',
-                                    isEven ? 'hidden md:block' : 'order-first md:order-none'
+                                    isEven ? 'hidden md:block' : 'order-first md:order-0'
                                 )}
                             >
                                 {!isEven && <ExperienceCard experience={experience} />}

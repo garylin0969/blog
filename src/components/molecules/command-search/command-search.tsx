@@ -96,7 +96,7 @@ const CommandSearch = ({ open, onOpenChange }: CommandSearchProps) => {
             className="sm:max-w-2xl md:max-w-3xl"
         >
             <CommandInput placeholder="輸入關鍵字搜尋文章..." value={searchValue} onValueChange={setSearchValue} />
-            <CommandList className="h-[400px] min-h-[400px]">
+            <CommandList className="h-100 min-h-100">
                 <CommandEmpty>
                     <div className="flex flex-wrap items-center justify-center gap-1">
                         <span>無法找到相關結果</span>

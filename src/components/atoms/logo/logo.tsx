@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import NextImage from '@/components/atoms/next-image';
+import BaseImage from '@/components/atoms/base-image';
 import { LOGO_IMAGE_PATH, WEBSITE_TITLE } from '@/constants/site';
 import { cn } from '@/utils/shadcn';
 
@@ -44,7 +44,7 @@ const Logo = ({
 }: LogoProps) => {
     return (
         <Link href={href} className={cn('flex items-center gap-x-2', className)}>
-            <NextImage
+            <BaseImage
                 src={LOGO_IMAGE_PATH}
                 className={imageClassName}
                 width={imageWidth}

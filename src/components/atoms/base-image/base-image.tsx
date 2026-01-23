@@ -8,12 +8,12 @@ import { DEFAULT_IMAGE_NOT_FOUND } from '@/constants/site';
  * 如果未提供 src，則顯示預設的找不到圖片佔位符。
  * 預設關閉優化 (unoptimized=true) 以避免額外的圖片處理開銷 (視需求調整)。
  *
- * @param props - Next.js Image 元件屬性 {@link ImageProps}。
+ * @param props - Next.js Image 元件屬性。
  */
-const NextImage = ({ src, alt = '', unoptimized = true, ...props }: ImageProps) => {
+const BaseImage = ({ src, alt = '', unoptimized = true, ...props }: ImageProps) => {
     const imgSrc = src || DEFAULT_IMAGE_NOT_FOUND;
 
     return <Image src={imgSrc} alt={alt} unoptimized={unoptimized} {...props} />;
 };
 
-export default NextImage;
+export default BaseImage;
