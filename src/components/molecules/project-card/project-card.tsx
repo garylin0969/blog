@@ -11,6 +11,8 @@ import { cn } from '@/utils/shadcn';
 interface ProjectCardProps {
     /** 額外的 CSS 類名。 */
     className?: string;
+    /** 圖片是否延遲載入。 */
+    imageLoading?: 'eager' | 'lazy';
     /** 右上角顯示的徽章文字 (可選)。 */
     badge?: string;
     /** 最多顯示的標籤數量 (可選)。 */
@@ -26,11 +28,12 @@ interface ProjectCardProps {
  * 支援限制顯示的標籤數量，超過部分會顯示 "+N more"。
  *
  * @param className - 額外的 CSS 類名 {@link ProjectCardProps.className}。
+ * @param imageLoading - 圖片是否延遲載入 {@link ProjectCardProps.imageLoading}。
  * @param badge - 徽章文字 {@link ProjectCardProps.badge}。
  * @param maxVisible - 最多顯示標籤數 {@link ProjectCardProps.maxVisible}。
  * @param project - 專案資料 {@link ProjectCardProps.project}。
  */
-const ProjectCard = ({ className, badge, maxVisible, project }: ProjectCardProps) => {
+const ProjectCard = ({ className, imageLoading = 'lazy', badge, maxVisible, project }: ProjectCardProps) => {
     // 限制顯示的標籤數量
     const visibleTags = project?.tags?.slice(0, maxVisible ?? project.tags.length);
     // 計算剩餘的標籤數量
@@ -50,6 +53,7 @@ const ProjectCard = ({ className, badge, maxVisible, project }: ProjectCardProps
                         className="object-cover transition-transform duration-300 group-hover:scale-110"
                         src={project.image}
                         alt={project.name}
+                        loading={imageLoading}
                         fill
                     />
                 </AspectRatio>

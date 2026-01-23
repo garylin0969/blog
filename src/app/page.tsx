@@ -30,6 +30,7 @@ const HomePage = () => {
                             {/* 最新專案卡片 */}
                             <ProjectCard
                                 className="w-74"
+                                imageLoading="eager"
                                 badge="New Project"
                                 maxVisible={4}
                                 project={PROJECT_LIST[0]}
