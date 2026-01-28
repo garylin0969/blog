@@ -7,7 +7,7 @@ export const PROJECT_LIST = [
     {
         id: 'taipei-beef-noodles-rank',
         image: '/projects/taipei-beef-noodles-rank.jpg',
-        url: 'https://garylin0969.github.io/taipei-beef-noodles-rank/',
+        url: 'https://taipei-beef-noodles-rank.garylin.dev',
         name: '北市牛肉麵排行榜',
         tags: [
             '2025',
@@ -22,7 +22,7 @@ export const PROJECT_LIST = [
     {
         id: 'hot-now',
         image: '/projects/hot-now.jpg',
-        url: 'https://hotnow.garylin.dev/',
+        url: 'https://hotnow.garylin.dev',
         name: 'Hot Now｜熱門話題一把抓',
         tags: [
             '2025',
@@ -49,14 +49,14 @@ export const PROJECT_LIST = [
     {
         id: 'life-restart',
         image: '/projects/life-restart.jpg',
-        url: 'https://garylin0969-life-restart.vercel.app/',
+        url: 'https://life-restart.garylin.dev',
         name: '人生重來 - Life Restart',
         tags: ['2025', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Shadcn UI', 'next-intl', 'next-themes'],
     },
     {
-        id: 'perplexity-ai-concat',
-        image: '/projects/perplexity-ai-concat.jpg',
-        url: 'https://garylin0969-perplexity-concat.vercel.app/',
+        id: 'perplexity-concat',
+        image: '/projects/perplexity-concat.jpg',
+        url: 'https://perplexity-concat.garylin.dev',
         name: 'AI 串接測試工具 - Perplexity AI Concat',
         tags: [
             '2025',
@@ -69,9 +69,9 @@ export const PROJECT_LIST = [
         ],
     },
     {
-        id: 'gemini-api-tester',
-        image: '/projects/gemini-api-tester.jpg',
-        url: 'https://garylin0969-gemini-tester.vercel.app/',
+        id: 'gemini-tester',
+        image: '/projects/gemini-tester.jpg',
+        url: 'https://gemini-tester.garylin.dev',
         name: 'AI 串接測試工具 - Gemini API Tester',
         tags: ['2025', 'Gemini', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Shadcn UI', 'React Query'],
     },
@@ -90,23 +90,23 @@ export const PROJECT_LIST = [
         tags: ['2024', 'TypeScript', 'Jest', 'NPM'],
     },
     {
-        id: 'next13-imdb-clone',
-        image: '/projects/next13-imdb-clone.avif',
-        url: 'https://garylin0969-next-imdb-clone.vercel.app',
+        id: 'imdb-clone',
+        image: '/projects/imdb-clone.avif',
+        url: 'https://imdb-clone.garylin.dev',
         name: 'Clone - IMDb',
         tags: ['2023', 'Next.js', 'TypeScript', 'React Hook Form', 'SWR', 'Tailwind CSS', 'next-themes'],
     },
     {
-        id: 'next13-google-clone',
-        image: '/projects/next13-google-clone.avif',
-        url: 'https://garylin0969-next-google-clone.vercel.app',
+        id: 'google-clone',
+        image: '/projects/google-clone.avif',
+        url: 'https://google-clone.garylin.dev',
         name: 'Clone - Google',
         tags: ['2023', 'Next.js', 'TypeScript', 'React Hook Form', 'SWR', 'Tailwind CSS'],
     },
     {
         id: 'akatsuki',
         image: '/projects/akatsuki.avif',
-        url: 'https://garylin0969-akatsuki.vercel.app',
+        url: 'https://akatsuki.garylin.dev',
         name: '火影忍者 - 曉組織成員介紹',
         tags: ['2023', 'React.js', 'Redux', 'TypeScript', 'Styled Components'],
     },
