@@ -1,5 +1,5 @@
 /** 網站網址。 */
-export const DOMAIN = 'https://www.garylin.dev';
+export const DOMAIN = 'https://garylin.dev';
 
 /** 網站圖示路徑。 */
 export const LOGO_IMAGE_PATH = '/favicons/favicon-32x32.png';
